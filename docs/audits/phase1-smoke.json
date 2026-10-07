@@ -1,0 +1,74 @@
+{
+  "cases": [
+    {
+      "bundle_sha256": "75054467f9978dce818eafd944f1a1a07760720fb16c91a3864b4327533352f8",
+      "case_id": "single",
+      "group_tonnes": {
+        "SP1": 12.0
+      },
+      "served_tonnes": 12.0,
+      "unserved_tonnes": 0
+    },
+    {
+      "bundle_sha256": "711ae1be597385f6cda514bfbced991b1f835f4ebc576f94d870640c939922c7",
+      "case_id": "competing",
+      "group_tonnes": {
+        "SP1": 10.0
+      },
+      "served_tonnes": 10.0,
+      "unserved_tonnes": 0
+    },
+    {
+      "bundle_sha256": "a66be3d3ab88449e0c9f3bd7c1c25569c1573989a0189b3f2d4a3dd755e8ddd9",
+      "case_id": "known_capacity",
+      "group_tonnes": {
+        "SP1": 8.0
+      },
+      "served_tonnes": 8.0,
+      "unserved_tonnes": 0
+    },
+    {
+      "bundle_sha256": "8b3ba17bf768a255d4bbc3946f19ec09df6db293a09c15574fad297d5d0dfe8c",
+      "case_id": "unknown_capacity",
+      "group_tonnes": {
+        "SP1": 8.0
+      },
+      "served_tonnes": 8.0,
+      "unserved_tonnes": 0
+    },
+    {
+      "bundle_sha256": "fa4ad674916332a853f416d3cf9225abd52c061227f7604b612e30c65ffe07c9",
+      "case_id": "overflow",
+      "group_tonnes": {
+        "SP1": 7.0
+      },
+      "served_tonnes": 7.0,
+      "unserved_tonnes": 3.0
+    },
+    {
+      "bundle_sha256": "93260be7d9017fb0766beae2877451b533bb9b13a947646a2d25970edb2aca12",
+      "case_id": "logistics_only",
+      "group_tonnes": {
+        "SP1": 5.0
+      },
+      "served_tonnes": 5.0,
+      "unserved_tonnes": 0
+    },
+    {
+      "bundle_sha256": "cada03bc0420de3309f6e8dc3c007a7cffeb6f5b42179b8a3bee0016ab9559c9",
+      "case_id": "missing_facility",
+      "group_tonnes": {},
+      "served_tonnes": 5.0,
+      "unserved_tonnes": 0
+    },
+    {
+      "bundle_sha256": "f195a68acafbc9635e601bd70653fc4c1688e8ae17b4e8ffd537b9dd5e16eed6",
+      "case_id": "unreachable",
+      "group_tonnes": {},
+      "served_tonnes": 0,
+      "unserved_tonnes": 10.0
+    }
+  ],
+  "fixture_only": true,
+  "schema_version": "1.0.0"
+}

@@ -1,5 +1,9 @@
 # Local environments and caches
 .venv/
+.uv-cache/
+*.egg-info/
+dist/
+build/
 __pycache__/
 *.py[cod]
 .pytest_cache/

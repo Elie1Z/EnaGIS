@@ -1,0 +1,1907 @@
+{
+  "$defs": {
+    "Allocation": {
+      "additionalProperties": false,
+      "properties": {
+        "allocation_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Allocation Id",
+          "type": "string"
+        },
+        "assigned_tonnes": {
+          "$ref": "#/$defs/Value_Annotated_float__FieldInfo_annotation_NoneType__required_True__metadata__Ge_ge_0____PydanticGeneralMetadata_allow_inf_nan_False_____"
+        },
+        "inventory_scenario_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Inventory Scenario Ref",
+          "type": "string"
+        },
+        "node_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "^\\S+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Node Id"
+        },
+        "production_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Production Id",
+          "type": "string"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "unserved_reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Unserved Reason"
+        }
+      },
+      "required": [
+        "allocation_id",
+        "production_id",
+        "node_id",
+        "unserved_reason",
+        "scenario_id",
+        "assigned_tonnes",
+        "inventory_scenario_ref"
+      ],
+      "title": "Allocation",
+      "type": "object"
+    },
+    "Capacity": {
+      "additionalProperties": false,
+      "properties": {
+        "capacity_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Capacity Id",
+          "type": "string"
+        },
+        "conversion": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Conversion"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "facility_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "^\\S+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Facility Id"
+        },
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "original": {
+          "$ref": "#/$defs/Quantity"
+        },
+        "service_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "known",
+            "unknown"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "capacity_id",
+        "node_id",
+        "facility_id",
+        "service_id",
+        "status",
+        "original",
+        "conversion"
+      ],
+      "title": "Capacity",
+      "type": "object"
+    },
+    "Catchment": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "method_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Method Ref",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "origin_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Origin Id",
+          "type": "string"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "travel_limit_minutes": {
+          "minimum": 0,
+          "title": "Travel Limit Minutes",
+          "type": "number"
+        },
+        "travel_minutes": {
+          "minimum": 0,
+          "title": "Travel Minutes",
+          "type": "number"
+        }
+      },
+      "required": [
+        "origin_id",
+        "node_id",
+        "scenario_id",
+        "travel_limit_minutes",
+        "travel_minutes",
+        "method_ref",
+        "evidence"
+      ],
+      "title": "Catchment",
+      "type": "object"
+    },
+    "Conversion": {
+      "additionalProperties": false,
+      "properties": {
+        "converted": {
+          "$ref": "#/$defs/Quantity"
+        },
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "factor": {
+          "exclusiveMinimum": 0,
+          "title": "Factor",
+          "type": "number"
+        },
+        "original": {
+          "$ref": "#/$defs/Quantity"
+        },
+        "reviewed_by": {
+          "minLength": 1,
+          "title": "Reviewed By",
+          "type": "string"
+        }
+      },
+      "required": [
+        "original",
+        "converted",
+        "factor",
+        "reviewed_by",
+        "evidence"
+      ],
+      "title": "Conversion",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "format": "date",
+          "title": "As Of",
+          "type": "string"
+        },
+        "label": {
+          "enum": [
+            "OBSERVED",
+            "PREDICTED",
+            "ESTIMATED",
+            "INFERRED",
+            "UNKNOWN"
+          ],
+          "title": "Label",
+          "type": "string"
+        },
+        "licence": {
+          "minLength": 1,
+          "title": "Licence",
+          "type": "string"
+        },
+        "method": {
+          "minLength": 1,
+          "title": "Method",
+          "type": "string"
+        },
+        "missing_reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Missing Reason"
+        },
+        "source_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "^\\S+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "label",
+        "source_ids",
+        "as_of",
+        "licence",
+        "method",
+        "missing_reason"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Facility": {
+      "additionalProperties": false,
+      "properties": {
+        "effective_on": {
+          "format": "date",
+          "title": "Effective On",
+          "type": "string"
+        },
+        "facility_class": {
+          "$ref": "#/$defs/Value_Annotated_str__StringConstraints__"
+        },
+        "facility_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Facility Id",
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/$defs/Location"
+        },
+        "name": {
+          "$ref": "#/$defs/Value_Annotated_str__StringConstraints__"
+        },
+        "operator": {
+          "$ref": "#/$defs/Value_Annotated_str__StringConstraints__"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "source_record_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Source Record Id",
+          "type": "string"
+        },
+        "status_as_stated": {
+          "$ref": "#/$defs/Value_Annotated_str__StringConstraints__"
+        }
+      },
+      "required": [
+        "facility_id",
+        "source_record_id",
+        "snapshot_id",
+        "name",
+        "operator",
+        "facility_class",
+        "status_as_stated",
+        "effective_on",
+        "location"
+      ],
+      "title": "Facility",
+      "type": "object"
+    },
+    "Gap": {
+      "additionalProperties": false,
+      "properties": {
+        "bucket": {
+          "anyOf": [
+            {
+              "enum": [
+                "undocumented_supply",
+                "undersized",
+                "verify_first"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bucket"
+        },
+        "capacity_minus_requirement_kw": {
+          "$ref": "#/$defs/Value_Annotated_float__FieldInfo_annotation_NoneType__required_True__metadata___PydanticGeneralMetadata_allow_inf_nan_False_____"
+        },
+        "classification": {
+          "enum": [
+            "flagged",
+            "unflagged",
+            "unknown"
+          ],
+          "title": "Classification",
+          "type": "string"
+        },
+        "classification_evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "dimension": {
+          "const": "electric_power",
+          "title": "Dimension",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "policy_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Policy Ref",
+          "type": "string"
+        },
+        "service_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "unit": {
+          "const": "kW",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "service_id",
+        "dimension",
+        "unit",
+        "capacity_minus_requirement_kw",
+        "bucket",
+        "classification",
+        "classification_evidence",
+        "policy_ref"
+      ],
+      "title": "Gap",
+      "type": "object"
+    },
+    "Inventory": {
+      "additionalProperties": false,
+      "properties": {
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "occupancy_scenario_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Occupancy Scenario Ref",
+          "type": "string"
+        },
+        "residence_scenario_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Residence Scenario Ref",
+          "type": "string"
+        },
+        "stored_tonnes": {
+          "$ref": "#/$defs/Value_Annotated_float__FieldInfo_annotation_NoneType__required_True__metadata__Ge_ge_0____PydanticGeneralMetadata_allow_inf_nan_False_____"
+        }
+      },
+      "required": [
+        "node_id",
+        "stored_tonnes",
+        "residence_scenario_ref",
+        "occupancy_scenario_ref"
+      ],
+      "title": "Inventory",
+      "type": "object"
+    },
+    "Location": {
+      "additionalProperties": false,
+      "properties": {
+        "point": {
+          "$ref": "#/$defs/Value_Point_"
+        },
+        "precision": {
+          "enum": [
+            "P1",
+            "P2",
+            "P3",
+            "P4",
+            "P5"
+          ],
+          "title": "Precision",
+          "type": "string"
+        }
+      },
+      "required": [
+        "point",
+        "precision"
+      ],
+      "title": "Location",
+      "type": "object"
+    },
+    "Node": {
+      "additionalProperties": false,
+      "properties": {
+        "eligibility_evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "existence": {
+          "$ref": "#/$defs/Value_Literal__documented____confirmed___"
+        },
+        "facility_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "^\\S+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Facility Id"
+        },
+        "facility_missing_reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Facility Missing Reason"
+        },
+        "location": {
+          "$ref": "#/$defs/Location"
+        },
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "node_type": {
+          "enum": [
+            "storage",
+            "processing",
+            "logistics_only",
+            "candidate"
+          ],
+          "title": "Node Type",
+          "type": "string"
+        },
+        "origin": {
+          "enum": [
+            "documented",
+            "rule_based"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "stationary_service_eligible": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Stationary Service Eligible"
+        },
+        "verification_question": {
+          "minLength": 1,
+          "title": "Verification Question",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "facility_id",
+        "facility_missing_reason",
+        "node_type",
+        "origin",
+        "existence",
+        "stationary_service_eligible",
+        "eligibility_evidence",
+        "location",
+        "verification_question"
+      ],
+      "title": "Node",
+      "type": "object"
+    },
+    "NodeCard": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "freeze_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Freeze Id",
+          "type": "string"
+        },
+        "gap": {
+          "$ref": "#/$defs/Gap"
+        },
+        "location": {
+          "$ref": "#/$defs/Location"
+        },
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "rank": {
+          "exclusiveMinimum": 0,
+          "title": "Rank",
+          "type": "integer"
+        },
+        "requirement": {
+          "$ref": "#/$defs/Requirement"
+        },
+        "shortlist_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Shortlist Sha256",
+          "type": "string"
+        },
+        "shortlist_version": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Shortlist Version",
+          "type": "string"
+        },
+        "supply": {
+          "$ref": "#/$defs/Supply"
+        },
+        "tier": {
+          "enum": [
+            "robust",
+            "contested",
+            "verify_first"
+          ],
+          "title": "Tier",
+          "type": "string"
+        },
+        "verification_question": {
+          "minLength": 1,
+          "title": "Verification Question",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "rank",
+        "tier",
+        "location",
+        "requirement",
+        "supply",
+        "gap",
+        "evidence",
+        "verification_question",
+        "freeze_id",
+        "shortlist_version",
+        "shortlist_sha256"
+      ],
+      "title": "NodeCard",
+      "type": "object"
+    },
+    "Outcome": {
+      "additionalProperties": false,
+      "properties": {
+        "conversion": {
+          "$ref": "#/$defs/Conversion"
+        },
+        "original": {
+          "$ref": "#/$defs/Quantity"
+        },
+        "outcome_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Outcome Id",
+          "type": "string"
+        },
+        "province": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Province",
+          "type": "string"
+        },
+        "shipping_point_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Shipping Point Id",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "development",
+            "transfer"
+          ],
+          "title": "Split",
+          "type": "string"
+        }
+      },
+      "required": [
+        "outcome_id",
+        "shipping_point_id",
+        "province",
+        "split",
+        "original",
+        "conversion"
+      ],
+      "title": "Outcome",
+      "type": "object"
+    },
+    "Partition": {
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Block Id",
+          "type": "string"
+        },
+        "feature_fit_allowed": {
+          "title": "Feature Fit Allowed",
+          "type": "boolean"
+        },
+        "model_selection_allowed": {
+          "title": "Model Selection Allowed",
+          "type": "boolean"
+        },
+        "region_unit_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Region Unit Id",
+          "type": "string"
+        },
+        "spatial_id": {
+          "$ref": "#/$defs/SpatialID"
+        },
+        "split": {
+          "enum": [
+            "development",
+            "transfer"
+          ],
+          "title": "Split",
+          "type": "string"
+        }
+      },
+      "required": [
+        "spatial_id",
+        "region_unit_id",
+        "block_id",
+        "split",
+        "feature_fit_allowed",
+        "model_selection_allowed"
+      ],
+      "title": "Partition",
+      "type": "object"
+    },
+    "Point": {
+      "additionalProperties": false,
+      "properties": {
+        "coordinate_order": {
+          "const": "longitude_latitude",
+          "title": "Coordinate Order",
+          "type": "string"
+        },
+        "crs": {
+          "const": "EPSG:4326",
+          "title": "Crs",
+          "type": "string"
+        },
+        "latitude": {
+          "maximum": 90,
+          "minimum": -90,
+          "title": "Latitude",
+          "type": "number"
+        },
+        "longitude": {
+          "maximum": 180,
+          "minimum": -180,
+          "title": "Longitude",
+          "type": "number"
+        },
+        "source_crs": {
+          "pattern": "^EPSG:[0-9]+$",
+          "title": "Source Crs",
+          "type": "string"
+        },
+        "transformation_method": {
+          "minLength": 1,
+          "title": "Transformation Method",
+          "type": "string"
+        }
+      },
+      "required": [
+        "crs",
+        "coordinate_order",
+        "longitude",
+        "latitude",
+        "source_crs",
+        "transformation_method"
+      ],
+      "title": "Point",
+      "type": "object"
+    },
+    "Production": {
+      "additionalProperties": false,
+      "properties": {
+        "commodity_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Commodity Id",
+          "type": "string"
+        },
+        "conversion": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Conversion"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "geography": {
+          "$ref": "#/$defs/SpatialID"
+        },
+        "geometry_crs": {
+          "pattern": "^EPSG:[0-9]+$",
+          "title": "Geometry Crs",
+          "type": "string"
+        },
+        "geometry_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Geometry Ref",
+          "type": "string"
+        },
+        "modeled_tonnes": {
+          "$ref": "#/$defs/Value_Annotated_float__FieldInfo_annotation_NoneType__required_True__metadata__Ge_ge_0____PydanticGeneralMetadata_allow_inf_nan_False_____"
+        },
+        "original": {
+          "$ref": "#/$defs/Quantity"
+        },
+        "production_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Production Id",
+          "type": "string"
+        },
+        "spatial_allocation_method": {
+          "minLength": 1,
+          "title": "Spatial Allocation Method",
+          "type": "string"
+        }
+      },
+      "required": [
+        "production_id",
+        "geography",
+        "geometry_ref",
+        "geometry_crs",
+        "commodity_id",
+        "original",
+        "conversion",
+        "modeled_tonnes",
+        "spatial_allocation_method"
+      ],
+      "title": "Production",
+      "type": "object"
+    },
+    "Quantity": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "$ref": "#/$defs/Value_Annotated_float__FieldInfo_annotation_NoneType__required_True__metadata__Ge_ge_0____PydanticGeneralMetadata_allow_inf_nan_False_____"
+        },
+        "definition": {
+          "minLength": 1,
+          "title": "Definition",
+          "type": "string"
+        },
+        "dimension": {
+          "enum": [
+            "storage_mass",
+            "mass_flow",
+            "airflow",
+            "electric_power",
+            "energy"
+          ],
+          "title": "Dimension",
+          "type": "string"
+        },
+        "period_end": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Period End"
+        },
+        "period_start": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Period Start"
+        },
+        "unit": {
+          "enum": [
+            "tonne",
+            "kilotonne",
+            "tonne/day",
+            "m3/s",
+            "kW",
+            "kWh"
+          ],
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount",
+        "unit",
+        "dimension",
+        "definition",
+        "period_start",
+        "period_end"
+      ],
+      "title": "Quantity",
+      "type": "object"
+    },
+    "Range": {
+      "additionalProperties": false,
+      "properties": {
+        "central": {
+          "minimum": 0,
+          "title": "Central",
+          "type": "number"
+        },
+        "distribution_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Distribution Ref",
+          "type": "string"
+        },
+        "lower": {
+          "minimum": 0,
+          "title": "Lower",
+          "type": "number"
+        },
+        "upper": {
+          "minimum": 0,
+          "title": "Upper",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lower",
+        "central",
+        "upper",
+        "distribution_ref"
+      ],
+      "title": "Range",
+      "type": "object"
+    },
+    "RegionConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "adapter_version": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Adapter Version",
+          "type": "string"
+        },
+        "boundary_vintage": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Boundary Vintage",
+          "type": "string"
+        },
+        "country_code": {
+          "pattern": "^[A-Z]{2}$",
+          "title": "Country Code",
+          "type": "string"
+        },
+        "development_units": {
+          "items": {
+            "minLength": 1,
+            "pattern": "^\\S+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Development Units",
+          "type": "array"
+        },
+        "metric_crs": {
+          "pattern": "^EPSG:[0-9]+$",
+          "title": "Metric Crs",
+          "type": "string"
+        },
+        "point_crs": {
+          "const": "EPSG:4326",
+          "title": "Point Crs",
+          "type": "string"
+        },
+        "projection_review_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Projection Review Ref",
+          "type": "string"
+        },
+        "region_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Region Id",
+          "type": "string"
+        },
+        "transfer_units": {
+          "items": {
+            "minLength": 1,
+            "pattern": "^\\S+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Transfer Units",
+          "type": "array"
+        }
+      },
+      "required": [
+        "region_id",
+        "country_code",
+        "development_units",
+        "transfer_units",
+        "adapter_version",
+        "boundary_vintage",
+        "point_crs",
+        "metric_crs",
+        "projection_review_ref"
+      ],
+      "title": "RegionConfig",
+      "type": "object"
+    },
+    "Requirement": {
+      "additionalProperties": false,
+      "properties": {
+        "cycle_or_period": {
+          "minLength": 1,
+          "title": "Cycle Or Period",
+          "type": "string"
+        },
+        "electrical_kw": {
+          "$ref": "#/$defs/Value_Range_"
+        },
+        "electricity_kwh": {
+          "$ref": "#/$defs/Value_Range_"
+        },
+        "inventory_scenario_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Inventory Scenario Ref",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "parameter_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "^\\S+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Parameter Refs",
+          "type": "array"
+        },
+        "peak_power_method": {
+          "minLength": 1,
+          "title": "Peak Power Method",
+          "type": "string"
+        },
+        "service_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Service Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "service_id",
+        "inventory_scenario_ref",
+        "electrical_kw",
+        "electricity_kwh",
+        "cycle_or_period",
+        "peak_power_method",
+        "parameter_refs"
+      ],
+      "title": "Requirement",
+      "type": "object"
+    },
+    "RunMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "commodity_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Commodity Id",
+          "type": "string"
+        },
+        "config_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Config Sha256",
+          "type": "string"
+        },
+        "input_snapshot_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "^\\S+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Input Snapshot Ids",
+          "type": "array"
+        },
+        "period_end": {
+          "format": "date",
+          "title": "Period End",
+          "type": "string"
+        },
+        "period_start": {
+          "format": "date",
+          "title": "Period Start",
+          "type": "string"
+        },
+        "region_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Region Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Seed"
+        },
+        "service_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Service Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "region_id",
+        "commodity_id",
+        "service_id",
+        "scenario_id",
+        "period_start",
+        "period_end",
+        "config_sha256",
+        "input_snapshot_ids",
+        "seed"
+      ],
+      "title": "RunMetadata",
+      "type": "object"
+    },
+    "ShippingLink": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "facility_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Facility Id",
+          "type": "string"
+        },
+        "match_method": {
+          "minLength": 1,
+          "title": "Match Method",
+          "type": "string"
+        },
+        "shipping_point_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Shipping Point Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "facility_id",
+        "shipping_point_id",
+        "match_method",
+        "evidence"
+      ],
+      "title": "ShippingLink",
+      "type": "object"
+    },
+    "SitingFeature": {
+      "additionalProperties": false,
+      "properties": {
+        "construction_method": {
+          "minLength": 1,
+          "title": "Construction Method",
+          "type": "string"
+        },
+        "feature_id": {
+          "enum": [
+            "production",
+            "accessibility",
+            "population",
+            "road_class",
+            "junctions",
+            "town"
+          ],
+          "title": "Feature Id",
+          "type": "string"
+        },
+        "source_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "^\\S+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Ids",
+          "type": "array"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "upstream_label_free": {
+          "const": true,
+          "title": "Upstream Label Free",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "feature_id",
+        "source_ids",
+        "unit",
+        "construction_method",
+        "upstream_label_free"
+      ],
+      "title": "SitingFeature",
+      "type": "object"
+    },
+    "Snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "effective_on": {
+          "format": "date",
+          "title": "Effective On",
+          "type": "string"
+        },
+        "licence": {
+          "minLength": 1,
+          "title": "Licence",
+          "type": "string"
+        },
+        "licence_url": {
+          "minLength": 1,
+          "title": "Licence Url",
+          "type": "string"
+        },
+        "original_url": {
+          "minLength": 1,
+          "title": "Original Url",
+          "type": "string"
+        },
+        "processing_step": {
+          "minLength": 1,
+          "title": "Processing Step",
+          "type": "string"
+        },
+        "publisher": {
+          "minLength": 1,
+          "title": "Publisher",
+          "type": "string"
+        },
+        "redistribution": {
+          "enum": [
+            "permitted",
+            "restricted",
+            "unresolved"
+          ],
+          "title": "Redistribution",
+          "type": "string"
+        },
+        "retrieved_on": {
+          "format": "date",
+          "title": "Retrieved On",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Snapshot Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "publisher",
+        "original_url",
+        "retrieved_on",
+        "effective_on",
+        "sha256",
+        "licence",
+        "licence_url",
+        "redistribution",
+        "processing_step"
+      ],
+      "title": "Snapshot",
+      "type": "object"
+    },
+    "SpatialID": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary_vintage": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Boundary Vintage",
+          "type": "string"
+        },
+        "code": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Code",
+          "type": "string"
+        },
+        "country_code": {
+          "pattern": "^[A-Z]{2}$",
+          "title": "Country Code",
+          "type": "string"
+        },
+        "geography_type": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Geography Type",
+          "type": "string"
+        },
+        "source_geographic_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Source Geographic Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "country_code",
+        "geography_type",
+        "boundary_vintage",
+        "code",
+        "source_geographic_id"
+      ],
+      "title": "SpatialID",
+      "type": "object"
+    },
+    "Supply": {
+      "additionalProperties": false,
+      "properties": {
+        "capacity_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "^\\S+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Capacity Ref"
+        },
+        "documentation_scope": {
+          "minLength": 1,
+          "title": "Documentation Scope",
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "service_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "no_documented_asset",
+            "documented_known_capacity",
+            "documented_unknown_capacity"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "service_id",
+        "state",
+        "evidence",
+        "capacity_ref",
+        "documentation_scope"
+      ],
+      "title": "Supply",
+      "type": "object"
+    },
+    "Travel": {
+      "additionalProperties": false,
+      "properties": {
+        "graph_snapshot_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Graph Snapshot Id",
+          "type": "string"
+        },
+        "metric_crs": {
+          "pattern": "^EPSG:[0-9]+$",
+          "title": "Metric Crs",
+          "type": "string"
+        },
+        "mode": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Mode",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "origin_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Origin Id",
+          "type": "string"
+        },
+        "reachable": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reachable"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "travel_minutes": {
+          "$ref": "#/$defs/Value_Annotated_float__FieldInfo_annotation_NoneType__required_True__metadata__Ge_ge_0____PydanticGeneralMetadata_allow_inf_nan_False_____"
+        }
+      },
+      "required": [
+        "origin_id",
+        "node_id",
+        "graph_snapshot_id",
+        "scenario_id",
+        "mode",
+        "travel_minutes",
+        "reachable",
+        "metric_crs"
+      ],
+      "title": "Travel",
+      "type": "object"
+    },
+    "Uncertainty": {
+      "additionalProperties": false,
+      "properties": {
+        "draw_count": {
+          "exclusiveMinimum": 0,
+          "title": "Draw Count",
+          "type": "integer"
+        },
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "included_draws": {
+          "minimum": 0,
+          "title": "Included Draws",
+          "type": "integer"
+        },
+        "inclusion_frequency": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Inclusion Frequency",
+          "type": "number"
+        },
+        "joint_scenario_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "^\\S+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Joint Scenario Refs",
+          "type": "array"
+        },
+        "magnitude_kw": {
+          "$ref": "#/$defs/Value_Range_"
+        },
+        "node_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "policy_ref": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Policy Ref",
+          "type": "string"
+        },
+        "seed": {
+          "minimum": 0,
+          "title": "Seed",
+          "type": "integer"
+        },
+        "tier": {
+          "enum": [
+            "robust",
+            "contested",
+            "verify_first"
+          ],
+          "title": "Tier",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "seed",
+        "draw_count",
+        "included_draws",
+        "inclusion_frequency",
+        "tier",
+        "policy_ref",
+        "joint_scenario_refs",
+        "magnitude_kw",
+        "evidence"
+      ],
+      "title": "Uncertainty",
+      "type": "object"
+    },
+    "Value_Annotated_float__FieldInfo_annotation_NoneType__required_True__metadata__Ge_ge_0____PydanticGeneralMetadata_allow_inf_nan_False_____": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "evidence"
+      ],
+      "title": "Value[Annotated[float, FieldInfo(annotation=NoneType, required=True, metadata=[Ge(ge=0), _PydanticGeneralMetadata(allow_inf_nan=False)])]]",
+      "type": "object"
+    },
+    "Value_Annotated_float__FieldInfo_annotation_NoneType__required_True__metadata___PydanticGeneralMetadata_allow_inf_nan_False_____": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "evidence"
+      ],
+      "title": "Value[Annotated[float, FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(allow_inf_nan=False)])]]",
+      "type": "object"
+    },
+    "Value_Annotated_str__StringConstraints__": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "evidence"
+      ],
+      "title": "Value[Annotated[str, StringConstraints]]",
+      "type": "object"
+    },
+    "Value_Literal__documented____confirmed___": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "enum": [
+                "documented",
+                "confirmed"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "evidence"
+      ],
+      "title": "Value[Literal['documented', 'confirmed']]",
+      "type": "object"
+    },
+    "Value_Point_": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Point"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "value",
+        "evidence"
+      ],
+      "title": "Value[Point]",
+      "type": "object"
+    },
+    "Value_Range_": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Range"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "value",
+        "evidence"
+      ],
+      "title": "Value[Range]",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One scenario/run; every enclosed table inherits this common metadata.",
+  "properties": {
+    "allocations": {
+      "items": {
+        "$ref": "#/$defs/Allocation"
+      },
+      "title": "Allocations",
+      "type": "array"
+    },
+    "capacities": {
+      "items": {
+        "$ref": "#/$defs/Capacity"
+      },
+      "title": "Capacities",
+      "type": "array"
+    },
+    "catchments": {
+      "items": {
+        "$ref": "#/$defs/Catchment"
+      },
+      "title": "Catchments",
+      "type": "array"
+    },
+    "facilities": {
+      "items": {
+        "$ref": "#/$defs/Facility"
+      },
+      "title": "Facilities",
+      "type": "array"
+    },
+    "gaps": {
+      "items": {
+        "$ref": "#/$defs/Gap"
+      },
+      "title": "Gaps",
+      "type": "array"
+    },
+    "inventories": {
+      "items": {
+        "$ref": "#/$defs/Inventory"
+      },
+      "title": "Inventories",
+      "type": "array"
+    },
+    "metadata": {
+      "$ref": "#/$defs/RunMetadata"
+    },
+    "nodes": {
+      "items": {
+        "$ref": "#/$defs/Node"
+      },
+      "title": "Nodes",
+      "type": "array"
+    },
+    "outcomes": {
+      "items": {
+        "$ref": "#/$defs/Outcome"
+      },
+      "title": "Outcomes",
+      "type": "array"
+    },
+    "partitions": {
+      "items": {
+        "$ref": "#/$defs/Partition"
+      },
+      "title": "Partitions",
+      "type": "array"
+    },
+    "production": {
+      "items": {
+        "$ref": "#/$defs/Production"
+      },
+      "title": "Production",
+      "type": "array"
+    },
+    "region_config": {
+      "$ref": "#/$defs/RegionConfig"
+    },
+    "requirements": {
+      "items": {
+        "$ref": "#/$defs/Requirement"
+      },
+      "title": "Requirements",
+      "type": "array"
+    },
+    "shipping_links": {
+      "items": {
+        "$ref": "#/$defs/ShippingLink"
+      },
+      "title": "Shipping Links",
+      "type": "array"
+    },
+    "shortlist": {
+      "items": {
+        "$ref": "#/$defs/NodeCard"
+      },
+      "title": "Shortlist",
+      "type": "array"
+    },
+    "siting_features": {
+      "items": {
+        "$ref": "#/$defs/SitingFeature"
+      },
+      "title": "Siting Features",
+      "type": "array"
+    },
+    "snapshots": {
+      "items": {
+        "$ref": "#/$defs/Snapshot"
+      },
+      "minItems": 1,
+      "title": "Snapshots",
+      "type": "array"
+    },
+    "supplies": {
+      "items": {
+        "$ref": "#/$defs/Supply"
+      },
+      "title": "Supplies",
+      "type": "array"
+    },
+    "travel": {
+      "items": {
+        "$ref": "#/$defs/Travel"
+      },
+      "title": "Travel",
+      "type": "array"
+    },
+    "uncertainty": {
+      "items": {
+        "$ref": "#/$defs/Uncertainty"
+      },
+      "title": "Uncertainty",
+      "type": "array"
+    }
+  },
+  "required": [
+    "metadata",
+    "region_config",
+    "snapshots",
+    "facilities",
+    "nodes",
+    "production",
+    "travel",
+    "catchments",
+    "allocations",
+    "capacities",
+    "inventories",
+    "requirements",
+    "supplies",
+    "gaps",
+    "uncertainty",
+    "shortlist",
+    "shipping_links",
+    "outcomes",
+    "partitions",
+    "siting_features"
+  ],
+  "title": "Bundle",
+  "type": "object"
+}
