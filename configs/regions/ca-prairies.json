@@ -1,0 +1,31 @@
+{
+  "adapter_version": "canada-v1",
+  "region_id": "ca-prairies",
+  "province_units": ["AB", "SK", "MB"],
+  "development_units": ["AB", "SK"],
+  "transfer_units": ["MB"],
+  "province_coordinate_envelopes": {
+    "AB": [-120, 48, -109, 61],
+    "SK": [-111, 48, -100, 61],
+    "MB": [-102, 48, -88, 61]
+  },
+  "registry_point_precision": "P2",
+  "registry_precision_method": "Conservative named-place class: source usually reports elevator coordinates, but per-record 100 m accuracy has not been established. Source geometry is retained; no claim of surveyed precision.",
+  "coordinate_attribute_tolerance_degrees": 0.000001,
+  "delivery_crop_year": "2024-2025",
+  "harvest_year": 2024,
+  "identity_path": "data/manual/facility-identities-v1.json",
+  "licensing_parser_controls_path": "docs/data/licensing-parser-controls.json",
+  "source_ids": {
+    "registry": "aafc-elevators-2024",
+    "deliveries": "cgc-deliveries-2024-2025",
+    "production": "statcan-32100002-20261007",
+    "sadr_geometry": "aafc-fieldcrop-production-20261007",
+    "ccs": "statcan-ccs-digital-2021",
+    "car": "statcan-car-digital-2021",
+    "cd": "statcan-cd-digital-2021",
+    "roads_AB": "osm-alberta-20240101",
+    "roads_SK": "osm-saskatchewan-20240101",
+    "roads_MB": "osm-manitoba-20240101"
+  }
+}

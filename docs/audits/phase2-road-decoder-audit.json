@@ -1,0 +1,30 @@
+{
+  "comparison": "All way IDs, versions, ordered node IDs and tags exactly equal. Every coordinate compared at absolute 1e-12 degree numerical tolerance; encoding precision is not positional accuracy.",
+  "fixture_sha256": "32ce841996e62d3c4f2284096c129cd00d326282c55ae94a005b4e98eb49ca0d",
+  "input_snapshot_sha256": {
+    "osm-alberta-20240101": "e24709ded64ac6fe7cb56bc82a10fa2ab707b744a1b1bbbcee079742c7507b5f",
+    "osm-manitoba-20240101": "4e09fa0163d50928e0e07255fc9c1aae540deb2fd266bfce698e6cf39c931f36",
+    "osm-saskatchewan-20240101": "ea284e408f90ff3df49439fc4eb576d7db095fa10ac66e8bdfd5b28a3648615e"
+  },
+  "provinces": [
+    {
+      "maximum_coordinate_difference_degrees": 1.4210854715202004e-14,
+      "province": "AB",
+      "semantic_differences": 0,
+      "way_rows": 512513
+    },
+    {
+      "maximum_coordinate_difference_degrees": 1.4210854715202004e-14,
+      "province": "SK",
+      "semantic_differences": 0,
+      "way_rows": 254384
+    },
+    {
+      "maximum_coordinate_difference_degrees": 1.4210854715202004e-14,
+      "province": "MB",
+      "semantic_differences": 0,
+      "way_rows": 160003
+    }
+  ],
+  "reference": "Independent pyosmium 4.1.1 extraction from identical pinned raw PBF files; process shutdown bug prevented using it as runtime dependency. Reference files are local ignored audit inputs."
+}

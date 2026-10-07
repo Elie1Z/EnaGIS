@@ -1,0 +1,2046 @@
+{
+  "method": "UUID5 assigned once to source identity tuple; maintained crosswalk is authoritative. No fuzzy deduplication or human verification claimed.",
+  "rows": [
+    {
+      "facility_id": "ca:facility:005495ac-0c47-51c1-8cc4-0529fde751d2",
+      "identity_key": "AB|STURGEON COUNTY|PROVIDENCE GRAIN GROUP INC|NO|-113.22608657199999|53.85314462200006",
+      "initial_source_record_id": "aafc-elevators-2024:449",
+      "node_id": "ca:node:005495ac-0c47-51c1-8cc4-0529fde751d2"
+    },
+    {
+      "facility_id": "ca:facility:007c431f-bd99-5a67-87ed-6af089c00611",
+      "identity_key": "AB|VIKING|PROVIDENCE GRAIN GROUP INC.|CN|-111.7681414|53.08923714",
+      "initial_source_record_id": "aafc-elevators-2024:229",
+      "node_id": "ca:node:007c431f-bd99-5a67-87ed-6af089c00611"
+    },
+    {
+      "facility_id": "ca:facility:0169631b-8036-5c40-b591-69079443dd98",
+      "identity_key": "AB|HUALLEN|RICHARDSON PIONEER LIMITED|CN|-119.28408997|55.16554965",
+      "initial_source_record_id": "aafc-elevators-2024:425",
+      "node_id": "ca:node:0169631b-8036-5c40-b591-69079443dd98"
+    },
+    {
+      "facility_id": "ca:facility:021314fc-36d3-5ab9-8a4b-0a39a8bb7229",
+      "identity_key": "SK|YORKTON|PARRISH & HEIMBECKER, LIMITED|CN|-102.45408783|51.24103304",
+      "initial_source_record_id": "aafc-elevators-2024:438",
+      "node_id": "ca:node:021314fc-36d3-5ab9-8a4b-0a39a8bb7229"
+    },
+    {
+      "facility_id": "ca:facility:0226d124-f2a3-5fee-af0f-5020ecb37163",
+      "identity_key": "SK|REGINA EAST|RICHARDSON PIONEER LIMITED|CN|-104.4231655|50.42472965",
+      "initial_source_record_id": "aafc-elevators-2024:103",
+      "node_id": "ca:node:0226d124-f2a3-5fee-af0f-5020ecb37163"
+    },
+    {
+      "facility_id": "ca:facility:022a9bcb-95a6-545c-83e7-3b5f7569098d",
+      "identity_key": "AB|MORINVILLE|G3 CANADA LIMITED|CN|-113.69748659|53.80763011",
+      "initial_source_record_id": "aafc-elevators-2024:393",
+      "node_id": "ca:node:022a9bcb-95a6-545c-83e7-3b5f7569098d"
+    },
+    {
+      "facility_id": "ca:facility:053f94be-f3cc-51df-86d3-681ab4875c2a",
+      "identity_key": "MB|HOMEWOOD|BESCO GRAIN LTD.|NO|-97.89944559|49.50410848",
+      "initial_source_record_id": "aafc-elevators-2024:330",
+      "node_id": "ca:node:053f94be-f3cc-51df-86d3-681ab4875c2a"
+    },
+    {
+      "facility_id": "ca:facility:068944eb-399c-5705-b93a-0aac5b04aba4",
+      "identity_key": "AB|CARSELAND|CARGILL LIMITED|CP|-113.5484128|50.85270509",
+      "initial_source_record_id": "aafc-elevators-2024:169",
+      "node_id": "ca:node:068944eb-399c-5705-b93a-0aac5b04aba4"
+    },
+    {
+      "facility_id": "ca:facility:070537c4-d760-5beb-8d8f-b862427f384b",
+      "identity_key": "SK|BRASS|PARRISH & HEIMBECKER, LIMITED|CP|-108.72435247|52.34814412",
+      "initial_source_record_id": "aafc-elevators-2024:19",
+      "node_id": "ca:node:070537c4-d760-5beb-8d8f-b862427f384b"
+    },
+    {
+      "facility_id": "ca:facility:07f57df8-36bd-505f-a616-7a878fc2387f",
+      "identity_key": "MB|ST JOSEPH|ALLIANCE PULSE PROCESSORS INC.|NO|-97.39290962|49.13192822",
+      "initial_source_record_id": "aafc-elevators-2024:313",
+      "node_id": "ca:node:07f57df8-36bd-505f-a616-7a878fc2387f"
+    },
+    {
+      "facility_id": "ca:facility:098ef9c4-eb1e-567f-8920-22a234948983",
+      "identity_key": "AB|KILLAM|GREAT NORTHERN GRAIN TERMINALS LTD.|CP|-111.8559338|52.79301097",
+      "initial_source_record_id": "aafc-elevators-2024:186",
+      "node_id": "ca:node:098ef9c4-eb1e-567f-8920-22a234948983"
+    },
+    {
+      "facility_id": "ca:facility:09fc5c03-bb79-533c-ac10-b159ea23435e",
+      "identity_key": "MB|PLUM COULEE|WESTERN HARVEST BEAN ULC|NO|-97.79671261|49.19530079",
+      "initial_source_record_id": "aafc-elevators-2024:430",
+      "node_id": "ca:node:09fc5c03-bb79-533c-ac10-b159ea23435e"
+    },
+    {
+      "facility_id": "ca:facility:0a2eeef1-11ce-5f48-8928-0ca5fce14624",
+      "identity_key": "AB|HIGHRIDGE|SEMLER CATTLE AND GRAIN LTD. O/A ALBERTA FEED GRAIN|NO|-114.10309779|54.06651227",
+      "initial_source_record_id": "aafc-elevators-2024:378",
+      "node_id": "ca:node:0a2eeef1-11ce-5f48-8928-0ca5fce14624"
+    },
+    {
+      "facility_id": "ca:facility:0a7ae520-3b37-5312-8a64-9427eb06d9de",
+      "identity_key": "MB|BINSCARTH|VITERRA CANADA INC.|CP|-101.28842365|50.64493623",
+      "initial_source_record_id": "aafc-elevators-2024:258",
+      "node_id": "ca:node:0a7ae520-3b37-5312-8a64-9427eb06d9de"
+    },
+    {
+      "facility_id": "ca:facility:0b0f2227-a806-518a-813c-fdab49e00900",
+      "identity_key": "SK|TISDALE|PARRISH & HEIMBECKER, LIMITED|CP|-104.0430283|52.82777297",
+      "initial_source_record_id": "aafc-elevators-2024:121",
+      "node_id": "ca:node:0b0f2227-a806-518a-813c-fdab49e00900"
+    },
+    {
+      "facility_id": "ca:facility:0e673817-d003-500e-88b9-548957fc57e2",
+      "identity_key": "MB|RATHWELL|PARRISH & HEIMBECKER, LIMITED|CP|-98.56033612|49.64572851",
+      "initial_source_record_id": "aafc-elevators-2024:304",
+      "node_id": "ca:node:0e673817-d003-500e-88b9-548957fc57e2"
+    },
+    {
+      "facility_id": "ca:facility:0e9fb71a-89f2-58cd-9227-9c38a8382d1b",
+      "identity_key": "SK|MILESTONE|ALLIANCE PULSE PROCESSORS INC.|CP|-104.5233693|49.99447896",
+      "initial_source_record_id": "aafc-elevators-2024:77",
+      "node_id": "ca:node:0e9fb71a-89f2-58cd-9227-9c38a8382d1b"
+    },
+    {
+      "facility_id": "ca:facility:102f5c0a-4088-5a43-9cb7-686fe89a9000",
+      "identity_key": "SK|YORKTON|CARGILL LIMITED|CP|-102.421862|51.18462265",
+      "initial_source_record_id": "aafc-elevators-2024:140",
+      "node_id": "ca:node:102f5c0a-4088-5a43-9cb7-686fe89a9000"
+    },
+    {
+      "facility_id": "ca:facility:1039ae76-78e5-5ff4-b44e-83c50aad8419",
+      "identity_key": "SK|YORKTON|RICHARDSON PIONEER LIMITED|CP|-102.53166|51.23336972",
+      "initial_source_record_id": "aafc-elevators-2024:144",
+      "node_id": "ca:node:1039ae76-78e5-5ff4-b44e-83c50aad8419"
+    },
+    {
+      "facility_id": "ca:facility:10a25ba2-2bd0-5a3e-a1ab-d3f5fdd65a5a",
+      "identity_key": "AB|CARSELAND|RICHARDSON PIONEER LIMITED|CP|-113.5059461|50.8517158",
+      "initial_source_record_id": "aafc-elevators-2024:170",
+      "node_id": "ca:node:10a25ba2-2bd0-5a3e-a1ab-d3f5fdd65a5a"
+    },
+    {
+      "facility_id": "ca:facility:11b9ccea-9846-55a0-afbc-dd52de365a33",
+      "identity_key": "SK|MOOSE JAW|SIMPSON SEEDS INC.|CP|-105.5689355|50.42775087",
+      "initial_source_record_id": "aafc-elevators-2024:80",
+      "node_id": "ca:node:11b9ccea-9846-55a0-afbc-dd52de365a33"
+    },
+    {
+      "facility_id": "ca:facility:12100325-5b4c-5f7d-a428-74b40f31449c",
+      "identity_key": "AB|STETTLER|VITERRA CANADA INC.|CW|-112.6536118|52.32113292",
+      "initial_source_record_id": "aafc-elevators-2024:218",
+      "node_id": "ca:node:12100325-5b4c-5f7d-a428-74b40f31449c"
+    },
+    {
+      "facility_id": "ca:facility:12b2eef7-bea3-5aa8-bbf8-9fb615bfeb3f",
+      "identity_key": "MB|MORRIS|CARGILL LIMITED|CN|-97.3783127|49.3502911",
+      "initial_source_record_id": "aafc-elevators-2024:295",
+      "node_id": "ca:node:12b2eef7-bea3-5aa8-bbf8-9fb615bfeb3f"
+    },
+    {
+      "facility_id": "ca:facility:154e93cd-8fd6-5b9d-b424-7cbf7368b915",
+      "identity_key": "AB|LYALTA|PARRISH & HEIMBECKER, LIMITED|CN|-113.6642424|51.08765576",
+      "initial_source_record_id": "aafc-elevators-2024:199",
+      "node_id": "ca:node:154e93cd-8fd6-5b9d-b424-7cbf7368b915"
+    },
+    {
+      "facility_id": "ca:facility:1617cfa6-e56d-57d8-9b5b-2f0a0e2a9301",
+      "identity_key": "SK|MOOSE JAW|CARGILL LIMITED|CN|-105.6170493|50.41170255",
+      "initial_source_record_id": "aafc-elevators-2024:78",
+      "node_id": "ca:node:1617cfa6-e56d-57d8-9b5b-2f0a0e2a9301"
+    },
+    {
+      "facility_id": "ca:facility:17ad76bd-6d3d-59ed-98e3-a66b0b976eb7",
+      "identity_key": "SK|BALCARRES|CARGILL LIMITED|CN|-103.57763936|50.8069228",
+      "initial_source_record_id": "aafc-elevators-2024:10",
+      "node_id": "ca:node:17ad76bd-6d3d-59ed-98e3-a66b0b976eb7"
+    },
+    {
+      "facility_id": "ca:facility:17ef07b5-0b46-54e1-a411-cbfacacc6d3a",
+      "identity_key": "SK|BUCHANAN|J. K. MILLING CANADA LIMITED|CN|-102.75219892|51.69956033",
+      "initial_source_record_id": "aafc-elevators-2024:21",
+      "node_id": "ca:node:17ef07b5-0b46-54e1-a411-cbfacacc6d3a"
+    },
+    {
+      "facility_id": "ca:facility:195b752d-cc98-5cce-9569-a1451d381b52",
+      "identity_key": "AB|LAVOY|RICHARDSON PIONEER LIMITED|CN|-111.8075002|53.43550136",
+      "initial_source_record_id": "aafc-elevators-2024:190",
+      "node_id": "ca:node:195b752d-cc98-5cce-9569-a1451d381b52"
+    },
+    {
+      "facility_id": "ca:facility:1b90a85b-5d25-50bb-9979-11c8a585c4b9",
+      "identity_key": "SK|PRAIRIE WEST|G3 CANADA LIMITED|CP|-108.73243|51.78815421",
+      "initial_source_record_id": "aafc-elevators-2024:92",
+      "node_id": "ca:node:1b90a85b-5d25-50bb-9979-11c8a585c4b9"
+    },
+    {
+      "facility_id": "ca:facility:1c8db462-f716-5982-bd8a-973d1f902da5",
+      "identity_key": "AB|BLACKIE|CARGILL LIMITED|CP|-113.619538|50.60622277",
+      "initial_source_record_id": "aafc-elevators-2024:162",
+      "node_id": "ca:node:1c8db462-f716-5982-bd8a-973d1f902da5"
+    },
+    {
+      "facility_id": "ca:facility:1cbc785a-89b6-5b0f-ae75-d44ed1720f85",
+      "identity_key": "MB|NETLEY|SCOULAR CANADA, LTD.|OTH|-96.95679973|50.35670096",
+      "initial_source_record_id": "aafc-elevators-2024:351",
+      "node_id": "ca:node:1cbc785a-89b6-5b0f-ae75-d44ed1720f85"
+    },
+    {
+      "facility_id": "ca:facility:1daaff35-1a2f-5550-9424-a425caa73bf3",
+      "identity_key": "SK|ESTON|SECTION 12 FOODS INC.|NO|-108.72183894|51.11137931",
+      "initial_source_record_id": "aafc-elevators-2024:375",
+      "node_id": "ca:node:1daaff35-1a2f-5550-9424-a425caa73bf3"
+    },
+    {
+      "facility_id": "ca:facility:1e6354ed-13c1-539d-9027-f08afc6700ad",
+      "identity_key": "SK|AMAZON|PARRISH & HEIMBECKER, LIMITED|CN|-105.4636123|51.57803063",
+      "initial_source_record_id": "aafc-elevators-2024:3",
+      "node_id": "ca:node:1e6354ed-13c1-539d-9027-f08afc6700ad"
+    },
+    {
+      "facility_id": "ca:facility:1f345cc5-1d59-5a1c-9685-08b8c266a208",
+      "identity_key": "AB|WETASKIWIN|G3 CANADA LIMITED|CP|-113.38366245|52.93274833",
+      "initial_source_record_id": "aafc-elevators-2024:394",
+      "node_id": "ca:node:1f345cc5-1d59-5a1c-9685-08b8c266a208"
+    },
+    {
+      "facility_id": "ca:facility:1f45c13b-ea15-5887-abcf-934c06021d68",
+      "identity_key": "SK|CONDIE|ALLIANCE PULSE PROCESSORS INC.|OTH|-104.73802828|50.55351931",
+      "initial_source_record_id": "aafc-elevators-2024:354",
+      "node_id": "ca:node:1f45c13b-ea15-5887-abcf-934c06021d68"
+    },
+    {
+      "facility_id": "ca:facility:1f4d7b19-3a16-59bd-a3ff-b8cd46247a58",
+      "identity_key": "AB|LETHBRIDGE|CARGILL LIMITED|CP|-112.8027069|49.69860732",
+      "initial_source_record_id": "aafc-elevators-2024:192",
+      "node_id": "ca:node:1f4d7b19-3a16-59bd-a3ff-b8cd46247a58"
+    },
+    {
+      "facility_id": "ca:facility:1fd65348-14ad-5afb-8ea1-3583c472032d",
+      "identity_key": "SK|SWIFT CURRENT|ETG COMMODITIES INC.|CP|-107.77381081|50.28160703",
+      "initial_source_record_id": "aafc-elevators-2024:153",
+      "node_id": "ca:node:1fd65348-14ad-5afb-8ea1-3583c472032d"
+    },
+    {
+      "facility_id": "ca:facility:20a17ef4-88fd-559d-be4c-13781a5eaebe",
+      "identity_key": "AB|IRRICANA|G3 CANADA LIMITED|CN|-113.626608|51.271595",
+      "initial_source_record_id": "aafc-elevators-2024:412",
+      "node_id": "ca:node:20a17ef4-88fd-559d-be4c-13781a5eaebe"
+    },
+    {
+      "facility_id": "ca:facility:20d02a96-bfcb-5fef-9d93-00fd049b8029",
+      "identity_key": "AB|BOW ISLAND|PARRISH & HEIMBECKER, LIMITED|CP|-111.4118821|49.85926695",
+      "initial_source_record_id": "aafc-elevators-2024:163",
+      "node_id": "ca:node:20d02a96-bfcb-5fef-9d93-00fd049b8029"
+    },
+    {
+      "facility_id": "ca:facility:21cd4b57-b45b-5c9f-a226-bd5e81bd22e2",
+      "identity_key": "SK|FRANCIS|VICTORIA PULSE TRADING CORP.|OTH|-103.88364027|50.10774357",
+      "initial_source_record_id": "aafc-elevators-2024:356",
+      "node_id": "ca:node:21cd4b57-b45b-5c9f-a226-bd5e81bd22e2"
+    },
+    {
+      "facility_id": "ca:facility:21ddc2c5-9e89-570c-ab5a-fa8cf92bf89c",
+      "identity_key": "SK|KEGWORTH|PARRISH & HEIMBECKER, LIMITED|CN|-103.0148618|50.16968142",
+      "initial_source_record_id": "aafc-elevators-2024:57",
+      "node_id": "ca:node:21ddc2c5-9e89-570c-ab5a-fa8cf92bf89c"
+    },
+    {
+      "facility_id": "ca:facility:25159a7b-9657-57d8-a24f-b72cbd4f9e3f",
+      "identity_key": "SK|REGINA|NATURAL SPECIALTY CROPS CO., ULC|NO|-104.80047191|50.44560582",
+      "initial_source_record_id": "aafc-elevators-2024:405",
+      "node_id": "ca:node:25159a7b-9657-57d8-a24f-b72cbd4f9e3f"
+    },
+    {
+      "facility_id": "ca:facility:25682573-7b34-53f9-a262-98d8f92686c8",
+      "identity_key": "SK|CONGRESS|CARGILL LIMITED|CP|-106.01843251|49.75173284",
+      "initial_source_record_id": "aafc-elevators-2024:28",
+      "node_id": "ca:node:25682573-7b34-53f9-a262-98d8f92686c8"
+    },
+    {
+      "facility_id": "ca:facility:258d5e18-bdf4-5863-a7d8-dfb95eb7d1e4",
+      "identity_key": "MB|WINKLER|SCOULAR CANADA, LTD.|NO|-97.930351|49.175964",
+      "initial_source_record_id": "aafc-elevators-2024:321",
+      "node_id": "ca:node:258d5e18-bdf4-5863-a7d8-dfb95eb7d1e4"
+    },
+    {
+      "facility_id": "ca:facility:265e8583-c9bd-5f84-b45b-b2df53d5be3b",
+      "identity_key": "SK|CUPAR|VITERRA CANADA INC.|CP|-104.21148847|50.94382801",
+      "initial_source_record_id": "aafc-elevators-2024:31",
+      "node_id": "ca:node:265e8583-c9bd-5f84-b45b-b2df53d5be3b"
+    },
+    {
+      "facility_id": "ca:facility:2662a9e1-ce0f-55d0-b4ae-ec2f5c2468a8",
+      "identity_key": "MB|NESBITT|CARGILL LIMITED|CP|-99.92897942|49.59290105",
+      "initial_source_record_id": "aafc-elevators-2024:298",
+      "node_id": "ca:node:2662a9e1-ce0f-55d0-b4ae-ec2f5c2468a8"
+    },
+    {
+      "facility_id": "ca:facility:26a890bd-439d-5653-8a12-62dd0ab2f4bd",
+      "identity_key": "MB|DELORAINE|TURTLE MOUNTAIN SEED CO. LTD.|NO|-100.5172357|49.19270749",
+      "initial_source_record_id": "aafc-elevators-2024:271",
+      "node_id": "ca:node:26a890bd-439d-5653-8a12-62dd0ab2f4bd"
+    },
+    {
+      "facility_id": "ca:facility:2729912e-d7bd-59a1-91d3-9fa3db0d5dce",
+      "identity_key": "SK|DIXON|RICHARDSON PIONEER LIMITED|CN|-105.2779303|52.20500415",
+      "initial_source_record_id": "aafc-elevators-2024:38",
+      "node_id": "ca:node:2729912e-d7bd-59a1-91d3-9fa3db0d5dce"
+    },
+    {
+      "facility_id": "ca:facility:292962f3-e49f-5d91-8b12-cf70bd47181e",
+      "identity_key": "MB|MORDEN|BP & SONS GRAIN AND STORAGE INC.|CP|-98.09996681|49.18819821",
+      "initial_source_record_id": "aafc-elevators-2024:294",
+      "node_id": "ca:node:292962f3-e49f-5d91-8b12-cf70bd47181e"
+    },
+    {
+      "facility_id": "ca:facility:2930bbcb-7df1-5582-b2ca-a4d2b6f6caa2",
+      "identity_key": "SK|N BATTLEFORD|CARGILL LIMITED|CN|-108.2369448|52.74075432",
+      "initial_source_record_id": "aafc-elevators-2024:84",
+      "node_id": "ca:node:2930bbcb-7df1-5582-b2ca-a4d2b6f6caa2"
+    },
+    {
+      "facility_id": "ca:facility:2aa3d1b9-402d-5434-90f4-1b92c68eb638",
+      "identity_key": "AB|CASSILS|VITERRA CANADA INC.|CP|-112.0439237|50.57616594",
+      "initial_source_record_id": "aafc-elevators-2024:171",
+      "node_id": "ca:node:2aa3d1b9-402d-5434-90f4-1b92c68eb638"
+    },
+    {
+      "facility_id": "ca:facility:2aa98334-0b9d-5b61-ba48-b1cf7d967e73",
+      "identity_key": "SK|WALDRON|VITERRA CANADA INC.|CN|-102.45997844|50.83432096",
+      "initial_source_record_id": "aafc-elevators-2024:130",
+      "node_id": "ca:node:2aa98334-0b9d-5b61-ba48-b1cf7d967e73"
+    },
+    {
+      "facility_id": "ca:facility:2afe6af8-c6f0-5b59-aa59-260a6e2be3f9",
+      "identity_key": "AB|TROCHU|VITERRA CANADA INC.|CN|-113.23096596|51.80271267",
+      "initial_source_record_id": "aafc-elevators-2024:224",
+      "node_id": "ca:node:2afe6af8-c6f0-5b59-aa59-260a6e2be3f9"
+    },
+    {
+      "facility_id": "ca:facility:2c059781-681d-5030-ac64-c0a438daaf1b",
+      "identity_key": "SK|BELLE PLAINE|VITERRA CANADA INC.|CP|-105.16558053|50.39987999",
+      "initial_source_record_id": "aafc-elevators-2024:367",
+      "node_id": "ca:node:2c059781-681d-5030-ac64-c0a438daaf1b"
+    },
+    {
+      "facility_id": "ca:facility:2d7187eb-d7e3-589e-8352-fe5f79671468",
+      "identity_key": "AB|PROVOST|RICHARDSON PIONEER LIMITED|CP|-110.1952656|52.34831296",
+      "initial_source_record_id": "aafc-elevators-2024:209",
+      "node_id": "ca:node:2d7187eb-d7e3-589e-8352-fe5f79671468"
+    },
+    {
+      "facility_id": "ca:facility:2d74dd68-9b72-5669-99eb-71b71315e304",
+      "identity_key": "AB|ACHESON|VITERRA CANADA INC.|CN|-113.774928|53.55028894",
+      "initial_source_record_id": "aafc-elevators-2024:158",
+      "node_id": "ca:node:2d74dd68-9b72-5669-99eb-71b71315e304"
+    },
+    {
+      "facility_id": "ca:facility:30069254-f96e-51ed-944a-1e48f8c70117",
+      "identity_key": "SK|CARMICHAEL|RICHARDSON PIONEER LIMITED|CP|-108.58515846|50.06844899",
+      "initial_source_record_id": "aafc-elevators-2024:441",
+      "node_id": "ca:node:30069254-f96e-51ed-944a-1e48f8c70117"
+    },
+    {
+      "facility_id": "ca:facility:329abdf1-7c70-58bb-b80f-b5b2e08b8ad0",
+      "identity_key": "MB|KILLARNEY|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-99.64426738|49.18098815",
+      "initial_source_record_id": "aafc-elevators-2024:284",
+      "node_id": "ca:node:329abdf1-7c70-58bb-b80f-b5b2e08b8ad0"
+    },
+    {
+      "facility_id": "ca:facility:33df9e82-d2a5-52ff-bb31-3b1bbdbf604d",
+      "identity_key": "MB|PLUM COULEE|VITERRA CANADA INC.|NO|-97.76172354|49.19014177",
+      "initial_source_record_id": "aafc-elevators-2024:302",
+      "node_id": "ca:node:33df9e82-d2a5-52ff-bb31-3b1bbdbf604d"
+    },
+    {
+      "facility_id": "ca:facility:33fb4304-f5c3-51c4-81cc-742ecc95121a",
+      "identity_key": "MB|SOURIS EAST|VITERRA CANADA INC.|CP|-100.2419778|49.62779755",
+      "initial_source_record_id": "aafc-elevators-2024:310",
+      "node_id": "ca:node:33fb4304-f5c3-51c4-81cc-742ecc95121a"
+    },
+    {
+      "facility_id": "ca:facility:34be1f59-fc40-5cec-b1e6-c29c93eb2961",
+      "identity_key": "MB|MOLLARD|RICHARDSON PIONEER LIMITED|CN|-97.6320776|49.55672051",
+      "initial_source_record_id": "aafc-elevators-2024:293",
+      "node_id": "ca:node:34be1f59-fc40-5cec-b1e6-c29c93eb2961"
+    },
+    {
+      "facility_id": "ca:facility:350f8d1f-99d6-58a7-a6a3-62c2eef609d9",
+      "identity_key": "SK|PAMBRUN|ADROIT OVERSEAS ENTERPRISES LTD.|OTH|-107.45675287|49.88795367",
+      "initial_source_record_id": "aafc-elevators-2024:152",
+      "node_id": "ca:node:350f8d1f-99d6-58a7-a6a3-62c2eef609d9"
+    },
+    {
+      "facility_id": "ca:facility:35843a74-a8aa-5e0c-8b60-1bce9a4f0594",
+      "identity_key": "AB|RYCROFT|G3 CANADA LIMITED|CN|-118.70911224999998|55.72337803900007",
+      "initial_source_record_id": "aafc-elevators-2024:444",
+      "node_id": "ca:node:35843a74-a8aa-5e0c-8b60-1bce9a4f0594"
+    },
+    {
+      "facility_id": "ca:facility:36d085a2-38be-5d6e-8d8d-8f07337a7e7e",
+      "identity_key": "SK|ROSETOWN|VITERRA CANADA INC.|CN|-107.9367039|51.57181606",
+      "initial_source_record_id": "aafc-elevators-2024:107",
+      "node_id": "ca:node:36d085a2-38be-5d6e-8d8d-8f07337a7e7e"
+    },
+    {
+      "facility_id": "ca:facility:36f4a47b-f4eb-5029-8b7a-f389c7a352e6",
+      "identity_key": "SK|CUT KNIFE|VEIKLE GRAIN LTD.|CP|-109.01638617|52.74232924",
+      "initial_source_record_id": "aafc-elevators-2024:32",
+      "node_id": "ca:node:36f4a47b-f4eb-5029-8b7a-f389c7a352e6"
+    },
+    {
+      "facility_id": "ca:facility:37f07e52-e6aa-5864-8a98-698bc8bd9368",
+      "identity_key": "MB|HOLLAND|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-98.87773979|49.59941054",
+      "initial_source_record_id": "aafc-elevators-2024:281",
+      "node_id": "ca:node:37f07e52-e6aa-5864-8a98-698bc8bd9368"
+    },
+    {
+      "facility_id": "ca:facility:3a3aa1da-1540-5b4b-bed8-17e51a6aa320",
+      "identity_key": "SK|ESTON|ALLIANCE PULSE PROCESSORS INC.|CN|-108.71964325|51.160256",
+      "initial_source_record_id": "aafc-elevators-2024:146",
+      "node_id": "ca:node:3a3aa1da-1540-5b4b-bed8-17e51a6aa320"
+    },
+    {
+      "facility_id": "ca:facility:3a44dcbc-622b-54cb-a910-929631974165",
+      "identity_key": "SK|ESTEVAN|RICHARDSON PIONEER LIMITED|CP|-103.0287857|49.15972765",
+      "initial_source_record_id": "aafc-elevators-2024:40",
+      "node_id": "ca:node:3a44dcbc-622b-54cb-a910-929631974165"
+    },
+    {
+      "facility_id": "ca:facility:3a774366-da35-5491-b742-9a1811a0919b",
+      "identity_key": "MB|BOISSEVAIN|VITERRA CANADA INC.|CP|-100.0915384|49.229314",
+      "initial_source_record_id": "aafc-elevators-2024:259",
+      "node_id": "ca:node:3a774366-da35-5491-b742-9a1811a0919b"
+    },
+    {
+      "facility_id": "ca:facility:3bf28732-ffa5-5710-bfd4-6c0d6538bad5",
+      "identity_key": "SK|ASSINIBOIA|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-105.98454061|49.64397156",
+      "initial_source_record_id": "aafc-elevators-2024:7",
+      "node_id": "ca:node:3bf28732-ffa5-5710-bfd4-6c0d6538bad5"
+    },
+    {
+      "facility_id": "ca:facility:3c08e391-7acd-591d-8d59-70ce615a0d87",
+      "identity_key": "SK|CANORA|RICHARDSON PIONEER LIMITED|CN|-102.44351144|51.61540333",
+      "initial_source_record_id": "aafc-elevators-2024:22",
+      "node_id": "ca:node:3c08e391-7acd-591d-8d59-70ce615a0d87"
+    },
+    {
+      "facility_id": "ca:facility:3cb2eb46-461d-52e8-8e9a-8a5bab6762b1",
+      "identity_key": "SK|SWIFT CURRENT|ETG COMMODITIES INC.|CP|-107.77397124|50.27697126",
+      "initial_source_record_id": "aafc-elevators-2024:399",
+      "node_id": "ca:node:3cb2eb46-461d-52e8-8e9a-8a5bab6762b1"
+    },
+    {
+      "facility_id": "ca:facility:3dee3fda-361b-561d-b574-f54fa7af6044",
+      "identity_key": "SK|GRENFELL|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-102.9364319|50.41426831",
+      "initial_source_record_id": "aafc-elevators-2024:45",
+      "node_id": "ca:node:3dee3fda-361b-561d-b574-f54fa7af6044"
+    },
+    {
+      "facility_id": "ca:facility:3e9ad97c-18f3-58dc-a2c4-736309923034",
+      "identity_key": "SK|ITUNA|VITERRA CANADA INC.|CN|-103.4676949|51.15922939",
+      "initial_source_record_id": "aafc-elevators-2024:55",
+      "node_id": "ca:node:3e9ad97c-18f3-58dc-a2c4-736309923034"
+    },
+    {
+      "facility_id": "ca:facility:3e9e5f65-bd3e-5e4e-81d7-686d74d7270a",
+      "identity_key": "AB|STONY PLAIN|STONY PLAIN SEED CLEANING ASSOCIATION LIMITED|NO|-114.00035707|53.56225108",
+      "initial_source_record_id": "aafc-elevators-2024:220",
+      "node_id": "ca:node:3e9e5f65-bd3e-5e4e-81d7-686d74d7270a"
+    },
+    {
+      "facility_id": "ca:facility:3eb4283b-9131-5116-9299-c9c7c5a10b15",
+      "identity_key": "AB|VEGREVILLE|VITERRA CANADA INC.|CN|-112.17578756|53.53633834",
+      "initial_source_record_id": "aafc-elevators-2024:388",
+      "node_id": "ca:node:3eb4283b-9131-5116-9299-c9c7c5a10b15"
+    },
+    {
+      "facility_id": "ca:facility:3f9f6a70-5cd2-5652-bf4c-935a796103ab",
+      "identity_key": "SK|WEYBURN|PARRISH & HEIMBECKER, LIMITED|CP|-103.8053886|49.63030021",
+      "initial_source_record_id": "aafc-elevators-2024:133",
+      "node_id": "ca:node:3f9f6a70-5cd2-5652-bf4c-935a796103ab"
+    },
+    {
+      "facility_id": "ca:facility:401bc0e2-1b70-541b-bb2e-40f204e0ca12",
+      "identity_key": "SK|NEVILLE|ADROIT OVERSEAS ENTERPRISES LTD.|CP|-107.630503|49.961318",
+      "initial_source_record_id": "aafc-elevators-2024:418",
+      "node_id": "ca:node:401bc0e2-1b70-541b-bb2e-40f204e0ca12"
+    },
+    {
+      "facility_id": "ca:facility:40442982-d152-5900-9f2b-7c2ac90a761c",
+      "identity_key": "SK|ZEALANDIA|GLOBAL FOOD AND INGREDIENTS INC.|CN|-107.7441548|51.61873909",
+      "initial_source_record_id": "aafc-elevators-2024:365",
+      "node_id": "ca:node:40442982-d152-5900-9f2b-7c2ac90a761c"
+    },
+    {
+      "facility_id": "ca:facility:40909812-4ab5-54be-b57a-f07132b43b4c",
+      "identity_key": "SK|STRONGFIELD|VITERRA CANADA INC.|CP|-106.59978252|51.29292042",
+      "initial_source_record_id": "aafc-elevators-2024:387",
+      "node_id": "ca:node:40909812-4ab5-54be-b57a-f07132b43b4c"
+    },
+    {
+      "facility_id": "ca:facility:41ae4bd2-d7e9-564b-9892-151b29369c95",
+      "identity_key": "SK|SASKATOON|GRAIN MILLERS CANADA CORP.|CN|-106.65282119|52.17713803",
+      "initial_source_record_id": "aafc-elevators-2024:386",
+      "node_id": "ca:node:41ae4bd2-d7e9-564b-9892-151b29369c95"
+    },
+    {
+      "facility_id": "ca:facility:42204fc2-2c6a-54d9-897c-4636fd477a37",
+      "identity_key": "MB|CYPRESS RIVER|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-99.08947363|49.5544187",
+      "initial_source_record_id": "aafc-elevators-2024:268",
+      "node_id": "ca:node:42204fc2-2c6a-54d9-897c-4636fd477a37"
+    },
+    {
+      "facility_id": "ca:facility:427f6a0d-18de-5391-bfb2-34782bdf2d0d",
+      "identity_key": "MB|GLADSTONE|PARRISH & HEIMBECKER, LIMITED|CN|-98.92993229|50.20636063",
+      "initial_source_record_id": "aafc-elevators-2024:328",
+      "node_id": "ca:node:427f6a0d-18de-5391-bfb2-34782bdf2d0d"
+    },
+    {
+      "facility_id": "ca:facility:42cb2bf9-e679-5053-a6b4-b422ea30de0e",
+      "identity_key": "AB|LYALTA|CANADA MALTING CO. LIMITED|CN|-113.602786|51.11300675",
+      "initial_source_record_id": "aafc-elevators-2024:198",
+      "node_id": "ca:node:42cb2bf9-e679-5053-a6b4-b422ea30de0e"
+    },
+    {
+      "facility_id": "ca:facility:43e9201a-a139-5c6b-b8eb-c160501b2a23",
+      "identity_key": "MB|STARBUCK|RICHARDSON PIONEER LIMITED|CP|-97.61375848|49.77123791",
+      "initial_source_record_id": "aafc-elevators-2024:314",
+      "node_id": "ca:node:43e9201a-a139-5c6b-b8eb-c160501b2a23"
+    },
+    {
+      "facility_id": "ca:facility:44d50ba7-cd28-5ca0-9494-8513a7061fa4",
+      "identity_key": "SK|CLAVET|CARGILL LIMITED|CN|-106.40370648|52.0313333",
+      "initial_source_record_id": "aafc-elevators-2024:26",
+      "node_id": "ca:node:44d50ba7-cd28-5ca0-9494-8513a7061fa4"
+    },
+    {
+      "facility_id": "ca:facility:459aa4d3-e47f-5682-b885-3c353ab73186",
+      "identity_key": "SK|COLONSAY|G3 CANADA LIMITED|CP|-105.84022309|51.96787636",
+      "initial_source_record_id": "aafc-elevators-2024:145",
+      "node_id": "ca:node:459aa4d3-e47f-5682-b885-3c353ab73186"
+    },
+    {
+      "facility_id": "ca:facility:45b28305-cd7c-58e8-b487-ce7c81510eb7",
+      "identity_key": "SK|CORINNE|RICHARDSON PIONEER LIMITED|CP|-104.63656216|50.05126592",
+      "initial_source_record_id": "aafc-elevators-2024:29",
+      "node_id": "ca:node:45b28305-cd7c-58e8-b487-ce7c81510eb7"
+    },
+    {
+      "facility_id": "ca:facility:45f02216-e8d2-54b7-9436-74a3724c24d2",
+      "identity_key": "MB|MARIAPOLIS|CANADA MALTING CO. LIMITED|CN|-99.00680129|49.35294038",
+      "initial_source_record_id": "aafc-elevators-2024:289",
+      "node_id": "ca:node:45f02216-e8d2-54b7-9436-74a3724c24d2"
+    },
+    {
+      "facility_id": "ca:facility:469e56c2-2838-5266-9f11-399da605027f",
+      "identity_key": "AB|WILSON|PARRISH & HEIMBECKER, LIMITED|CP|-112.65148563|49.60267118",
+      "initial_source_record_id": "aafc-elevators-2024:235",
+      "node_id": "ca:node:469e56c2-2838-5266-9f11-399da605027f"
+    },
+    {
+      "facility_id": "ca:facility:470bc39a-63d4-5bd0-8c63-468f6a811b5f",
+      "identity_key": "SK|HAMLIN|ADM AGRI-INDUSTRIES COMPANY|CN|-108.31335274|52.86922735",
+      "initial_source_record_id": "aafc-elevators-2024:377",
+      "node_id": "ca:node:470bc39a-63d4-5bd0-8c63-468f6a811b5f"
+    },
+    {
+      "facility_id": "ca:facility:479bcb17-f220-5511-b22a-b4bea5ec2d82",
+      "identity_key": "SK|SWIFT CURRENT|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-107.7578644|50.29142304",
+      "initial_source_record_id": "aafc-elevators-2024:118",
+      "node_id": "ca:node:479bcb17-f220-5511-b22a-b4bea5ec2d82"
+    },
+    {
+      "facility_id": "ca:facility:47ad13d2-64a6-548b-b0e2-f2fb9707327e",
+      "identity_key": "MB|MEDORA|VANDAELE SEEDS LTD.|NO|-100.66329021|49.25394835",
+      "initial_source_record_id": "aafc-elevators-2024:290",
+      "node_id": "ca:node:47ad13d2-64a6-548b-b0e2-f2fb9707327e"
+    },
+    {
+      "facility_id": "ca:facility:47bac081-8c30-5ebf-bc48-98c0bbaa4b20",
+      "identity_key": "AB|WESTLOCK|WESTLOCK TERMINALS (NGC) LTD.|CN|-113.863802|54.1562702",
+      "initial_source_record_id": "aafc-elevators-2024:233",
+      "node_id": "ca:node:47bac081-8c30-5ebf-bc48-98c0bbaa4b20"
+    },
+    {
+      "facility_id": "ca:facility:48345815-006b-5bfe-93b6-fef69573ae1f",
+      "identity_key": "AB|DAYSLAND|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-112.26245351|52.86308803",
+      "initial_source_record_id": "aafc-elevators-2024:359",
+      "node_id": "ca:node:48345815-006b-5bfe-93b6-fef69573ae1f"
+    },
+    {
+      "facility_id": "ca:facility:4864258c-5bd3-5d24-9f2d-7d1990ddc3b4",
+      "identity_key": "MB|CULROSS|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-97.90831514|49.71501313",
+      "initial_source_record_id": "aafc-elevators-2024:267",
+      "node_id": "ca:node:4864258c-5bd3-5d24-9f2d-7d1990ddc3b4"
+    },
+    {
+      "facility_id": "ca:facility:48a2787e-13c1-5721-b4cb-6ea301f9f202",
+      "identity_key": "AB|CROSSFIELD|PROVIDENCE GRAIN GROUP INC.|CP|-114.0257434|51.42977878",
+      "initial_source_record_id": "aafc-elevators-2024:172",
+      "node_id": "ca:node:48a2787e-13c1-5721-b4cb-6ea301f9f202"
+    },
+    {
+      "facility_id": "ca:facility:48a6d1b3-746b-53e3-aa69-3a043257fd8b",
+      "identity_key": "SK|ABERDEEN|AGT FOODS OAT MILLING LIMITED PARTNERSHIP|CN|-106.2729515|52.32241816",
+      "initial_source_record_id": "aafc-elevators-2024:1",
+      "node_id": "ca:node:48a6d1b3-746b-53e3-aa69-3a043257fd8b"
+    },
+    {
+      "facility_id": "ca:facility:48c9e682-344a-5ced-b123-4a084935a32a",
+      "identity_key": "SK|BOOTH SIDING|VITERRA CANADA INC.|CN|-104.62188839|51.41059927",
+      "initial_source_record_id": "aafc-elevators-2024:17",
+      "node_id": "ca:node:48c9e682-344a-5ced-b123-4a084935a32a"
+    },
+    {
+      "facility_id": "ca:facility:48d13a0c-c33f-5283-9a18-74b8dea0a5e1",
+      "identity_key": "SK|DELISLE|ALLIANCE PULSE PROCESSORS INC.|OTH|-107.126362|51.897197",
+      "initial_source_record_id": "aafc-elevators-2024:416",
+      "node_id": "ca:node:48d13a0c-c33f-5283-9a18-74b8dea0a5e1"
+    },
+    {
+      "facility_id": "ca:facility:4a48648e-5099-5e15-8d72-74970499755c",
+      "identity_key": "AB|MC LENNAN|CARGILL LIMITED|CN|-116.98564755|55.71752656",
+      "initial_source_record_id": "aafc-elevators-2024:201",
+      "node_id": "ca:node:4a48648e-5099-5e15-8d72-74970499755c"
+    },
+    {
+      "facility_id": "ca:facility:4a7116b4-fe9f-51b7-9ddf-9da34b88a48f",
+      "identity_key": "AB|VERMILION|G3 CANADA LIMITED|CN|-110.76557884|53.34491601",
+      "initial_source_record_id": "aafc-elevators-2024:436",
+      "node_id": "ca:node:4a7116b4-fe9f-51b7-9ddf-9da34b88a48f"
+    },
+    {
+      "facility_id": "ca:facility:4a98aabb-909e-5c60-bfa8-a78c734f2ba5",
+      "identity_key": "SK|DIXON|BUNGE CANADA|CN|-105.22558002|52.20398975",
+      "initial_source_record_id": "aafc-elevators-2024:37",
+      "node_id": "ca:node:4a98aabb-909e-5c60-bfa8-a78c734f2ba5"
+    },
+    {
+      "facility_id": "ca:facility:4b6f7717-42df-587c-a2dd-4e7cd4aa3a7e",
+      "identity_key": "SK|CARNDUFF|VITERRA CANADA INC.|CP|-101.73181808|49.17477491",
+      "initial_source_record_id": "aafc-elevators-2024:24",
+      "node_id": "ca:node:4b6f7717-42df-587c-a2dd-4e7cd4aa3a7e"
+    },
+    {
+      "facility_id": "ca:facility:4d143992-2347-562b-a4fe-f1356817b203",
+      "identity_key": "SK|MOOSE JAW|VITERRA CANADA INC.|CP|-105.6091172|50.38150766",
+      "initial_source_record_id": "aafc-elevators-2024:82",
+      "node_id": "ca:node:4d143992-2347-562b-a4fe-f1356817b203"
+    },
+    {
+      "facility_id": "ca:facility:4e206cf9-9af7-5b7f-9ecb-7116eddcd44c",
+      "identity_key": "AB|CALGARY|ALLIANCE PULSE PROCESSORS INC.|NO|-113.84511208|50.95248065",
+      "initial_source_record_id": "aafc-elevators-2024:371",
+      "node_id": "ca:node:4e206cf9-9af7-5b7f-9ecb-7116eddcd44c"
+    },
+    {
+      "facility_id": "ca:facility:4e7f54bd-583c-5467-9695-f9a302b3e675",
+      "identity_key": "SK|LEADER|G3 CANADA LIMITED|CP|-109.47935332|50.86903448",
+      "initial_source_record_id": "aafc-elevators-2024:64",
+      "node_id": "ca:node:4e7f54bd-583c-5467-9695-f9a302b3e675"
+    },
+    {
+      "facility_id": "ca:facility:4e869630-ad25-5506-a619-fb1d1c52b414",
+      "identity_key": "SK|KINDERSLEY|PURELY CANADA FOODS CORP.|CN|-109.15906367|51.46181974",
+      "initial_source_record_id": "aafc-elevators-2024:426",
+      "node_id": "ca:node:4e869630-ad25-5506-a619-fb1d1c52b414"
+    },
+    {
+      "facility_id": "ca:facility:4ebc3595-4a1a-5ad4-9cfa-d889c08fba23",
+      "identity_key": "AB|HUXLEY|GRAINSCONNECT CANADA OPERATIONS INC.|CN|-113.23575962|51.91225203",
+      "initial_source_record_id": "aafc-elevators-2024:402",
+      "node_id": "ca:node:4ebc3595-4a1a-5ad4-9cfa-d889c08fba23"
+    },
+    {
+      "facility_id": "ca:facility:4effaaf0-065c-5fff-9689-d99daa58f92a",
+      "identity_key": "AB|TABER|TEASDALE FOODS, INC.|CP|-112.0084907|49.80905578",
+      "initial_source_record_id": "aafc-elevators-2024:221",
+      "node_id": "ca:node:4effaaf0-065c-5fff-9689-d99daa58f92a"
+    },
+    {
+      "facility_id": "ca:facility:4f6506e7-91da-5719-8f37-2a037efd8bb1",
+      "identity_key": "MB|JORDAN|DELMAR COMMODITIES LTD.|CN|-98.00397525|49.37034974",
+      "initial_source_record_id": "aafc-elevators-2024:283",
+      "node_id": "ca:node:4f6506e7-91da-5719-8f37-2a037efd8bb1"
+    },
+    {
+      "facility_id": "ca:facility:5058310d-ee4f-5a67-9ea8-b84b1d45c8ca",
+      "identity_key": "AB|RYCROFT|CARGILL LIMITED|CN|-118.6354185|55.74536701",
+      "initial_source_record_id": "aafc-elevators-2024:212",
+      "node_id": "ca:node:5058310d-ee4f-5a67-9ea8-b84b1d45c8ca"
+    },
+    {
+      "facility_id": "ca:facility:51f998fd-f814-5cb6-b602-d1ec76372013",
+      "identity_key": "SK|NOKOMIS A|RICHARDSON PIONEER LIMITED|CP|-105.016581|51.49398063",
+      "initial_source_record_id": "aafc-elevators-2024:89",
+      "node_id": "ca:node:51f998fd-f814-5cb6-b602-d1ec76372013"
+    },
+    {
+      "facility_id": "ca:facility:51fc88c3-f1db-56e7-a07e-96f00d32ff71",
+      "identity_key": "SK|AVONLEA|PURELY CANADA FOODS CORP.|CN|-105.06176791|50.01364628",
+      "initial_source_record_id": "aafc-elevators-2024:9",
+      "node_id": "ca:node:51fc88c3-f1db-56e7-a07e-96f00d32ff71"
+    },
+    {
+      "facility_id": "ca:facility:52bef792-4678-582c-91ef-2fff98525395",
+      "identity_key": "SK|NICKLEN SIDING|BUNGE CANADA|CN|-104.0482197|53.09748274",
+      "initial_source_record_id": "aafc-elevators-2024:86",
+      "node_id": "ca:node:52bef792-4678-582c-91ef-2fff98525395"
+    },
+    {
+      "facility_id": "ca:facility:53dcaa17-c136-5ead-be72-a9de334b9e4f",
+      "identity_key": "SK|MAPLE CREEK|RICHARDSON PIONEER LIMITED|CP|-109.4788633|49.91052009",
+      "initial_source_record_id": "aafc-elevators-2024:71",
+      "node_id": "ca:node:53dcaa17-c136-5ead-be72-a9de334b9e4f"
+    },
+    {
+      "facility_id": "ca:facility:55a85fbb-368b-5019-a00b-12bade3f4bcf",
+      "identity_key": "AB|LACOMBE EAST|RICHARDSON PIONEER LIMITED|CP|-113.6383978|52.45712395",
+      "initial_source_record_id": "aafc-elevators-2024:188",
+      "node_id": "ca:node:55a85fbb-368b-5019-a00b-12bade3f4bcf"
+    },
+    {
+      "facility_id": "ca:facility:56963e86-c57a-5fda-9e12-bb8408e3f7e5",
+      "identity_key": "SK|CANORA|VITERRA CANADA INC.|CN|-102.44229356|51.5862489",
+      "initial_source_record_id": "aafc-elevators-2024:23",
+      "node_id": "ca:node:56963e86-c57a-5fda-9e12-bb8408e3f7e5"
+    },
+    {
+      "facility_id": "ca:facility:570e27c2-2413-5e7b-b3db-fcf9cdfa606b",
+      "identity_key": "AB|BOW ISLAND|G.S. DUNN LIMITED|NO|-111.452097|49.737075",
+      "initial_source_record_id": "aafc-elevators-2024:419",
+      "node_id": "ca:node:570e27c2-2413-5e7b-b3db-fcf9cdfa606b"
+    },
+    {
+      "facility_id": "ca:facility:5783dde3-d065-5d9f-86d6-0e3a3e5f312b",
+      "identity_key": "AB|OLDS|RICHARDSON PIONEER LIMITED|CP|-114.0893896|51.81395869",
+      "initial_source_record_id": "aafc-elevators-2024:207",
+      "node_id": "ca:node:5783dde3-d065-5d9f-86d6-0e3a3e5f312b"
+    },
+    {
+      "facility_id": "ca:facility:57c4579a-f36d-51f0-8b2b-c97eedecf0af",
+      "identity_key": "SK|WATSON|ADM AGRI-INDUSTRIES COMPANY|CP|-104.54446724|52.12295448",
+      "initial_source_record_id": "aafc-elevators-2024:132",
+      "node_id": "ca:node:57c4579a-f36d-51f0-8b2b-c97eedecf0af"
+    },
+    {
+      "facility_id": "ca:facility:585f76c3-6260-54c2-bd33-ee54a0e4c68b",
+      "identity_key": "SK|MELFORT|VITERRA CANADA INC.|CN|-104.6546904|52.8478707",
+      "initial_source_record_id": "aafc-elevators-2024:75",
+      "node_id": "ca:node:585f76c3-6260-54c2-bd33-ee54a0e4c68b"
+    },
+    {
+      "facility_id": "ca:facility:5917686a-4421-5bc0-a045-6e0d41c0b344",
+      "identity_key": "SK|QUILL LAKE|PARRISH & HEIMBECKER, LIMITED|CN|-104.2344737|52.06287619",
+      "initial_source_record_id": "aafc-elevators-2024:93",
+      "node_id": "ca:node:5917686a-4421-5bc0-a045-6e0d41c0b344"
+    },
+    {
+      "facility_id": "ca:facility:599f12ab-f148-591e-b22a-568f87f4e049",
+      "identity_key": "SK|OBAN|PARRISH & HEIMBECKER, LIMITED|CN|-108.1367566|52.12540801",
+      "initial_source_record_id": "aafc-elevators-2024:91",
+      "node_id": "ca:node:599f12ab-f148-591e-b22a-568f87f4e049"
+    },
+    {
+      "facility_id": "ca:facility:5ad5381e-18d4-5b6d-a4fa-5870154b7028",
+      "identity_key": "SK|MELFORT|RICHARDSON PIONEER LIMITED|CN|-104.6464851|52.83985245",
+      "initial_source_record_id": "aafc-elevators-2024:74",
+      "node_id": "ca:node:5ad5381e-18d4-5b6d-a4fa-5870154b7028"
+    },
+    {
+      "facility_id": "ca:facility:5beb822a-78d1-5b28-b13a-0801a72632a2",
+      "identity_key": "AB|TABER|VITERRA CANADA INC.|CP|-112.0424103|49.80295208",
+      "initial_source_record_id": "aafc-elevators-2024:222",
+      "node_id": "ca:node:5beb822a-78d1-5b28-b13a-0801a72632a2"
+    },
+    {
+      "facility_id": "ca:facility:5bf8043a-0537-500a-bcab-9314c4a2172c",
+      "identity_key": "SK|WILKIE|ALLIANCE PULSE PROCESSORS INC.|CP|-108.6936064|52.41051444",
+      "initial_source_record_id": "aafc-elevators-2024:138",
+      "node_id": "ca:node:5bf8043a-0537-500a-bcab-9314c4a2172c"
+    },
+    {
+      "facility_id": "ca:facility:5c65ceba-11b3-5734-816a-bb00c6e32620",
+      "identity_key": "AB|NIOBE|CANADA MALTING CO. LIMITED|CP|-113.9200965|52.05366283",
+      "initial_source_record_id": "aafc-elevators-2024:204",
+      "node_id": "ca:node:5c65ceba-11b3-5734-816a-bb00c6e32620"
+    },
+    {
+      "facility_id": "ca:facility:5c6ead3a-d722-56ee-b116-b7dc3b6a4607",
+      "identity_key": "SK|GULL LAKE|VITERRA CANADA INC.|CP|-108.53944506|50.07771982",
+      "initial_source_record_id": "aafc-elevators-2024:47",
+      "node_id": "ca:node:5c6ead3a-d722-56ee-b116-b7dc3b6a4607"
+    },
+    {
+      "facility_id": "ca:facility:5d631359-f30b-547e-9c5c-deca2d3f111a",
+      "identity_key": "SK|MOOSOMIN|PARRISH & HEIMBECKER, LIMITED|CP|-101.711407|50.16813763",
+      "initial_source_record_id": "aafc-elevators-2024:83",
+      "node_id": "ca:node:5d631359-f30b-547e-9c5c-deca2d3f111a"
+    },
+    {
+      "facility_id": "ca:facility:5e27caa2-4c97-557e-b6ff-ec66c585836c",
+      "identity_key": "SK|LANG|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-104.3769448|49.91998798",
+      "initial_source_record_id": "aafc-elevators-2024:61",
+      "node_id": "ca:node:5e27caa2-4c97-557e-b6ff-ec66c585836c"
+    },
+    {
+      "facility_id": "ca:facility:5ebe543d-7588-5958-8861-f14956313d23",
+      "identity_key": "SK|LAJORD|PURELY CANADA FOODS CORP.|OTH|-104.15359386|50.24048481",
+      "initial_source_record_id": "aafc-elevators-2024:427",
+      "node_id": "ca:node:5ebe543d-7588-5958-8861-f14956313d23"
+    },
+    {
+      "facility_id": "ca:facility:5ebf465c-90d7-5490-bc60-e5e5dfdb2e6d",
+      "identity_key": "SK|FAIRLIGHT|VITERRA CANADA INC.|CN|-101.7082572|49.8890671",
+      "initial_source_record_id": "aafc-elevators-2024:42",
+      "node_id": "ca:node:5ebf465c-90d7-5490-bc60-e5e5dfdb2e6d"
+    },
+    {
+      "facility_id": "ca:facility:5ec7931c-2809-5df9-bf31-025bf89cddbf",
+      "identity_key": "AB|DUNMORE|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-110.5377449|49.97820916",
+      "initial_source_record_id": "aafc-elevators-2024:175",
+      "node_id": "ca:node:5ec7931c-2809-5df9-bf31-025bf89cddbf"
+    },
+    {
+      "facility_id": "ca:facility:629df22d-6da8-502d-a678-d78addb82f70",
+      "identity_key": "AB|JOFFRE|PARRISH & HEIMBECKER, LIMITED|CN|-113.5184815|52.32952389",
+      "initial_source_record_id": "aafc-elevators-2024:185",
+      "node_id": "ca:node:629df22d-6da8-502d-a678-d78addb82f70"
+    },
+    {
+      "facility_id": "ca:facility:642ee4fc-c1f7-5ac9-a238-19c9005c592c",
+      "identity_key": "SK|BALGONIE|SCHLUTER & MAACK GMBH|NO|-104.32715403|50.48461324",
+      "initial_source_record_id": "aafc-elevators-2024:362",
+      "node_id": "ca:node:642ee4fc-c1f7-5ac9-a238-19c9005c592c"
+    },
+    {
+      "facility_id": "ca:facility:6483b0f6-114b-5e37-bb0a-ac60a972a1f9",
+      "identity_key": "MB|CARMAN|LINEAR GRAIN INC.|CN|-98.00902272|49.50885269",
+      "initial_source_record_id": "aafc-elevators-2024:264",
+      "node_id": "ca:node:6483b0f6-114b-5e37-bb0a-ac60a972a1f9"
+    },
+    {
+      "facility_id": "ca:facility:64f66f5c-3001-517a-b057-439c804a7f7c",
+      "identity_key": "SK|HEPBURN|BIORIGINAL FOOD & SCIENCE CORP.|NO|-106.79797139|52.45401764",
+      "initial_source_record_id": "aafc-elevators-2024:50",
+      "node_id": "ca:node:64f66f5c-3001-517a-b057-439c804a7f7c"
+    },
+    {
+      "facility_id": "ca:facility:650ffd4a-a1a8-5e60-ab5f-bdb79fa91e06",
+      "identity_key": "SK|N BATTLEFORD|ETG COMMODITIES INC.|CN|-108.32769737|52.81811899",
+      "initial_source_record_id": "aafc-elevators-2024:397",
+      "node_id": "ca:node:650ffd4a-a1a8-5e60-ab5f-bdb79fa91e06"
+    },
+    {
+      "facility_id": "ca:facility:65290146-9923-5ffa-b839-876c90fb7ea2",
+      "identity_key": "MB|STE AGATHE|VITERRA CANADA INC.|CN|-97.19890119|49.57029064",
+      "initial_source_record_id": "aafc-elevators-2024:350",
+      "node_id": "ca:node:65290146-9923-5ffa-b839-876c90fb7ea2"
+    },
+    {
+      "facility_id": "ca:facility:65b34fb4-78d3-547a-96ed-2298a6da1560",
+      "identity_key": "MB|GLENLEA|G3 CANADA LIMITED|CN|-97.14401275|49.62314003",
+      "initial_source_record_id": "aafc-elevators-2024:329",
+      "node_id": "ca:node:65b34fb4-78d3-547a-96ed-2298a6da1560"
+    },
+    {
+      "facility_id": "ca:facility:65ba55a4-9483-5a8e-8e5e-e391342e28a2",
+      "identity_key": "MB|AGASSIZ|VITERRA CANADA INC.|CP|-97.98935754|49.18576648",
+      "initial_source_record_id": "aafc-elevators-2024:251",
+      "node_id": "ca:node:65ba55a4-9483-5a8e-8e5e-e391342e28a2"
+    },
+    {
+      "facility_id": "ca:facility:65c3c987-3978-5270-9ebc-e80e3b620291",
+      "identity_key": "SK|ELROSE|ALLIANCE PULSE PROCESSORS INC.|OTH|-108.03119455|51.20347654",
+      "initial_source_record_id": "aafc-elevators-2024:355",
+      "node_id": "ca:node:65c3c987-3978-5270-9ebc-e80e3b620291"
+    },
+    {
+      "facility_id": "ca:facility:6a45bc4d-5881-5ef5-be8f-765940e8cd3c",
+      "identity_key": "SK|SASKATOON|VITERRA CANADA INC.|CP|-106.7356438|52.11607563",
+      "initial_source_record_id": "aafc-elevators-2024:114",
+      "node_id": "ca:node:6a45bc4d-5881-5ef5-be8f-765940e8cd3c"
+    },
+    {
+      "facility_id": "ca:facility:6b147435-ad6e-50ba-a4fd-f3317bf66583",
+      "identity_key": "SK|LAPORTE|ALLIANCE PULSE PROCESSORS INC.|CN|-109.55255813|51.21885169",
+      "initial_source_record_id": "aafc-elevators-2024:148",
+      "node_id": "ca:node:6b147435-ad6e-50ba-a4fd-f3317bf66583"
+    },
+    {
+      "facility_id": "ca:facility:6c669a79-410d-55bf-8d1f-804303c67ee7",
+      "identity_key": "MB|RIGNOLD|HENSALL DISTRICT CO-OPERATIVE, INCORPORATED|OTH|-98.50977939|50.01738823",
+      "initial_source_record_id": "aafc-elevators-2024:382",
+      "node_id": "ca:node:6c669a79-410d-55bf-8d1f-804303c67ee7"
+    },
+    {
+      "facility_id": "ca:facility:6cad1aa0-64b3-5782-8565-82ed426dd81a",
+      "identity_key": "SK|HUMBOLDT|VITERRA CANADA INC.|CN|-105.0399141|52.19261511",
+      "initial_source_record_id": "aafc-elevators-2024:52",
+      "node_id": "ca:node:6cad1aa0-64b3-5782-8565-82ed426dd81a"
+    },
+    {
+      "facility_id": "ca:facility:6cc33b6e-8cf3-5986-8457-165e4e273091",
+      "identity_key": "SK|ASSINIBOIA|STONEHENGE GLOBAL SEEDS INC.|NO|-106.13721135|49.54247834",
+      "initial_source_record_id": "aafc-elevators-2024:372",
+      "node_id": "ca:node:6cc33b6e-8cf3-5986-8457-165e4e273091"
+    },
+    {
+      "facility_id": "ca:facility:6e937253-0fc2-50dc-a1a6-56f6cbbb6713",
+      "identity_key": "AB|KILLAM|VITERRA CANADA INC.|CP|-111.82851162|52.79265155",
+      "initial_source_record_id": "aafc-elevators-2024:187",
+      "node_id": "ca:node:6e937253-0fc2-50dc-a1a6-56f6cbbb6713"
+    },
+    {
+      "facility_id": "ca:facility:6e9d4475-31c2-5867-8ec8-bc60a040c741",
+      "identity_key": "SK|BALGONIE|RICHARDSON PIONEER LIMITED|CP|-104.19462008|50.50197297",
+      "initial_source_record_id": "aafc-elevators-2024:11",
+      "node_id": "ca:node:6e9d4475-31c2-5867-8ec8-bc60a040c741"
+    },
+    {
+      "facility_id": "ca:facility:6edfd8a6-017d-50a8-8625-589feae490ea",
+      "identity_key": "AB|DUNMORE|RICHARDSON PIONEER LIMITED|CP|-110.5766062|49.97438905",
+      "initial_source_record_id": "aafc-elevators-2024:176",
+      "node_id": "ca:node:6edfd8a6-017d-50a8-8625-589feae490ea"
+    },
+    {
+      "facility_id": "ca:facility:6fe38b30-9634-5ff5-ac16-938cc9a23ce3",
+      "identity_key": "AB|ROSALIND|BATTLE RIVER RAILWAY NGC INC.|CN|-112.43950793499994|52.78905158600003",
+      "initial_source_record_id": "aafc-elevators-2024:443",
+      "node_id": "ca:node:6fe38b30-9634-5ff5-ac16-938cc9a23ce3"
+    },
+    {
+      "facility_id": "ca:facility:72a15779-3a1f-5f84-9172-b575ab97d93f",
+      "identity_key": "SK|WATROUS|CANADA MALTING CO. LIMITED|CN|-105.4591964|51.66810773",
+      "initial_source_record_id": "aafc-elevators-2024:131",
+      "node_id": "ca:node:72a15779-3a1f-5f84-9172-b575ab97d93f"
+    },
+    {
+      "facility_id": "ca:facility:7378cda2-4a83-5f7d-8ba2-d0bd0dfd95e2",
+      "identity_key": "SK|SEDLEY|GLOBAL FOOD AND INGREDIENTS INC.|NO|-104.11424876|50.13511212",
+      "initial_source_record_id": "aafc-elevators-2024:364",
+      "node_id": "ca:node:7378cda2-4a83-5f7d-8ba2-d0bd0dfd95e2"
+    },
+    {
+      "facility_id": "ca:facility:73a71e2c-f547-5f60-83a9-9937a2faba34",
+      "identity_key": "AB|CAMROSE|CARGILL LIMITED|CN|-112.7245266|52.9412191",
+      "initial_source_record_id": "aafc-elevators-2024:167",
+      "node_id": "ca:node:73a71e2c-f547-5f60-83a9-9937a2faba34"
+    },
+    {
+      "facility_id": "ca:facility:73de956f-3e2f-541e-9f31-27e4d2abe6fc",
+      "identity_key": "AB|GRIMSHAW|VITERRA CANADA INC.|CN|-117.6017557|56.19387232",
+      "initial_source_record_id": "aafc-elevators-2024:183",
+      "node_id": "ca:node:73de956f-3e2f-541e-9f31-27e4d2abe6fc"
+    },
+    {
+      "facility_id": "ca:facility:74150e57-cc5f-5ad8-a91e-1cc6509caa00",
+      "identity_key": "SK|DAVIDSON|RICHARDSON PIONEER LIMITED|CN|-105.97287688|51.24641583",
+      "initial_source_record_id": "aafc-elevators-2024:36",
+      "node_id": "ca:node:74150e57-cc5f-5ad8-a91e-1cc6509caa00"
+    },
+    {
+      "facility_id": "ca:facility:76070de3-79c8-5c96-82e0-d1a99e834791",
+      "identity_key": "SK|MELVILLE|RICHARDSON PIONEER LIMITED|CN|-102.7376194|50.90828894",
+      "initial_source_record_id": "aafc-elevators-2024:76",
+      "node_id": "ca:node:76070de3-79c8-5c96-82e0-d1a99e834791"
+    },
+    {
+      "facility_id": "ca:facility:76f90067-9359-512c-a186-26246222f690",
+      "identity_key": "SK|GRAVELBOURG|WESTLAND AGRO LTD.|NO|-106.52176728|49.87463779",
+      "initial_source_record_id": "aafc-elevators-2024:376",
+      "node_id": "ca:node:76f90067-9359-512c-a186-26246222f690"
+    },
+    {
+      "facility_id": "ca:facility:77271ad2-5e76-52c6-9a66-f391b1a88427",
+      "identity_key": "SK|LLOYDMINSTER|VITERRA CANADA INC.|CP|-109.9663104|53.25591237",
+      "initial_source_record_id": "aafc-elevators-2024:68",
+      "node_id": "ca:node:77271ad2-5e76-52c6-9a66-f391b1a88427"
+    },
+    {
+      "facility_id": "ca:facility:774d5438-cea9-5c9b-9914-be3f28fdcae2",
+      "identity_key": "AB|VERMILION|VITERRA CANADA INC.|CN|-110.8424702|53.35001427",
+      "initial_source_record_id": "aafc-elevators-2024:227",
+      "node_id": "ca:node:774d5438-cea9-5c9b-9914-be3f28fdcae2"
+    },
+    {
+      "facility_id": "ca:facility:786f59be-7b17-502f-8134-9905c6c3aeb4",
+      "identity_key": "MB|CARBERRY|ADM AGRI-INDUSTRIES COMPANY|CP|-99.35593532|49.85872413",
+      "initial_source_record_id": "aafc-elevators-2024:263",
+      "node_id": "ca:node:786f59be-7b17-502f-8134-9905c6c3aeb4"
+    },
+    {
+      "facility_id": "ca:facility:791d312b-0ae4-51ee-95bf-8771dffa5648",
+      "identity_key": "AB|NIOBE|CANADA MALTING CO. LIMITED|CP|-113.9163865|52.06025083",
+      "initial_source_record_id": "aafc-elevators-2024:205",
+      "node_id": "ca:node:791d312b-0ae4-51ee-95bf-8771dffa5648"
+    },
+    {
+      "facility_id": "ca:facility:7a2a7d15-ac0c-5ce8-9c77-95089e007fe6",
+      "identity_key": "SK|KINDERSLEY|RICHARDSON PIONEER LIMITED|CN|-109.15654976|51.46216933",
+      "initial_source_record_id": "aafc-elevators-2024:60",
+      "node_id": "ca:node:7a2a7d15-ac0c-5ce8-9c77-95089e007fe6"
+    },
+    {
+      "facility_id": "ca:facility:7ab9ac05-e2a7-57e1-b8f6-a7404324198f",
+      "identity_key": "MB|FANNYSTELLE|VITERRA CANADA INC.|CP|-97.78915064|49.74326716",
+      "initial_source_record_id": "aafc-elevators-2024:277",
+      "node_id": "ca:node:7ab9ac05-e2a7-57e1-b8f6-a7404324198f"
+    },
+    {
+      "facility_id": "ca:facility:7bdea609-8741-5219-af3d-5159fff079c7",
+      "identity_key": "SK|ASSINIBOIA|RICHARDSON PIONEER LIMITED|CP|-106.01319044|49.63758856",
+      "initial_source_record_id": "aafc-elevators-2024:8",
+      "node_id": "ca:node:7bdea609-8741-5219-af3d-5159fff079c7"
+    },
+    {
+      "facility_id": "ca:facility:7cfa10c0-bb53-5752-b4dd-4460faa524c2",
+      "identity_key": "AB|STAR|VITERRA CANADA INC.|CP|-112.764811|53.82039119",
+      "initial_source_record_id": "aafc-elevators-2024:217",
+      "node_id": "ca:node:7cfa10c0-bb53-5752-b4dd-4460faa524c2"
+    },
+    {
+      "facility_id": "ca:facility:7d1cb738-4ba5-5c9e-b19e-d103216a94ff",
+      "identity_key": "AB|CARMANGAY|G3 CANADA LIMITED|CP|-113.11832346|50.11858571",
+      "initial_source_record_id": "aafc-elevators-2024:391",
+      "node_id": "ca:node:7d1cb738-4ba5-5c9e-b19e-d103216a94ff"
+    },
+    {
+      "facility_id": "ca:facility:7d27247b-5c20-538f-b11e-c697b150383c",
+      "identity_key": "SK|REED LAKE|RICHARDSON PIONEER LIMITED|CP|-107.1389235|50.42800935",
+      "initial_source_record_id": "aafc-elevators-2024:95",
+      "node_id": "ca:node:7d27247b-5c20-538f-b11e-c697b150383c"
+    },
+    {
+      "facility_id": "ca:facility:7f46bdca-5a9d-518b-bb7f-74f4f0d54d64",
+      "identity_key": "SK|RICHARDSON|ETTER SEED & PROCESSING LTD.|NO|-104.43900151|50.39284332",
+      "initial_source_record_id": "aafc-elevators-2024:400",
+      "node_id": "ca:node:7f46bdca-5a9d-518b-bb7f-74f4f0d54d64"
+    },
+    {
+      "facility_id": "ca:facility:80131903-62b6-5d8c-b093-00890524559f",
+      "identity_key": "MB|TUCKER|VITERRA CANADA INC.|CP|-98.22344176|49.98826121",
+      "initial_source_record_id": "aafc-elevators-2024:318",
+      "node_id": "ca:node:80131903-62b6-5d8c-b093-00890524559f"
+    },
+    {
+      "facility_id": "ca:facility:80de86c0-c82b-5578-a451-93975fff9ccb",
+      "identity_key": "SK|KINDERSLEY|VITERRA CANADA INC.|CN|-109.19707015|51.4402208",
+      "initial_source_record_id": "aafc-elevators-2024:147",
+      "node_id": "ca:node:80de86c0-c82b-5578-a451-93975fff9ccb"
+    },
+    {
+      "facility_id": "ca:facility:81ec0f02-b736-58be-b17e-66807036681b",
+      "identity_key": "SK|INDIAN HEAD|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-103.6639692|50.52805535",
+      "initial_source_record_id": "aafc-elevators-2024:54",
+      "node_id": "ca:node:81ec0f02-b736-58be-b17e-66807036681b"
+    },
+    {
+      "facility_id": "ca:facility:82e1ce06-9b49-5cba-b4c4-12eeaaeb9b69",
+      "identity_key": "AB|OLDS|RICHARDSON PIONEER LIMITED|CP|-114.0878344|51.81536971",
+      "initial_source_record_id": "aafc-elevators-2024:206",
+      "node_id": "ca:node:82e1ce06-9b49-5cba-b4c4-12eeaaeb9b69"
+    },
+    {
+      "facility_id": "ca:facility:830d9cae-ef35-5a42-857b-9bfde80b442b",
+      "identity_key": "MB|BIRTLE|PRAIRIE PREMIUM PRODUCTS INC.|CP|-101.04694360599996|50.43321908000007",
+      "initial_source_record_id": "aafc-elevators-2024:445",
+      "node_id": "ca:node:830d9cae-ef35-5a42-857b-9bfde80b442b"
+    },
+    {
+      "facility_id": "ca:facility:832dc2ea-45c4-57fb-a34f-8d870acc0c5f",
+      "identity_key": "SK|ASSINIBOIA|ALLIANCE PULSE PROCESSORS INC.|CP|-105.98538546|49.63399216",
+      "initial_source_record_id": "aafc-elevators-2024:6",
+      "node_id": "ca:node:832dc2ea-45c4-57fb-a34f-8d870acc0c5f"
+    },
+    {
+      "facility_id": "ca:facility:84b93e87-9182-54ea-b24c-0fbc42bdc0cb",
+      "identity_key": "SK|RADVILLE|PRAIRIE HERITAGE SEEDS INC.|NO|-104.28570357|49.50858634",
+      "initial_source_record_id": "aafc-elevators-2024:94",
+      "node_id": "ca:node:84b93e87-9182-54ea-b24c-0fbc42bdc0cb"
+    },
+    {
+      "facility_id": "ca:facility:85b527a3-1b17-5be0-be21-254fd563f64a",
+      "identity_key": "AB|FORT MACLEOD|VITERRA CANADA INC.|CP|-113.4226128|49.71504472",
+      "initial_source_record_id": "aafc-elevators-2024:179",
+      "node_id": "ca:node:85b527a3-1b17-5be0-be21-254fd563f64a"
+    },
+    {
+      "facility_id": "ca:facility:8614d093-7987-5f48-afe9-c01292feb009",
+      "identity_key": "SK|MARSHALL|RICHARDSON PIONEER LIMITED|CN|-109.7480614|53.17580791",
+      "initial_source_record_id": "aafc-elevators-2024:73",
+      "node_id": "ca:node:8614d093-7987-5f48-afe9-c01292feb009"
+    },
+    {
+      "facility_id": "ca:facility:864fcdf1-4f75-5c9c-8ab0-f2779ceb9ee6",
+      "identity_key": "SK|LUCKY LAKE|ALLIANCE PULSE PROCESSORS INC.|CN|-107.13847121|50.98292814",
+      "initial_source_record_id": "aafc-elevators-2024:155",
+      "node_id": "ca:node:864fcdf1-4f75-5c9c-8ab0-f2779ceb9ee6"
+    },
+    {
+      "facility_id": "ca:facility:86592245-68f5-580d-afc3-3657c1ba8edd",
+      "identity_key": "SK|CARROT RIVER|RICHARDSON PIONEER LIMITED|CN|-103.57857264|53.28334268",
+      "initial_source_record_id": "aafc-elevators-2024:25",
+      "node_id": "ca:node:86592245-68f5-580d-afc3-3657c1ba8edd"
+    },
+    {
+      "facility_id": "ca:facility:87967e15-ff5e-5338-97ab-e090190e41e6",
+      "identity_key": "SK|PASQUA|G3 CANADA LIMITED|CP|-105.35133826|50.38168875",
+      "initial_source_record_id": "aafc-elevators-2024:151",
+      "node_id": "ca:node:87967e15-ff5e-5338-97ab-e090190e41e6"
+    },
+    {
+      "facility_id": "ca:facility:881ca36c-c1f7-5787-ba7c-3b2f1710df36",
+      "identity_key": "SK|SWIFT CURRENT|G3 CANADA LIMITED|CP|-107.71321651|50.32037648",
+      "initial_source_record_id": "aafc-elevators-2024:434",
+      "node_id": "ca:node:881ca36c-c1f7-5787-ba7c-3b2f1710df36"
+    },
+    {
+      "facility_id": "ca:facility:89a1d486-9e33-5e9d-806d-3255fbf127b0",
+      "identity_key": "SK|WHITE STAR|VITERRA CANADA INC.|CN|-105.7397172|53.31344844",
+      "initial_source_record_id": "aafc-elevators-2024:136",
+      "node_id": "ca:node:89a1d486-9e33-5e9d-806d-3255fbf127b0"
+    },
+    {
+      "facility_id": "ca:facility:8b23ce09-2a1b-5c1b-9454-7f786d72e34b",
+      "identity_key": "AB|STIRLING|RICHARDSON PIONEER LIMITED|CP|-112.5040088|49.5202909",
+      "initial_source_record_id": "aafc-elevators-2024:219",
+      "node_id": "ca:node:8b23ce09-2a1b-5c1b-9454-7f786d72e34b"
+    },
+    {
+      "facility_id": "ca:facility:8c1d929e-5703-59d3-af20-2f5859811cf8",
+      "identity_key": "SK|HAMLIN|RICHARDSON PIONEER LIMITED|CN|-108.3128934|52.88548989",
+      "initial_source_record_id": "aafc-elevators-2024:49",
+      "node_id": "ca:node:8c1d929e-5703-59d3-af20-2f5859811cf8"
+    },
+    {
+      "facility_id": "ca:facility:8c6459c2-e17e-5d49-a02c-77183074cda1",
+      "identity_key": "MB|BRANDON|RICHARDSON PIONEER LIMITED|CP|-100.1186779|49.84702646",
+      "initial_source_record_id": "aafc-elevators-2024:260",
+      "node_id": "ca:node:8c6459c2-e17e-5d49-a02c-77183074cda1"
+    },
+    {
+      "facility_id": "ca:facility:8e1f8470-0f2e-5b19-92b9-3a49ed23074b",
+      "identity_key": "SK|MELFORT|THE ANDERSONS, INC.|CN|-104.64660205|52.86752637",
+      "initial_source_record_id": "aafc-elevators-2024:369",
+      "node_id": "ca:node:8e1f8470-0f2e-5b19-92b9-3a49ed23074b"
+    },
+    {
+      "facility_id": "ca:facility:8e283aaa-3649-5e48-bf86-f137d3d535f7",
+      "identity_key": "MB|MORRIS|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CN|-97.37434008|49.34174616",
+      "initial_source_record_id": "aafc-elevators-2024:297",
+      "node_id": "ca:node:8e283aaa-3649-5e48-bf86-f137d3d535f7"
+    },
+    {
+      "facility_id": "ca:facility:91afe7ee-5315-56db-bea2-95f5353c3b89",
+      "identity_key": "SK|UNITY|RICHARDSON PIONEER LIMITED|CN|-109.1349409|52.4296402",
+      "initial_source_record_id": "aafc-elevators-2024:125",
+      "node_id": "ca:node:91afe7ee-5315-56db-bea2-95f5353c3b89"
+    },
+    {
+      "facility_id": "ca:facility:91bafb44-0768-5cdf-84bd-80670990bd9c",
+      "identity_key": "MB|BLOOM|G3 CANADA LIMITED|CN|-98.55873127|49.98304096",
+      "initial_source_record_id": "aafc-elevators-2024:327",
+      "node_id": "ca:node:91bafb44-0768-5cdf-84bd-80670990bd9c"
+    },
+    {
+      "facility_id": "ca:facility:93c1ee21-c889-5ae5-a45c-4e6006e230a1",
+      "identity_key": "SK|HAMLIN|PARRISH & HEIMBECKER, LIMITED|CN|-108.3132808|52.87493748",
+      "initial_source_record_id": "aafc-elevators-2024:48",
+      "node_id": "ca:node:93c1ee21-c889-5ae5-a45c-4e6006e230a1"
+    },
+    {
+      "facility_id": "ca:facility:9459a3f0-c423-519a-824c-a59b03b6f174",
+      "identity_key": "MB|CARMAN|VITERRA CANADA INC.|CN|-97.99381465|49.5178814",
+      "initial_source_record_id": "aafc-elevators-2024:265",
+      "node_id": "ca:node:9459a3f0-c423-519a-824c-a59b03b6f174"
+    },
+    {
+      "facility_id": "ca:facility:9479d659-0ab4-555b-9809-3a8c7d4196a6",
+      "identity_key": "SK|MAIDSTONE|G3 CANADA LIMITED|CN|-109.30073568|53.08070933",
+      "initial_source_record_id": "aafc-elevators-2024:392",
+      "node_id": "ca:node:9479d659-0ab4-555b-9809-3a8c7d4196a6"
+    },
+    {
+      "facility_id": "ca:facility:94e19e13-d3bc-5b88-8ebf-04106857bb8b",
+      "identity_key": "AB|GIBBONS|ALLIANCE PULSE PROCESSORS INC.|CN|-113.332788|53.82721901",
+      "initial_source_record_id": "aafc-elevators-2024:182",
+      "node_id": "ca:node:94e19e13-d3bc-5b88-8ebf-04106857bb8b"
+    },
+    {
+      "facility_id": "ca:facility:956a91e3-2339-51b6-97f5-6537d2021477",
+      "identity_key": "MB|DUNDONALD|RICHARDSON PIONEER LIMITED|CP|-98.5057015|50.08255016",
+      "initial_source_record_id": "aafc-elevators-2024:272",
+      "node_id": "ca:node:956a91e3-2339-51b6-97f5-6537d2021477"
+    },
+    {
+      "facility_id": "ca:facility:9649cabe-e082-55fb-9170-cb3c0ec373e1",
+      "identity_key": "SK|SWIFT CURRENT|MONETTE SEEDS LTD.|CP|-107.81005722299994|50.28056774000004",
+      "initial_source_record_id": "aafc-elevators-2024:447",
+      "node_id": "ca:node:9649cabe-e082-55fb-9170-cb3c0ec373e1"
+    },
+    {
+      "facility_id": "ca:facility:9692670b-398a-5668-af42-b4ceed252193",
+      "identity_key": "MB|WESTROC|DELMAR COMMODITIES LTD.|CN|-98.66850583|50.15546324",
+      "initial_source_record_id": "aafc-elevators-2024:320",
+      "node_id": "ca:node:9692670b-398a-5668-af42-b4ceed252193"
+    },
+    {
+      "facility_id": "ca:facility:99366a06-afa1-5877-a579-c2c29c08dff0",
+      "identity_key": "SK|ESTEVAN|SOUTHLAND PULSE INC.|CP|-103.0721912|49.1934649",
+      "initial_source_record_id": "aafc-elevators-2024:41",
+      "node_id": "ca:node:99366a06-afa1-5877-a579-c2c29c08dff0"
+    },
+    {
+      "facility_id": "ca:facility:99989d92-4215-5b89-81d9-6cd1f0f669ae",
+      "identity_key": "MB|GLADSTONE|DELMAR COMMODITIES LTD.|CN|-98.94615375|50.22396241",
+      "initial_source_record_id": "aafc-elevators-2024:278",
+      "node_id": "ca:node:99989d92-4215-5b89-81d9-6cd1f0f669ae"
+    },
+    {
+      "facility_id": "ca:facility:99d34f1b-ea90-53bb-9503-02d5a332258d",
+      "identity_key": "AB|SMOKY RIVER|VITERRA CANADA INC.|CN|-117.18189568|55.72964752",
+      "initial_source_record_id": "aafc-elevators-2024:216",
+      "node_id": "ca:node:99d34f1b-ea90-53bb-9503-02d5a332258d"
+    },
+    {
+      "facility_id": "ca:facility:99fde48d-9f1a-5614-934a-0f6cd45ad0db",
+      "identity_key": "AB|BOWDEN|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-114.04648466|51.94863034",
+      "initial_source_record_id": "aafc-elevators-2024:373",
+      "node_id": "ca:node:99fde48d-9f1a-5614-934a-0f6cd45ad0db"
+    },
+    {
+      "facility_id": "ca:facility:9bbe58f7-c2fe-5239-99ce-d28b93a56619",
+      "identity_key": "AB|ALLIANCE|BATTLE RIVER RAILWAY NGC INC.|CN|-111.78632802799996|52.43350599000007",
+      "initial_source_record_id": "aafc-elevators-2024:442",
+      "node_id": "ca:node:9bbe58f7-c2fe-5239-99ce-d28b93a56619"
+    },
+    {
+      "facility_id": "ca:facility:9d9f643f-2332-5303-83b3-923e7f7a31db",
+      "identity_key": "SK|SHAUNAVON|ADROIT OVERSEAS ENTERPRISES LTD.|CP|-108.4135765|49.64234729",
+      "initial_source_record_id": "aafc-elevators-2024:433",
+      "node_id": "ca:node:9d9f643f-2332-5303-83b3-923e7f7a31db"
+    },
+    {
+      "facility_id": "ca:facility:9db0e1c7-fbc7-51ef-9219-508f6339908b",
+      "identity_key": "SK|WOODROW|CANADA DIRECT PROCESSING INC.|OT|-106.72314218599996|49.69260401500003",
+      "initial_source_record_id": "aafc-elevators-2024:448",
+      "node_id": "ca:node:9db0e1c7-fbc7-51ef-9219-508f6339908b"
+    },
+    {
+      "facility_id": "ca:facility:9e29de2b-7b21-5e15-9763-4c9bb4fc43a0",
+      "identity_key": "SK|OUTLOOK|RUDY AGRO LTD.|NO|-106.91640569|51.59197191",
+      "initial_source_record_id": "aafc-elevators-2024:150",
+      "node_id": "ca:node:9e29de2b-7b21-5e15-9763-4c9bb4fc43a0"
+    },
+    {
+      "facility_id": "ca:facility:9eb701c0-b8f0-5ddb-9372-220790a794fe",
+      "identity_key": "SK|LAJORD|GLOBAL FOOD AND INGREDIENTS INC.|OTH|-104.15317172|50.23901807",
+      "initial_source_record_id": "aafc-elevators-2024:366",
+      "node_id": "ca:node:9eb701c0-b8f0-5ddb-9372-220790a794fe"
+    },
+    {
+      "facility_id": "ca:facility:9f7b4a89-e7b2-5b35-9b1b-a9a8014b6047",
+      "identity_key": "SK|LIMERICK|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-106.2655949|49.65140757",
+      "initial_source_record_id": "aafc-elevators-2024:66",
+      "node_id": "ca:node:9f7b4a89-e7b2-5b35-9b1b-a9a8014b6047"
+    },
+    {
+      "facility_id": "ca:facility:a007e675-f413-522e-9434-365f51ed1686",
+      "identity_key": "MB|ARBORG|S.S. JOHNSON SEEDS LTD.|NO|-97.26912593|50.95220125",
+      "initial_source_record_id": "aafc-elevators-2024:254",
+      "node_id": "ca:node:a007e675-f413-522e-9434-365f51ed1686"
+    },
+    {
+      "facility_id": "ca:facility:a38129e4-02b8-584c-8a89-72597d646c9b",
+      "identity_key": "SK|REFORD|GRAINSCONNECT CANADA OPERATIONS INC.|CN|-108.69061221|52.30173093",
+      "initial_source_record_id": "aafc-elevators-2024:381",
+      "node_id": "ca:node:a38129e4-02b8-584c-8a89-72597d646c9b"
+    },
+    {
+      "facility_id": "ca:facility:a52e102a-9e39-5b8f-b52e-d2ad2fd67368",
+      "identity_key": "SK|BIGGAR|VITERRA CANADA INC.|CP|-108.0104214|52.06021624",
+      "initial_source_record_id": "aafc-elevators-2024:16",
+      "node_id": "ca:node:a52e102a-9e39-5b8f-b52e-d2ad2fd67368"
+    },
+    {
+      "facility_id": "ca:facility:a5325375-ef4e-5ca7-a6a9-0eaa255f011d",
+      "identity_key": "SK|LOREBURN|DIEFENBAKER SEED PROCESSORS LTD. DBA DIEFENBAKER SPICE & PULSE|NO|-106.51493095|51.21748546",
+      "initial_source_record_id": "aafc-elevators-2024:69",
+      "node_id": "ca:node:a5325375-ef4e-5ca7-a6a9-0eaa255f011d"
+    },
+    {
+      "facility_id": "ca:facility:a56833dd-9a7a-50f4-bd6d-8ab10668f81c",
+      "identity_key": "AB|LETHBRIDGE|VITERRA CANADA INC.|CP|-112.642448|49.58787123",
+      "initial_source_record_id": "aafc-elevators-2024:195",
+      "node_id": "ca:node:a56833dd-9a7a-50f4-bd6d-8ab10668f81c"
+    },
+    {
+      "facility_id": "ca:facility:a594da5b-a7f7-520d-b70a-96d0ebbca2d9",
+      "identity_key": "SK|NAICAM|CMI TERMINAL JOINT VENTURE|CP|-104.49507482|52.35591783",
+      "initial_source_record_id": "aafc-elevators-2024:85",
+      "node_id": "ca:node:a594da5b-a7f7-520d-b70a-96d0ebbca2d9"
+    },
+    {
+      "facility_id": "ca:facility:a595e0dc-af01-518b-8a43-b81c507f452f",
+      "identity_key": "AB|EQUITY|CARGILL LIMITED|CN|-113.2527709|51.74362114",
+      "initial_source_record_id": "aafc-elevators-2024:178",
+      "node_id": "ca:node:a595e0dc-af01-518b-8a43-b81c507f452f"
+    },
+    {
+      "facility_id": "ca:facility:a5de0f45-6f80-579e-8075-195e91eed5cc",
+      "identity_key": "MB|ELVA|CARGILL LIMITED|CP|-101.0746513|49.22505484",
+      "initial_source_record_id": "aafc-elevators-2024:276",
+      "node_id": "ca:node:a5de0f45-6f80-579e-8075-195e91eed5cc"
+    },
+    {
+      "facility_id": "ca:facility:a5f92990-8b94-50d3-ad29-2df3ba9dccda",
+      "identity_key": "SK|WOLSELEY|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-103.2714112|50.42271452",
+      "initial_source_record_id": "aafc-elevators-2024:139",
+      "node_id": "ca:node:a5f92990-8b94-50d3-ad29-2df3ba9dccda"
+    },
+    {
+      "facility_id": "ca:facility:a69cdef2-11e5-546b-b1d8-7fee912fb311",
+      "identity_key": "AB|VEGREVILLE|GRAINSCONNECT CANADA OPERATIONS INC.|CN|-111.99363895|53.49318493",
+      "initial_source_record_id": "aafc-elevators-2024:403",
+      "node_id": "ca:node:a69cdef2-11e5-546b-b1d8-7fee912fb311"
+    },
+    {
+      "facility_id": "ca:facility:a84303e5-4219-5fe4-ad97-4763293c852f",
+      "identity_key": "MB|MORDEN|WESTERN HARVEST BEAN ULC|NO|-98.10150848|49.18811598",
+      "initial_source_record_id": "aafc-elevators-2024:429",
+      "node_id": "ca:node:a84303e5-4219-5fe4-ad97-4763293c852f"
+    },
+    {
+      "facility_id": "ca:facility:a85371a2-d2bb-58dc-8675-9486a8a65158",
+      "identity_key": "SK|KAMSACK|VITERRA CANADA INC.|CN|-101.89278587|51.55516523",
+      "initial_source_record_id": "aafc-elevators-2024:56",
+      "node_id": "ca:node:a85371a2-d2bb-58dc-8675-9486a8a65158"
+    },
+    {
+      "facility_id": "ca:facility:a8eba9a9-0f59-583a-a286-dc4aa3703a24",
+      "identity_key": "SK|NORTHGATE|CERES GLOBAL AG CORP.|OTH|-102.2669439|49.00445478",
+      "initial_source_record_id": "aafc-elevators-2024:90",
+      "node_id": "ca:node:a8eba9a9-0f59-583a-a286-dc4aa3703a24"
+    },
+    {
+      "facility_id": "ca:facility:aaa82bc2-13a6-5698-8fb2-16b3f5e4b12e",
+      "identity_key": "AB|RYCROFT|PARRISH & HEIMBECKER, LIMITED|CN|-118.71828327|55.71569417",
+      "initial_source_record_id": "aafc-elevators-2024:213",
+      "node_id": "ca:node:aaa82bc2-13a6-5698-8fb2-16b3f5e4b12e"
+    },
+    {
+      "facility_id": "ca:facility:aaeb134f-a537-50a1-9e19-2b072bf9a53b",
+      "identity_key": "AB|NAMPA|RICHARDSON PIONEER LIMITED|CN|-117.1414826|56.04216964",
+      "initial_source_record_id": "aafc-elevators-2024:203",
+      "node_id": "ca:node:aaeb134f-a537-50a1-9e19-2b072bf9a53b"
+    },
+    {
+      "facility_id": "ca:facility:aaf4edae-524a-5061-8ce6-08d27b0c700b",
+      "identity_key": "MB|PLUM COULEE|ETG COMMODITIES MANITOBA INC.|NO|-97.79693107|49.19547447",
+      "initial_source_record_id": "aafc-elevators-2024:301",
+      "node_id": "ca:node:aaf4edae-524a-5061-8ce6-08d27b0c700b"
+    },
+    {
+      "facility_id": "ca:facility:ab7cc545-1874-50ba-8583-30e11ef5611e",
+      "identity_key": "AB|INDUS|VITERRA CANADA INC.|CP|-113.7223814|50.89728579",
+      "initial_source_record_id": "aafc-elevators-2024:184",
+      "node_id": "ca:node:ab7cc545-1874-50ba-8583-30e11ef5611e"
+    },
+    {
+      "facility_id": "ca:facility:ac9666a0-f730-547f-8fbc-2d598ae8ddad",
+      "identity_key": "SK|SASKATOON|G3 CANADA LIMITED|CN|-106.86267813|52.11980279",
+      "initial_source_record_id": "aafc-elevators-2024:385",
+      "node_id": "ca:node:ac9666a0-f730-547f-8fbc-2d598ae8ddad"
+    },
+    {
+      "facility_id": "ca:facility:aec251ca-105b-5a73-8d06-0f894acdf1a1",
+      "identity_key": "SK|TISDALE|VITERRA CANADA INC.|CN|-103.9990128|52.84990865",
+      "initial_source_record_id": "aafc-elevators-2024:123",
+      "node_id": "ca:node:aec251ca-105b-5a73-8d06-0f894acdf1a1"
+    },
+    {
+      "facility_id": "ca:facility:b068bd0c-0484-58d0-8a56-bfd828862919",
+      "identity_key": "AB|VIKING|PARRISH & HEIMBECKER, LIMITED|CN|-111.81147636|53.11262641",
+      "initial_source_record_id": "aafc-elevators-2024:406",
+      "node_id": "ca:node:b068bd0c-0484-58d0-8a56-bfd828862919"
+    },
+    {
+      "facility_id": "ca:facility:b1185e4a-cded-5054-ab7e-50c089fd0e43",
+      "identity_key": "MB|ST JEAN|SCOULAR CANADA, LTD.|NO|-97.34378828|49.27063233",
+      "initial_source_record_id": "aafc-elevators-2024:312",
+      "node_id": "ca:node:b1185e4a-cded-5054-ab7e-50c089fd0e43"
+    },
+    {
+      "facility_id": "ca:facility:b12c45d3-2071-557b-9401-aa7923b1ee2e",
+      "identity_key": "SK|LUSELAND|VITERRA CANADA INC.|CP|-109.3896002|52.07898981",
+      "initial_source_record_id": "aafc-elevators-2024:70",
+      "node_id": "ca:node:b12c45d3-2071-557b-9401-aa7923b1ee2e"
+    },
+    {
+      "facility_id": "ca:facility:b13278ec-34fb-5922-a9a3-2bd9b3067116",
+      "identity_key": "MB|DUGALD|PARRISH & HEIMBECKER, LIMITED|CN|-96.75315576|49.87984625",
+      "initial_source_record_id": "aafc-elevators-2024:424",
+      "node_id": "ca:node:b13278ec-34fb-5922-a9a3-2bd9b3067116"
+    },
+    {
+      "facility_id": "ca:facility:b1ccd22b-6dd6-58b7-8002-56a91bd2d1ad",
+      "identity_key": "SK|SASKATOON|RICHARDSON PIONEER LIMITED|CN|-106.6109811|52.25366977",
+      "initial_source_record_id": "aafc-elevators-2024:113",
+      "node_id": "ca:node:b1ccd22b-6dd6-58b7-8002-56a91bd2d1ad"
+    },
+    {
+      "facility_id": "ca:facility:b20f31de-d9ee-52ad-9d71-f6d7b2543bbd",
+      "identity_key": "AB|REDCOAT|VITERRA CANADA INC.|CP|-111.66592178|49.82957145",
+      "initial_source_record_id": "aafc-elevators-2024:211",
+      "node_id": "ca:node:b20f31de-d9ee-52ad-9d71-f6d7b2543bbd"
+    },
+    {
+      "facility_id": "ca:facility:b210d692-0eb5-52f6-866c-baa845801e94",
+      "identity_key": "MB|DUTTON|PARRISH & HEIMBECKER, LIMITED|CN|-100.5884642|51.14857668",
+      "initial_source_record_id": "aafc-elevators-2024:273",
+      "node_id": "ca:node:b210d692-0eb5-52f6-866c-baa845801e94"
+    },
+    {
+      "facility_id": "ca:facility:b29446c0-1a88-5920-869b-ca6da0e7fbf4",
+      "identity_key": "SK|REGINA|ALLIANCE PULSE PROCESSORS INC.|NO|-104.49308472|50.42929912",
+      "initial_source_record_id": "aafc-elevators-2024:97",
+      "node_id": "ca:node:b29446c0-1a88-5920-869b-ca6da0e7fbf4"
+    },
+    {
+      "facility_id": "ca:facility:b4f59d6f-97c1-5101-b74e-79d00390ee94",
+      "identity_key": "MB|ROSSER|VITERRA CANADA INC.|CP|-97.3497251|49.96595095",
+      "initial_source_record_id": "aafc-elevators-2024:307",
+      "node_id": "ca:node:b4f59d6f-97c1-5101-b74e-79d00390ee94"
+    },
+    {
+      "facility_id": "ca:facility:b5386ecd-aa60-54fe-a67f-a9267d359205",
+      "identity_key": "SK|BALGONIE|VITERRA CANADA INC.|CP|-104.30905822|50.48805201",
+      "initial_source_record_id": "aafc-elevators-2024:12",
+      "node_id": "ca:node:b5386ecd-aa60-54fe-a67f-a9267d359205"
+    },
+    {
+      "facility_id": "ca:facility:b5969176-45ae-5df6-b01c-351859e75f13",
+      "identity_key": "SK|MARENGO|PROVIDENCE GRAIN GROUP INC.|CN|-109.7840044|51.47708725",
+      "initial_source_record_id": "aafc-elevators-2024:72",
+      "node_id": "ca:node:b5969176-45ae-5df6-b01c-351859e75f13"
+    },
+    {
+      "facility_id": "ca:facility:b67ec178-ee70-5aef-ba8d-6e8f228639d4",
+      "identity_key": "MB|SOMERSET|DELMAR COMMODITIES LTD.|CN|-98.66185948|49.41177739",
+      "initial_source_record_id": "aafc-elevators-2024:309",
+      "node_id": "ca:node:b67ec178-ee70-5aef-ba8d-6e8f228639d4"
+    },
+    {
+      "facility_id": "ca:facility:b7b51cdf-9afa-5d49-9f5b-6fc377b34acf",
+      "identity_key": "SK|KINDERSLEY|G3 CANADA LIMITED|CN|-109.17205988|51.45377149",
+      "initial_source_record_id": "aafc-elevators-2024:59",
+      "node_id": "ca:node:b7b51cdf-9afa-5d49-9f5b-6fc377b34acf"
+    },
+    {
+      "facility_id": "ca:facility:b82b0347-e751-5d61-a156-4441530880fd",
+      "identity_key": "SK|MOOSE JAW|PARRISH & HEIMBECKER, LIMITED|CP|-105.5471938|50.38936788",
+      "initial_source_record_id": "aafc-elevators-2024:79",
+      "node_id": "ca:node:b82b0347-e751-5d61-a156-4441530880fd"
+    },
+    {
+      "facility_id": "ca:facility:b871c141-07d1-527f-a97b-23c575217d4e",
+      "identity_key": "MB|ALEXANDER|SUNRISE FOODS INTERNATIONAL INC.|CP|-100.29494911|49.82916208",
+      "initial_source_record_id": "aafc-elevators-2024:389",
+      "node_id": "ca:node:b871c141-07d1-527f-a97b-23c575217d4e"
+    },
+    {
+      "facility_id": "ca:facility:b92972a4-5909-52dc-bed1-0782b99ddde6",
+      "identity_key": "MB|ARBORG|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-97.21746528|50.91378952",
+      "initial_source_record_id": "aafc-elevators-2024:253",
+      "node_id": "ca:node:b92972a4-5909-52dc-bed1-0782b99ddde6"
+    },
+    {
+      "facility_id": "ca:facility:ba5789ba-0f58-5362-8037-dcccc247332a",
+      "identity_key": "AB|HIGH LEVEL|RICHARDSON PIONEER LIMITED|CN|-117.107499|58.519801",
+      "initial_source_record_id": "aafc-elevators-2024:411",
+      "node_id": "ca:node:ba5789ba-0f58-5362-8037-dcccc247332a"
+    },
+    {
+      "facility_id": "ca:facility:ba6693cc-eb68-54cf-8e19-2fb74a9ba3a8",
+      "identity_key": "SK|CUT KNIFE|AGROCORP PROCESSING LTD.|CP|-109.01515186|52.74215926",
+      "initial_source_record_id": "aafc-elevators-2024:358",
+      "node_id": "ca:node:ba6693cc-eb68-54cf-8e19-2fb74a9ba3a8"
+    },
+    {
+      "facility_id": "ca:facility:ba788d11-7087-5225-9157-a16b95fbf84a",
+      "identity_key": "SK|ARBORFIELD|LINEAR GRAIN INC.|CN|-103.65129113|53.10990444",
+      "initial_source_record_id": "aafc-elevators-2024:5",
+      "node_id": "ca:node:ba788d11-7087-5225-9157-a16b95fbf84a"
+    },
+    {
+      "facility_id": "ca:facility:ba7d4ba8-738d-5ff5-b6a8-e586a38f2bf3",
+      "identity_key": "AB|STETTLER|G3 CANADA LIMITED|CP|-112.89152|52.312711",
+      "initial_source_record_id": "aafc-elevators-2024:413",
+      "node_id": "ca:node:ba7d4ba8-738d-5ff5-b6a8-e586a38f2bf3"
+    },
+    {
+      "facility_id": "ca:facility:bacfe80f-31ae-5555-adc0-2546508ebf29",
+      "identity_key": "SK|MOOSE JAW|AGROCORP PROCESSING LTD.|CN|-105.5001398|50.40035001",
+      "initial_source_record_id": "aafc-elevators-2024:149",
+      "node_id": "ca:node:bacfe80f-31ae-5555-adc0-2546508ebf29"
+    },
+    {
+      "facility_id": "ca:facility:bb205b23-2fca-5340-b17e-6dac58361335",
+      "identity_key": "MB|DAUPHIN|RICHARDSON PIONEER LIMITED|CN|-100.021935|51.13607939",
+      "initial_source_record_id": "aafc-elevators-2024:270",
+      "node_id": "ca:node:bb205b23-2fca-5340-b17e-6dac58361335"
+    },
+    {
+      "facility_id": "ca:facility:bb7801d4-5580-5627-b413-9b7b241e2fae",
+      "identity_key": "SK|SWIFT CURRENT|VITERRA CANADA INC.|CP|-107.8489131|50.28356102",
+      "initial_source_record_id": "aafc-elevators-2024:120",
+      "node_id": "ca:node:bb7801d4-5580-5627-b413-9b7b241e2fae"
+    },
+    {
+      "facility_id": "ca:facility:bb9ec4ad-0220-5ab5-9503-6aecb24d9745",
+      "identity_key": "MB|KILLARNEY|TRI LAKE AGRI LIMITED|CP|-99.64410933|49.17994213",
+      "initial_source_record_id": "aafc-elevators-2024:286",
+      "node_id": "ca:node:bb9ec4ad-0220-5ab5-9503-6aecb24d9745"
+    },
+    {
+      "facility_id": "ca:facility:bbb5e8ed-abe8-5d71-bc92-f955655ccb69",
+      "identity_key": "SK|VANGUARD|ADROIT OVERSEAS ENTERPRISES LTD.|OTH|-107.29458431|49.90696846",
+      "initial_source_record_id": "aafc-elevators-2024:154",
+      "node_id": "ca:node:bbb5e8ed-abe8-5d71-bc92-f955655ccb69"
+    },
+    {
+      "facility_id": "ca:facility:bdeb1af6-07f2-5a4b-9b79-f85908f4f35f",
+      "identity_key": "SK|BRADA|VITERRA CANADA INC.|CN|-108.19163962|52.72078237",
+      "initial_source_record_id": "aafc-elevators-2024:18",
+      "node_id": "ca:node:bdeb1af6-07f2-5a4b-9b79-f85908f4f35f"
+    },
+    {
+      "facility_id": "ca:facility:bec3bb29-1db5-5fcd-b0ee-16ae4d5c3f05",
+      "identity_key": "AB|OYEN|RICHARDSON PIONEER LIMITED|CN|-110.4410345|51.35491918",
+      "initial_source_record_id": "aafc-elevators-2024:208",
+      "node_id": "ca:node:bec3bb29-1db5-5fcd-b0ee-16ae4d5c3f05"
+    },
+    {
+      "facility_id": "ca:facility:bf0471de-7667-5554-a09a-7cfde601f589",
+      "identity_key": "AB|VULCAN|RICHARDSON PIONEER LIMITED|CP|-113.26714726|50.40982619",
+      "initial_source_record_id": "aafc-elevators-2024:232",
+      "node_id": "ca:node:bf0471de-7667-5554-a09a-7cfde601f589"
+    },
+    {
+      "facility_id": "ca:facility:c047946a-de47-54f4-9e27-6565b61a5261",
+      "identity_key": "MB|BRUNKILD|BESCO GRAIN LTD.|OTH|-97.5775397|49.59240813",
+      "initial_source_record_id": "aafc-elevators-2024:262",
+      "node_id": "ca:node:c047946a-de47-54f4-9e27-6565b61a5261"
+    },
+    {
+      "facility_id": "ca:facility:c0ff6d87-ad47-5c76-88e6-165a9b448dfe",
+      "identity_key": "SK|ABERDEEN|PARRISH & HEIMBECKER, LIMITED|CN|-106.24543715|52.32868757",
+      "initial_source_record_id": "aafc-elevators-2024:2",
+      "node_id": "ca:node:c0ff6d87-ad47-5c76-88e6-165a9b448dfe"
+    },
+    {
+      "facility_id": "ca:facility:c1b8e975-a838-5c48-9284-17042883feac",
+      "identity_key": "SK|TISDALE|PARRISH & HEIMBECKER, LIMITED|CN|-104.0894679|52.84953695",
+      "initial_source_record_id": "aafc-elevators-2024:122",
+      "node_id": "ca:node:c1b8e975-a838-5c48-9284-17042883feac"
+    },
+    {
+      "facility_id": "ca:facility:c2f1ce3a-11b6-5895-932f-8cf9383ecd0d",
+      "identity_key": "MB|TREHERNE|WESTERN HARVEST BEAN ULC|NO|-98.70037897|49.63009007",
+      "initial_source_record_id": "aafc-elevators-2024:435",
+      "node_id": "ca:node:c2f1ce3a-11b6-5895-932f-8cf9383ecd0d"
+    },
+    {
+      "facility_id": "ca:facility:c3a87d38-7d53-589f-b845-9f805d982554",
+      "identity_key": "MB|MORDEN|WESTERN HARVEST BEAN ULC|NO|-98.10098872|49.18810182",
+      "initial_source_record_id": "aafc-elevators-2024:428",
+      "node_id": "ca:node:c3a87d38-7d53-589f-b845-9f805d982554"
+    },
+    {
+      "facility_id": "ca:facility:c44b25a2-eb5e-56f1-b7fe-b4df1e66e523",
+      "identity_key": "MB|TEULON|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-97.26417904|50.38579197",
+      "initial_source_record_id": "aafc-elevators-2024:317",
+      "node_id": "ca:node:c44b25a2-eb5e-56f1-b7fe-b4df1e66e523"
+    },
+    {
+      "facility_id": "ca:facility:c47a4721-806e-5746-bb19-cfde9f13a7f1",
+      "identity_key": "SK|DAVIDSON|CARGILL LIMITED|CN|-106.01671275|51.27967066",
+      "initial_source_record_id": "aafc-elevators-2024:35",
+      "node_id": "ca:node:c47a4721-806e-5746-bb19-cfde9f13a7f1"
+    },
+    {
+      "facility_id": "ca:facility:c55775dd-aa4b-5107-9e15-168d627a1287",
+      "identity_key": "SK|BEECHY|ALLIANCE PULSE PROCESSORS INC.|CN|-107.38212199|50.8758782",
+      "initial_source_record_id": "aafc-elevators-2024:157",
+      "node_id": "ca:node:c55775dd-aa4b-5107-9e15-168d627a1287"
+    },
+    {
+      "facility_id": "ca:facility:c5a8d7fb-475a-5646-8f3a-f7e5ced1505c",
+      "identity_key": "SK|DINSMORE|ALLIANCE PULSE PROCESSORS INC.|CN|-107.46338589|51.32708528",
+      "initial_source_record_id": "aafc-elevators-2024:156",
+      "node_id": "ca:node:c5a8d7fb-475a-5646-8f3a-f7e5ced1505c"
+    },
+    {
+      "facility_id": "ca:facility:c6bec190-70a9-5917-94a4-7ed52a61cd4b",
+      "identity_key": "AB|CROSSFIELD|VITERRA CANADA INC.|CP|-114.0342747|51.49071525",
+      "initial_source_record_id": "aafc-elevators-2024:173",
+      "node_id": "ca:node:c6bec190-70a9-5917-94a4-7ed52a61cd4b"
+    },
+    {
+      "facility_id": "ca:facility:c7105c23-6231-5852-83ba-664e2fd340a8",
+      "identity_key": "SK|ROSETOWN|CARGILL LIMITED|CN|-107.91928663|51.56859661",
+      "initial_source_record_id": "aafc-elevators-2024:106",
+      "node_id": "ca:node:c7105c23-6231-5852-83ba-664e2fd340a8"
+    },
+    {
+      "facility_id": "ca:facility:c7847287-4bbb-57a6-8f95-4f7e3883a86a",
+      "identity_key": "AB|LONG PLAIN|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-113.01532785|50.85775489",
+      "initial_source_record_id": "aafc-elevators-2024:197",
+      "node_id": "ca:node:c7847287-4bbb-57a6-8f95-4f7e3883a86a"
+    },
+    {
+      "facility_id": "ca:facility:c7b3e1dd-f182-57e6-8c63-ec8da8cd7080",
+      "identity_key": "AB|RYCROFT|RICHARDSON PIONEER LIMITED|CN|-118.72121183|55.71414138",
+      "initial_source_record_id": "aafc-elevators-2024:214",
+      "node_id": "ca:node:c7b3e1dd-f182-57e6-8c63-ec8da8cd7080"
+    },
+    {
+      "facility_id": "ca:facility:c8197eee-9217-56d9-963e-7b96c672e574",
+      "identity_key": "SK|REGINA|ALLIANCE PULSE PROCESSORS INC.|NO|-104.56936511|50.47825154",
+      "initial_source_record_id": "aafc-elevators-2024:432",
+      "node_id": "ca:node:c8197eee-9217-56d9-963e-7b96c672e574"
+    },
+    {
+      "facility_id": "ca:facility:c9d4164a-feea-529d-9a70-b4c159cf0a28",
+      "identity_key": "AB|SEXSMITH|VITERRA CANADA INC.|CN|-118.7842882|55.32521566",
+      "initial_source_record_id": "aafc-elevators-2024:215",
+      "node_id": "ca:node:c9d4164a-feea-529d-9a70-b4c159cf0a28"
+    },
+    {
+      "facility_id": "ca:facility:cc61223e-52d1-57db-bd4d-440a59935f3c",
+      "identity_key": "SK|PONTEIX|ADROIT OVERSEAS ENTERPRISES LTD.|OTH|-107.48188525|49.74586608",
+      "initial_source_record_id": "aafc-elevators-2024:363",
+      "node_id": "ca:node:cc61223e-52d1-57db-bd4d-440a59935f3c"
+    },
+    {
+      "facility_id": "ca:facility:cd531b0f-278b-5eb5-99ed-5c1e2dcf09e2",
+      "identity_key": "SK|CARLEA|THE ANDERSONS, INC.|CN|-103.89926425|53.15347317",
+      "initial_source_record_id": "aafc-elevators-2024:353",
+      "node_id": "ca:node:cd531b0f-278b-5eb5-99ed-5c1e2dcf09e2"
+    },
+    {
+      "facility_id": "ca:facility:cd53edad-1fec-54b1-b07f-cac01883fa96",
+      "identity_key": "MB|RED RIVER SOUTH|RICHARDSON PIONEER LIMITED|CN|-97.31070892|49.15428109",
+      "initial_source_record_id": "aafc-elevators-2024:305",
+      "node_id": "ca:node:cd53edad-1fec-54b1-b07f-cac01883fa96"
+    },
+    {
+      "facility_id": "ca:facility:ce90c691-cc22-58ec-8319-07fc512709d9",
+      "identity_key": "AB|FALHER|AGROCORP PROCESSING LTD.|CN|-117.17550373|55.73689028",
+      "initial_source_record_id": "aafc-elevators-2024:237",
+      "node_id": "ca:node:ce90c691-cc22-58ec-8319-07fc512709d9"
+    },
+    {
+      "facility_id": "ca:facility:cf7f4540-e7e1-53b3-88c3-a6603b2216f5",
+      "identity_key": "MB|OAKNER|CARGILL LIMITED|CN|-100.5870327|50.08841105",
+      "initial_source_record_id": "aafc-elevators-2024:300",
+      "node_id": "ca:node:cf7f4540-e7e1-53b3-88c3-a6603b2216f5"
+    },
+    {
+      "facility_id": "ca:facility:d135718f-0b85-5964-b672-73e6d6ce8f1b",
+      "identity_key": "SK|HERBERT|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-107.2238494|50.42466808",
+      "initial_source_record_id": "aafc-elevators-2024:51",
+      "node_id": "ca:node:d135718f-0b85-5964-b672-73e6d6ce8f1b"
+    },
+    {
+      "facility_id": "ca:facility:d1695f01-fcaf-539f-bbfd-a2b255a45d0a",
+      "identity_key": "MB|VIRDEN|PARRISH & HEIMBECKER, LIMITED|CP|-101.0234967|49.89633834",
+      "initial_source_record_id": "aafc-elevators-2024:319",
+      "node_id": "ca:node:d1695f01-fcaf-539f-bbfd-a2b255a45d0a"
+    },
+    {
+      "facility_id": "ca:facility:d2dda18d-ae0d-5cb8-a516-6522d80b5842",
+      "identity_key": "MB|LETELLIER|SEED-EX INC.|NO|-97.31919587|49.13428901",
+      "initial_source_record_id": "aafc-elevators-2024:287",
+      "node_id": "ca:node:d2dda18d-ae0d-5cb8-a516-6522d80b5842"
+    },
+    {
+      "facility_id": "ca:facility:d3178a2e-4707-50bd-b2f9-ebc5692a5de3",
+      "identity_key": "SK|ANTELOPE|SOUTH WEST TERMINAL LTD.|CP|-108.36024753|50.1413092",
+      "initial_source_record_id": "aafc-elevators-2024:4",
+      "node_id": "ca:node:d3178a2e-4707-50bd-b2f9-ebc5692a5de3"
+    },
+    {
+      "facility_id": "ca:facility:d323d2b6-44a3-5dce-8672-feccf7e448a8",
+      "identity_key": "AB|VERMILION|CARGILL LIMITED|CN|-110.7999354|53.34880156",
+      "initial_source_record_id": "aafc-elevators-2024:226",
+      "node_id": "ca:node:d323d2b6-44a3-5dce-8672-feccf7e448a8"
+    },
+    {
+      "facility_id": "ca:facility:d36957cd-0537-5f1b-b2e9-7d793589cd63",
+      "identity_key": "AB|GAUDIN|PROVIDENCE GRAIN GROUP INC.|CN|-112.9953659|53.79143604",
+      "initial_source_record_id": "aafc-elevators-2024:181",
+      "node_id": "ca:node:d36957cd-0537-5f1b-b2e9-7d793589cd63"
+    },
+    {
+      "facility_id": "ca:facility:d3d5b526-c83d-56cf-bea6-f27558ddf74b",
+      "identity_key": "SK|MAYMONT|GRAINSCONNECT CANADA OPERATIONS INC.|CN|-107.68554306|52.55574978",
+      "initial_source_record_id": "aafc-elevators-2024:368",
+      "node_id": "ca:node:d3d5b526-c83d-56cf-bea6-f27558ddf74b"
+    },
+    {
+      "facility_id": "ca:facility:d529b255-42a5-56b0-9de3-75d110ba6607",
+      "identity_key": "SK|DAFOE|BROADGRAIN COMMODITIES INC.|CP|-104.52755394|51.7527618",
+      "initial_source_record_id": "aafc-elevators-2024:33",
+      "node_id": "ca:node:d529b255-42a5-56b0-9de3-75d110ba6607"
+    },
+    {
+      "facility_id": "ca:facility:d7473517-590e-5db8-b72e-a78b2ddc3468",
+      "identity_key": "SK|WHITEWOOD|RICHARDSON PIONEER LIMITED|CP|-102.24192521|50.31694685",
+      "initial_source_record_id": "aafc-elevators-2024:137",
+      "node_id": "ca:node:d7473517-590e-5db8-b72e-a78b2ddc3468"
+    },
+    {
+      "facility_id": "ca:facility:d7ce263e-f4c8-5133-a9ad-0a6bf9e889f8",
+      "identity_key": "SK|GRENFELL|VITERRA CANADA INC.|CP|-102.95718192|50.41615418",
+      "initial_source_record_id": "aafc-elevators-2024:46",
+      "node_id": "ca:node:d7ce263e-f4c8-5133-a9ad-0a6bf9e889f8"
+    },
+    {
+      "facility_id": "ca:facility:d860ce95-63f3-5244-848e-3c4a2be3b1dd",
+      "identity_key": "SK|REGINA|SCOULAR CANADA, LTD.|CP|-104.4485218|50.38204071",
+      "initial_source_record_id": "aafc-elevators-2024:99",
+      "node_id": "ca:node:d860ce95-63f3-5244-848e-3c4a2be3b1dd"
+    },
+    {
+      "facility_id": "ca:facility:d97f46b0-f02b-5aad-930e-9db2384aaf3a",
+      "identity_key": "AB|VAUXHALL|COLUMBIA SEED CO. LIMITED|NO|-112.084645|50.06772654",
+      "initial_source_record_id": "aafc-elevators-2024:225",
+      "node_id": "ca:node:d97f46b0-f02b-5aad-930e-9db2384aaf3a"
+    },
+    {
+      "facility_id": "ca:facility:da3083d0-44d1-53da-8d8a-a2265695c0c5",
+      "identity_key": "SK|CROOKED RIVER|RICHARDSON PIONEER LIMITED|CN|-103.78303857|52.85885213",
+      "initial_source_record_id": "aafc-elevators-2024:30",
+      "node_id": "ca:node:da3083d0-44d1-53da-8d8a-a2265695c0c5"
+    },
+    {
+      "facility_id": "ca:facility:da947610-95e1-5801-92cf-014de12e1c26",
+      "identity_key": "SK|MELVILLE|G3 CANADA LIMITED|CN|-102.71308043|50.97152851",
+      "initial_source_record_id": "aafc-elevators-2024:380",
+      "node_id": "ca:node:da947610-95e1-5801-92cf-014de12e1c26"
+    },
+    {
+      "facility_id": "ca:facility:db42cdcf-4f35-50b3-a09f-4b49afbc4742",
+      "identity_key": "SK|UNITY|NORTH WEST TERMINAL LTD.|CN|-109.1245446|52.43636878",
+      "initial_source_record_id": "aafc-elevators-2024:124",
+      "node_id": "ca:node:db42cdcf-4f35-50b3-a09f-4b49afbc4742"
+    },
+    {
+      "facility_id": "ca:facility:dbc7b337-6107-5482-85ce-282169a2eec1",
+      "identity_key": "MB|BINSCARTH|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CP|-101.280492|50.61958104",
+      "initial_source_record_id": "aafc-elevators-2024:257",
+      "node_id": "ca:node:dbc7b337-6107-5482-85ce-282169a2eec1"
+    },
+    {
+      "facility_id": "ca:facility:dc00a5f4-aadf-5dd8-b74a-04f800feb888",
+      "identity_key": "MB|WINKLER|CHS INC.|NO|-97.924589|49.184225",
+      "initial_source_record_id": "aafc-elevators-2024:322",
+      "node_id": "ca:node:dc00a5f4-aadf-5dd8-b74a-04f800feb888"
+    },
+    {
+      "facility_id": "ca:facility:dd7044ec-607a-54cb-8997-75e0e8151b9c",
+      "identity_key": "MB|KILLARNEY|TRI LAKE AGRI LIMITED|CP|-99.64490945|49.18014774",
+      "initial_source_record_id": "aafc-elevators-2024:285",
+      "node_id": "ca:node:dd7044ec-607a-54cb-8997-75e0e8151b9c"
+    },
+    {
+      "facility_id": "ca:facility:dfb74141-908f-584b-b712-3d9bf4dd683b",
+      "identity_key": "MB|BLOOM|HENSALL DISTRICT CO-OPERATIVE, INCORPORATED|NO|-98.48782234|49.97827683",
+      "initial_source_record_id": "aafc-elevators-2024:390",
+      "node_id": "ca:node:dfb74141-908f-584b-b712-3d9bf4dd683b"
+    },
+    {
+      "facility_id": "ca:facility:e0eb1b14-d902-5bfd-8ee3-78c7c4c04b2f",
+      "identity_key": "MB|BRANDON|VITERRA CANADA INC.|CN|-99.9384543|49.99051237",
+      "initial_source_record_id": "aafc-elevators-2024:261",
+      "node_id": "ca:node:e0eb1b14-d902-5bfd-8ee3-78c7c4c04b2f"
+    },
+    {
+      "facility_id": "ca:facility:e130ed83-8354-5cec-9b72-96965ba48a7c",
+      "identity_key": "SK|NICKLEN SIDING|CERES GLOBAL AG CORP.|CN|-104.0201674|53.10744978",
+      "initial_source_record_id": "aafc-elevators-2024:87",
+      "node_id": "ca:node:e130ed83-8354-5cec-9b72-96965ba48a7c"
+    },
+    {
+      "facility_id": "ca:facility:e15bae7e-1658-5d8d-9038-09ca2bacbe78",
+      "identity_key": "SK|WADENA|RICHARDSON PIONEER LIMITED|CP|-103.7642974|51.92765734",
+      "initial_source_record_id": "aafc-elevators-2024:128",
+      "node_id": "ca:node:e15bae7e-1658-5d8d-9038-09ca2bacbe78"
+    },
+    {
+      "facility_id": "ca:facility:e17ae4ec-37c5-5ed1-9202-57286b1b17c2",
+      "identity_key": "SK|WEYBURN|VITERRA CANADA INC.|CP|-103.9345404|49.69309942",
+      "initial_source_record_id": "aafc-elevators-2024:135",
+      "node_id": "ca:node:e17ae4ec-37c5-5ed1-9202-57286b1b17c2"
+    },
+    {
+      "facility_id": "ca:facility:e26b2522-3dc2-59d6-a459-c8f040ca4feb",
+      "identity_key": "SK|WEYBURN|RICHARDSON PIONEER LIMITED|CP|-103.9169509|49.68440327",
+      "initial_source_record_id": "aafc-elevators-2024:134",
+      "node_id": "ca:node:e26b2522-3dc2-59d6-a459-c8f040ca4feb"
+    },
+    {
+      "facility_id": "ca:facility:e34c821a-f736-5138-91c3-f1d1829f2249",
+      "identity_key": "AB|FORT MACLEOD|MARKET PLACE COMMODITIES LTD.|NO|-113.272214|49.774672",
+      "initial_source_record_id": "aafc-elevators-2024:410",
+      "node_id": "ca:node:e34c821a-f736-5138-91c3-f1d1829f2249"
+    },
+    {
+      "facility_id": "ca:facility:e34daf5e-412d-5c05-818c-381ac24983c2",
+      "identity_key": "MB|SWAN RV VALLEY|RICHARDSON PIONEER LIMITED|CN|-101.2444302|52.17682824",
+      "initial_source_record_id": "aafc-elevators-2024:316",
+      "node_id": "ca:node:e34daf5e-412d-5c05-818c-381ac24983c2"
+    },
+    {
+      "facility_id": "ca:facility:e3610cea-6fe2-514a-b95b-b11fa4dd1b5d",
+      "identity_key": "AB|LAMONT|RICHARDSON PIONEER LIMITED|CN|-112.8105234|53.76752714",
+      "initial_source_record_id": "aafc-elevators-2024:189",
+      "node_id": "ca:node:e3610cea-6fe2-514a-b95b-b11fa4dd1b5d"
+    },
+    {
+      "facility_id": "ca:facility:e3eb2355-e488-5567-bf84-d43511704d96",
+      "identity_key": "AB|BAWLF|CANADA MALTING CO. LIMITED|CP|-112.4661765|52.91662105",
+      "initial_source_record_id": "aafc-elevators-2024:160",
+      "node_id": "ca:node:e3eb2355-e488-5567-bf84-d43511704d96"
+    },
+    {
+      "facility_id": "ca:facility:e49ca116-753f-55f8-a90f-9632c5b313a1",
+      "identity_key": "MB|MIAMI|HENSALL DISTRICT CO-OPERATIVE, INCORPORATED|NO|-98.2290296|49.37017311",
+      "initial_source_record_id": "aafc-elevators-2024:404",
+      "node_id": "ca:node:e49ca116-753f-55f8-a90f-9632c5b313a1"
+    },
+    {
+      "facility_id": "ca:facility:e4f2bced-4a54-5641-9f0f-94564a22558d",
+      "identity_key": "SK|ROSETOWN|ALLIANCE PULSE PROCESSORS INC.|CN|-107.90740155|51.57225994",
+      "initial_source_record_id": "aafc-elevators-2024:105",
+      "node_id": "ca:node:e4f2bced-4a54-5641-9f0f-94564a22558d"
+    },
+    {
+      "facility_id": "ca:facility:e61e0d3a-2480-5116-8c51-0b0a68d7fefe",
+      "identity_key": "AB|INNISFAIL|AGROCORP PROCESSING LTD.|CP|-113.95484199|52.02677822",
+      "initial_source_record_id": "aafc-elevators-2024:238",
+      "node_id": "ca:node:e61e0d3a-2480-5116-8c51-0b0a68d7fefe"
+    },
+    {
+      "facility_id": "ca:facility:e6ce69d9-3868-5a7b-96cc-6e90a871e65f",
+      "identity_key": "MB|NORMAN|CANADA MALTING CO. LIMITED|CN|-100.4463617|50.06431806",
+      "initial_source_record_id": "aafc-elevators-2024:299",
+      "node_id": "ca:node:e6ce69d9-3868-5a7b-96cc-6e90a871e65f"
+    },
+    {
+      "facility_id": "ca:facility:e6d8e89f-30e0-5fd2-9f54-5f550467d04b",
+      "identity_key": "MB|SOUTH LAKES|RICHARDSON PIONEER LIMITED|CP|-97.21582132|50.02643649",
+      "initial_source_record_id": "aafc-elevators-2024:311",
+      "node_id": "ca:node:e6d8e89f-30e0-5fd2-9f54-5f550467d04b"
+    },
+    {
+      "facility_id": "ca:facility:e87ce2e1-e0b1-51f8-92fa-1c0c39c3c10b",
+      "identity_key": "MB|ELM CREEK|CARGILL LIMITED|CP|-97.99924137|49.67746667",
+      "initial_source_record_id": "aafc-elevators-2024:275",
+      "node_id": "ca:node:e87ce2e1-e0b1-51f8-92fa-1c0c39c3c10b"
+    },
+    {
+      "facility_id": "ca:facility:e9240b02-16bd-56b0-bdaf-d7710a410334",
+      "identity_key": "AB|VULCAN|RICHARDSON PIONEER LIMITED|CP|-113.24197407|50.38282332",
+      "initial_source_record_id": "aafc-elevators-2024:231",
+      "node_id": "ca:node:e9240b02-16bd-56b0-bdaf-d7710a410334"
+    },
+    {
+      "facility_id": "ca:facility:e98be1e7-e6c5-5811-85df-6c7f4764edee",
+      "identity_key": "AB|LEGACY JCT|RICHARDSON PIONEER LIMITED|CP|-112.7011|52.97968639",
+      "initial_source_record_id": "aafc-elevators-2024:191",
+      "node_id": "ca:node:e98be1e7-e6c5-5811-85df-6c7f4764edee"
+    },
+    {
+      "facility_id": "ca:facility:ec1e449b-7baf-5f00-a950-273afbac9cb7",
+      "identity_key": "SK|LAST MOUNTAIN S|RICHARDSON PIONEER LIMITED|CP|-104.5545666|50.93724598",
+      "initial_source_record_id": "aafc-elevators-2024:63",
+      "node_id": "ca:node:ec1e449b-7baf-5f00-a950-273afbac9cb7"
+    },
+    {
+      "facility_id": "ca:facility:ec65e9a1-f114-55ea-b44e-5892dd644ad6",
+      "identity_key": "MB|DAUPHIN|CARGILL LIMITED|CN|-100.0361702|51.14171519",
+      "initial_source_record_id": "aafc-elevators-2024:269",
+      "node_id": "ca:node:ec65e9a1-f114-55ea-b44e-5892dd644ad6"
+    },
+    {
+      "facility_id": "ca:facility:ec6fba9e-eac0-5074-a9f0-f8ccca69bb7b",
+      "identity_key": "MB|ROBLIN|VITERRA CANADA INC.|CN|-101.3588721|51.24376134",
+      "initial_source_record_id": "aafc-elevators-2024:306",
+      "node_id": "ca:node:ec6fba9e-eac0-5074-a9f0-f8ccca69bb7b"
+    },
+    {
+      "facility_id": "ca:facility:ed2c2dbe-204f-5fdb-a29c-f370ac216562",
+      "identity_key": "AB|MORINVILLE|WESTMOR TERMINALS INC.|CN|-113.6871587|53.80713835",
+      "initial_source_record_id": "aafc-elevators-2024:202",
+      "node_id": "ca:node:ed2c2dbe-204f-5fdb-a29c-f370ac216562"
+    },
+    {
+      "facility_id": "ca:facility:ed576a6f-ff49-5f2c-9f09-7488319abba0",
+      "identity_key": "SK|KINDERSLEY|CARGILL LIMITED|CN|-109.0597712|51.47284811",
+      "initial_source_record_id": "aafc-elevators-2024:58",
+      "node_id": "ca:node:ed576a6f-ff49-5f2c-9f09-7488319abba0"
+    },
+    {
+      "facility_id": "ca:facility:ed72000b-02d5-544c-9f6a-ab02170e4903",
+      "identity_key": "MB|SHOAL LAKE|RICHARDSON PIONEER LIMITED|CP|-100.6108888|50.44412608",
+      "initial_source_record_id": "aafc-elevators-2024:308",
+      "node_id": "ca:node:ed72000b-02d5-544c-9f6a-ab02170e4903"
+    },
+    {
+      "facility_id": "ca:facility:ed8d230f-7b7d-53d4-95ed-937a6bc0bb2b",
+      "identity_key": "AB|CAMROSE|VITERRA CANADA INC.|CN|-112.8083242|53.01619772",
+      "initial_source_record_id": "aafc-elevators-2024:168",
+      "node_id": "ca:node:ed8d230f-7b7d-53d4-95ed-937a6bc0bb2b"
+    },
+    {
+      "facility_id": "ca:facility:edb61143-a157-5ab4-9e6f-64b32e5f1d7b",
+      "identity_key": "SK|ST GREGOR|BORNHORST SEEDS LTD.|CN|-104.8284631|52.17862627",
+      "initial_source_record_id": "aafc-elevators-2024:115",
+      "node_id": "ca:node:edb61143-a157-5ab4-9e6f-64b32e5f1d7b"
+    },
+    {
+      "facility_id": "ca:facility:ef5f0eb8-de37-563c-b07b-629ef92ad4d3",
+      "identity_key": "SK|WADENA|VITERRA CANADA INC.|CN|-103.8186479|51.96539515",
+      "initial_source_record_id": "aafc-elevators-2024:129",
+      "node_id": "ca:node:ef5f0eb8-de37-563c-b07b-629ef92ad4d3"
+    },
+    {
+      "facility_id": "ca:facility:ef793514-48fe-50f6-8eaa-c2a0b96510b5",
+      "identity_key": "MB|MORRIS|HORIZON AGRO INC.|NO|-97.4251776|49.397638",
+      "initial_source_record_id": "aafc-elevators-2024:296",
+      "node_id": "ca:node:ef793514-48fe-50f6-8eaa-c2a0b96510b5"
+    },
+    {
+      "facility_id": "ca:facility:f0161787-84e2-56aa-8896-0a2cb29e83aa",
+      "identity_key": "SK|AYLESBURY|ALLIANCE PULSE PROCESSORS INC.|OTH|-105.68944058|50.93894755",
+      "initial_source_record_id": "aafc-elevators-2024:357",
+      "node_id": "ca:node:f0161787-84e2-56aa-8896-0a2cb29e83aa"
+    },
+    {
+      "facility_id": "ca:facility:f17e6059-2c6d-548f-beff-8de33fe758e9",
+      "identity_key": "SK|REGINA|ALLIANCE PULSE PROCESSORS INC.|NO|-104.57043935|50.47838695",
+      "initial_source_record_id": "aafc-elevators-2024:96",
+      "node_id": "ca:node:f17e6059-2c6d-548f-beff-8de33fe758e9"
+    },
+    {
+      "facility_id": "ca:facility:f234652c-3f63-57b2-b6e3-0634a2208971",
+      "identity_key": "SK|VALPARAISO|VITERRA CANADA INC.|CN|-104.2169922|52.84865451",
+      "initial_source_record_id": "aafc-elevators-2024:126",
+      "node_id": "ca:node:f234652c-3f63-57b2-b6e3-0634a2208971"
+    },
+    {
+      "facility_id": "ca:facility:f374cb6d-ab0d-5d23-b103-256e5991c79e",
+      "identity_key": "SK|CUT KNIFE|ETG COMMODITIES INC.|CP|-109.01059642|52.74180299",
+      "initial_source_record_id": "aafc-elevators-2024:396",
+      "node_id": "ca:node:f374cb6d-ab0d-5d23-b103-256e5991c79e"
+    },
+    {
+      "facility_id": "ca:facility:f435419f-5441-52fe-ad15-bfe7e0d35cf0",
+      "identity_key": "SK|SUCCESS|ETG COMMODITIES INC.|CP|-108.08394838|50.46171019",
+      "initial_source_record_id": "aafc-elevators-2024:117",
+      "node_id": "ca:node:f435419f-5441-52fe-ad15-bfe7e0d35cf0"
+    },
+    {
+      "facility_id": "ca:facility:f65ae786-bae9-5ef7-b2f2-b9ab3842fa1b",
+      "identity_key": "MB|WINKLER|WALHALLA BEAN CO. (CANADA) LTD.|CP|-97.91240096|49.18336772",
+      "initial_source_record_id": "aafc-elevators-2024:323",
+      "node_id": "ca:node:f65ae786-bae9-5ef7-b2f2-b9ab3842fa1b"
+    },
+    {
+      "facility_id": "ca:facility:f69b9be4-029c-5bbc-bd8a-fbfb20320553",
+      "identity_key": "AB|TEMPEST|VITERRA CANADA INC.|CP|-112.5249123|49.74691038",
+      "initial_source_record_id": "aafc-elevators-2024:223",
+      "node_id": "ca:node:f69b9be4-029c-5bbc-bd8a-fbfb20320553"
+    },
+    {
+      "facility_id": "ca:facility:f70da93e-e3fd-55cc-830f-948d574268a1",
+      "identity_key": "SK|SWIFT CURRENT|RICHARDSON PIONEER LIMITED|CP|-107.8265328|50.28164569",
+      "initial_source_record_id": "aafc-elevators-2024:119",
+      "node_id": "ca:node:f70da93e-e3fd-55cc-830f-948d574268a1"
+    },
+    {
+      "facility_id": "ca:facility:f75e32c7-de13-5e71-ba15-1c1b27868b15",
+      "identity_key": "MB|BEAUSEJOUR|VITERRA CANADA INC.|CP|-96.48927643|50.05379678",
+      "initial_source_record_id": "aafc-elevators-2024:256",
+      "node_id": "ca:node:f75e32c7-de13-5e71-ba15-1c1b27868b15"
+    },
+    {
+      "facility_id": "ca:facility:f7acf94f-e008-57ec-8dbc-922a220c8484",
+      "identity_key": "SK|FOAM LAKE|VITERRA CANADA INC.|CP|-103.55982196|51.64382041",
+      "initial_source_record_id": "aafc-elevators-2024:43",
+      "node_id": "ca:node:f7acf94f-e008-57ec-8dbc-922a220c8484"
+    },
+    {
+      "facility_id": "ca:facility:f80749e6-5bba-5d00-852a-dc6974a5c067",
+      "identity_key": "AB|RYCROFT|GRAIN MILLERS CANADA CORP.|CN|-118.70430848|55.75714773",
+      "initial_source_record_id": "aafc-elevators-2024:384",
+      "node_id": "ca:node:f80749e6-5bba-5d00-852a-dc6974a5c067"
+    },
+    {
+      "facility_id": "ca:facility:f8124e34-9de5-5c5b-bb1a-d97a454a3b3c",
+      "identity_key": "MB|WINNIPEG|PATERSON GRAIN, A DIVISION OF PATERSON GLOBALFOODS INC.|CN|-97.30908773|49.96602583",
+      "initial_source_record_id": "aafc-elevators-2024:326",
+      "node_id": "ca:node:f8124e34-9de5-5c5b-bb1a-d97a454a3b3c"
+    },
+    {
+      "facility_id": "ca:facility:f885496f-f568-5f26-aff1-a2153fdb0684",
+      "identity_key": "SK|LEROSS|CANADA MALTING CO. LIMITED|CN|-103.8733039|51.28619185",
+      "initial_source_record_id": "aafc-elevators-2024:65",
+      "node_id": "ca:node:f885496f-f568-5f26-aff1-a2153fdb0684"
+    },
+    {
+      "facility_id": "ca:facility:fb1b2649-408c-5b03-8909-ad2737e437b2",
+      "identity_key": "SK|MOOSE JAW|VITERRA CANADA INC.|CN|-105.5498879|50.38391528",
+      "initial_source_record_id": "aafc-elevators-2024:81",
+      "node_id": "ca:node:fb1b2649-408c-5b03-8909-ad2737e437b2"
+    },
+    {
+      "facility_id": "ca:facility:fbd0f1d6-4d9a-5321-a4b3-9b45706a326f",
+      "identity_key": "AB|BEISEKER|CANADA MALTING CO. LIMITED|CN|-113.52343925|51.3892023",
+      "initial_source_record_id": "aafc-elevators-2024:161",
+      "node_id": "ca:node:fbd0f1d6-4d9a-5321-a4b3-9b45706a326f"
+    },
+    {
+      "facility_id": "ca:facility:fd96a0d3-c613-504d-b405-e9aace25c842",
+      "identity_key": "SK|SASKATOON|DG GLOBAL WEST INC.|CN|-106.8265648|52.10727432",
+      "initial_source_record_id": "aafc-elevators-2024:370",
+      "node_id": "ca:node:fd96a0d3-c613-504d-b405-e9aace25c842"
+    },
+    {
+      "facility_id": "ca:facility:fd9cbfcb-47c6-5751-aa4f-3e2a63ee041c",
+      "identity_key": "AB|BOW ISLAND|VITERRA CANADA INC.|CP|-111.3615933|49.87182996",
+      "initial_source_record_id": "aafc-elevators-2024:164",
+      "node_id": "ca:node:fd9cbfcb-47c6-5751-aa4f-3e2a63ee041c"
+    },
+    {
+      "facility_id": "ca:facility:fdda9693-cf04-51da-8137-ae0a22992de2",
+      "identity_key": "MB|MINNEDOSA|RICHARDSON PIONEER LIMITED|CP|-99.86848381|50.25681999",
+      "initial_source_record_id": "aafc-elevators-2024:292",
+      "node_id": "ca:node:fdda9693-cf04-51da-8137-ae0a22992de2"
+    },
+    {
+      "facility_id": "ca:facility:ff6d1343-b3ff-5d99-af7e-78abe63cddf8",
+      "identity_key": "SK|ESTON|ALLIANCE PULSE PROCESSORS INC.|OTH|-108.71812606|51.16086495",
+      "initial_source_record_id": "aafc-elevators-2024:431",
+      "node_id": "ca:node:ff6d1343-b3ff-5d99-af7e-78abe63cddf8"
+    }
+  ],
+  "version": "1"
+}

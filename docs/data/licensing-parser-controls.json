@@ -1,0 +1,9 @@
+{
+  "purpose": "Engineering parser controls independently read from Table 9 province totals in pinned licensing reports; not scientific parameters or confirmed operating status.",
+  "controls": {
+    "cgc-licensing-2024-08-01": {"pdf_page": 31, "primary_rows_by_province": {"AB": 91, "SK": 166, "MB": 82}, "storage_tonnes_by_province": {"AB": 2501264, "SK": 4162153, "MB": 1622928}},
+    "cgc-licensing-2024-11-01": {"pdf_page": 31, "primary_rows_by_province": {"AB": 90, "SK": 160, "MB": 82}, "storage_tonnes_by_province": {"AB": 2497264, "SK": 3981542, "MB": 1619418}},
+    "cgc-licensing-2025-02-01": {"pdf_page": 31, "primary_rows_by_province": {"AB": 90, "SK": 160, "MB": 83}, "storage_tonnes_by_province": {"AB": 2497163, "SK": 3978302, "MB": 1621513}},
+    "cgc-licensing-2025-05-01": {"pdf_page": 32, "primary_rows_by_province": {"AB": 90, "SK": 161, "MB": 82}, "storage_tonnes_by_province": {"AB": 2497163, "SK": 4026452, "MB": 1622793}}
+  }
+}

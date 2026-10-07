@@ -1,0 +1,521 @@
+{
+  "manifest_version": "1.0.0",
+  "sources": [
+    {
+      "attribution": "Adapted from Agriculture and Agri-Food Canada, Grain Elevators in Canada - 2024, 2024-01-01; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 153430,
+      "dataset_name": "Grain Elevators in Canada - 2024",
+      "effective_date_precision": "year",
+      "licence_evidence_url": "https://open.canada.ca/data/en/dataset/3561d689-2b5b-4cf9-bc68-d7ed0dbacd1b",
+      "local_path": "data/raw/phase2/aafc-elevators-2024.geojson",
+      "output_artifacts": [
+        "registry.json",
+        "nodes.json",
+        "capacities.json",
+        "registry_source_rows.json",
+        "registry_excluded.json"
+      ],
+      "role": "registry",
+      "snapshot": {
+        "effective_on": "2024-01-01",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://agriculture.canada.ca/atlas/data_donnees/cgcElevators/data_donnees/geoJSON/cgcElevators2024.geojson",
+        "processing_step": "Filter Primary AB/SK/MB, retain raw fields, map versioned stable IDs, audit coordinates/capacity; no fan/inventory inference",
+        "publisher": "Agriculture and Agri-Food Canada",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "e87c9e5d825f188bd74c473d5de9b3e66f45a1d7a7c8161e7355d62e36533c6f",
+        "snapshot_id": "aafc-elevators-2024"
+      }
+    },
+    {
+      "attribution": "Adapted from Canadian Grain Commission, Grain Deliveries at Prairie Points, crop year 2024-2025, 2025-07-31; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 1058750,
+      "dataset_name": "Grain Deliveries at Prairie Points, crop year 2024-2025",
+      "effective_date_precision": "crop_year_end",
+      "licence_evidence_url": "https://open.canada.ca/data/en/dataset/b9157c04-b8e7-42fa-89bb-ffa353b6be8d",
+      "local_path": "data/raw/phase2/cgc-deliveries-2024-2025.csv",
+      "output_artifacts": [
+        "outcomes_development.json",
+        "outcomes_transfer.json",
+        "shipping_links.json",
+        "outcome_source_rows.json"
+      ],
+      "role": "outcomes",
+      "snapshot": {
+        "effective_on": "2025-07-31",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://www.grainscanada.gc.ca/en/grain-research/statistics/grain-deliveries/2024-25/gdpp-2024-25-en.csv",
+        "processing_step": "Filter 2024-2025 Wheat; normalize full province names; preserve shipping-point kilotonnes; explicit tonne conversion; exact station crosswalk without duplication",
+        "publisher": "Canadian Grain Commission",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "2d9cd0a8afbb2ee78bd7876b667ed50208b6d6d745110100a90e04ffc796d78c",
+        "snapshot_id": "cgc-deliveries-2024-2025"
+      }
+    },
+    {
+      "attribution": "Adapted from Statistics Canada, Table 32-10-0002-01, downloaded 2026; select 2024, 2024-01-01; no endorsement. Retain source terms.",
+      "byte_count": 4108329,
+      "dataset_name": "Table 32-10-0002-01, downloaded 2026; select 2024",
+      "effective_date_precision": "year",
+      "licence_evidence_url": "https://www.statcan.gc.ca/en/terms-conditions/open-licence",
+      "local_path": "data/raw/phase2/statcan-32100002-20261007.zip",
+      "output_artifacts": [
+        "production.json",
+        "production_province_controls.json",
+        "production_lineage.json"
+      ],
+      "role": "production",
+      "snapshot": {
+        "effective_on": "2024-01-01",
+        "licence": "Statistics Canada Open Licence",
+        "licence_url": "https://www.statcan.gc.ca/en/terms-conditions/open-licence",
+        "original_url": "https://www150.statcan.gc.ca/n1/tbl/csv/32100002-eng.zip",
+        "processing_step": "Select 2024 metric tonnes; non-durum = Wheat, all minus Wheat, durum only when both publishable; retain flags; separate province controls",
+        "publisher": "Statistics Canada",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "948da55fc0553e6d86bc8b86e9d1d573ea1e44c332aa78613105d7b94942dd62",
+        "snapshot_id": "statcan-32100002-20261007"
+      }
+    },
+    {
+      "attribution": "Adapted from Statistics Canada, 2021 Census CCS full digital boundaries, Prairies, 2021-01-01; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 29547559,
+      "dataset_name": "2021 Census CCS full digital boundaries, Prairies",
+      "effective_date_precision": "exact",
+      "licence_evidence_url": "https://geo.statcan.gc.ca/geo_wa/rest/services/2021/Digital_boundary_files/MapServer",
+      "local_path": "data/raw/phase2/statcan-ccs-digital-2021.geojson",
+      "output_artifacts": [
+        "boundaries_ccs.json",
+        "facility_spatial_matches.json",
+        "ccs_to_car_overlap.json",
+        "ccs_to_sadr_overlap.json"
+      ],
+      "role": "boundary_ccs",
+      "snapshot": {
+        "effective_on": "2021-01-01",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://geo.statcan.gc.ca/geo_wa/rest/services/2021/Digital_boundary_files/MapServer/5/query?where=PRUID%20IN%20%28%2746%27%2C%2747%27%2C%2748%27%29&outFields=%2A&outSR=3347&f=geojson&returnGeometry=true",
+        "processing_step": "Validate full digital 2021 CCS in 3347; explicit make_valid repairs, left point joins and all positive-area overlaps",
+        "publisher": "Statistics Canada",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "d47c9838ae48e9628fc43018691f25f1c41d3fc61550ba8222037ca66b2c9d77",
+        "snapshot_id": "statcan-ccs-digital-2021"
+      }
+    },
+    {
+      "attribution": "Adapted from Statistics Canada, 2021 Census CAR full digital boundaries, Prairies, 2021-01-01; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 10103220,
+      "dataset_name": "2021 Census CAR full digital boundaries, Prairies",
+      "effective_date_precision": "exact",
+      "licence_evidence_url": "https://geo.statcan.gc.ca/geo_wa/rest/services/2021/Digital_boundary_files/MapServer",
+      "local_path": "data/raw/phase2/statcan-car-digital-2021.geojson",
+      "output_artifacts": [
+        "boundaries_car.json",
+        "facility_spatial_matches.json",
+        "ccs_to_car_overlap.json"
+      ],
+      "role": "boundary_car",
+      "snapshot": {
+        "effective_on": "2021-01-01",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://geo.statcan.gc.ca/geo_wa/rest/services/2021/Digital_boundary_files/MapServer/1/query?where=PRUID+IN+%28%2746%27%2C%2747%27%2C%2748%27%29&outFields=%2A&outSR=3347&f=geojson&orderByFields=CARUID&returnGeometry=true",
+        "processing_step": "Validate full digital 2021 CAR in 3347; left point joins and CCS block crosswalk",
+        "publisher": "Statistics Canada",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "9f53c2da2377caa2c83823b186abe9074a6f8ecbf91b42c8c4719d577e34001f",
+        "snapshot_id": "statcan-car-digital-2021"
+      }
+    },
+    {
+      "attribution": "Adapted from Statistics Canada, 2021 Census CD full digital boundaries, Prairies, 2021-01-01; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 14697754,
+      "dataset_name": "2021 Census CD full digital boundaries, Prairies",
+      "effective_date_precision": "exact",
+      "licence_evidence_url": "https://geo.statcan.gc.ca/geo_wa/rest/services/2021/Digital_boundary_files/MapServer",
+      "local_path": "data/raw/phase2/statcan-cd-digital-2021.geojson",
+      "output_artifacts": [
+        "boundaries_cd.json",
+        "boundaries_province_controls.json"
+      ],
+      "role": "boundary_cd",
+      "snapshot": {
+        "effective_on": "2021-01-01",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://geo.statcan.gc.ca/geo_wa/rest/services/2021/Digital_boundary_files/MapServer/4/query?where=PRUID%20IN%20%28%2746%27%2C%2747%27%2C%2748%27%29&outFields=%2A&outSR=3347&f=geojson&returnGeometry=true",
+        "processing_step": "Validate full digital 2021 CD in 3347; province control geometry union",
+        "publisher": "Statistics Canada",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "0f144968100bc3cc311c93e896a5bdabc63406a858180fd068185ae10500c87f",
+        "snapshot_id": "statcan-cd-digital-2021"
+      }
+    },
+    {
+      "attribution": "Adapted from Agriculture and Agri-Food Canada, Field Crop Reporting Series production GeoPackage, 2024-01-01; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 517214208,
+      "dataset_name": "Field Crop Reporting Series production GeoPackage",
+      "effective_date_precision": "selected_year",
+      "licence_evidence_url": "https://open.canada.ca/data/en/dataset/ae9c1230-e2dc-4155-a68b-6d521f57baaa",
+      "local_path": "data/raw/phase2/aafc-fieldcrop-production-20261007.gpkg",
+      "output_artifacts": [
+        "boundaries_sadr.json",
+        "sadr_source_rows.json",
+        "ccs_to_sadr_overlap.json"
+      ],
+      "role": "production_geometry",
+      "snapshot": {
+        "effective_on": "2024-01-01",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://agriculture.canada.ca/atlas/data_donnees/fieldCropReportingSeries/data_donnees/geoPackage/field_crop_reporting_series_production.gpkg",
+        "processing_step": "Read exact 2024 SADR geometries in AAFC GPKG; transform 3857 to 3347; keep SK reporting units separate from 2021 CAR",
+        "publisher": "Agriculture and Agri-Food Canada",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "ea290fafab3f7a3b7e23bb7b08c3303f618aad35e3d0b0f3aebcf3b08e1f1376",
+        "snapshot_id": "aafc-fieldcrop-production-20261007"
+      }
+    },
+    {
+      "attribution": "Adapted from OpenStreetMap contributors; Geofabrik extraction, OpenStreetMap alberta, Geofabrik 2024-01-01 extract, 2024-01-01; no endorsement. Retain source terms.",
+      "byte_count": 161044700,
+      "dataset_name": "OpenStreetMap alberta, Geofabrik 2024-01-01 extract",
+      "effective_date_precision": "extract_date",
+      "licence_evidence_url": "https://download.geofabrik.de/north-america/canada/alberta.html",
+      "local_path": "data/raw/phase2/osm-alberta-20240101.pbf",
+      "output_artifacts": [
+        "roads_AB.jsonl",
+        "roads_AB.rejected.jsonl",
+        "roads_index.json",
+        "road_extract_overlap_audit.json"
+      ],
+      "role": "roads",
+      "snapshot": {
+        "effective_on": "2024-01-01",
+        "licence": "ODbL-1.0",
+        "licence_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+        "original_url": "https://download.geofabrik.de/north-america/canada/alberta-240101.osm.pbf",
+        "processing_step": "Offline PBF snapshot decoder; preserve highway ways, node IDs/order, coordinates and tags; explicit rejected ways; no routing speeds or times",
+        "publisher": "OpenStreetMap contributors; Geofabrik extraction",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "e24709ded64ac6fe7cb56bc82a10fa2ab707b744a1b1bbbcee079742c7507b5f",
+        "snapshot_id": "osm-alberta-20240101"
+      }
+    },
+    {
+      "attribution": "Adapted from OpenStreetMap contributors; Geofabrik extraction, OpenStreetMap saskatchewan, Geofabrik 2024-01-01 extract, 2024-01-01; no endorsement. Retain source terms.",
+      "byte_count": 96852582,
+      "dataset_name": "OpenStreetMap saskatchewan, Geofabrik 2024-01-01 extract",
+      "effective_date_precision": "extract_date",
+      "licence_evidence_url": "https://download.geofabrik.de/north-america/canada/saskatchewan.html",
+      "local_path": "data/raw/phase2/osm-saskatchewan-20240101.pbf",
+      "output_artifacts": [
+        "roads_SK.jsonl",
+        "roads_SK.rejected.jsonl",
+        "roads_index.json",
+        "road_extract_overlap_audit.json"
+      ],
+      "role": "roads",
+      "snapshot": {
+        "effective_on": "2024-01-01",
+        "licence": "ODbL-1.0",
+        "licence_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+        "original_url": "https://download.geofabrik.de/north-america/canada/saskatchewan-240101.osm.pbf",
+        "processing_step": "Offline PBF snapshot decoder; preserve highway ways, node IDs/order, coordinates and tags; explicit rejected ways; no routing speeds or times",
+        "publisher": "OpenStreetMap contributors; Geofabrik extraction",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "ea284e408f90ff3df49439fc4eb576d7db095fa10ac66e8bdfd5b28a3648615e",
+        "snapshot_id": "osm-saskatchewan-20240101"
+      }
+    },
+    {
+      "attribution": "Adapted from OpenStreetMap contributors; Geofabrik extraction, OpenStreetMap manitoba, Geofabrik 2024-01-01 extract, 2024-01-01; no endorsement. Retain source terms.",
+      "byte_count": 181757416,
+      "dataset_name": "OpenStreetMap manitoba, Geofabrik 2024-01-01 extract",
+      "effective_date_precision": "extract_date",
+      "licence_evidence_url": "https://download.geofabrik.de/north-america/canada/manitoba.html",
+      "local_path": "data/raw/phase2/osm-manitoba-20240101.pbf",
+      "output_artifacts": [
+        "roads_MB.jsonl",
+        "roads_MB.rejected.jsonl",
+        "roads_index.json",
+        "road_extract_overlap_audit.json"
+      ],
+      "role": "roads",
+      "snapshot": {
+        "effective_on": "2024-01-01",
+        "licence": "ODbL-1.0",
+        "licence_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+        "original_url": "https://download.geofabrik.de/north-america/canada/manitoba-240101.osm.pbf",
+        "processing_step": "Offline PBF snapshot decoder; preserve highway ways, node IDs/order, coordinates and tags; explicit rejected ways; no routing speeds or times",
+        "publisher": "OpenStreetMap contributors; Geofabrik extraction",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "4e09fa0163d50928e0e07255fc9c1aae540deb2fd266bfce698e6cf39c931f36",
+        "snapshot_id": "osm-manitoba-20240101"
+      }
+    },
+    {
+      "attribution": "Adapted from Canadian Grain Commission, Grain Elevators in Canada, as at 2024-08-01, 2024-08-01; no endorsement. Retain source terms.",
+      "byte_count": 1478618,
+      "dataset_name": "Grain Elevators in Canada, as at 2024-08-01",
+      "effective_date_precision": "exact",
+      "licence_evidence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+      "local_path": "data/raw/phase2/cgc-licensing-2024-08-01.pdf",
+      "output_artifacts": [
+        "data/validation_private/phase2/licensing_reconciliation.json"
+      ],
+      "role": "licensing_audit",
+      "snapshot": {
+        "effective_on": "2024-08-01",
+        "licence": "CGC non-commercial reproduction terms; not a general open-data licence",
+        "licence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+        "original_url": "https://www.grainscanada.gc.ca/en/grain-research/statistics/grain-elevators/reports/pdf/2024-08-01.pdf",
+        "processing_step": "Private non-commercial audit: positioned Table 11 parser checked against Table 9 counts and storage totals; conservative exact reconciliation; public registry not overwritten",
+        "publisher": "Canadian Grain Commission",
+        "redistribution": "restricted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "2b069559b9e0d04c8c107a81852a4ada5b1c6b28c91c1263f0757ee8fcf2e262",
+        "snapshot_id": "cgc-licensing-2024-08-01"
+      }
+    },
+    {
+      "attribution": "Adapted from Canadian Grain Commission, Grain Elevators in Canada, as at 2024-11-01, 2024-11-01; no endorsement. Retain source terms.",
+      "byte_count": 2869801,
+      "dataset_name": "Grain Elevators in Canada, as at 2024-11-01",
+      "effective_date_precision": "exact",
+      "licence_evidence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+      "local_path": "data/raw/phase2/cgc-licensing-2024-11-01.pdf",
+      "output_artifacts": [
+        "data/validation_private/phase2/licensing_reconciliation.json"
+      ],
+      "role": "licensing_audit",
+      "snapshot": {
+        "effective_on": "2024-11-01",
+        "licence": "CGC non-commercial reproduction terms; not a general open-data licence",
+        "licence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+        "original_url": "https://www.grainscanada.gc.ca/en/grain-research/statistics/grain-elevators/reports/pdf/2024-11-01.pdf",
+        "processing_step": "Private non-commercial audit: positioned Table 11 parser checked against Table 9 counts and storage totals; conservative exact reconciliation; public registry not overwritten",
+        "publisher": "Canadian Grain Commission",
+        "redistribution": "restricted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "4f13b5b4239d308e2d7616d8132dd3e15eb73516cd79486a855170c903459294",
+        "snapshot_id": "cgc-licensing-2024-11-01"
+      }
+    },
+    {
+      "attribution": "Adapted from Canadian Grain Commission, Grain Elevators in Canada, as at 2025-02-01, 2025-02-01; no endorsement. Retain source terms.",
+      "byte_count": 1042305,
+      "dataset_name": "Grain Elevators in Canada, as at 2025-02-01",
+      "effective_date_precision": "exact",
+      "licence_evidence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+      "local_path": "data/raw/phase2/cgc-licensing-2025-02-01.pdf",
+      "output_artifacts": [
+        "data/validation_private/phase2/licensing_reconciliation.json"
+      ],
+      "role": "licensing_audit",
+      "snapshot": {
+        "effective_on": "2025-02-01",
+        "licence": "CGC non-commercial reproduction terms; not a general open-data licence",
+        "licence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+        "original_url": "https://www.grainscanada.gc.ca/en/grain-research/statistics/grain-elevators/reports/pdf/2025-02-01.pdf",
+        "processing_step": "Private non-commercial audit: positioned Table 11 parser checked against Table 9 counts and storage totals; conservative exact reconciliation; public registry not overwritten",
+        "publisher": "Canadian Grain Commission",
+        "redistribution": "restricted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "950405ed398d4ee6b015230c11d1d25be172c1260a69fad4515d8e890be1402b",
+        "snapshot_id": "cgc-licensing-2025-02-01"
+      }
+    },
+    {
+      "attribution": "Adapted from Canadian Grain Commission, Grain Elevators in Canada, as at 2025-05-01, 2025-05-01; no endorsement. Retain source terms.",
+      "byte_count": 1827181,
+      "dataset_name": "Grain Elevators in Canada, as at 2025-05-01",
+      "effective_date_precision": "exact",
+      "licence_evidence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+      "local_path": "data/raw/phase2/cgc-licensing-2025-05-01.pdf",
+      "output_artifacts": [
+        "data/validation_private/phase2/licensing_reconciliation.json"
+      ],
+      "role": "licensing_audit",
+      "snapshot": {
+        "effective_on": "2025-05-01",
+        "licence": "CGC non-commercial reproduction terms; not a general open-data licence",
+        "licence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+        "original_url": "https://www.grainscanada.gc.ca/en/grain-research/statistics/grain-elevators/reports/pdf/2025-05-01.pdf",
+        "processing_step": "Private non-commercial audit: positioned Table 11 parser checked against Table 9 counts and storage totals; conservative exact reconciliation; public registry not overwritten",
+        "publisher": "Canadian Grain Commission",
+        "redistribution": "restricted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "18c528eea30a9e50bec949f20ef28f95312926ad79c6120bfb5e2015a8ccb6f6",
+        "snapshot_id": "cgc-licensing-2025-05-01"
+      }
+    },
+    {
+      "attribution": "Adapted from Government of Canada Open Data Portal, aafc-registry-metadata, 2026-10-07; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 8862,
+      "dataset_name": "aafc-registry-metadata",
+      "effective_date_precision": "retrieval",
+      "licence_evidence_url": "https://open.canada.ca/en/open-government-licence-canada",
+      "local_path": "data/raw/phase2/aafc-registry-metadata.json",
+      "output_artifacts": [],
+      "role": "metadata",
+      "snapshot": {
+        "effective_on": "2026-10-07",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://open.canada.ca/data/api/3/action/package_show?id=3561d689-2b5b-4cf9-bc68-d7ed0dbacd1b",
+        "processing_step": "Pin unmodified source bytes; offline adapter validates and normalizes",
+        "publisher": "Government of Canada Open Data Portal",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "feb4833b7206bad00a7e9ff124078f66b48a775e6fe4a53240c6c824c43f3fd9",
+        "snapshot_id": "aafc-registry-metadata"
+      }
+    },
+    {
+      "attribution": "Adapted from Government of Canada Open Data Portal, cgc-deliveries-metadata, 2026-10-07; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 5395,
+      "dataset_name": "cgc-deliveries-metadata",
+      "effective_date_precision": "retrieval",
+      "licence_evidence_url": "https://open.canada.ca/en/open-government-licence-canada",
+      "local_path": "data/raw/phase2/cgc-deliveries-metadata.json",
+      "output_artifacts": [],
+      "role": "metadata",
+      "snapshot": {
+        "effective_on": "2026-10-07",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://open.canada.ca/data/api/3/action/package_show?id=b9157c04-b8e7-42fa-89bb-ffa353b6be8d",
+        "processing_step": "Pin unmodified source bytes; offline adapter validates and normalizes",
+        "publisher": "Government of Canada Open Data Portal",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "792c3a017496c99db2dc785fcd273158fc8af10992a4da11fb0e6e5f636bad99",
+        "snapshot_id": "cgc-deliveries-metadata"
+      }
+    },
+    {
+      "attribution": "Adapted from Government of Canada Open Data Portal, aafc-production-metadata, 2026-10-07; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 9985,
+      "dataset_name": "aafc-production-metadata",
+      "effective_date_precision": "retrieval",
+      "licence_evidence_url": "https://open.canada.ca/en/open-government-licence-canada",
+      "local_path": "data/raw/phase2/aafc-production-metadata.json",
+      "output_artifacts": [],
+      "role": "metadata",
+      "snapshot": {
+        "effective_on": "2026-10-07",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://open.canada.ca/data/api/3/action/package_show?id=ae9c1230-e2dc-4155-a68b-6d521f57baaa",
+        "processing_step": "Pin unmodified source bytes; offline adapter validates and normalizes",
+        "publisher": "Government of Canada Open Data Portal",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "1f3b74d6d53276145b7e4caa3fc0fd1c2c5e889130a17bd53ec02b47e0f24103",
+        "snapshot_id": "aafc-production-metadata"
+      }
+    },
+    {
+      "attribution": "Adapted from Named licence issuer, Terms evidence: Open Government Licence - Canada, 2026-10-07; no endorsement. Contains information licensed under the Open Government Licence - Canada.",
+      "byte_count": 23079,
+      "dataset_name": "Terms evidence: Open Government Licence - Canada",
+      "effective_date_precision": "retrieval",
+      "licence_evidence_url": "https://open.canada.ca/en/open-government-licence-canada",
+      "local_path": "data/raw/phase2/licence-ogl.html",
+      "output_artifacts": [],
+      "role": "licence_evidence",
+      "snapshot": {
+        "effective_on": "2026-10-07",
+        "licence": "Open Government Licence - Canada",
+        "licence_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "original_url": "https://open.canada.ca/en/open-government-licence-canada",
+        "processing_step": "Pin unmodified source bytes; offline adapter validates and normalizes",
+        "publisher": "Named licence issuer",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "d7648d6d694d66a0891502f85c3383f9263d5e541b47e14fbf33450974af158f",
+        "snapshot_id": "licence-ogl"
+      }
+    },
+    {
+      "attribution": "Adapted from Named licence issuer, Terms evidence: Statistics Canada Open Licence, 2026-10-07; no endorsement. Retain source terms.",
+      "byte_count": 27005,
+      "dataset_name": "Terms evidence: Statistics Canada Open Licence",
+      "effective_date_precision": "retrieval",
+      "licence_evidence_url": "https://www.statcan.gc.ca/en/terms-conditions/open-licence",
+      "local_path": "data/raw/phase2/licence-statcan.html",
+      "output_artifacts": [],
+      "role": "licence_evidence",
+      "snapshot": {
+        "effective_on": "2026-10-07",
+        "licence": "Statistics Canada Open Licence",
+        "licence_url": "https://www.statcan.gc.ca/en/terms-conditions/open-licence",
+        "original_url": "https://www.statcan.gc.ca/en/terms-conditions/open-licence",
+        "processing_step": "Pin unmodified source bytes; offline adapter validates and normalizes",
+        "publisher": "Named licence issuer",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "e2674801781798cb139cd2f40491e73749442afef7963730ad8dd0a7e4c3d09a",
+        "snapshot_id": "licence-statcan"
+      }
+    },
+    {
+      "attribution": "Adapted from Named licence issuer, Terms evidence: ODbL-1.0, 2026-10-07; no endorsement. Retain source terms.",
+      "byte_count": 51543,
+      "dataset_name": "Terms evidence: ODbL-1.0",
+      "effective_date_precision": "retrieval",
+      "licence_evidence_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "local_path": "data/raw/phase2/licence-odbl.html",
+      "output_artifacts": [],
+      "role": "licence_evidence",
+      "snapshot": {
+        "effective_on": "2026-10-07",
+        "licence": "ODbL-1.0",
+        "licence_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+        "original_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+        "processing_step": "Pin unmodified source bytes; offline adapter validates and normalizes",
+        "publisher": "Named licence issuer",
+        "redistribution": "permitted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "1879937103eecd9837a86d1a52132b8b2f42855e90d89409bee54103ffc5d5b6",
+        "snapshot_id": "licence-odbl"
+      }
+    },
+    {
+      "attribution": "Adapted from Named licence issuer, Terms evidence: CGC non-commercial reproduction terms; not a general open-data licence, 2026-10-07; no endorsement. Retain source terms.",
+      "byte_count": 6221,
+      "dataset_name": "Terms evidence: CGC non-commercial reproduction terms; not a general open-data licence",
+      "effective_date_precision": "retrieval",
+      "licence_evidence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+      "local_path": "data/raw/phase2/licence-cgc.html",
+      "output_artifacts": [],
+      "role": "licence_evidence",
+      "snapshot": {
+        "effective_on": "2026-10-07",
+        "licence": "CGC non-commercial reproduction terms; not a general open-data licence",
+        "licence_url": "https://www.grainscanada.gc.ca/en/terms.html",
+        "original_url": "https://www.grainscanada.gc.ca/en/terms.html",
+        "processing_step": "Pin unmodified source bytes; offline adapter validates and normalizes",
+        "publisher": "Named licence issuer",
+        "redistribution": "restricted",
+        "retrieved_on": "2026-10-07",
+        "sha256": "6b7029ba866e65800ecff21044059d47646c7013077c21c7e31bac9eeb233630",
+        "snapshot_id": "licence-cgc"
+      }
+    }
+  ]
+}
