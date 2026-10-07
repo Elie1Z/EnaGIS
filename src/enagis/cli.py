@@ -33,9 +33,59 @@ def main() -> int:
     data_schema_parser.add_argument("--output", type=Path, required=True)
     verify_data_parser = commands.add_parser("verify-data")
     verify_data_parser.add_argument("path", type=Path)
+    run_parser = commands.add_parser("run")
+    run_parser.add_argument("--root", type=Path, default=Path.cwd())
+    run_parser.add_argument("--input", type=Path, default=Path("data/processed/phase2"))
+    run_parser.add_argument("--region", type=Path, default=Path("configs/regions/ca-prairies.json"))
+    run_parser.add_argument(
+        "--scenario", type=Path, default=Path("configs/scenarios/phase3-engineering-v1.json")
+    )
+    run_parser.add_argument("--manifest", type=Path, default=Path("docs/data/manifest.json"))
+    run_parser.add_argument("--output", type=Path, default=Path("outputs/phase3"))
+    run_parser.add_argument("--allow-temporary-scenario", action="store_true")
+    verify_run_parser = commands.add_parser("verify-run")
+    verify_run_parser.add_argument("path", type=Path)
+    trace_parser = commands.add_parser("trace")
+    trace_parser.add_argument("path", type=Path)
+    trace_parser.add_argument("--node-id", required=True)
     args = parser.parse_args()
     try:
-        if args.command == "acquire":
+        if args.command == "run":
+            from enagis.pipeline import run_pipeline
+            from enagis.pipeline_validation import verify_run
+
+            audit = run_pipeline(
+                args.root,
+                args.input,
+                args.region,
+                args.scenario,
+                args.manifest,
+                args.output,
+                args.allow_temporary_scenario,
+            )
+            print(
+                json.dumps(
+                    {
+                        "verification": verify_run(args.output),
+                        "disclaimer": audit["disclaimer"],
+                        "known_input_tonnes": audit["known_input_tonnes"],
+                        "assigned_tonnes": audit["assigned_tonnes"],
+                        "explicit_unserved_tonnes": audit["explicit_unserved_tonnes"],
+                        "shortlist": str(args.output / "engineering-shortlist.csv"),
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+        elif args.command == "verify-run":
+            from enagis.pipeline_validation import verify_run
+
+            print(json.dumps(verify_run(args.path), indent=2, sort_keys=True))
+        elif args.command == "trace":
+            from enagis.pipeline_validation import trace_node
+
+            print(json.dumps(trace_node(args.path, args.node_id), indent=2, sort_keys=True))
+        elif args.command == "acquire":
             from enagis.acquire import acquire_manifest
 
             acquire_manifest(args.manifest, args.root, args.skip_licensing)
@@ -81,7 +131,7 @@ def main() -> int:
         else:
             suite = FixtureSuite.model_validate_json(args.fixture.read_bytes())
             print(json.dumps(smoke(suite), indent=2, sort_keys=True))
-    except (ValidationError, ValueError, OSError) as error:
+    except (ValidationError, ValueError, OSError, KeyError) as error:
         print(str(error), file=sys.stderr)
         return 1
     return 0

@@ -1,0 +1,212 @@
+{
+  "scenario_id": "phase3-engineering-v1",
+  "source_id": "scenario:phase3-engineering-v1",
+  "as_of": "2026-10-07",
+  "purpose": "temporary_engineering",
+  "disclaimer": "TEMPORARY ENGINEERING SCENARIO. Real source locations and production, hypothetical assignment/inventory/fan duty. Parameters and methods are not human-approved for scientific use. No claim of actual electricity use, installed fans, viability or field validation.",
+  "assignment_method": "same_reporting_region_bounded_equal_share",
+  "inventory_method": "steady_flow_residence",
+  "ranking_method": "scenario_kw_descending_then_node_id",
+  "gap_policy": "signed_margin_and_documentation",
+  "methods_approved_by": null,
+  "methods_approved_on": null,
+  "method_sources": [
+    "docs/decisions/0005-phase3-walking-skeleton.md",
+    "https://extension.umn.edu/agriculture/crop-production/small-grains/storing-wheat-and-barley",
+    "https://extension.umn.edu/agriculture/crop-production/corn/selecting-fans-and-determining-airflow-for-grain-bins"
+  ],
+  "parameters": [
+    {
+      "parameter_id": "residence_days",
+      "unit": "day",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 30,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Hypothetical 30-day residence, not measured at elevators",
+          "missing_reason": null
+        }
+      }
+    },
+    {
+      "parameter_id": "modeled_operating_days",
+      "unit": "day",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 365,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Hypothetical steady flow spread over 365 modeled days; not a calendar or operating-status observation",
+          "missing_reason": null
+        }
+      }
+    },
+    {
+      "parameter_id": "wheat_storage_fraction",
+      "unit": "fraction",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 0.5,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Hypothetical half of all-commodity storage reserved for wheat; not observed occupancy",
+          "missing_reason": null
+        }
+      }
+    },
+    {
+      "parameter_id": "airflow_per_tonne",
+      "unit": "m3/s/tonne",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 0.002,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Hypothetical dimensional test duty; not converted from or validated against farm-bin guidance",
+          "missing_reason": null
+        }
+      }
+    },
+    {
+      "parameter_id": "static_pressure",
+      "unit": "Pa",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 500,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Hypothetical total grain-plus-duct pressure; no commercial bin-depth data",
+          "missing_reason": null
+        }
+      }
+    },
+    {
+      "parameter_id": "fan_efficiency",
+      "unit": "fraction",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 0.6,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Temporary impeller efficiency; UMN gives 0.60 as an example, commercial applicability unapproved",
+          "missing_reason": null
+        }
+      }
+    },
+    {
+      "parameter_id": "motor_efficiency",
+      "unit": "fraction",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 0.9,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Hypothetical motor efficiency, not a sourced installed motor value",
+          "missing_reason": null
+        }
+      }
+    },
+    {
+      "parameter_id": "simultaneous_fraction",
+      "unit": "fraction",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 1,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Hypothetical all modeled inventory aerated concurrently",
+          "missing_reason": null
+        }
+      }
+    },
+    {
+      "parameter_id": "cycle_hours",
+      "unit": "hour",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 150,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Temporary cycle duration; UMN farm-bin example is 150 h at 0.1 cfm/bu, not validation of this airflow or commercial elevators",
+          "missing_reason": null
+        }
+      }
+    },
+    {
+      "parameter_id": "auxiliary_power",
+      "unit": "kW",
+      "approved_by": null,
+      "approved_on": null,
+      "value": {
+        "value": 0,
+        "evidence": {
+          "label": "INFERRED",
+          "source_ids": [
+            "scenario:phase3-engineering-v1"
+          ],
+          "as_of": "2026-10-07",
+          "licence": "MIT (EnaGIS authored temporary scenario)",
+          "method": "Hypothetical fan-only boundary excludes auxiliaries; zero is a scenario choice, not evidence of absence",
+          "missing_reason": null
+        }
+      }
+    }
+  ],
+  "mass_tolerance_tonnes": 1e-06,
+  "shortlist_size": 10
+}

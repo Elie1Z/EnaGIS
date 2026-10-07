@@ -1,4 +1,4 @@
-name: Contracts and data spine
+name: Contracts, data spine and pipeline
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
           python-version: "3.12.14"
       - name: Install pinned dependencies
         run: make setup
-      - name: Validate contracts and fixtures offline
+      - name: Validate contracts, data and pipeline fixtures offline
         env:
           PROJ_NETWORK: "OFF"
         run: make check
