@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -48,9 +49,69 @@ def main() -> int:
     trace_parser = commands.add_parser("trace")
     trace_parser.add_argument("path", type=Path)
     trace_parser.add_argument("--node-id", required=True)
+    for command in ("prepare-experiment", "register-experiment", "evaluate-experiment"):
+        experiment_parser = commands.add_parser(command)
+        experiment_parser.add_argument("--root", type=Path, default=Path.cwd())
+        experiment_parser.add_argument(
+            "--protocol", type=Path, default=Path("configs/experiments/phase4-canada-v1.json")
+        )
+        experiment_parser.add_argument(
+            "--preparation", type=Path, default=Path("data/processed/phase4")
+        )
+        if command != "prepare-experiment":
+            experiment_parser.add_argument(
+                "--registration", type=Path, default=Path("data/manual/phase4-preregistration.json")
+            )
+        if command == "evaluate-experiment":
+            experiment_parser.add_argument("--output", type=Path, default=Path("outputs/phase4"))
+            experiment_parser.add_argument("--phase3", type=Path, default=Path("outputs/phase3"))
+    verify_experiment_parser = commands.add_parser("verify-experiment")
+    verify_experiment_parser.add_argument("path", type=Path)
     args = parser.parse_args()
     try:
-        if args.command == "run":
+        if args.command == "prepare-experiment":
+            from enagis.experiment_prepare import prepare_experiment
+
+            print(
+                json.dumps(prepare_experiment(args.root, args.protocol, args.preparation), indent=2)
+            )
+        elif args.command == "register-experiment":
+            from enagis.experiment import register_experiment
+
+            print(
+                json.dumps(
+                    register_experiment(
+                        args.root, args.protocol, args.preparation, args.registration
+                    ),
+                    indent=2,
+                )
+            )
+        elif args.command == "evaluate-experiment":
+            from enagis.experiment import evaluate_experiment
+
+            report = evaluate_experiment(
+                args.root,
+                args.protocol,
+                args.preparation,
+                args.registration,
+                args.output,
+                args.phase3,
+            )
+            print(
+                json.dumps(
+                    {
+                        "siting_status": report["siting"]["status"],
+                        "siting_decision": report["siting"]["decision"],
+                        "hindcast_status": report["hindcast"]["status"],
+                    },
+                    indent=2,
+                )
+            )
+        elif args.command == "verify-experiment":
+            from enagis.experiment import verify_experiment
+
+            print(json.dumps(verify_experiment(args.path), indent=2))
+        elif args.command == "run":
             from enagis.pipeline import run_pipeline
             from enagis.pipeline_validation import verify_run
 
@@ -131,7 +192,7 @@ def main() -> int:
         else:
             suite = FixtureSuite.model_validate_json(args.fixture.read_bytes())
             print(json.dumps(smoke(suite), indent=2, sort_keys=True))
-    except (ValidationError, ValueError, OSError, KeyError) as error:
+    except (ValidationError, ValueError, OSError, KeyError, subprocess.CalledProcessError) as error:
         print(str(error), file=sys.stderr)
         return 1
     return 0

@@ -60,8 +60,15 @@ uv run --offline --locked --cache-dir .uv-cache python -m enagis trace outputs/p
 
 The real development run retains 261 nodes, ranks 186 with known production and emits `outputs/phase3/engineering-shortlist.csv` with ten rows. It conserves the 11,918,640-tonne **known subset**; nine development origins stay UNKNOWN. Administrative assignment and fan duty are hypothetical, explicitly configured and unapproved for scientific use. Installed electrical supply is undocumented in the consumed storage registry, not proven absent. [Decision 0005](docs/decisions/0005-phase3-walking-skeleton.md) and the [pipeline guide](docs/spec/phase3-pipeline.md) explain formulas, provenance, traces and gates. Output artifacts are ignored by Git and rebuilt locally.
 
-## Next step
+## Phase 4: comparison implementation
 
-**Phase 4: independent siting experiment**, after preregistering label-free upstream features, spatial blocks and keep/kill rules. Keep Manitoba untouched for evaluation. Shortlist allocation/capacity/energy/gap outputs must not enter those features. Scientific energy/routing/verification gates remain open; [pilot-scope.json](configs/pilot-scope.json) remains scope metadata.
+**Implemented and tested; real scientific execution awaits protocol approval.** The [Phase 4 status](docs/phase-4-status.md) records B0/B1/B2/population baselines, shipping-point hindcast, independent spatial siting models and paired block uncertainty. Real source preparation is available without fitting:
+
+```sh
+uv run --offline --locked --cache-dir .uv-cache python -m enagis acquire --manifest docs/data/phase4-manifest.json
+uv run --offline --locked --cache-dir .uv-cache python -m enagis prepare-experiment
+```
+
+Review the [proposed protocol](docs/spec/phase4-preregistration.md) and [execution guide](docs/spec/phase4-experiment.md). Its coarse production proxy and road-distance settings require human approval before committed/tagged registration and real evaluation. The code refuses draft protocols; synthetic test approvals are not real approvals. Manitoba remains untouched. Shortlist allocation/capacity/energy/gap outputs cannot enter siting features. Scientific energy/routing/verification gates remain open; [pilot-scope.json](configs/pilot-scope.json) remains scope metadata.
 
 Code will be developed with AI assistance under human specifications, scientific decisions and review, following the PRD protocol.

@@ -16,3 +16,13 @@ The CGC open-data portal resource describes an earlier crop-year download, while
 Raw snapshots, intermediate caches, large standardized databases and private verification/audit files are ignored by Git. Public repository content consists of code, tiny synthetic fixtures, source/configuration metadata, crosswalk IDs and aggregate audit findings. Private licensing rows never enrich the open registry. Public audit references/counts document restrictions and data quality; they are not a commercial redistribution grant for the reports.
 
 Python dependencies are pinned in `uv.lock`; pydantic/pyproj and their runtime dependencies, Shapely/GEOS, NumPy and pypdf retain their upstream MIT/BSD/LGPL notices in their distributions. The repository does not vendor those binaries. The PBF schema's attribution is recorded in [third-party notices](../../THIRD_PARTY_NOTICES.md).
+
+## Phase 4 additions — 8 October 2026
+
+The [Phase 4 manifest](phase4-manifest.json) records the official 2021 CSD population table
+(Statistics Canada Open Licence) and AB/SK full digital CSD boundaries (Open Government Licence
+– Canada), with retrieval date, URL, checksum, attribution and intended derived artifacts.
+These support an audited CSD-to-CCS population baseline. No restricted licensing rows or private
+verification records are included. Road features retain OpenStreetMap attribution and ODbL;
+combining them into comparison outputs does not relicense them as repository code. The locked
+SciPy/scikit-learn dependencies keep the licence notices distributed with those packages.
