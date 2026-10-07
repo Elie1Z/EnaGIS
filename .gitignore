@@ -1,0 +1,20 @@
+# Local environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+!.env.example
+
+# Acquired data and generated products need explicit licence/privacy review
+data/raw/
+data/interim/
+data/processed/
+data/validation_private/
+outputs/
+
+# Keep source specs, scope metadata, audits, manual non-private tables and fixtures versioned
+.DS_Store
+Thumbs.db

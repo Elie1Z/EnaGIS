@@ -1,0 +1,95 @@
+{
+  "audit_date": "2026-10-07",
+  "audit_kind": "Phase 0 source feasibility; not a validated registry or pipeline output",
+  "geolocation_source": {
+    "primary_positive_storage_capacity": 339,
+    "total_point_records": 434,
+    "primary_prairie_records": 340,
+    "sha256": "e87c9e5d825f188bd74c473d5de9b3e66f45a1d7a7c8161e7355d62e36533c6f",
+    "url": "https://agriculture.canada.ca/atlas/data_donnees/cgcElevators/data_donnees/geoJSON/cgcElevators2024.geojson",
+    "primary_by_province": [
+      {
+        "province": "AB",
+        "records": 89
+      },
+      {
+        "province": "MB",
+        "records": 79
+      },
+      {
+        "province": "SK",
+        "records": 172
+      }
+    ]
+  },
+  "delivery_source": {
+    "selected_records": 184,
+    "rows_all_years": 22466,
+    "fields": [
+      "crop_year",
+      "grain",
+      "Province",
+      "Station",
+      "deliveries_kT"
+    ],
+    "unit_as_published": "deliveries_kT",
+    "crop_years": [
+      "2006-2007",
+      "2007-2008",
+      "2008-2009",
+      "2009-2010",
+      "2010-2011",
+      "2011-2012",
+      "2012-2013",
+      "2013-2014",
+      "2014-2015",
+      "2015-2016",
+      "2016-2017",
+      "2017-2018",
+      "2018-2019",
+      "2019-2020",
+      "2020-2021",
+      "2021-2022",
+      "2022-2023",
+      "2023-2024",
+      "2024-2025"
+    ],
+    "distinct_shipping_points": 184,
+    "selected_crop_year": "2024-2025",
+    "url": "https://www.grainscanada.gc.ca/en/grain-research/statistics/grain-deliveries/2024-25/gdpp-2024-25-en.csv",
+    "sha256": "2d9cd0a8afbb2ee78bd7876b667ed50208b6d6d745110100a90e04ffc796d78c",
+    "selected_categories": [
+      "Wheat"
+    ],
+    "grain_categories": [
+      "Amber Durum",
+      "Barley",
+      "Beans",
+      "Buckwheat",
+      "Canaryseed",
+      "Canola",
+      "Chick Peas",
+      "Corn",
+      "Faba bean",
+      "Flaxseed",
+      "Lentil",
+      "Mustard Seed",
+      "Oat",
+      "Peas",
+      "Rye",
+      "Safflower",
+      "Soybeans",
+      "Sunflower",
+      "Triticale",
+      "Wheat"
+    ]
+  },
+  "preliminary_matching": {
+    "limitation": "Shipping-point records may cover several elevators; this is coverage only and must not allocate or duplicate deliveries.",
+    "matching_distinct_shipping_points": 181,
+    "matching_primary_records": 264,
+    "method": "Exact province + trimmed uppercase station; no fuzzy or spatial matching"
+  },
+  "hash_basis": "SHA-256 of response Content bytes where binary; otherwise UTF-8 encoded text. Feasibility fingerprints only; raw input files must be downloaded and hashed in Phase 2.",
+  "raw_input_files_pinned": false
+}

@@ -1,0 +1,768 @@
+#!/usr/bin/env bash
+# EnaGIS repo bootstrap. Usage: bash bootstrap_enagis.sh [target_dir]
+# Creates the repo skeleton plus a toy end-to-end "walking skeleton" (fixtures -> allocation ->
+# energy -> baselines -> shortlist) with hand-computed tests. Works on Linux, macOS, WSL, Git Bash.
+set -euo pipefail
+
+TARGET="${1:-enagis}"
+if [ -e "$TARGET" ] && [ -n "$(ls -A "$TARGET" 2>/dev/null)" ]; then
+  echo "Refusing to write into non-empty directory: $TARGET" >&2
+  exit 1
+fi
+
+mkdir -p "$TARGET"
+cd "$TARGET"
+
+mkdir -p .github/workflows configs docs/spec docs/decisions notebooks scripts web \
+  data/raw data/interim data/processed data/manual data/fixtures/toy data/validation_private \
+  outputs/maps outputs/tables outputs/shortlist \
+  src/enagis/contracts src/enagis/spatial src/enagis/demand src/enagis/gap \
+  src/enagis/ingestion src/enagis/siting src/enagis/uncertainty src/enagis/validation tests
+
+for d in data/raw data/interim data/processed data/validation_private outputs/maps outputs/tables \
+  outputs/shortlist; do touch "$d/.gitkeep"; done
+
+echo "3.12" > .python-version
+
+cat > .gitignore <<'EOF'
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+data/raw/*
+data/interim/*
+data/processed/*
+data/validation_private/*
+outputs/*
+!**/.gitkeep
+.DS_Store
+EOF
+
+cat > pyproject.toml <<'EOF'
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "enagis"
+version = "0.0.1"
+description = "EnaGIS: open, uncertainty-aware GeoAI screening for agricultural productive-use energy"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = ["numpy", "pandas", "scipy", "pydantic>=2", "pyyaml"]
+
+[project.optional-dependencies]
+geo = ["geopandas", "shapely", "pyproj", "rasterio", "pyarrow"]
+ml = ["scikit-learn", "matplotlib"]
+osm = ["osmnx"]
+ingest = ["duckdb"]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+enagis = "enagis.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/enagis"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+EOF
+
+cat > Makefile <<'EOF'
+.PHONY: setup test lint format check build figures clean
+
+setup:
+    uv sync --all-extras
+
+test:
+    uv run pytest -q
+
+lint:
+    uv run ruff check .
+
+format:
+    uv run ruff format .
+
+check:
+    uv run enagis check
+
+build:
+    uv run enagis build --out outputs
+
+figures:
+    @echo "TODO: figure scripts write to outputs/figures"
+
+clean:
+    rm -rf outputs/shortlist .pytest_cache .ruff_cache
+EOF
+# Make recipes use real tabs (heredoc above uses 4 spaces for portability)
+awk '{ sub(/^    /, "\t"); print }' Makefile > Makefile.tmp && mv Makefile.tmp Makefile
+
+cat > .github/workflows/ci.yml <<'EOF'
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --extra dev
+      - run: uv run ruff check .
+      - run: uv run pytest -q
+      - run: uv run enagis build --out outputs
+      - run: test -f outputs/shortlist/shortlist.csv
+EOF
+
+cat > configs/pilot.yaml <<'EOF'
+# Every parameter: value, unit, source, note. No constants hardcoded in code.
+# Toy values: replace with commodity-specific values and real sources before use.
+seed: 20261026
+max_travel_time_min:
+  value: 45
+  unit: min
+  source: "toy fixture (replace with commodity-specific access threshold)"
+  note: "dry-season scenario"
+energy_kwh_per_tonne:
+  value: 2.0
+  unit: kWh/t
+  source: "toy fixture"
+  note: "replace with sourced intensity range"
+standing_kwh_per_day:
+  value: 10.0
+  unit: kWh/day
+  source: "toy fixture"
+  note: "standing and auxiliary load per active node"
+buffer_km:
+  value: 15.0
+  unit: km
+  source: "toy fixture"
+  note: "baseline B1 Euclidean buffer"
+EOF
+
+# ---------- toy fixtures (hand-computable) ----------
+cat > data/fixtures/toy/vertices.csv <<'EOF'
+vertex_id,x_km,y_km
+1,0,0
+2,10,0
+3,20,0
+4,30,0
+5,40,0
+6,20,10
+EOF
+cat > data/fixtures/toy/edges.csv <<'EOF'
+from_vertex,to_vertex,time_min
+1,2,15
+2,3,25
+3,4,20
+4,5,20
+3,6,20
+EOF
+cat > data/fixtures/toy/nodes.csv <<'EOF'
+node_id,vertex_id,district,x_km,y_km,capacity_t_per_day
+F1,1,D1,0,0,120
+F2,3,D2,20,0,
+EOF
+cat > data/fixtures/toy/cells.csv <<'EOF'
+cell_id,vertex_id,district,volume_t_per_day,x_km,y_km
+C1,2,D1,100,10,0
+C2,4,D2,60,30,0
+C3,5,D2,40,40,0
+C4,6,D2,50,20,10
+EOF
+
+# ---------- package ----------
+cat > src/enagis/__init__.py <<'EOF'
+__version__ = "0.0.1"
+EOF
+cat > src/enagis/__main__.py <<'EOF'
+from enagis.cli import main
+
+raise SystemExit(main())
+EOF
+for pkg in contracts spatial demand gap ingestion siting uncertainty validation; do
+  touch "src/enagis/$pkg/__init__.py"
+done
+
+cat > src/enagis/config.py <<'EOF'
+"""Typed configuration. Every parameter carries value, unit and source."""
+
+from pathlib import Path
+
+import yaml
+from pydantic import BaseModel, field_validator
+
+
+class Param(BaseModel):
+    value: float
+    unit: str
+    source: str
+    note: str = ""
+
+    @field_validator("unit", "source")
+    @classmethod
+    def _not_empty(cls, v: str) -> str:
+        if not v.strip():
+            raise ValueError("unit and source must be non-empty")
+        return v
+
+
+class Config(BaseModel):
+    seed: int
+    max_travel_time_min: Param
+    energy_kwh_per_tonne: Param
+    standing_kwh_per_day: Param
+    buffer_km: Param
+
+
+def load_config(path) -> Config:
+    return Config(**yaml.safe_load(Path(path).read_text()))
+EOF
+
+cat > src/enagis/manifest.py <<'EOF'
+"""Data manifest helpers: dataset -> source -> date -> URL -> hash -> licence -> step."""
+
+import csv
+import datetime
+import hashlib
+from pathlib import Path
+
+FIELDS = [
+    "dataset",
+    "source",
+    "url",
+    "retrieved",
+    "sha256",
+    "licence",
+    "redistributable",
+    "processing_step",
+    "path",
+]
+
+
+def sha256_file(path) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def register_dataset(manifest_path, path, source, url, licence, redistributable, step) -> None:
+    mp = Path(manifest_path)
+    new = not mp.exists()
+    with open(mp, "a", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        if new:
+            w.writeheader()
+        w.writerow(
+            {
+                "dataset": Path(path).name,
+                "source": source,
+                "url": url,
+                "retrieved": datetime.date.today().isoformat(),
+                "sha256": sha256_file(path),
+                "licence": licence,
+                "redistributable": redistributable,
+                "processing_step": step,
+                "path": str(path),
+            }
+        )
+EOF
+
+cat > src/enagis/contracts/schemas.py <<'EOF'
+"""Interface contracts: columns, kinds and units (units live in column names).
+
+A trailing "?" marks a nullable column. Nulls mean UNKNOWN and are never defaulted.
+"""
+
+import pandas as pd
+from pandas.api import types as pt
+
+SCHEMAS = {
+    "vertices": {"vertex_id": "int", "x_km": "float", "y_km": "float"},
+    "edges": {"from_vertex": "int", "to_vertex": "int", "time_min": "float"},
+    "nodes": {
+        "node_id": "str",
+        "vertex_id": "int",
+        "district": "str",
+        "x_km": "float",
+        "y_km": "float",
+        "capacity_t_per_day": "float?",
+    },
+    "cells": {
+        "cell_id": "str",
+        "vertex_id": "int",
+        "district": "str",
+        "volume_t_per_day": "float",
+        "x_km": "float",
+        "y_km": "float",
+    },
+}
+
+
+def _kind_ok(kind: str, s: pd.Series) -> bool:
+    if kind == "int":
+        return pt.is_integer_dtype(s)
+    if kind == "float":
+        return pt.is_numeric_dtype(s)
+    return pt.is_object_dtype(s) or pt.is_string_dtype(s)
+
+
+def validate(df: pd.DataFrame, name: str) -> None:
+    schema = SCHEMAS[name]
+    missing = [c for c in schema if c not in df.columns]
+    if missing:
+        raise ValueError(f"{name}: missing columns {missing}")
+    for col, spec in schema.items():
+        nullable = spec.endswith("?")
+        kind = spec.rstrip("?")
+        s = df[col]
+        if not nullable and s.isna().any():
+            raise ValueError(f"{name}.{col}: nulls not allowed")
+        if not _kind_ok(kind, s):
+            raise ValueError(f"{name}.{col}: expected {kind}, got {s.dtype}")
+EOF
+
+cat > src/enagis/spatial/paths.py <<'EOF'
+"""Shortest travel times on a road graph (undirected)."""
+
+import numpy as np
+import pandas as pd
+from scipy.sparse import coo_matrix
+from scipy.sparse.csgraph import dijkstra
+
+
+def travel_times(vertices: pd.DataFrame, edges: pd.DataFrame, sources: list) -> pd.DataFrame:
+    """Minutes from each source vertex to every vertex. Rows: vertex_id, columns: sources."""
+    ids = vertices["vertex_id"].to_numpy()
+    idx = {v: i for i, v in enumerate(ids)}
+    n = len(ids)
+    a = edges["from_vertex"].map(idx).to_numpy()
+    b = edges["to_vertex"].map(idx).to_numpy()
+    w = edges["time_min"].to_numpy(dtype=float)
+    graph = coo_matrix((w, (a, b)), shape=(n, n)).tocsr()
+    d = dijkstra(graph, directed=False, indices=[idx[s] for s in sources])
+    return pd.DataFrame(d.T, index=ids, columns=list(sources))
+EOF
+
+cat > src/enagis/spatial/allocate.py <<'EOF'
+"""Nearest-facility allocation by travel time (v0; capacity-constrained version is a TODO)."""
+
+import pandas as pd
+
+
+def allocate_nearest(cells: pd.DataFrame, times: pd.DataFrame, max_time_min: float) -> pd.DataFrame:
+    t = times.loc[cells["vertex_id"]]
+    out = cells.copy()
+    out["facility_vertex"] = t.idxmin(axis=1).to_numpy()
+    out["travel_time_min"] = t.min(axis=1).to_numpy()
+    out["served"] = out["travel_time_min"] <= max_time_min
+    return out
+EOF
+
+cat > src/enagis/demand/energy.py <<'EOF'
+"""Energy requirement (v0): E = V * e_unit + E_standing for active nodes. Technical, not bankable."""
+
+import numpy as np
+import pandas as pd
+
+
+def energy_kwh_per_day(
+    volume_t_per_day: pd.Series, e_unit_kwh_per_t: float, standing_kwh_per_day: float
+) -> pd.Series:
+    e = np.where(
+        volume_t_per_day > 0, volume_t_per_day * e_unit_kwh_per_t + standing_kwh_per_day, 0.0
+    )
+    return pd.Series(e, index=volume_t_per_day.index)
+EOF
+
+cat > src/enagis/gap/buckets.py <<'EOF'
+"""Gap buckets. Unknown capacity is never defaulted."""
+
+import pandas as pd
+
+
+def bucket(capacity_t_per_day, allocated_t_per_day) -> str:
+    if pd.isna(capacity_t_per_day):
+        return "verify_first"
+    if allocated_t_per_day > capacity_t_per_day:
+        return "undersized"
+    return "adequate"
+EOF
+
+cat > src/enagis/baselines.py <<'EOF'
+"""Baselines: B0 district production, B1 Euclidean buffer. (B2 is the road catchment.)"""
+
+import numpy as np
+import pandas as pd
+
+
+def b0_district(nodes: pd.DataFrame, cells: pd.DataFrame) -> pd.Series:
+    prod = cells.groupby("district")["volume_t_per_day"].sum()
+    return nodes["district"].map(prod).fillna(0.0)
+
+
+def b1_buffer(nodes: pd.DataFrame, cells: pd.DataFrame, buffer_km: float) -> pd.Series:
+    out = []
+    for _, n in nodes.iterrows():
+        d = np.hypot(cells["x_km"] - n["x_km"], cells["y_km"] - n["y_km"])
+        out.append(cells.loc[d <= buffer_km, "volume_t_per_day"].sum())
+    return pd.Series(out, index=nodes.index)
+EOF
+
+cat > src/enagis/pipeline.py <<'EOF'
+"""Walking skeleton: fixtures -> allocation -> energy -> baselines -> shortlist."""
+
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from enagis.baselines import b0_district, b1_buffer
+from enagis.config import load_config
+from enagis.contracts.schemas import validate
+from enagis.demand.energy import energy_kwh_per_day
+from enagis.gap.buckets import bucket
+from enagis.manifest import sha256_file
+from enagis.spatial.allocate import allocate_nearest
+from enagis.spatial.paths import travel_times
+
+TABLES = ("vertices", "edges", "nodes", "cells")
+
+
+def load_fixture(data_dir) -> dict:
+    d = Path(data_dir)
+    tables = {n: pd.read_csv(d / f"{n}.csv") for n in TABLES}
+    for name, df in tables.items():
+        validate(df, name)
+    return tables
+
+
+def run(data_dir, config_path, out_dir):
+    cfg = load_config(config_path)
+    t = load_fixture(data_dir)
+    nodes, cells = t["nodes"], t["cells"]
+
+    times = travel_times(t["vertices"], t["edges"], nodes["vertex_id"].tolist())
+    alloc = allocate_nearest(cells, times, cfg.max_travel_time_min.value)
+    volume = alloc[alloc["served"]].groupby("facility_vertex")["volume_t_per_day"].sum()
+
+    res = nodes.copy()
+    res["allocated_t_per_day"] = res["vertex_id"].map(volume).fillna(0.0)
+    res["energy_kwh_per_day"] = energy_kwh_per_day(
+        res["allocated_t_per_day"], cfg.energy_kwh_per_tonne.value, cfg.standing_kwh_per_day.value
+    )
+    res["b0_district_t_per_day"] = b0_district(nodes, cells)
+    res["b1_buffer_t_per_day"] = b1_buffer(nodes, cells, cfg.buffer_km.value)
+    res["b2_catchment_t_per_day"] = res["allocated_t_per_day"]
+    res["bucket"] = [
+        bucket(c, a) for c, a in zip(res["capacity_t_per_day"], res["allocated_t_per_day"])
+    ]
+    res["label_allocation"] = "ESTIMATED"
+    res["label_capacity"] = np.where(res["capacity_t_per_day"].isna(), "UNKNOWN", "OBSERVED")
+    for arm in ("b0_district", "b1_buffer", "b2_catchment"):
+        res[f"rank_{arm}"] = res[f"{arm}_t_per_day"].rank(ascending=False, method="min").astype(int)
+
+    shortlist = res.sort_values("allocated_t_per_day", ascending=False).reset_index(drop=True)
+    shortlist.insert(0, "rank_enagis_v0", shortlist.index + 1)
+
+    out = Path(out_dir) / "shortlist"
+    out.mkdir(parents=True, exist_ok=True)
+    shortlist.to_csv(out / "shortlist.csv", index=False)
+    meta = {
+        "seed": cfg.seed,
+        "n_nodes": int(len(nodes)),
+        "unserved_t_per_day": float(alloc.loc[~alloc["served"], "volume_t_per_day"].sum()),
+        "config_sha256": sha256_file(config_path),
+        "input_sha256": {n: sha256_file(Path(data_dir) / f"{n}.csv") for n in TABLES},
+    }
+    (out / "run_meta.json").write_text(json.dumps(meta, indent=2))
+    return shortlist, meta
+EOF
+
+cat > src/enagis/cli.py <<'EOF'
+import argparse
+
+from enagis.config import load_config
+from enagis.pipeline import load_fixture, run
+
+
+def main(argv=None) -> int:
+    p = argparse.ArgumentParser(prog="enagis", description="EnaGIS pipeline")
+    sub = p.add_subparsers(dest="cmd", required=True)
+    for name in ("build", "check"):
+        s = sub.add_parser(name)
+        s.add_argument("--config", default="configs/pilot.yaml")
+        s.add_argument("--data", default="data/fixtures/toy")
+        if name == "build":
+            s.add_argument("--out", default="outputs")
+    args = p.parse_args(argv)
+
+    if args.cmd == "check":
+        load_config(args.config)
+        load_fixture(args.data)
+        print("config and data contracts OK")
+        return 0
+
+    shortlist, meta = run(args.data, args.config, args.out)
+    cols = ["rank_enagis_v0", "node_id", "allocated_t_per_day", "energy_kwh_per_day", "bucket"]
+    print(shortlist[cols].to_string(index=False))
+    print(f"unserved (t/day): {meta['unserved_t_per_day']}")
+    return 0
+EOF
+
+# ---------- tests (expected values computed by hand) ----------
+cat > tests/test_toy_pipeline.py <<'EOF'
+"""Hand-computed toy case.
+
+Graph: v1-v2 15 min, v2-v3 25, v3-v4 20, v4-v5 20, v3-v6 20. Facilities F1@v1, F2@v3.
+Cells: C1@v2=100, C2@v4=60, C3@v5=40, C4@v6=50 t/day.
+Max time 45: v2->F1 (15), v4->F2 (20), v5->F2 (40), v6->F2 (20)  => F1=100, F2=150.
+Max time 30: v5 (40 min) is unserved => F2=110, unserved=40.
+Energy = V*2.0 + 10 for active nodes. B1 (15 km buffer) double-counts C1 for F2 => F2=210.
+B0 (district): D1=100, D2=150.
+"""
+
+from pathlib import Path
+
+import yaml
+
+from enagis.pipeline import run
+
+ROOT = Path(__file__).resolve().parents[1]
+FIX = ROOT / "data" / "fixtures" / "toy"
+CFG = ROOT / "configs" / "pilot.yaml"
+
+
+def _cfg(tmp_path, **override):
+    cfg = yaml.safe_load(CFG.read_text())
+    for key, value in override.items():
+        cfg[key]["value"] = value
+    p = tmp_path / "cfg.yaml"
+    p.write_text(yaml.safe_dump(cfg))
+    return p
+
+
+def _by_node(shortlist):
+    return shortlist.set_index("node_id")
+
+
+def test_allocation_and_energy(tmp_path):
+    sl, meta = run(FIX, CFG, tmp_path)
+    n = _by_node(sl)
+    assert n.loc["F1", "allocated_t_per_day"] == 100
+    assert n.loc["F2", "allocated_t_per_day"] == 150
+    assert n.loc["F1", "energy_kwh_per_day"] == 210
+    assert n.loc["F2", "energy_kwh_per_day"] == 310
+    assert meta["unserved_t_per_day"] == 0
+
+
+def test_mass_conservation(tmp_path):
+    sl, meta = run(FIX, _cfg(tmp_path, max_travel_time_min=30), tmp_path)
+    assert sl["allocated_t_per_day"].sum() + meta["unserved_t_per_day"] == 250
+
+
+def test_threshold_leaves_unserved(tmp_path):
+    sl, meta = run(FIX, _cfg(tmp_path, max_travel_time_min=30), tmp_path)
+    n = _by_node(sl)
+    assert n.loc["F2", "allocated_t_per_day"] == 110
+    assert meta["unserved_t_per_day"] == 40
+    assert n.loc["F2", "energy_kwh_per_day"] == 230
+
+
+def test_baselines_differ(tmp_path):
+    sl, _ = run(FIX, CFG, tmp_path)
+    n = _by_node(sl)
+    assert n.loc["F2", "b1_buffer_t_per_day"] == 210
+    assert n.loc["F1", "b1_buffer_t_per_day"] == 100
+    assert n.loc["F1", "b0_district_t_per_day"] == 100
+    assert n.loc["F2", "b0_district_t_per_day"] == 150
+
+
+def test_unknown_capacity_never_defaulted(tmp_path):
+    sl, _ = run(FIX, CFG, tmp_path)
+    n = _by_node(sl)
+    assert n.loc["F2", "label_capacity"] == "UNKNOWN"
+    assert n.loc["F2", "bucket"] == "verify_first"
+    assert n.loc["F1", "bucket"] == "adequate"
+
+
+def test_deterministic(tmp_path):
+    a, _ = run(FIX, CFG, tmp_path / "a")
+    b, _ = run(FIX, CFG, tmp_path / "b")
+    assert a.equals(b)
+EOF
+
+cat > tests/test_buckets.py <<'EOF'
+import math
+
+from enagis.gap.buckets import bucket
+
+
+def test_buckets():
+    assert bucket(80, 100) == "undersized"
+    assert bucket(120, 100) == "adequate"
+    assert bucket(math.nan, 100) == "verify_first"
+EOF
+
+cat > tests/test_contracts.py <<'EOF'
+import pandas as pd
+import pytest
+
+from enagis.contracts.schemas import validate
+
+
+def test_missing_column_raises():
+    df = pd.DataFrame({"vertex_id": [1], "x_km": [0.0]})
+    with pytest.raises(ValueError):
+        validate(df, "vertices")
+
+
+def test_nulls_not_allowed_in_required_columns():
+    df = pd.DataFrame({"vertex_id": [1, 2], "x_km": [0.0, None], "y_km": [0.0, 1.0]})
+    with pytest.raises(ValueError):
+        validate(df, "vertices")
+
+
+def test_nullable_capacity_allowed():
+    df = pd.DataFrame(
+        {
+            "node_id": ["F1"],
+            "vertex_id": [1],
+            "district": ["D1"],
+            "x_km": [0.0],
+            "y_km": [0.0],
+            "capacity_t_per_day": [None],
+        }
+    )
+    df["capacity_t_per_day"] = df["capacity_t_per_day"].astype(float)
+    validate(df, "nodes")
+EOF
+
+cat > tests/test_config.py <<'EOF'
+import pytest
+
+from enagis.config import Param
+
+
+def test_param_requires_source_and_unit():
+    with pytest.raises(Exception):
+        Param(value=1.0, unit="kWh", source=" ")
+    with pytest.raises(Exception):
+        Param(value=1.0, unit="", source="x")
+EOF
+
+# ---------- data/manual, manifest, docs ----------
+cat > data/manual/registry_template.csv <<'EOF'
+facility_id,name,operator,facility_type,district,sector,cell_village,lat,lon,precision_class,capacity_value,capacity_unit,status_as_stated,source_id,source_url,source_date,geocoded_by,geocoded_on,method,notes
+EOF
+cat > data/manual/README.md <<'EOF'
+# Manual data
+
+Hand-curated tables live here and are versioned in git. Rules:
+- One row per facility. Record capacity exactly as stated, with its unit; never convert.
+- precision_class: P1 coordinates (~100 m), P2 named place, P3 sector, P4 district, P5 unlocated.
+- Record who geocoded it, when, and how. Spot-check at least 20% of AI-extracted rows.
+- Do not publish personal phone numbers.
+EOF
+echo "dataset,source,url,retrieved,sha256,licence,redistributable,processing_step,path" > data_manifest.csv
+
+cat > docs/spec/_TEMPLATE.md <<'EOF'
+# Module <ID>: <name>
+Owner: <R?>  Understudy: <R?>
+
+## Purpose
+## Inputs (schema, units, source)
+## Outputs (schema, units, evidence labels)
+## Invariants (mass conservation, units, non-negativity, determinism)
+## Acceptance tests (hand-computed toy cases with expected values)
+## Out of scope
+## Open questions
+EOF
+i=1
+for name in ingestion_manifest registry roads_catchments production_allocation demand_gap \
+  baselines_hindcast siting monte_carlo verification map_shortlist documentation_index_energy_context; do
+  printf -v id "M%02d" "$i"
+  sed "s/<ID>/$id/; s/<name>/$name/" docs/spec/_TEMPLATE.md > "docs/spec/${id}_${name}.md"
+  i=$((i + 1))
+done
+
+cat > docs/decisions/0001-commodity.md <<'EOF'
+# 0001 Commodity decision (due 6 Oct)
+Candidates audited: <coffee washing stations | horticulture cold chain | milling and hulling>
+Rule: >=60 geolocated facilities at sector level or better; capacity or throughput for >=30
+(hindcast fallback: district totals); verification pathway and one named contact; processing at the
+aggregation point; plausible energy cost relative to product value.
+Decision: <pending>
+Evidence: <links to opened sources and the row counts>
+EOF
+
+cat > docs/preregistration.md <<'EOF'
+# Pre-registration (write before looking at results)
+## Siting experiment
+- Target, unit, features (label-free only), models, spatial CV groups (district groups).
+- Metrics: recall at top 10-20% of units, Boyce index, block-bootstrap intervals.
+- Keep/kill rule: lower confidence bound of (model - best baseline) > 0. Margin: <fill>
+## Hindcast
+- Outcome, hold-out, failure rule: <fill>
+## Verification
+- Claim definition, failure taxonomy (node does not exist / undocumented supply / demand negligible
+  or too seasonal / confirmed), sample design (stratified + disagreement set + siting-flagged).
+- Freeze: git tag ranking-v1 + shortlist hash. No ranking changes after the tag.
+EOF
+
+cat > web/README.md <<'EOF'
+# Static map (later milestone)
+Vendor MapLibre GL JS and an OSM-derived basemap here so the demo works offline.
+Nodes and catchments are plain GeoJSON written by the pipeline. No server, no framework.
+EOF
+cat > notebooks/README.md <<'EOF'
+Exploration only. No pipeline output may depend on a notebook. Use nbstripout.
+EOF
+
+cat > CLAUDE.md <<'EOF'
+# EnaGIS rules for any AI agent in this repo
+1. Read docs/spec/<module>.md and the schema in src/enagis/contracts/ before coding. If the spec is ambiguous, ask; do not guess.
+2. Never invent data, coefficients, URLs or statistics. Every numeric parameter lives in configs/*.yaml as value, unit, source, note.
+3. Units in names (volume_t_per_day, energy_kwh_per_day, power_kw); assert at module boundaries.
+4. Store EPSG:4326; compute distances and areas in the project CRS from the config; assert row counts after joins; no silent fillna/dropna.
+5. All randomness via a numpy Generator seeded from config; same inputs give same outputs.
+6. No network at runtime; inputs come from data/raw via data_manifest.csv (sha256 checked).
+7. Evidence labels (OBSERVED/PREDICTED/ESTIMATED/INFERRED/UNKNOWN) travel with outputs; UNKNOWN is never defaulted.
+8. Write tests first from the spec's acceptance cases; do not change a test to make it pass without flagging it.
+9. One task per session; small diffs; run `make test` and `make lint`; report assumptions and uncertainties.
+10. Never change modelling assumptions, definitions or thresholds; propose changes in docs/decisions/.
+EOF
+
+cat > README.md <<'EOF'
+# EnaGIS
+Open, uncertainty-aware GeoAI screening: which agricultural aggregation points to investigate first
+for productive-use energy, and how sure we are. Team Dynamis, OSEAS 2026.
+
+## Quick start
+    uv sync --all-extras
+    make test
+    make build        # runs the toy walking skeleton and writes outputs/shortlist/shortlist.csv
+
+Status: walking skeleton on toy fixtures. Replace stages with real data, one module at a time
+(see docs/spec/). Commodity decision: docs/decisions/0001-commodity.md.
+
+## AI use
+Code in this repository is written by AI coding agents under human specs, tests and review
+(see CLAUDE.md). Humans own parameters, definitions, thresholds, verification and interpretation.
+
+## Licence
+TODO: choose code and data licences (OSM-derived outputs follow ODbL).
+EOF
+
+git init -q 2>/dev/null || true
+echo
+echo "EnaGIS skeleton created in: $(pwd)"
+echo "Next: uv sync --all-extras && make test && make build"
