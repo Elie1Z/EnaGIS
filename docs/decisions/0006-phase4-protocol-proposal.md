@@ -1,6 +1,9 @@
 # 0006 — Proposed Phase 4 comparison protocol
 
-Status: **PROPOSED; not scientifically approved**, 8 October 2026.
+Status: **APPROVED as v1.1 before registration**, 8 October 2026. The user's conditional
+approval was recorded after the 60-positive/seven-CAR counts gate, frozen-values check and
+127 tests plus lint/format passed. See the [run log](../phase4-run-log.md) for the earlier STOP
+and explicit resumption authority. The historical filename is retained for existing links.
 
 The user authorized Phase 4 implementation. Decision 0003 remains the frozen benchmark: Canadian
 Prairie non-durum wheat storage/aeration, AB/SK development and Manitoba transfer holdout.
@@ -13,19 +16,19 @@ production weighting therefore cannot honestly be claimed. Population is now pin
 official 2021 CSD table and full digital CSD geometry. Road ways support a topology-based distance
 comparison, but audited driving speeds and full vehicle-routing restrictions remain unavailable.
 
-## Proposal awaiting human approval
+## Approved exploratory comparison
 
 Use the explicit coarse area-based production proxy and undirected road-distance experiment in
 the [review protocol](../spec/phase4-preregistration.md), with all numerical settings in the
-[draft config](../../configs/experiments/phase4-canada-v1.json). This is an exploratory comparison,
+[approved v1.1 config](../../configs/experiments/phase4-canada-v1.1.json). This is an exploratory comparison,
 not a completed crop-location audit or operational travel-time model. The alternative is to keep
 execution gated until an audited crop raster and corresponding protocol are ready.
 
-No assumption from the draft has been promoted to approved configuration. The Phase 3 permission
-to use marked temporary engineering coefficients is not treated as approval of a new scientific
-experiment. `AGENTS.md` requires human-owned scientific approval, and the PRD requires thresholds
-to be registered before results. Approval is the remaining action before preregistration and real
-execution; it must be recorded faithfully rather than inferred from a request to develop the phase.
+The user explicitly approved v1.1 with log polygon area in both models, an area-only arm,
+proxy-specific interpretation, limited-power and documentation-bias clauses, descriptive
+nonproduction cohort counts and remotely pushed registration. The original v1 numerical
+thresholds, seed, folds and model hyperparameters remain fixed. Exact approval is recorded in
+the config and protocol. Phase 3 temporary energy coefficients retain their separate status.
 
 ## Implementation boundary
 

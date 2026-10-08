@@ -18,20 +18,28 @@ BASELINE_FEATURES = {
 }
 
 
-def fit_presence_background(x_train, presence_train, x_test, protocol):
+def fit_presence_background(x_train, presence_train, x_test, protocol, feature_names=None):
     """Class 0 is a background sample including known presences, never an absence label."""
     protocol.require_approval()
     if not np.asarray(presence_train).any():
         raise ValueError("no training presence")
-    scaler = StandardScaler().fit(np.log1p(x_train))
-    background = scaler.transform(np.log1p(x_train))
+
+    def transform(values):
+        values = np.asarray(values, dtype=float).copy()
+        for i in range(values.shape[1]):
+            if feature_names is None or feature_names[i] != "log_ccs_area":
+                values[:, i] = np.log1p(values[:, i])
+        return values
+
+    scaler = StandardScaler().fit(transform(x_train))
+    background = scaler.transform(transform(x_train))
     positives = background[np.asarray(presence_train, dtype=bool)]
     x = np.vstack([positives, background])
     sample_class = np.r_[np.ones(len(positives)), np.zeros(len(background))]
     model = LogisticRegression(
         C=protocol.logistic_c,
-        solver="lbfgs",
-        class_weight="balanced",
+        solver=protocol.logistic_solver,
+        class_weight=protocol.logistic_class_weight,
         max_iter=protocol.optimizer_max_iterations,
         tol=protocol.optimizer_tolerance,
         random_state=protocol.seed,
@@ -39,7 +47,7 @@ def fit_presence_background(x_train, presence_train, x_test, protocol):
     with warnings.catch_warnings():
         warnings.simplefilter("error", ConvergenceWarning)
         model.fit(x, sample_class)
-    scores = model.decision_function(scaler.transform(np.log1p(x_test)))
+    scores = model.decision_function(scaler.transform(transform(x_test)))
     return scores, {
         "training_units": len(background),
         "training_presence_units": len(positives),
@@ -72,7 +80,10 @@ def evaluate_siting(features, labels, units, protocol):
         for row in features
     ):
         raise ValueError("feature geography differs from the study unit")
-    required = set(protocol.full_features) | set(BASELINE_FEATURES.values())
+    baseline_features = dict(BASELINE_FEATURES)
+    if "area_only" in protocol.comparison_arms:
+        baseline_features["area_only"] = "log_ccs_area"
+    required = set(protocol.full_features) | set(baseline_features.values())
     rows, exclusions = [], []
     for row in sorted(features, key=lambda r: r.unit_id):
         missing = [
@@ -102,6 +113,13 @@ def evaluate_siting(features, labels, units, protocol):
         "never verified negatives",
         "transfer_evaluated": False,
         "protocol_id": protocol.protocol_id,
+        "interpretation": "A failed keep rule means no demonstrated improvement from this "
+        "proxy-based accessible-production feature; "
+        "it is not evidence against road-catchment logic.",
+        "power": "With few CAR blocks the paired bootstrap interval is wide and potentially "
+        "unstable; report intervals and counts descriptively.",
+        "documentation_bias": "The AAFC registry is close to a census of primary elevators; "
+        "this experiment cannot test robustness to documentation bias.",
     }
     if (
         presence.sum() < protocol.minimum_positive_units
@@ -124,7 +142,7 @@ def evaluate_siting(features, labels, units, protocol):
         test = np.asarray([i for i, r in enumerate(rows) if r.block_id == block], dtype=int)
         scores = {
             arm: np.asarray([rows[i].features[key].value for i in test])
-            for arm, key in BASELINE_FEATURES.items()
+            for arm, key in baseline_features.items()
         }
         training_positive_points = [
             unit_by_id[rows[i].unit_id].point_xy for i in train if presence[i]
@@ -137,7 +155,7 @@ def evaluate_siting(features, labels, units, protocol):
         ):
             x = np.asarray([[r.features[k].value for k in keys] for r in rows])
             scores[name], artifact = fit_presence_background(
-                x[train], presence[train], x[test], protocol
+                x[train], presence[train], x[test], protocol, keys
             )
             fold_models.append(
                 {

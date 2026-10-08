@@ -1,20 +1,41 @@
-# Phase 4 scientific protocol — proposed v1
+# Phase 4 scientific protocol — v1.1 amended before registration
 
-**Status: DRAFT — awaiting explicit human approval.** Prepared 8 October 2026.
-Configuration: [`phase4-canada-v1.json`](../../configs/experiments/phase4-canada-v1.json).
+**Status: APPROVED; amended before registration.** 8 October 2026.
+Configuration: [`phase4-canada-v1.1.json`](../../configs/experiments/phase4-canada-v1.1.json).
+The original v1 configuration is preserved unchanged as the frozen-values reference.
 No real baseline scoring, model fitting, outcome comparison or Manitoba evaluation has been
 performed under this protocol. Source availability counts below are preparation diagnostics.
 Synthetic tests are implementation checks, not evidence of predictive performance.
 
-## Decision to review
+## Amendments before registration and reasons
 
-Approve or revise this protocol before execution. The material proposal is to use a **coarse
+| Amendment | One-line reason |
+|---|---|
+| a. Add natural log CCS polygon area to base/full model and an area-only arm | Control polygon size before attributing improvement to accessible production. |
+| b. Add proxy interpretation and limited-power clause | A proxy-specific test with few blocks cannot reject road-catchment logic. |
+| c. State registry documentation-bias limit; raster only in possible future v2 | A registry close to a census cannot establish documentation-bias robustness. |
+| d. Declare a descriptive cohort without production-dependent features | Show the coverage retained without production missingness, independently of the primary rule. |
+| e. Require remotely pushed registration commit/tag and record the remote | Publish the exact method before accepting registration. |
+
+The user's conditional instruction authorizes these amendments and the counts-only diagnostic.
+The counts gate passed (155 complete CCS, 60 positives, seven positive CARs), the frozen-values
+check passed, and all 127 tests plus lint/format passed. The user authorized correction and
+resumption after the recorded Step 4 implementation/environment STOP.
+
+Approval recorded verbatim:
+
+> I, Elie (Mugisha Elie), approve phase4-canada-v1.1 as amended, on 8 October 2026, conditional on the Step 2 gate passing and the Step 3 check passing.
+No new data source is acquired. The AAFC crop-inventory raster is a possible future v2 only.
+
+## Authorized exploratory method
+
+The conditionally authorized exploratory method uses a **coarse
 uniform-area production proxy** for the first comparison because the AAFC Annual Crop Inventory
 2024 raster and wheat-class audit specified in decision 0003 are not yet available in the pinned
-spine. This is a proposed methodological amendment, not an approved replacement for that source.
+spine. This approved exploratory amendment does not complete that raster's classification audit.
 It preserves commodity, geography, service and holdout scope. The resulting model cannot resolve
-actual crop locations within reporting regions. Alternatively, execution can wait for an audited
-crop raster and a new preregistration.
+actual crop locations within reporting regions. An audited crop raster is reserved for a possible
+future v2, outside this run.
 
 The road comparison uses **50 km of undirected network distance**, with at most **5 km** from a
 CCS representative point to its nearest retained OSM vertex. These are proposed comparison
@@ -81,6 +102,7 @@ This geometric proxy is ESTIMATED, not observed field production.
 | Road density | Retained OSM line length clipped to the CCS divided by polygon area | km/km² |
 | Junction density | Retained graph vertices with at least three distinct neighbors in the CCS | junctions/km² |
 | Nearest presence | Negative Euclidean distance to nearest **training-block** positive CCS point | metres |
+| Area-only / log CCS area | Natural log of full CCS polygon area measured in EPSG:3347 | log(area / 1 m²), dimensionless |
 
 The production buffers are overlapping context comparisons, not competing facility allocations.
 They do not conserve mass across different target buffers; only the underlying M(u) crosswalk
@@ -104,9 +126,28 @@ attribution. No licensed private verification observations enter public outputs.
 
 ## Models, common cohort and spatial validation
 
-The base model uses production context, population, road density and junction density. The full
+The base model uses production context, population, road density, junction density and natural
+log CCS polygon area (square metres, EPSG:3347). The full
 model adds accessible production. No other feature or model family is selected after results.
-Compare full model against B0, B1, B2, population, nearest training presence and base model.
+Compare full model against B0, B1, B2, population, nearest training presence, base model and
+area-only. Area enters both models as log(area), standardized within each training fold; it is
+not subjected to log(1+x) a second time. Other feature preprocessing is unchanged from v1.
+
+**Descriptive sensitivity cohort:** require population, road density, junction density and
+log CCS area, with the same geometry/label review rules. Drop all production-dependent features,
+their production-completeness tests and catchment-snap requirements. Road density and junction
+density do not require a snapped representative point. Report complete CCS, positive CCS and
+positive CAR counts, excluded-unit lists and reason counts. This is a descriptive availability
+sensitivity only: no second fitted model or keep/kill decision is introduced, and it cannot
+override the primary rule. Exclusion counts overlap when a CCS has multiple reasons.
+`unresolved_match` means a missing unit-level label or CAR identity; it does not invent a CCS
+for unlocated registry records. `spatial_review` retains the existing coordinate-conflict censor.
+
+The primary and sensitivity counts are computed before any model fit, baseline score, CGC outcome
+file access or evaluation metric. Topology, point snapping and boolean catchment membership may
+be prepared solely to identify missing source coverage; production quantities are not summed.
+Continue only if the primary has at least 60 positive CCS and six positive CARs. Otherwise stop
+and present options without applying any. No threshold or method is adjusted to recover the gate.
 
 Every arm uses the same complete CCS cohort: all required model/baseline values known and no
 spatial-review label. Report each excluded unit and reason. Available production and population
@@ -116,7 +157,8 @@ six positive CARs** after all exclusions. Counting positive CCS rather than dupl
 is conservative. If either gate fails, report `feasibility_failed / not_testable`, with no fitting
 or relaxed thresholds. A future data improvement needs a separately versioned protocol.
 
-Use leave-one-CAR-out CV. In each fold, transform nonnegative features with log(1+x), then fit
+Use leave-one-CAR-out CV. In each fold, transform the original nonnegative features with log(1+x),
+retain the separately computed log-area feature, then fit
 standardization using all training CCS only. Fit regularized logistic regression on documented
 training presences as class 1 and all training CCS (including those presences) as background
 class 0. Use balanced class weights, L2 regularization, C=1, lbfgs, tolerance 1e-8 and at most
@@ -149,6 +191,13 @@ the [scikit-learn leakage guidance](https://scikit-learn.org/stable/common_pitfa
 - **Keep only if the lower 95% confidence bound of the primary margin exceeds zero.** Otherwise
   report kill/no demonstrated improvement. A feasibility failure is not a model-performance loss.
   The secondary and Boyce diagnostics cannot rescue a failed primary rule.
+
+**Interpretation and power:** with a uniform-area production proxy inside each SADR, a failed
+keep rule means **"no demonstrated improvement from this proxy-based accessible-production
+feature"**, not evidence against road-catchment logic. With few CAR blocks the paired bootstrap
+interval is wide and potentially unstable; report intervals and counts descriptively. The AAFC
+registry is close to a census of primary elevators, so this experiment cannot test robustness
+to documentation bias. No performance claim extends beyond these protocol-defined comparisons.
 
 This decision concerns the siting component only. The PRD's separate top-10 component-change and
 verified-hit tests cannot be satisfied without the later frozen field-verification sample. No
@@ -188,19 +237,26 @@ The code does not contact an expert or invent their choices.
 
 ## Registration, execution and reproducibility
 
-1. Obtain explicit human approval of this document and versioned configuration; record the actual
-   reviewer, date and approval wording. Draft/null approval fields prohibit real execution.
+1. Follow the user's conditional sequence: amendments, counts-only gate, frozen-values script,
+   all tests/lint, then verbatim approval recording. Draft/null fields prohibit real evaluation.
 2. Rebuild preparation with the approved config. Commit implementation, config, this document and
    lockfile before registration. No metrics or coefficients have been inspected at this step.
-3. `register-experiment` creates a local `preregister-phase4-canada-v1` Git tag and immutable
-   registration containing commit, protocol, review document, source-index, preparation-index,
-   Phase 3 index, code and lockfile hashes. An existing registration cannot be overwritten.
+3. `register-experiment` creates `preregister-phase4-canada-v1.1` and requires the exact commit
+   and tag to exist on the configured remote before writing the immutable registration. Use
+   `--publish` to push the committed branch and tag atomically within the command, then verify
+   both remote references before accepting registration. This satisfies the pushed-before-success
+   requirement while following the user's commit → register/push → verify sequence.
+   The immutable
+   registration contains commit, protocol, review document, source-index, preparation-index,
+   Phase 3 index, code and lockfile hashes also records remote URL, remote branch and verified
+   remote commit hash. An existing registration cannot be overwritten.
 4. `evaluate-experiment` checks all registration hashes/tag before reading outcomes; build the
    graph and features, apply the feasibility gate, evaluate eligible CV and shipping-point
    diagnostics, and export hashed feature, prediction, fold, group, protocol and report artifacts.
 5. `verify-experiment` checks artifact hashes/metadata, common comparison identities, feature
    allowlist, fold separation and unique shipping-point outcomes. Save failures as failures;
-   changes to the method or code after registration need a new version and disclosed reason.
+   For this conditional run, any error after registration means stop and report; no method,
+   code, thresholds, metrics, seeds, folds, features or keep/kill rule may be edited after Step 6.
 
 No network is needed for preparation/evaluation once the two manifests' files are acquired.
 Raw, intermediate and large output files are ignored by Git. The repository retains the protocol,

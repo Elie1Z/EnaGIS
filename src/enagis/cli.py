@@ -49,22 +49,33 @@ def main() -> int:
     trace_parser = commands.add_parser("trace")
     trace_parser.add_argument("path", type=Path)
     trace_parser.add_argument("--node-id", required=True)
-    for command in ("prepare-experiment", "register-experiment", "evaluate-experiment"):
+    for command in (
+        "prepare-experiment",
+        "diagnose-experiment",
+        "register-experiment",
+        "evaluate-experiment",
+    ):
         experiment_parser = commands.add_parser(command)
         experiment_parser.add_argument("--root", type=Path, default=Path.cwd())
         experiment_parser.add_argument(
-            "--protocol", type=Path, default=Path("configs/experiments/phase4-canada-v1.json")
+            "--protocol", type=Path, default=Path("configs/experiments/phase4-canada-v1.1.json")
         )
         experiment_parser.add_argument(
             "--preparation", type=Path, default=Path("data/processed/phase4")
         )
-        if command != "prepare-experiment":
+        if command in ("register-experiment", "evaluate-experiment"):
             experiment_parser.add_argument(
                 "--registration", type=Path, default=Path("data/manual/phase4-preregistration.json")
             )
         if command == "evaluate-experiment":
             experiment_parser.add_argument("--output", type=Path, default=Path("outputs/phase4"))
             experiment_parser.add_argument("--phase3", type=Path, default=Path("outputs/phase3"))
+        if command == "diagnose-experiment":
+            experiment_parser.add_argument(
+                "--output", type=Path, default=Path("docs/audits/phase4-v1.1-cohorts.json")
+            )
+        if command == "register-experiment":
+            experiment_parser.add_argument("--publish", action="store_true")
     verify_experiment_parser = commands.add_parser("verify-experiment")
     verify_experiment_parser.add_argument("path", type=Path)
     args = parser.parse_args()
@@ -75,13 +86,26 @@ def main() -> int:
             print(
                 json.dumps(prepare_experiment(args.root, args.protocol, args.preparation), indent=2)
             )
+        elif args.command == "diagnose-experiment":
+            from enagis.experiment_cohort import diagnose_cohorts
+
+            print(
+                json.dumps(
+                    diagnose_cohorts(args.root, args.protocol, args.preparation, args.output),
+                    indent=2,
+                )
+            )
         elif args.command == "register-experiment":
             from enagis.experiment import register_experiment
 
             print(
                 json.dumps(
                     register_experiment(
-                        args.root, args.protocol, args.preparation, args.registration
+                        args.root,
+                        args.protocol,
+                        args.preparation,
+                        args.registration,
+                        publish=args.publish,
                     ),
                     indent=2,
                 )

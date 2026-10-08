@@ -6,6 +6,7 @@ from pathlib import Path
 
 from enagis.contracts import Artifact, Outcome, RunMetadata, ShippingLink
 from enagis.data_io import file_hash, safe_path, write_json
+from enagis.experiment_cohort import count_cohorts
 from enagis.experiment_contracts import ExperimentProtocol, FeatureRow, Preregistration
 from enagis.experiment_features import build_features
 from enagis.experiment_network import build_network
@@ -17,7 +18,7 @@ from enagis.pipeline_validation import verify_run
 from enagis.siting import evaluate_siting
 
 
-def register_experiment(root, protocol_path, preparation, registration_path):
+def register_experiment(root, protocol_path, preparation, registration_path, *, publish=False):
     protocol = ExperimentProtocol.model_validate_json(protocol_path.read_bytes())
     protocol.require_approval()
     index, _ = load_preparation(preparation)
@@ -70,6 +71,48 @@ def register_experiment(root, protocol_path, preparation, registration_path):
     )
     if existing.returncode == 0 and existing.stdout.strip() != commit:
         raise ValueError("preregistration tag already points to another commit")
+    if existing.returncode != 0:
+        subprocess.run(["git", "tag", tag, commit], cwd=root, check=True, capture_output=True)
+    remote_url = subprocess.run(
+        ["git", "remote", "get-url", "--push", protocol.registration_remote],
+        cwd=root,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    branch = subprocess.run(
+        ["git", "symbolic-ref", "--short", "HEAD"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    branch_ref = f"refs/heads/{branch}"
+    if publish:
+        subprocess.run(
+            [
+                "git",
+                "push",
+                "--atomic",
+                protocol.registration_remote,
+                f"HEAD:{branch_ref}",
+                f"refs/tags/{tag}",
+            ],
+            cwd=root,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    published = subprocess.run(
+        ["git", "ls-remote", remote_url, branch_ref, f"refs/tags/{tag}"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout
+    remote_refs = {line.split()[1]: line.split()[0] for line in published.splitlines()}
+    if remote_refs.get(branch_ref) != commit or remote_refs.get(f"refs/tags/{tag}") != commit:
+        raise ValueError("registration requires the exact commit and tag pushed to the remote")
     registration = Preregistration(
         protocol_sha256=file_hash(protocol_path),
         preparation_index_sha256=file_hash(preparation / "index.json"),
@@ -80,11 +123,12 @@ def register_experiment(root, protocol_path, preparation, registration_path):
         lockfile_sha256=file_hash(root / "uv.lock"),
         git_commit=commit,
         git_tag=tag,
+        remote_url=remote_url,
+        remote_commit=remote_refs[branch_ref],
+        remote_branch_ref=branch_ref,
         registered_on=protocol.approved_on,
         purpose="Before real outcome evaluation; Manitoba excluded",
     )
-    if existing.returncode != 0:
-        subprocess.run(["git", "tag", tag, commit], cwd=root, check=True, capture_output=True)
     write_json(registration_path, registration)
     return registration.model_dump(mode="json")
 
@@ -125,6 +169,8 @@ def check_registration(root, protocol_path, preparation, registration_path):
     ).stdout.strip()
     if commit != registered.git_commit:
         raise ValueError("preregistration tag changed")
+    if registered.remote_commit != registered.git_commit:
+        raise ValueError("registration lacks matching remote publication evidence")
     return protocol, registered
 
 
@@ -166,6 +212,12 @@ def evaluate_experiment(
         units, data["production.json"], data["sadr.json"], network, protocol
     )
     siting, predictions, models = evaluate_siting(features, labels, units, protocol)
+    cohorts = count_cohorts(
+        units, labels, data["production.json"], network[0], network[1], protocol
+    )
+    eligible = {r["unit_id"] for r in predictions}
+    if siting["status"] == "evaluated" and eligible != set(cohorts["primary"]["complete_unit_ids"]):
+        raise ValueError("fitted common cohort differs from counts-only cohort definition")
     # The outcome/allocation branch is opened only after independent siting features are finalized.
     verify_run(phase3)
     traces = Artifact[NodeTrace].model_validate_json((phase3 / "nodes.json").read_bytes()).rows
@@ -206,6 +258,8 @@ def evaluate_experiment(
         "status": "scientific_comparison_executed",
         "preregistration": registered.model_dump(mode="json"),
         "siting": siting,
+        "cohorts": cohorts,
+        "sensitivity": cohorts["sensitivity"],
         "hindcast": hindcast,
         "feature_audit": feature_audit,
         "source_hashes": {
@@ -220,6 +274,9 @@ def evaluate_experiment(
             "Siting scores discriminate documented presences from background; not probabilities",
             "Phase 3 allocation remains a temporary scenario "
             "with unvalidated commercial coefficients",
+            "The AAFC registry is close to a census of primary elevators; this experiment "
+            "cannot test robustness to documentation bias.",
+            "AAFC crop-inventory raster is a possible future v2 only; not acquired in v1.1.",
         ],
     }
     output.mkdir(parents=True, exist_ok=True)

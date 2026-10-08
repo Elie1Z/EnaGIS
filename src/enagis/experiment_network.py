@@ -13,8 +13,9 @@ from shapely import STRtree
 from shapely.geometry import LineString, Point, shape
 
 
-def build_network(road_paths, units, protocol, progress=print):
-    protocol.require_approval()
+def build_network(road_paths, units, protocol, progress=print, *, counts_only=False):
+    if not counts_only:
+        protocol.require_approval()
     project = Transformer.from_crs(4326, protocol.metric_crs, always_xy=True, allow_ballpark=False)
     coordinates, identifiers = {}, {}
     starts, ends, lengths = array("q"), array("q"), array("d")
@@ -76,9 +77,10 @@ def build_network(road_paths, units, protocol, progress=print):
                         starts.append(a)
                         ends.append(b)
                         lengths.append(float(np.hypot(x2 - x1, y2 - y1)))
-                geometry = LineString(zip(x, y, strict=True))
-                for i in tree.query(geometry, predicate="intersects"):
-                    road_lengths[int(i)] += geometry.intersection(polygons[int(i)]).length
+                if not counts_only:
+                    geometry = LineString(zip(x, y, strict=True))
+                    for i in tree.query(geometry, predicate="intersects"):
+                        road_lengths[int(i)] += geometry.intersection(polygons[int(i)]).length
                 retained += 1
     if not identifiers:
         raise ValueError("no retained road topology")
@@ -96,7 +98,7 @@ def build_network(road_paths, units, protocol, progress=print):
     )
     xy = np.asarray([coordinates[key][1] for key in identifiers])
     junction_counts = np.zeros(len(units))
-    for i in np.flatnonzero(np.diff(graph.indptr) >= 3):
+    for i in [] if counts_only else np.flatnonzero(np.diff(graph.indptr) >= 3):
         point = Point(xy[i])
         for j in tree.query(point, predicate="intersects"):
             junction_counts[int(j)] += 1
@@ -112,6 +114,7 @@ def build_network(road_paths, units, protocol, progress=print):
             "graph_nodes": len(identifiers),
             "directed_edge_entries": graph.nnz,
             "method": protocol.road_method,
+            "covariates_computed": not counts_only,
             "crs": protocol.metric_crs,
             "licence": "ODbL-1.0",
             "attribution": "OpenStreetMap contributors",

@@ -29,6 +29,7 @@ from enagis.experiment import (
     register_experiment,
     verify_experiment,
 )
+from enagis.experiment_cohort import count_cohorts
 from enagis.experiment_contracts import ExperimentProtocol, FeatureRow, PresenceLabel, StudyUnit
 from enagis.experiment_features import build_features
 from enagis.experiment_metrics import block_intervals, continuous_boyce, spearman, top_recall
@@ -44,7 +45,7 @@ from enagis.ingestion import ingest
 from enagis.pipeline import run_pipeline
 from enagis.siting import evaluate_siting, fit_presence_background
 
-PROTOCOL = Path("configs/experiments/phase4-canada-v1.json")
+PROTOCOL = Path("configs/experiments/phase4-canada-v1.1.json")
 
 
 @pytest.fixture
@@ -112,6 +113,7 @@ def cohort():
                     "population": value(100 + i),
                     "road_density": value(1 + i % 3),
                     "junction_density": value(i % 4),
+                    "log_ccs_area": value(float(np.log(u.area_m2))),
                 },
             )
         )
@@ -186,7 +188,7 @@ def test_spatial_cv_and_train_only_preprocessing(protocol, monkeypatch):
     units, features, labels = cohort()
     report, predictions, models = evaluate_siting(features, labels, units, protocol)
     assert report["status"] == "evaluated" and not report["transfer_evaluated"]
-    assert len(predictions) == 40 * 7 and len(models) == 4 * 2
+    assert len(predictions) == 40 * 8 and len(models) == 4 * 2
     assert "decision" not in report["secondary"] and "decision" not in report["boyce"]
     assert report["boyce_diagnostics"]
     for model in models:
@@ -462,9 +464,18 @@ def test_offline_preparation_registration_export_and_tampering(tmp_path, protoco
         "-m",
         "Synthetic preregistration fixture",
     )
+    remote = root / "remote.git"
+    git("init", "--bare", str(remote))
+    git("remote", "add", "origin", str(remote))
     registration_path = root / "data/manual/registration.json"
-    registered = register_experiment(root, protocol_path, preparation, registration_path)
+    with pytest.raises(ValueError, match="pushed to the remote"):
+        register_experiment(root, protocol_path, preparation, registration_path)
+    assert not registration_path.exists()
+    registered = register_experiment(
+        root, protocol_path, preparation, registration_path, publish=True
+    )
     assert registered["protocol_sha256"] == file_hash(protocol_path)
+    assert registered["remote_commit"] == registered["git_commit"]
     with pytest.raises(ValueError, match="immutable"):
         register_experiment(root, protocol_path, preparation, registration_path)
     output = root / "outputs/phase4"
@@ -490,3 +501,31 @@ def test_offline_preparation_registration_export_and_tampering(tmp_path, protoco
     review.write_text("Changed after preregistration")
     with pytest.raises(ValueError, match="review document changed"):
         check_registration(root, protocol_path, preparation, registration_path)
+
+
+def test_counts_only_cohorts_drop_production_without_changing_primary(protocol):
+    units, _, labels = cohort()
+    units[0].population = value(None)
+    labels[1].status = "spatial_review_required"
+    production = [NS(geometry_ref="sadr:0", modeled_tonnes=value(None))]
+    graph = csr_matrix([[0, 4000], [4000, 0]])
+    xy = np.asarray([[0, 0], [4000, 0]])
+    result = count_cohorts(units, labels, production, graph, xy, protocol)
+    assert result["primary"]["complete_ccs"] == 0
+    assert result["primary"]["exclusions_by_reason"]["production_unknown"] == 40
+    assert result["primary"]["exclusions_by_reason"]["population_unknown"] == 1
+    assert result["primary"]["exclusions_by_reason"]["spatial_review"] == 1
+    assert result["sensitivity"]["complete_ccs"] == 38
+    assert result["sensitivity"]["positive_ccs"] == 8
+    assert result["sensitivity"]["positive_cars"] == 4
+    assert not result["primary_gate_passed"]
+    assert result["status"] == "counts_only_no_scores_fits_outcomes_or_metrics"
+
+
+def test_area_transform_is_not_logged_twice(protocol):
+    x = np.asarray([[2.0, 1.0], [4.0, 10.0], [6.0, 100.0]])
+    _, model = fit_presence_background(
+        x, [True, False, True], x, protocol, ["log_ccs_area", "population"]
+    )
+    assert model["scaler_mean"][0] == 4
+    assert model["scaler_mean"][1] == pytest.approx(np.log1p(x[:, 1]).mean())

@@ -14,11 +14,14 @@ Feature = Literal[
     "population",
     "road_density",
     "junction_density",
+    "log_ccs_area",
 ]
 
 
 class ExperimentProtocol(Contract):
     protocol_id: ID
+    amendment_status: Literal["amended before registration"] | None = None
+    amendment_reasons: dict[str, Text] = Field(default_factory=dict)
     status: Literal["draft", "approved"]
     approved_by: Text | None
     approved_on: date | None
@@ -27,6 +30,13 @@ class ExperimentProtocol(Contract):
     development_units: list[ID]
     untouched_transfer_units: list[ID]
     metric_crs: Literal["EPSG:3347"]
+    primary_metric: Literal["equal_weight_mean_car_top_fraction_recall"] = (
+        "equal_weight_mean_car_top_fraction_recall"
+    )
+    primary_budget: Literal["ceil_fraction_times_block_size_stable_unit_id_ties"] = (
+        "ceil_fraction_times_block_size_stable_unit_id_ties"
+    )
+    cv_design: Literal["leave_one_car_out"] = "leave_one_car_out"
     production_proxy: Literal["uniform_area_with_explicit_unknowns"]
     road_method: Literal["undirected_network_distance_not_vehicle_travel_time"]
     road_highways: list[ID] = Field(min_length=1)
@@ -44,11 +54,22 @@ class ExperimentProtocol(Contract):
     logistic_c: float = Field(gt=0)
     optimizer_tolerance: float = Field(gt=0)
     optimizer_max_iterations: int = Field(gt=0)
+    logistic_solver: Literal["lbfgs"] = "lbfgs"
+    logistic_regularization: Literal["L2"] = "L2"
+    logistic_class_weight: Literal["balanced"] = "balanced"
     boyce_window_fraction: float = Field(gt=0, lt=1)
     boyce_resolution: int = Field(ge=3)
     base_features: list[Feature] = Field(min_length=1)
     full_features: list[Feature] = Field(min_length=1)
-    comparison_arms: list[Literal["B0", "B1", "B2", "population", "nearest_presence", "base_model"]]
+    comparison_arms: list[
+        Literal["B0", "B1", "B2", "population", "nearest_presence", "base_model", "area_only"]
+    ]
+    sensitivity_features: list[Feature] = Field(default_factory=list)
+    sensitivity_role: Literal["descriptive_only_cannot_override_primary"] = (
+        "descriptive_only_cannot_override_primary"
+    )
+    registration_remote: ID = "origin"
+    require_pushed_commit_and_tag: bool = True
     keep_rule: Literal["paired_block_bootstrap_lower_margin_over_best_baseline_gt_zero"]
 
     @model_validator(mode="after")
@@ -67,14 +88,28 @@ class ExperimentProtocol(Contract):
                 raise ValueError("duplicate protocol choice")
         if not set(self.base_features) < set(self.full_features):
             raise ValueError("full model must add upstream features to base model")
-        if set(self.comparison_arms) != {
+        required_arms = {
             "B0",
             "B1",
             "B2",
             "population",
             "nearest_presence",
             "base_model",
-        }:
+        }
+        if self.amendment_status:
+            required_arms.add("area_only")
+            if "log_ccs_area" not in self.base_features:
+                raise ValueError("v1.1 base model must control polygon area")
+            if self.sensitivity_features != [
+                "population",
+                "road_density",
+                "junction_density",
+                "log_ccs_area",
+            ]:
+                raise ValueError("sensitivity must drop every production-dependent feature")
+            if not self.require_pushed_commit_and_tag:
+                raise ValueError("v1.1 requires a remotely published registration")
+        if set(self.comparison_arms) != required_arms:
             raise ValueError("all preregistered comparison arms are required")
         if self.status == "draft" and any(
             (self.approved_by, self.approved_on, self.approval_evidence)
@@ -116,9 +151,16 @@ class FeatureRow(Contract):
     unit_id: ID
     block_id: ID
     province: ID
-    features: dict[Feature, Value[Nonnegative]]
+    features: dict[Feature, Value[float]]
     snap_distance_m: Nonnegative
     missing_reasons: list[Text]
+
+    @model_validator(mode="after")
+    def original_features_remain_nonnegative(self):
+        for key, value in self.features.items():
+            if key != "log_ccs_area" and value.value is not None and value.value < 0:
+                raise ValueError("original scientific features must remain nonnegative")
+        return self
 
 
 class ExpertShortlist(Contract):
@@ -146,5 +188,8 @@ class Preregistration(Contract):
     lockfile_sha256: Hash
     git_commit: Text
     git_tag: Text
+    remote_url: Text
+    remote_commit: Text
+    remote_branch_ref: Text
     registered_on: date
     purpose: Literal["Before real outcome evaluation; Manitoba excluded"]

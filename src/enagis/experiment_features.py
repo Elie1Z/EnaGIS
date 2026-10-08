@@ -64,6 +64,12 @@ def build_features(units, production, sadr, network, protocol):
     rows = []
     for i, u in enumerate(units):
         features = {
+            "log_ccs_area": amount(
+                float(np.log(u.area_m2)),
+                "Natural log of CCS polygon area in square metres, EPSG:3347",
+                ["statcan-ccs-digital-2021"],
+                None,
+            ),
             "production_context": amount(
                 contexts[i],
                 "B0: overlap-area weighted source SADR tonnes context; not CCS tonnage",
