@@ -1,0 +1,77 @@
+{
+  "schema_version": "phase7-engineering-audit-v1",
+  "as_of": "2026-10-08",
+  "status": "engineering_verified_real_freeze_pending",
+  "baseline_commit": "1ee5be4e07929a79cb8c50b22031c34d657afb14",
+  "source_code_sha256": "f2b1f09541c263a23c0e2a89798956ffc72070272e253b8eeab68d6b8bf4e978",
+  "lockfile_sha256": "d0f5f2429926afb378d153e9f5597a139b8bb1aa5e80e509f4d58cc5ccf53d92",
+  "review_proposal_sha256": "0f1d4f285a2761b5ae08b1c8b230a6f596b5ee9b365794e74440e198ea058cd9",
+  "spec_sha256": "5de50a5c85b4884fc4f5c40975dd93220295c1ffdb5ceec40ed189fd512aae68",
+  "tests": {
+    "full_suite_passed": 218,
+    "phase7_cases": 27,
+    "lint": "passed",
+    "format": "passed",
+    "phase1_smoke_cases": 8,
+    "initial_checks": "23 Phase 7 cases passed; four further gate/tamper cases passed in the final suite",
+    "repairs": "Initial lint findings were formatting, import ordering and explicit loop-variable binding; no scientific gate was weakened."
+  },
+  "synthetic_rehearsal": {
+    "path": "outputs/phase7-rehearsal",
+    "purpose": "synthetic_fixture",
+    "freeze_id": "fixture:freeze:7155404ff347f0c7adc18512",
+    "source_run_id": "phase6:55b909c51f1e3a461e8d0306",
+    "tag": "fixture-ranking-v1",
+    "remote": "isolated local bare repository only",
+    "remote_tag_and_commit_verified": true,
+    "frozen_manifest_sha256": "2f021c934331a3750a077e165cd449fbe977a1d80b3526b835517a11304d11df",
+    "shortlist_sha256": "7e4ed6a3c41c989b757b177f796f15c21436c0f0eb6f7d53a3e976e2a35ced5b",
+    "sample_sha256": "5909b22493596d053b6745b404583981a8c13b476ddfb97dcad1aa57922987c9",
+    "protocol_sha256": "87b348fed145b8fe6dc975d3611dfa8cf7c46be01e65fb91aea8906badc97342",
+    "analysis_report_sha256": "2204cb829ebcf552919ad0bf7a80ce77840fb9e2ef89ad5d4de6b5120896935d",
+    "rehearsal_summary_sha256": "bc8c7b4e6fbcc99a84b750a6bad54e7c4d02e96b21bb94f2f2c5bc637e85f9c0",
+    "frozen_artifacts_excluding_manifest": 15,
+    "sample": 12,
+    "resolved": 8,
+    "primary_confirmed": 4,
+    "primary_resolved": 8,
+    "primary_precision_at_10": null,
+    "primary_confirmation_bounds": [0.4, 0.6],
+    "primary_resolved_fraction_wilson_interval": [0.21521606221387757, 0.7847839377861224],
+    "freeze_unchanged_after_analysis": true,
+    "real_contacts_or_observations": 0
+  },
+  "real_prepare_check": {
+    "status": "stopped_before_ranking_input_read",
+    "reason": "verification protocol is proposed, not human-approved",
+    "output_created": false
+  },
+  "historical_verification": {
+    "phase3_artifacts": 10,
+    "phase4_artifacts": 6,
+    "demo_artifacts": 32,
+    "experiment_refitted": false,
+    "demo_changed": false
+  },
+  "remaining_gates": [
+    "phase6_approved_real_run_and_bound_scientific_exit_review",
+    "approved_verification_protocol_with_resolved_failure_criteria_and_time_basis",
+    "committed_verification_participant_and_consent_privacy_process",
+    "approved_baseline_and_flag_frame",
+    "exact_package_committed_and_annotated_ranking_v1_tag_verified_on_remote"
+  ],
+  "assumptions_and_deviations": [
+    "Phase 7 engineering proceeded under user authorization while the Phase 6 real scientific gate remains unresolved.",
+    "Sample, seed, interval and consent choices in the real proposal are unapproved; fixture choices are separate.",
+    "No empirical data acquisition, external contact, real response or expert shortlist was invented.",
+    "Sparse local evidence can prevent numerical ranking; software portability does not establish worldwide accuracy.",
+    "Git-declared freeze time and human observation dates are auditable declarations, not an independent timestamp authority.",
+    "Original Phase 6 output hashes and original Phase 4 registration/method remain historical and unchanged."
+  ],
+  "manitoba_outcomes_consumed": false,
+  "new_empirical_sources_acquired": false,
+  "human_approval_recorded": false,
+  "real_ranking_v1_created": false,
+  "real_verification_sample_frozen": false,
+  "phase7_scientifically_complete": false
+}

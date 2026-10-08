@@ -94,4 +94,6 @@ freight assumptions from an existing operator report, engineering study or suita
 source, using the worksheet. Human approval must then identify the exact values and method.
 AGENTS.md and the PRD require that review; they do not require an external consultant.
 Real execution, a prospectively specified comparison and reviewed ablations still follow.
-Phase 7 remains closed and no real Phase 6 ranking is described as ready to freeze.
+Phase 7's real ranking freeze remains gated. Its [engineering toolkit](phase-7-status.md) has
+since been implemented under the user's next-phase request; no real Phase 6 ranking is
+described as ready to freeze.

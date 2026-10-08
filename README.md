@@ -4,6 +4,13 @@ EnaGIS helps productive-use-energy teams decide which agricultural aggregation a
 
 ## Project state
 
+**Phase 7 tooling is verified; the real ranking freeze is pending.** The new verification
+workflow binds the ranking and seeded sample to a remote Git tag, validates private observations,
+and reports only aggregate outcomes with missingness and intervals. A complete synthetic
+rehearsal and 218 tests pass. No real `ranking-v1` or field verification is claimed. See the
+[Phase 7 status](docs/phase-7-status.md), [execution guide](docs/spec/phase7-verification.md)
+and [proposed protocol](configs/verification/phase7-canada-v1.review.json).
+
 **Phase 6 engineering is implemented; scientific completion remains gated.** The new
 `enagis.science` engine covers directed mode/season routing, shared capacity, aeration ranges,
 joint Sobol draws, stability tiers, top-10 exports and replay verification. Its demonstrated

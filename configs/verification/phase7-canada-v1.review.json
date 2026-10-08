@@ -1,0 +1,51 @@
+{
+  "schema_version": "phase7-verification-review-v1",
+  "status": "pending_human_review",
+  "scope": "AB/SK non-durum wheat ambient-air aeration; Manitoba untouched",
+  "approval": null,
+  "phase6_scientific_exit": null,
+  "participant_commitment_ref": null,
+  "purpose": "Concrete prospective verification proposal; not an executable protocol or outreach authorization",
+  "proposed": {
+    "freeze_tag": "ranking-v1",
+    "top_k": 10,
+    "seed": 20261008,
+    "sample_counts": {"top": 10, "middle": 3, "lower": 3, "disagreement": 2, "siting_flagged": 2},
+    "minimum_planned_and_resolved_sample": 12,
+    "sampling": "Include all ten primary top-ranked sites. Divide the remaining eligible ordered ranks into a first ceiling half (middle) and remaining half (lower). Select each non-census stratum by ascending SHA-256 of canonical [seed, stratum, node_id]. Then sample unused disagreement cases followed by unused siting-flagged candidates.",
+    "planned_core_sample": 16,
+    "maximum_with_supplements": 20,
+    "supplement_shortages": "Report available pool, selection and shortfall; do not invent flags or refill from another stratum.",
+    "core_shortages": "Stop; no automatic quota reduction or relaxed minimum.",
+    "replacements_after_freeze": "none; retain unknown, unreachable and declined contacts",
+    "flags": "Supply an approved, evidenced, pre-outcome flag frame. No Phase 4 KILL result is relabelled as a retained model, and no new candidate is silently inserted outside the frozen source frame.",
+    "baselines": "Freeze B0, B1, B2, population and expert orders on the same eligible cohort, or record each unavailable arm and reason before outcomes. Do not invent an expert shortlist.",
+    "primary_endpoint": "Confirmed screening candidates among the frozen top ten, with the complete top-ten denominator retained. This is a contact/visit prioritisation endpoint, not investment viability.",
+    "failure_precedence": ["node_absent", "undocumented_supply", "requirement_negligible", "seasonal_irrelevance"],
+    "unknown_precedence": "An unresolved earlier check prevents a later primary outcome from being treated as resolved. Record all observed failure flags separately.",
+    "unresolved_policy": "Publish confirmed and resolved counts, a Wilson interval on the resolved fraction, and all-target bounds [confirmed/k, (confirmed+unresolved)/k]. Report precision@k as null until every target is resolved.",
+    "confidence_level": 0.95,
+    "interval": "Wilson without continuity correction; describes binomial working-model uncertainty only, not nonresponse bias or spatial dependence.",
+    "comparison": "Compare available arms only when the union of their frozen top-ten sets has complete resolved outcomes. Otherwise report incomplete common outcomes and bounds; no winner or pooled population accuracy.",
+    "methods": ["phone", "site_visit"],
+    "consent_script": "We are assessing whether this location merits further investigation for wheat-storage aeration. Participation is voluntary. May we record your answers privately and use them in aggregate research results? You may decline any question or stop at any time.",
+    "privacy": "Keep respondent, assessor, evidence and contact details under ignored data/validation_private; publish aggregates only. A committed participant is referenced by an opaque private identifier.",
+    "temporal_interpretation": "Current verification records conditions reported at contact time. It cannot establish historical 2024 operation or validate historical energy values without period-specific evidence. Agree the exact comparison period before field work."
+  },
+  "criteria_requiring_human_resolution": {
+    "node_absent": "What evidence and identity/location check establish that the candidate aggregation node does not exist, as distinct from being unreachable or closed temporarily?",
+    "undocumented_supply": "Which compatible aeration assets and capacity evidence contradict the frozen supply interpretation, and when does this constitute a false opportunity? Finding an asset alone need not prove adequate supply.",
+    "requirement_negligible": "Specify the service, inventory/operating evidence and meaningful minimum requirement. No arbitrary kW threshold is supplied.",
+    "seasonal_irrelevance": "Specify the target decision season, usable duty and relevance criterion; seasonality alone is not a failure.",
+    "confirmed": "Define sufficient positive evidence that the site merits technical follow-up, after all preceding checks are resolved; no bankability claim."
+  },
+  "remaining_gates": [
+    "phase6_approved_real_run_and_bound_scientific_exit_review",
+    "approved_verification_protocol_with_resolved_failure_criteria_and_time_basis",
+    "committed_verification_participant_and_consent_privacy_process",
+    "approved_baseline_and_flag_frame",
+    "exact_package_committed_and_annotated_ranking_v1_tag_verified_on_remote"
+  ],
+  "outcomes_observed": false,
+  "ranking_v1_created": false
+}
