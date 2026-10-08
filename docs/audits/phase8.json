@@ -38,6 +38,19 @@
       "offline_rebuild_manifest_identical": true,
       "independent_person_review": false
     },
+    "clean_source_checkout": {
+      "python_tests_passed": 227,
+      "initial_missing_test_cache_parent_reproduced": true,
+      "test_setup_parent_creation_fixed": true
+    },
+    "initial_remote_ci": {
+      "status": "failure",
+      "url": "https://github.com/Elie1Z/EnaGIS/actions/runs/37860728261",
+      "affected_step": "Validate contracts, data, pipeline and experiment fixtures offline",
+      "public_annotations_checked": true,
+      "credential_helper_log_access": "rejected by automatic approval review; not performed",
+      "recovery": "clean source checkout reproduced missing pytest cache parent; test setup fixed"
+    },
     "printed_site_brief": {
       "pages": 1,
       "format": "A4",

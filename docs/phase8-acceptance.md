@@ -86,6 +86,9 @@ No external messages were sent. EN/FR/RW translations need native-speaker review
 The initial archive command referenced a nonexistent root `LICENSE`; packaging was corrected
 to include the existing `THIRD_PARTY_NOTICES.md` and bundled asset licences. No new project
 licence or copyright ownership was assigned.
+The first remote CI run failed before release checks. A fresh checkout reproduced a test
+setup defect: the configured `.pytest_cache/tmp` required a missing parent directory. Test
+initialization now creates that parent explicitly; this does not change scientific behavior.
 
 ## Manual handoff checks
 
