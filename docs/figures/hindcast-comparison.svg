@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-labelledby="title desc">
+<title id="title">Shipping-point volume hindcast</title><desc id="desc">Retrospective Spearman rank diagnostic; 95% descriptive block intervals. Energy is unvalidated.</desc>
+<rect width="100%" height="100%" fill="#F7F5F0"/>
+<g font-family="sans-serif" fill="#1B2430">
+<text x="32" y="40" font-size="24">Shipping-point volume hindcast</text>
+<text x="32" y="68" font-size="14">Retrospective Spearman rank diagnostic; 95% descriptive block intervals. Energy is unvalidated.</text>
+<line x1="260.0" y1="95" x2="260.0" y2="442" stroke="#E4DFD5"/><text x="260.0" y="468" text-anchor="middle" font-size="12">-1</text>
+<line x1="395.0" y1="95" x2="395.0" y2="442" stroke="#E4DFD5"/><text x="395.0" y="468" text-anchor="middle" font-size="12">-0.5</text>
+<line x1="530.0" y1="95" x2="530.0" y2="442" stroke="#E4DFD5"/><text x="530.0" y="468" text-anchor="middle" font-size="12">0</text>
+<line x1="665.0" y1="95" x2="665.0" y2="442" stroke="#E4DFD5"/><text x="665.0" y="468" text-anchor="middle" font-size="12">0.5</text>
+<line x1="800.0" y1="95" x2="800.0" y2="442" stroke="#E4DFD5"/><text x="800.0" y="468" text-anchor="middle" font-size="12">1</text>
+<text x="32" y="129" font-size="14">B0</text>
+<line x1="534.7722899886985" y1="124" x2="737.7091609204219" y2="124" stroke="#0F766E" stroke-width="2"/>
+<circle cx="702.222203250204" cy="124" r="5" fill="#0F766E"/>
+<text x="830" y="129" font-size="12">0.638 [0.018, 0.769]</text>
+<text x="32" y="193" font-size="14">B1</text>
+<line x1="568.5566051702517" y1="188" x2="728.7566716419046" y2="188" stroke="#0F766E" stroke-width="2"/>
+<circle cx="684.8291254789515" cy="188" r="5" fill="#0F766E"/>
+<text x="830" y="193" font-size="12">0.573 [0.143, 0.736]</text>
+<text x="32" y="257" font-size="14">B2</text>
+<line x1="583.9382016477704" y1="252" x2="750.149088667087" y2="252" stroke="#0F766E" stroke-width="2"/>
+<circle cx="707.444874748584" cy="252" r="5" fill="#0F766E"/>
+<text x="830" y="257" font-size="12">0.657 [0.200, 0.815]</text>
+<text x="32" y="321" font-size="14">EnaGIS_phase3</text>
+<line x1="606.0433721275245" y1="316" x2="751.7822626268037" y2="316" stroke="#BE3B0A" stroke-width="2"/>
+<circle cx="738.6642285954957" cy="316" r="5" fill="#BE3B0A"/>
+<text x="830" y="321" font-size="12">0.773 [0.282, 0.821]</text>
+<text x="32" y="385" font-size="14">population</text>
+<line x1="478.2120760580607" y1="380" x2="719.354677144649" y2="380" stroke="#0F766E" stroke-width="2"/>
+<circle cx="619.9558141183545" cy="380" r="5" fill="#0F766E"/>
+<text x="830" y="385" font-size="12">0.333 [-0.192, 0.701]</text>
+</g></svg>

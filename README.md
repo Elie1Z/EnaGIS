@@ -4,6 +4,19 @@ EnaGIS helps productive-use-energy teams decide which agricultural aggregation a
 
 ## Project state
 
+**The final product interface and Phase 8 defense package are delivered.** Open
+[the application](app/index.html): light map-first interface, worldwide indexed place search,
+coordinate/map selection, four lenses, local evidence cards, regional package import, exports
+and an A4 site brief. No presenter overlays or demonstration buttons appear in the product.
+It works offline. The [private presenter guide](docs/phase8-presenter-guide.md) contains the
+defense sequence; the [method report](docs/phase8-method-report.md) and
+[acceptance audit](docs/phase8-acceptance.md) explain evidence and limitations.
+
+Worldwide navigation is implemented; numerical analysis still needs a compatible local package.
+The built-in Canada screen is a temporary scenario with unknown uncertainty and field sample
+n = 0. **The full scientific PRD is not 100% complete:** the real Phase 6/7 exits remain pending.
+No human approval, participant commitment or field result has been invented.
+
 **Phase 7 tooling is verified; the real ranking freeze is pending.** The new verification
 workflow binds the ranking and seeded sample to a remote Git tag, validates private observations,
 and reports only aggregate outcomes with missingness and intervals. A complete synthetic
@@ -24,7 +37,7 @@ policy proposal and an evidence worksheet. The shared calculation now passes syn
 geography checks in five non-Canadian regions, with explicit local CRS and grain-unit handling.
 These checks demonstrate reusable software; measured regional transfer remains untested.
 
-**Phase 5 is complete:** open [the offline demo](demo/index.html) and click **Start guided demo**.
+**Phase 5 remains as a historical archive:** [the original offline presentation](demo/index.html).
 It presents ten real pipeline sites, a question-led node card, source/assumption traces and the
 recorded baseline comparison. No sign-in, internet or runtime server is needed; keep the folder
 together. The [demo guide](docs/phase-5-demo-guide.md) includes a three-minute presentation and
@@ -58,6 +71,20 @@ uv run --offline --locked --cache-dir .uv-cache python -m enagis smoke --fixture
 On systems with Make, `make setup` and `make check` run these same commands. Windows PowerShell can use the uv commands directly; Make is not required locally. The bundled desktop Python can be selected explicitly using `uv sync --python <absolute-python-path> --locked --cache-dir .uv-cache` if Windows' `python` command is a Store alias. Workspace-local uv/pytest caches avoid restricted temporary-directory problems.
 
 ### Rebuild the presentation offline
+
+For the final application and reproducible defense archive, after environment setup:
+
+```sh
+uv run --offline --locked --cache-dir .uv-cache python -m scripts.release_mvp --check
+```
+
+This rebuilds `app/`, figures and `outputs/mvp-release/EnaGIS-MVP.zip` with a hash audit.
+`make mvp`, `make verify-mvp`, `make figures` and `make release` expose the same workflows.
+No acquisition, fitting, private observations or runtime secrets are required. The separate
+Node view-model tests use only built-in modules; browser QA uses a separately supplied
+Playwright/Edge environment. See the [regional package contract](docs/spec/regional-view-package.md).
+
+For the unchanged historical Phase 5 archive:
 
 The demo includes permitted, verified historical evidence and generalized map context. After the
 environment setup above, rebuild and verify without acquiring data or fitting any model:

@@ -1,4 +1,4 @@
-.PHONY: setup test lint check smoke acquire ingest verify-data pipeline verify-run prepare-experiment demo verify-demo phase6-audit phase6-fixture verify-phase6 phase7-fixture
+.PHONY: setup test lint check smoke acquire ingest verify-data pipeline verify-run prepare-experiment demo verify-demo phase6-audit phase6-fixture verify-phase6 phase7-fixture mvp verify-mvp figures release
 setup:
 	uv sync --locked --cache-dir .uv-cache
 test:
@@ -33,3 +33,11 @@ verify-phase6:
 	uv run --offline --locked --cache-dir .uv-cache python -m enagis.science verify outputs/phase6-synthetic
 phase7-fixture:
 	uv run --offline --locked --cache-dir .uv-cache python scripts/phase7_rehearsal.py --output outputs/phase7-rehearsal
+mvp:
+	uv run --offline --locked --cache-dir .uv-cache python -m scripts.build_mvp
+verify-mvp:
+	uv run --offline --locked --cache-dir .uv-cache python -m scripts.build_mvp --verify
+figures:
+	uv run --offline --locked --cache-dir .uv-cache python -m scripts.generate_figures
+release:
+	uv run --offline --locked --cache-dir .uv-cache python -m scripts.release_mvp --check

@@ -26,3 +26,7 @@ jobs:
         env:
           PROJ_NETWORK: "OFF"
         run: make check
+      - name: Validate the dependency-free presentation contract
+        run: node --test tests/test_view_model.cjs
+      - name: Rebuild and verify the final offline application
+        run: make mvp verify-mvp figures

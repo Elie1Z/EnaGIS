@@ -1,0 +1,253 @@
+{
+  "date": "2026-10-09",
+  "environment": "Headless Edge on Windows; local file, network disabled; 4x CPU throttling",
+  "checks": [
+    {
+      "name": "desktop: initial top-10 render",
+      "status": "PASS",
+      "milliseconds": 685.5999999940395
+    },
+    {
+      "name": "desktop: only four lenses",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: no presenter controls",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: visible text AA contrast",
+      "status": "PASS",
+      "total": 117,
+      "failures": []
+    },
+    {
+      "name": "desktop: offline fonts loaded",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: keyboard selects site",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: first keeps selection",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: sure keeps selection",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: travel keeps selection",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: works keeps selection",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: seasonal results unavailable, never fabricated",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: language persists",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: Kinyarwanda shell",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: expert choice persists",
+      "status": "PASS"
+    },
+    {
+      "name": "global search: Kigali",
+      "status": "PASS"
+    },
+    {
+      "name": "Kigali: insufficient evidence stays unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "global search: Sydney",
+      "status": "PASS"
+    },
+    {
+      "name": "Sydney: insufficient evidence stays unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "global search: Reykjavik",
+      "status": "PASS"
+    },
+    {
+      "name": "Reykjavik: insufficient evidence stays unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "global search: Manaus",
+      "status": "PASS"
+    },
+    {
+      "name": "Manaus: insufficient evidence stays unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "global search: Longyearbyen",
+      "status": "PASS"
+    },
+    {
+      "name": "Longyearbyen: insufficient evidence stays unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "zero coordinates accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "coordinate search reaches any unindexed location",
+      "status": "PASS"
+    },
+    {
+      "name": "location needs export",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid package preserves current analysis",
+      "status": "PASS"
+    },
+    {
+      "name": "new region package replaces benchmark",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic region visibly labelled",
+      "status": "PASS"
+    },
+    {
+      "name": "new region shows supplied interval",
+      "status": "PASS"
+    },
+    {
+      "name": "imported region exports its own shortlist",
+      "status": "PASS"
+    },
+    {
+      "name": "A4 site brief available",
+      "status": "PASS"
+    },
+    {
+      "name": "200% text: body text actually doubles",
+      "status": "PASS"
+    },
+    {
+      "name": "200% text: no horizontal document overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop: no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: initial top-10 render",
+      "status": "PASS",
+      "milliseconds": 720.3000000119209
+    },
+    {
+      "name": "mobile: only four lenses",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: no presenter controls",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: visible text AA contrast",
+      "status": "PASS",
+      "total": 75,
+      "failures": []
+    },
+    {
+      "name": "mobile: offline fonts loaded",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: keyboard selects site",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: first keeps selection",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: sure keeps selection",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: travel keeps selection",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: works keeps selection",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: seasonal results unavailable, never fabricated",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: three sheet snap states",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: sheet leaves map visible",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: language persists",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: Kinyarwanda shell",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile: no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "WebGL-free map retains ten selectable sites",
+      "status": "PASS"
+    },
+    {
+      "name": "flat map keyboard selection",
+      "status": "PASS"
+    },
+    {
+      "name": "flat map retains polar coordinates",
+      "status": "PASS"
+    },
+    {
+      "name": "zero runtime external requests",
+      "status": "PASS"
+    },
+    {
+      "name": "zero uncaught browser errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external_requests": [],
+  "screenshots": [
+    "docs/audits/phase8/first-desktop.png",
+    "docs/audits/phase8/sure-desktop.png",
+    "docs/audits/phase8/travel-desktop.png",
+    "docs/audits/phase8/works-desktop.png",
+    "docs/audits/phase8/first-mobile.png",
+    "docs/audits/phase8/sure-mobile.png",
+    "docs/audits/phase8/travel-mobile.png",
+    "docs/audits/phase8/works-mobile.png"
+  ],
+  "status": "PASS"
+}

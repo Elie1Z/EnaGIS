@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-09",
+  "product_status": "implemented_and_verified",
+  "scientific_completion": false,
+  "scientific_source_sha256": "f2b1f09541c263a23c0e2a89798956ffc72070272e253b8eeab68d6b8bf4e978",
+  "lockfile_sha256": "d0f5f2429926afb378d153e9f5597a139b8bb1aa5e80e509f4d58cc5ccf53d92",
+  "application_manifest_sha256": "d7c8c5549549a85cdc1efe3f27c80bc61296b03aef48ee47eb5e23e1775a07de",
+  "verification": {
+    "python_tests": {
+      "passed": 227
+    },
+    "javascript_tests": {
+      "passed": 6
+    },
+    "ruff_lint": "PASS",
+    "ruff_format": {
+      "status": "PASS",
+      "files": 129
+    },
+    "smoke_cases": {
+      "passed": 8
+    },
+    "browser": {
+      "status": "PASS",
+      "passed": 57,
+      "report": "docs/audits/phase8/browser-acceptance.json",
+      "runtime_external_requests": 0,
+      "uncaught_errors": 0,
+      "desktop_initial_list_ms": 685.6,
+      "mobile_initial_list_ms": 720.3
+    },
+    "clean_environment": {
+      "status": "PASS",
+      "same_host": true,
+      "installed_from": "unchanged uv.lock",
+      "pinned_packages": 24,
+      "initial_install_network_needed": true,
+      "offline_rebuild_manifest_identical": true,
+      "independent_person_review": false
+    },
+    "printed_site_brief": {
+      "pages": 1,
+      "format": "A4",
+      "rendered_and_visually_inspected": true
+    }
+  },
+  "scientific_guards": {
+    "registered_method_changed": false,
+    "scientific_code_changed": false,
+    "lockfile_changed": false,
+    "manitoba_holdout_opened": false,
+    "new_scientific_sources": false,
+    "external_messages_sent": false
+  },
+  "figures": {
+    "source": "demo/evidence/phase4/report.json",
+    "source_sha256": "532a93a6d82c47c134fa9ff14c52e5f4cd1f5a39f399a01f953f57f533dc5fba",
+    "siting_sha256": "f22d8bde4915dcd23cdb7c795b45c44ab3dece81ac3b236c4530da1e534a4cc7",
+    "hindcast_sha256": "ffc80b05cb198d4ebebd34b608aafd6524b4035eb7e152ad63ed13029391a2c0"
+  },
+  "limitations": [
+    "Worldwide location selection is implemented; scientific analysis requires a compatible evidenced region package.",
+    "Country/place index is incomplete; arbitrary coordinates remain selectable.",
+    "Natural Earth global background is coarse; AB/SK road context is the existing pinned OSM derivative.",
+    "Real operating evidence and approved real Phase 6 exit are outstanding.",
+    "Real ranking freeze, participant and field verification outcomes are outstanding; field n=0.",
+    "Independent human review, native translation review, physical-phone tests and timed live rehearsals are not claimed."
+  ],
+  "deviations": [
+    "Initial release packaging referenced an absent root LICENSE; corrected to existing THIRD_PARTY_NOTICES.md without assigning a new project licence.",
+    "Decision 0011 records interface and unsupported-field decisions."
+  ]
+}

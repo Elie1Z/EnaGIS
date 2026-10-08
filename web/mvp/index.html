@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Explore agricultural locations and the evidence for a first energy assessment.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'none'; worker-src blob:; object-src 'none'; base-uri 'self';">
+  <title>EnaGIS · Where to investigate first</title>
+  <link rel="stylesheet" href="vendor/maplibre-gl.css"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#site-list" data-i18n="skip">Skip to locations</a>
+<header class="topbar">
+  <a class="brand" href="#" id="home" aria-label="EnaGIS home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M3 12h13M3 19h18M7 3v18"/></svg>Ena<span>GIS</span></a>
+  <div class="search-wrap"><label for="place-search" class="sr-only" data-i18n="search">Search a place or latitude, longitude</label><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="place-search" type="search" role="combobox" aria-autocomplete="list" aria-controls="search-results" aria-expanded="false" autocomplete="off" placeholder="Search anywhere · place or lat, lon"><div id="search-results" role="listbox" hidden></div></div>
+  <div class="top-actions"><button id="detail-toggle" class="quiet" aria-pressed="false">Simple <span aria-hidden="true">/ Expert</span></button><label class="sr-only" for="language">Language</label><select id="language" aria-label="Language"><option value="en">EN</option><option value="fr">FR</option><option value="rw">RW</option></select><details class="help"><summary aria-label="Help">?</summary><div><h2 data-i18n="helpTitle">Read the evidence</h2><p data-i18n="helpCopy">Search a place, choose a site, and inspect its next question. Coordinates use latitude, longitude. Place search uses a local gazetteer; smaller places can be selected directly on the map.</p><p><a href="limitations.html" data-i18n="limits">Sources and limitations</a></p><label class="import-button" for="region-file" data-i18n="import">Open regional analysis</label><input id="region-file" type="file" accept="application/json,.json"><p id="import-status" role="status"></p><button id="restore" class="quiet" data-i18n="restore">Restore built-in analysis</button></div></details></div>
+</header>
+<main class="workspace" id="workspace">
+  <nav class="lens-rail" aria-label="Analysis lenses">
+    <button data-lens="first" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 3 6 6 3-6 3-3 6-3-6-6-3 6-3Z"/></svg><span data-i18n="first">Where first</span></button>
+    <button data-lens="sure"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m8 12 3 3 5-6"/></svg><span data-i18n="sure">How sure</span></button>
+    <button data-lens="travel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4v5c0 5 14 1 14 6v5"/><circle cx="5" cy="4" r="2"/><circle cx="19" cy="20" r="2"/></svg><span data-i18n="travel">How to get there</span></button>
+    <button data-lens="works"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4ZM14 14h6v6h-6ZM7 10v7h7M14 4h6M17 4v6"/></svg><span data-i18n="works">How it works</span></button>
+  </nav>
+  <section class="map-stage" aria-label="Location map">
+    <div id="map"></div><div id="fallback-map" hidden></div>
+    <div class="map-heading"><p class="eyebrow" id="area-label">ALBERTA / SASKATCHEWAN</p><h1 id="map-title" data-i18n="title">Where to investigate first</h1><p id="map-subtitle" data-i18n="start">Start here: the 10 places to look first.</p></div>
+    <div class="map-tools"><button id="world-map" class="quiet" data-i18n="world">World</button><button id="fit-sites" class="quiet" data-i18n="fit">Fit sites</button><button id="locate" class="quiet" data-i18n="locate">My location</button></div>
+    <div class="layer-chips" aria-label="Map layers"><label><input id="roads-layer" type="checkbox" checked><span data-i18n="roads">Roads</span></label><label><input id="region-layer" type="checkbox"><span data-i18n="reporting">Reporting region</span></label><label><input id="haze-layer" type="checkbox" checked><span data-i18n="haze">Thin data</span></label></div>
+    <div class="thin-haze" id="thin-haze" hidden aria-hidden="true"></div>
+    <div class="map-key"><details><summary data-i18n="readMap">How to read this map</summary><div><p><span class="key-marker">1</span><span data-i18n="markerKey">Marker size shows scenario fan kW. Numbers are recorded ranks.</span></p><p><span class="key-ring"></span><span data-i18n="ringKey">Double rings: confidence unknown. A sharp location does not establish a confident energy estimate.</span></p><p><span class="key-hatch"></span><span data-i18n="hatchKey">Hatching means no compatible analysis here yet. It does not mean no facilities or energy need.</span></p></div></details><span class="coordinate-readout" id="coordinate-readout">EPSG:4326</span></div>
+    <div class="attribution">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> · <a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener">Natural Earth</a> · AAFC / Statistics Canada</div>
+    <p id="map-status" class="sr-only" role="status"></p>
+  </section>
+  <aside class="list-drawer" id="list-drawer" aria-label="Investigation locations"><button class="sheet-handle" id="list-handle" aria-label="Change list height"></button><div class="drawer-heading"><div><p class="eyebrow" data-i18n="screening">INVESTIGATION LIST</p><h2 id="list-title" data-i18n="firstVisits">The first visits</h2></div><span class="count-pill" id="list-count">10</span></div><p id="list-context" class="meta">Recorded scenario · wheat storage / aeration</p><label class="filter-wrap"><span class="sr-only" data-i18n="filter">Filter sites</span><input id="site-filter" type="search" placeholder="Filter sites or operators"></label><div id="site-list" tabindex="-1"></div><section id="lens-panel"></section><div class="drawer-footer"><a id="export-shortlist" href="shortlist.csv" download data-i18n="export">Export shortlist</a><p class="meta" data-i18n="tieNote">Equal estimates use stable IDs. Ties do not establish urgency.</p></div></aside>
+  <aside class="detail-sheet" id="detail-sheet" aria-label="Selected location"><button class="sheet-handle" id="detail-handle" aria-label="Change assessment height"></button><div class="detail-scroll" id="site-card" aria-live="polite"></div></aside>
+</main>
+<footer class="statusbar"><span id="dataset-status">261 documented locations · 2024 sources</span><a href="limitations.html" data-i18n="screeningLine">Screening tool, not a feasibility study</a><span id="synthetic-ribbon" hidden>Synthetic data</span></footer>
+<div id="toast" role="status" hidden></div><section id="print-brief" aria-label="Printable site brief"></section>
+<noscript><p>JavaScript is needed for map interaction. <a href="shortlist.csv">Download the shortlist</a> or read <a href="limitations.html">the method and limitations</a>.</p></noscript>
+<script id="demo-data" type="application/json">__DATA__</script><script id="world-data" type="application/json">__WORLD__</script>
+<script id="candidate-data" type="application/json">__CANDIDATES__</script><script id="map-context" type="application/json">__CONTEXT__</script>
+<script defer src="vendor/maplibre-gl.js"></script><script src="view-model.js"></script><script src="app.js"></script>
+</body>
+</html>
