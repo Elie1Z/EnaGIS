@@ -4,6 +4,14 @@ EnaGIS helps productive-use-energy teams decide which agricultural aggregation a
 
 ## Project state
 
+**Phase 6 engineering is implemented; scientific completion remains gated.** The new
+`enagis.science` engine covers directed mode/season routing, shared capacity, aeration ranges,
+joint Sobol draws, stability tiers, top-10 exports and replay verification. Its demonstrated
+end-to-end run is **synthetic**, not a replacement for the real demo. The real-data audit found
+six outstanding scientific decisions. See the [Phase 6 status](docs/phase-6-status.md),
+[review packet](docs/phase6-scientific-review.md) and [execution guide](docs/spec/phase6-science.md).
+The final ranking has not been frozen.
+
 **Phase 5 is complete:** open [the offline demo](demo/index.html) and click **Start guided demo**.
 It presents ten real pipeline sites, a question-led node card, source/assumption traces and the
 recorded baseline comparison. No sign-in, internet or runtime server is needed; keep the folder

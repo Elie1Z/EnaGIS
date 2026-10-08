@@ -1,0 +1,56 @@
+{
+  "version": "phase6-canada-v1-review",
+  "status": "pending_scientific_review",
+  "scope": "AB/SK, non-durum wheat, primary-elevator ambient-air aeration; Manitoba untouched",
+  "approval": null,
+  "gates": [
+    {
+      "id": "production_origins",
+      "owner": "R2 / R3",
+      "required": "Approve a production-origin representation and its weights, preserve each SADR total once, and resolve or explicitly exclude suppressed production and spatial conflicts.",
+      "available": "Pinned SADR totals and geometries; Phase 4 uniform-area proxy had no demonstrated improvement. No crop raster acquired.",
+      "proposal": "Evaluate a separately versioned uniform-area diagnostic only if the team accepts its limitations; it cannot establish farm locations or commercial catchments.",
+      "approved_value": null
+    },
+    {
+      "id": "transport_and_season",
+      "owner": "R3 / R1",
+      "required": "Specify commodity-relevant mode(s), class speeds in km/h, dry/wet surface factors or impassability, missing-surface handling, travel budget, snapping distance and connector speed. Review barriers, turns, weight limits and snapshot completeness.",
+      "available": "Pinned AB/SK OSM ways; access/oneway/maxspeed tags support bounded screening. Node barriers and restriction relations are absent from the existing adapter.",
+      "proposal": "For bulk wheat, review an HGV vehicle profile before using the other transport modes. Treat unknown surfaces and unsupported restrictions as excluded until a documented scenario is approved.",
+      "approved_value": null
+    },
+    {
+      "id": "inventory_and_allocation",
+      "owner": "R3 / R4",
+      "required": "Approve wheat storage share, residence and operating-period ranges, treated fraction, seasonal inventory applicability, joint dependence, assignment variants and unknown-capacity policy.",
+      "available": "Observed all-commodity storage tonnes; temporary Phase 3 coefficients have no scientific approval.",
+      "proposal": "Compare maximum-served/minimum-tonne-minute allocation with nearest-first using matched draws. Unknown capacities stay flagged; no invented zero capacity.",
+      "approved_value": null
+    },
+    {
+      "id": "commercial_aeration",
+      "owner": "R3 / R4; commercial grain-storage reviewer",
+      "required": "Supply reviewed commercial airflow, static pressure, fan/motor efficiency, simultaneous fraction, cooling-cycle hours and auxiliary-kW ranges with compatible joint dependencies and source applicability.",
+      "available": "Fan air-power equation and farm-bin guidance support method review, not site-specific commercial coefficients. Bin geometry, fan curves and measured operation remain unavailable.",
+      "proposal": "Use simultaneous fan duty and one-cycle electricity; exclude drying heat, startup current and unrelated machinery. Do not promote the Phase 3 hypothetical coefficients or arbitrary percentage bands.",
+      "approved_value": null
+    },
+    {
+      "id": "gap_and_priority",
+      "owner": "R3 / R4; project decision owner",
+      "required": "Approve the service-capacity comparison and priority objective, top-10 tie policy, robust inclusion threshold, summary quantiles, seed, Sobol draw count and weighting of discrete cases.",
+      "available": "No consumed registry field documents installed electrical aeration capacity. Top-10 is the project budget; no numeric stability threshold was approved.",
+      "proposal": "Keep signed comparable kW margins; require Verify-first where supply is undocumented. Show stability separately from technical magnitude and economic viability. Review inclusion-frequency ordering before scientific use.",
+      "approved_value": null
+    },
+    {
+      "id": "scientific_exit_review",
+      "owner": "R4 / R3",
+      "required": "Review real-data ablations against the declared reference case, remaining source/temporal limits and a prospectively specified Phase 6 hindcast comparison before declaring readiness to freeze.",
+      "available": "Historical Phase 4 baselines/hindcast remain verified and available. They evaluated the prior model, not the new engine. No field verification or Manitoba transfer result exists.",
+      "proposal": "Retain new complexity only with a documented decision benefit; report not-testable when evidence is insufficient. Keep affordability, grid context and visit-window scores deferred until their sources are approved.",
+      "approved_value": null
+    }
+  ]
+}
