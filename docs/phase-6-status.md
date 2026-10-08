@@ -20,7 +20,34 @@ approved ranges. This follows AGENTS.md, decision 0003 and the Phase 0 execution
 The engine writes eight artifacts plus index and fully replays them for verification.
 The [execution guide](spec/phase6-science.md) includes the commands and equations.
 
-## Verification evidence
+## Scientific desk-review continuation
+
+The [desk review](phase6-desk-review.md) is complete. It supplies source findings, a
+[versioned policy proposal](../configs/scenarios/phase6-policy-proposal-v1.json) and a
+[blank evidence worksheet](../data/manual/phase6-site-evidence-template.json).
+The policy remains unapproved; commercial inventory/fan/transport inputs remain unresolved.
+
+- **191 tests passed**, with Ruff lint and formatting clean. The continuation adds 26 cases
+  covering regional projections, dimensional conversion, approval boundaries and ablations.
+- The same synthetic pipeline runs in five non-Canadian geographies. Its selected CRS is
+  explicit and checked locally; these tests demonstrate portability, not predictive transfer.
+- Airflow conversion requires grain-specific test weight and a reviewed matching bushel basis.
+  UNKNOWN inputs do not yield numerical coefficients. Ablations count replacements separately
+  from changed identities and shortlist additions/removals.
+- Current synthetic run: `phase6:e0af416ec6d6cc7985ae83b0`, four cases and 64 draws; eight
+  artifacts replay byte for byte in `outputs/phase6-review-fixture/`. The Canadian synthetic
+  inputs and fixture parameters were not changed.
+- Historical Phase 3 (ten artifacts), Phase 4 (six) and the demo (32) still verify. The refreshed
+  counts-only audit confirms 261 development sites, 16 known/nine unknown production regions,
+  two spatial-review nodes, one eligibility issue and zero documented electrical observations.
+  All 766,897 AB/SK way rows were checked again. No empirical datasets were acquired.
+
+The [continuation audit](audits/phase6-desk-review.json) records source hashes and checks; its
+[readiness audit](audits/phase6-review-readiness.json) binds the updated review packet.
+The original audits below are historical records from commit `5953c5f`, not current-code replay
+certificates. Preserve the matching source version when reproducing each run.
+
+## Original engineering verification evidence
 
 - Full regression suite: **165 passed**, including 32 new Phase 6 cases; Ruff lint and format
   checks passed. All eight Phase 1 smoke cases passed.
@@ -62,7 +89,9 @@ ranking or public map replacement is created.
   the current energy method is a steady-flow scenario, not measured harvest peak power.
   A synthetic pass does not establish scale, transfer, commercial validity or decision benefit.
 
-**Next required action:** a technical reviewer and decision owner must resolve the review
-packet with actual values/evidence and approve the resulting configuration. Generic permission
-to continue does not supply the missing scientific information. Real-data execution, new
-benchmark/ablation review and the scientific exit follow that decision. Phase 7 remains closed.
+**Remaining evidence gate:** supply applicable inventory, grain/storage, fan-duty/cycle and
+freight assumptions from an existing operator report, engineering study or suitable technical
+source, using the worksheet. Human approval must then identify the exact values and method.
+AGENTS.md and the PRD require that review; they do not require an external consultant.
+Real execution, a prospectively specified comparison and reviewed ablations still follow.
+Phase 7 remains closed and no real Phase 6 ranking is described as ready to freeze.

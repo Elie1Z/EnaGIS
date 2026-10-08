@@ -11,9 +11,13 @@ meaningful gap rules and uncertainty thresholds for R3/R4 review. The Phase 4 ap
 a different experiment. Neither it nor permission to implement Phase 6 provides the missing
 commercial ranges. Merely entering an approver name beside unknown values is insufficient.
 
-The next useful action is to have a grain-storage/aeration reviewer and the project decision
-owner complete the six decisions below. No new source acquisition or outreach is being
-performed implicitly. Published specialists are leads, not engaged reviewers.
+The [completed desk review](phase6-desk-review.md) now supplies source findings and a
+[concrete policy proposal](../configs/scenarios/phase6-policy-proposal-v1.json). The remaining
+task is to supply applicable operating evidence and record human decisions against exact
+values. The repository requires human scientific approval; it does not require hiring an
+external consultant. Technical competence is needed to judge applicability. Published
+specialists are reference authors, not engaged reviewers. No empirical acquisition or
+outreach has been performed in this continuation.
 
 ## Evidence already available
 
@@ -40,6 +44,9 @@ Phase 4 comparisons remain available, with their original limitations and KILL w
 The machine-readable companion is
 [`phase6-canada-v1.review.json`](../configs/scenarios/phase6-canada-v1.review.json).
 All six `approved_value` fields and the overall approval are deliberately null.
+Use the [site evidence worksheet](../data/manual/phase6-site-evidence-template.json) to record
+existing operator reports or applicable engineering sources. It is a blank review template,
+not a new observation or executable scenario. Policy approval cannot fill its unknown facts.
 
 1. **Production origins (R2/R3).** Specify the spatial proxy, parent-to-origin fractions,
    precision, suppression policy, affected-site exclusions and source/period applicability.

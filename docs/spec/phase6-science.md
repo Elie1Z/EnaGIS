@@ -27,9 +27,12 @@ Eight checksummed artifacts plus index are written: complete config and inputs, 
 draws, ranking, shortlist JSON/CSV and ablations. Inputs preserve snapshots, field evidence,
 dates, licence, precision and source hashes. Draws retain routes, assignments, origin balances,
 parameters, technical values, signed gaps, ranking and unresolved reasons. Metadata declares
-period, commodity, service, region, seed, config/input/code/lock hashes and interpretation.
+period, commodity, service, region, analysis CRS, seed, config/input/code/lock hashes and interpretation.
 Replay checks hashes and regenerates every artifact byte. It does not certify scientific
 validity. Replay uses a temporary sibling directory and removes only that generated directory.
+Replay requires the matching source-code version. The original engineering acceptance run
+is retained at commit `5953c5f`; the desk-review continuation uses a separate output directory
+`outputs/phase6-review-fixture/` and records its own hashes in the desk-review audit.
 
 ## Audit real readiness without models or outcomes
 
@@ -59,8 +62,11 @@ Conditional, directional-access, physical-dimension, seasonal and barrier tags n
 logic are counted and excluded. Missing access is an explicit profile choice. Missing surface
 is excluded unless an explicit `UNKNOWN` surface scenario is configured.
 
-Transform only from declared longitude/latitude EPSG:4326 to metre-based EPSG:3347, check area
-of use and finite values. Travel time = metres × 60 / (1000 × km/h). Each endpoint snaps to
+Transform from declared longitude/latitude EPSG:4326 to an explicitly configured projected
+two-dimensional metre CRS; check that CRS's area of use and finite values. Geographic, feet,
+geocentric and Web Mercator CRSs are rejected for these distance calculations. Real Canadian
+execution retains EPSG:3347. A CRS's area of use alone does not certify acceptable distortion;
+each new region needs a local distance review. Travel time = metres × 60 / (1000 × km/h). Each endpoint snaps to
 the closest retained vertex within the configured distance, with stable ID ties. Add explicit
 connector times; return null for snap failures/unreachable/over-budget pairs. No zero-time
 placeholder stands for an unreachable path. Vertex snapping remains an approximation needing
@@ -96,7 +102,8 @@ useful planning requirement.
 Maximum-served allocation uses two linear programs: first maximize assigned tonnes, then
 minimize tonne-minutes at that total. Stable sorted identities and the pinned HiGHS dual-simplex
 solver define repeatable ties, without a cost perturbation. Nearest-first sorts by minutes,
-origin ID and node ID; it can leave avoidable unserved mass and is retained as a comparison.
+origin ID and node ID; it can leave avoidable unserved mass. The pending scientific policy
+proposal names nearest-first as the PRD reference and maximum-served as its comparison.
 Both enforce shared node capacity, source balances and total conservation. Unknown storage
 either excludes the candidate with an explicit flag, or is unbounded with that same flag,
 according to a reviewed scenario. Neither interpretation turns it into known zero storage.
@@ -126,8 +133,10 @@ eligible sites; it is never filled with invented values. Questions prioritize pr
 storage, electrical supply and access evidence before the site's other unresolved question.
 
 Ablations compare matched draws between cases differing in one factor. They report membership
-symmetric difference (one replacement counts two), common-site rank displacement and no
-automatic retain/drop verdict. The named reference case is explicit. These are engineering
+symmetric difference (one replacement counts two), removals, additions, replacements
+(`min(removed, added)`), common-site rank displacement and no automatic retain/drop verdict.
+A shrinking shortlist alone is not a replacement. Comparisons identify whether they include
+the named reference case. These are engineering
 diagnostics until a real comparison and decision review have been approved.
 
 ## Real execution contract and remaining adapter work
@@ -137,6 +146,16 @@ snapshots, conserved origins, locations/precision, compatible site capacities an
 provenance hashes. A scientific ScenarioConfig requires human method/parameter/transport/rank
 approval and source applicability. All referenced source IDs must resolve. Restricted source
 snapshots cannot enter this portable run bundle. The scientific budget is ten.
+
+The separate `unit_review.convert_airflow` helper converts cfm/bushel to m³/s/tonne only with
+known grain-specific kg/bushel, compatible explicitly identified bushel bases and a recorded
+basis review. It retains the original evidence and dimensional factors; missing or mismatched
+inputs produce UNKNOWN. This does not approve coefficients or insert them into a real scenario.
+
+Synthetic geography tests exercise the full calculation in five non-Canadian settings. They
+show software portability and conservation, not field validity or learned transfer. Real runs
+still require `ca-prairies`, AB/SK and EPSG:3347. New real regions enter through a separately
+reviewed adapter/configuration and evaluation protocol, as required by decision 0002.
 
 The current engine accepts a reviewed prepared input bundle. Preparing real production origins
 and a commodity-appropriate network is still gated by the review packet; it is not automated

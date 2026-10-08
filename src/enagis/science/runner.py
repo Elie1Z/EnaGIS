@@ -168,6 +168,7 @@ def execute(config_path, input_path, output, lockfile, *, allow_fixture=False):
         "run_id": f"phase6:{identity}",
         "purpose": config.purpose,
         "region_id": data.region_id,
+        "metric_crs": config.metric_crs,
         "commodity_id": data.commodity_id,
         "service_id": data.service_id,
         "period_start": str(data.period_start),
@@ -186,7 +187,7 @@ def execute(config_path, input_path, output, lockfile, *, allow_fixture=False):
         "peak_boundary": "simultaneous running fans plus auxiliary; excludes startup current",
         "scientifically_ready_to_freeze": False,
         "readiness_note": (
-            "Synthetic fixtures never establish scientific readiness. Real runs need external "
+            "Synthetic fixtures never establish scientific readiness. Real runs need human "
             "review of ablations and benchmarks."
         ),
         **fingerprints,

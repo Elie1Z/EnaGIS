@@ -1,0 +1,55 @@
+{
+  "schema_version": "phase6-review-template-v1",
+  "purpose": "Blank technical evidence worksheet; not a pipeline input, observation, or approval",
+  "node_id": null,
+  "source_document_or_record": null,
+  "source_date": null,
+  "reviewer": null,
+  "review_date": null,
+  "licence_and_public_redistribution": null,
+  "scope_and_applicability": null,
+  "inventory": {
+    "reporting_period": null,
+    "stored_wheat_tonnes_peak": null,
+    "stored_wheat_tonnes_typical": null,
+    "wheat_share_of_usable_storage": null,
+    "residence_days_lower_central_upper": null,
+    "operating_days_in_period": null,
+    "treated_fraction": null,
+    "evidence_label": "UNKNOWN"
+  },
+  "grain_and_storage": {
+    "bin_class": null,
+    "grain_depth_metres": null,
+    "grain_test_weight_kg_per_bushel": null,
+    "test_weight_bushel_basis": null,
+    "airflow_guidance_bushel_basis": null,
+    "compaction_and_fines_basis": null,
+    "duct_and_floor_configuration": null,
+    "evidence_label": "UNKNOWN"
+  },
+  "aeration": {
+    "source_fan_curve_or_measured_duty": null,
+    "required_airflow_m3_per_s_per_tonne": null,
+    "total_static_pressure_Pa_at_that_airflow": null,
+    "fan_efficiency_at_that_duty": null,
+    "motor_efficiency_at_that_duty": null,
+    "simultaneous_fan_or_inventory_fraction": null,
+    "auxiliary_kW_and_included_equipment": null,
+    "cycle_hours_and_completion_criterion": null,
+    "suitable_ambient_temperature_or_weather_window": null,
+    "documented_installed_electrical_capacity_kW": null,
+    "capacity_definition_running_or_starting": null,
+    "evidence_label": "UNKNOWN"
+  },
+  "movement": {
+    "origin_evidence_or_reviewed_production_proxy": null,
+    "truck_or_other_commodity_transport_mode": null,
+    "vehicle_weight_and_dimensions_if_needed": null,
+    "road_speed_and_seasonal_access_evidence": null,
+    "dated_road_restrictions": null,
+    "evidence_label": "UNKNOWN"
+  },
+  "joint_ranges_and_dependency_explanation": null,
+  "approval_of_exact_values_and_method": null
+}

@@ -3,6 +3,12 @@
   "status": "pending_scientific_review",
   "scope": "AB/SK, non-durum wheat, primary-elevator ambient-air aeration; Manitoba untouched",
   "approval": null,
+  "supporting_review": {
+    "desk_review": "docs/phase6-desk-review.md",
+    "policy_proposal": "configs/scenarios/phase6-policy-proposal-v1.json",
+    "evidence_worksheet": "data/manual/phase6-site-evidence-template.json",
+    "approval_requirement": "Human approval of sourced values and applicability; no external-consultant requirement is added."
+  },
   "gates": [
     {
       "id": "production_origins",
@@ -25,14 +31,14 @@
       "owner": "R3 / R4",
       "required": "Approve wheat storage share, residence and operating-period ranges, treated fraction, seasonal inventory applicability, joint dependence, assignment variants and unknown-capacity policy.",
       "available": "Observed all-commodity storage tonnes; temporary Phase 3 coefficients have no scientific approval.",
-      "proposal": "Compare maximum-served/minimum-tonne-minute allocation with nearest-first using matched draws. Unknown capacities stay flagged; no invented zero capacity.",
+      "proposal": "Propose nearest-first as the PRD reference and maximum-served/minimum-tonne-minute allocation as its comparison, using matched draws. Unknown capacities stay flagged; no invented zero capacity.",
       "approved_value": null
     },
     {
       "id": "commercial_aeration",
       "owner": "R3 / R4; commercial grain-storage reviewer",
       "required": "Supply reviewed commercial airflow, static pressure, fan/motor efficiency, simultaneous fraction, cooling-cycle hours and auxiliary-kW ranges with compatible joint dependencies and source applicability.",
-      "available": "Fan air-power equation and farm-bin guidance support method review, not site-specific commercial coefficients. Bin geometry, fan curves and measured operation remain unavailable.",
+      "available": "CGC/PAMI grain resistance, grain-specific test weights and a commercial-elevator bulletin support applicability review. None supplies candidate-specific inventory, geometry or fan duty. See the desk review for source limits.",
       "proposal": "Use simultaneous fan duty and one-cycle electricity; exclude drying heat, startup current and unrelated machinery. Do not promote the Phase 3 hypothetical coefficients or arbitrary percentage bands.",
       "approved_value": null
     },

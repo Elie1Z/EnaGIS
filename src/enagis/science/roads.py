@@ -11,12 +11,12 @@ from collections import Counter
 from dataclasses import dataclass
 
 import numpy as np
-from pyproj import CRS, Transformer
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import dijkstra
 from scipy.spatial import cKDTree
 
 from enagis.science.contracts import Transport
+from enagis.science.geography import inside_area, projection
 
 
 def access_keys(profile):
@@ -112,18 +112,9 @@ def way_policy(tags: dict, profile: Transport, season: str):
     return (forward, backward, *speeds), "retained"
 
 
-def projection(crs):
-    parsed = CRS.from_user_input(crs)
-    if parsed.to_epsg() != 3347 or not parsed.is_projected:
-        raise ValueError("Phase 6 Canada metric calculations require EPSG:3347")
-    if any(axis.unit_name != "metre" for axis in parsed.axis_info):
-        raise ValueError("metric CRS axes must be metres")
-    return Transformer.from_crs(4326, parsed, always_xy=True, allow_ballpark=False)
-
-
 def project_points(transform, points):
-    area = CRS.from_epsg(3347).area_of_use
-    if any(not area.west <= x <= area.east or not area.south <= y <= area.north for x, y in points):
+    area = transform.target_crs.area_of_use
+    if area is None or any(not inside_area(x, y, area) for x, y in points):
         raise ValueError("coordinates outside the metric CRS area of use")
     x, y = transform.transform(*zip(*points, strict=True), errcheck=True)
     result = np.column_stack([x, y])
@@ -140,7 +131,7 @@ class Network:
     audit: dict
 
 
-def build_network(roads, profile, season, crs="EPSG:3347"):
+def build_network(roads, profile, season, crs):
     transform = projection(crs)
     seen, coordinates, edges, audit = {}, {}, {}, Counter()
     for road in roads:
@@ -186,7 +177,7 @@ def build_network(roads, profile, season, crs="EPSG:3347"):
     return Network(matrix, ids, np.array([coordinates[n] for n in ids]), dict(audit))
 
 
-def accessibility(network, origins, sites, profile, crs="EPSG:3347"):
+def accessibility(network, origins, sites, profile, crs):
     transform = projection(crs)
     endpoints = [*origins, *sites]
     snaps = {}

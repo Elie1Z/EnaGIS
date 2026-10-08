@@ -1,0 +1,83 @@
+{
+  "schema_version": "phase6-desk-review-audit-v1",
+  "as_of": "2026-10-08",
+  "status": "desk_review_and_portability_verified_scientific_exit_pending",
+  "baseline_commit": "5953c5f3206c57497df509be2b4fff2001e00618",
+  "source_code_sha256": "1dfb16e2a9baa26caa4e38a3ad3caf297ac2e217c4f45ed7c4c1dff40fce7033",
+  "lockfile_sha256": "d0f5f2429926afb378d153e9f5597a139b8bb1aa5e80e509f4d58cc5ccf53d92",
+  "review_artifact_sha256": {
+    "configs/scenarios/phase6-canada-v1.review.json": "fc7e2d5877dc7ac141b697581015c6f30b5aa5ef44ba319c20ea467803d723d6",
+    "configs/scenarios/phase6-policy-proposal-v1.json": "518a8e0ab02c68116d251c64368386db1e90dea7c54a0cc1cd86559eab8e1181",
+    "data/manual/phase6-site-evidence-template.json": "08cac76e6b6637b8d17616be24b78a0a02abb8d9331d5c5c84fa338dbf2d9b16",
+    "docs/audits/phase6-review-readiness.json": "586cd95d74611132fd88f0377294d032f408ef208ca3d924b046ec97b7cae6a4",
+    "docs/phase6-desk-review.md": "d4df22c2e725b572750c88b90a56865dd34e9f9380fbff747b4afb6dc698ae40"
+  },
+  "tests": {
+    "full_suite_passed": 191,
+    "continuation_cases_added": 26,
+    "lint": "passed",
+    "format": "passed",
+    "git_diff_whitespace": "passed",
+    "initial_full_suite": "189 passed, two new authorization tests failed because the invented input lacked the required snapshot-hash map",
+    "repair": "Completed synthetic test provenance before changing its purpose; no runtime method or gate was relaxed. Full rerun passed."
+  },
+  "synthetic_run": {
+    "path": "outputs/phase6-review-fixture",
+    "run_id": "phase6:e0af416ec6d6cc7985ae83b0",
+    "purpose": "synthetic_fixture",
+    "metric_crs": "EPSG:3347",
+    "config_sha256": "c49e1b0095cb6b451754e9a7089e6fa6e9120a4d8396bdac0fa71e61a7638b57",
+    "input_sha256": "c47581356f8d4f262ebb9dc1c48f4a446a3ffcee3f0c6e8414936c663c86c4c7",
+    "fixture_parameters_changed": false,
+    "cases": 4,
+    "draws": 64,
+    "sites": 13,
+    "shortlist_rows": 10,
+    "known_tonnes_per_draw": 700,
+    "unknown_parents": 1,
+    "verified_artifacts": 8,
+    "replay": "byte_identical"
+  },
+  "synthetic_portability": {
+    "locations": [
+      {"name": "East Africa", "crs": "EPSG:32736", "longitude": 32, "latitude": -2},
+      {"name": "South America", "crs": "EPSG:32722", "longitude": -50, "latitude": -23},
+      {"name": "South Asia", "crs": "EPSG:32643", "longitude": 76, "latitude": 18},
+      {"name": "Oceania", "crs": "EPSG:32756", "longitude": 152, "latitude": -32},
+      {"name": "Europe", "crs": "EPSG:32632", "longitude": 10, "latitude": 48}
+    ],
+    "draws_per_location": 64,
+    "local_distance_check_relative_tolerance": 0.002,
+    "conservation_and_unknowns": "passed",
+    "interpretation": "Invented relocated geometry demonstrates software portability only; no real foreign observations, training or transfer evaluation."
+  },
+  "historical_verification": {
+    "phase3_artifacts": 10,
+    "phase4_artifacts": 6,
+    "demo_artifacts": 32,
+    "experiment_refitted": false,
+    "demo_changed": false
+  },
+  "assumptions_and_deviations": [
+    "Scientific reference pages are review evidence; no new empirical runtime inputs were acquired.",
+    "Policy values are concrete proposals only, with approval null; fixture values remain synthetic.",
+    "Human scientific approval is required; hiring an external consultant is not an added repository requirement.",
+    "The original engine audits and outputs are retained under their historical code hashes.",
+    "Shared kernel CRS support does not authorize a real new region or change the frozen Canadian benchmark.",
+    "No Phase 4 method, feature, seed, threshold, fold or registered rule was altered."
+  ],
+  "new_empirical_sources_acquired": false,
+  "manitoba_outcomes_consumed": false,
+  "human_approval_recorded": false,
+  "real_scientific_ranking_created": false,
+  "phase7_freeze_created": false,
+  "open_scientific_gates": [
+    "production_origins",
+    "transport_and_season",
+    "inventory_and_allocation",
+    "commercial_aeration",
+    "gap_and_priority",
+    "scientific_exit_review"
+  ],
+  "scientifically_ready_to_freeze": false
+}

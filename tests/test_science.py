@@ -149,26 +149,32 @@ def test_directed_route_crs_snaps_and_parallel_edges(fixture):
     profile = config.transports[0]
     road = data.roads[-2].model_copy(deep=True)
     road.tags["oneway"] = "yes"
-    graph = build_network([road], profile, "dry")
-    duplicated = build_network([road, road], profile, "dry")
+    graph = build_network([road], profile, "dry", config.metric_crs)
+    duplicated = build_network([road, road], profile, "dry", config.metric_crs)
     assert np.array_equal(graph.matrix.toarray(), duplicated.matrix.toarray())
     assert duplicated.audit["duplicate_ways"] == 1
     origin = data.origins[0]
     destination = data.sites[0].model_copy(update={"location": data.origins[1].location})
-    access, snaps = accessibility(graph, [origin], [destination], profile)
+    access, snaps = accessibility(graph, [origin], [destination], profile, config.metric_crs)
     expected_km = np.linalg.norm(graph.coordinates[0] - graph.coordinates[1]) / 1000
     assert access[0]["minutes"] == pytest.approx(expected_km)  # 60 km/h => 1 minute/km
     reverse = origin.model_copy(update={"location": destination.location})
     target = destination.model_copy(update={"location": origin.location})
-    assert accessibility(graph, [reverse], [target], profile)[0][0]["minutes"] is None
+    assert (
+        accessibility(graph, [reverse], [target], profile, config.metric_crs)[0][0]["minutes"]
+        is None
+    )
     far = destination.model_copy(update={"location": Point.model_validate(point(-110, 54))})
-    assert accessibility(graph, [origin], [far], profile)[0][0]["status"] == "snap_failure"
-    with pytest.raises(ValueError, match="EPSG:3347"):
+    assert (
+        accessibility(graph, [origin], [far], profile, config.metric_crs)[0][0]["status"]
+        == "snap_failure"
+    )
+    with pytest.raises(ValueError, match="projected"):
         projection("EPSG:4326")
     conflict = road.model_copy(deep=True)
     conflict.tags["oneway"] = "no"
     with pytest.raises(ValueError, match="conflicting duplicate"):
-        build_network([road, conflict], profile, "dry")
+        build_network([road, conflict], profile, "dry", config.metric_crs)
     assert snaps[origin.origin_id]["metres"] == 0
 
 

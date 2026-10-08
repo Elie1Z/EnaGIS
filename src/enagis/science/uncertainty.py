@@ -127,10 +127,14 @@ def ablations(draws, config):
         changed = [k for k in ("profile_id", "season", "assignment_variant") if left[k] != right[k]]
         if len(changed) != 1:
             continue
-        membership_changes, displacements = [], []
+        membership_changes, displacements, replacements, removals, additions = [], [], [], [], []
         for draw_id in sorted(by_case[a]):
             la, lb = by_case[a][draw_id]["top_k"], by_case[b][draw_id]["top_k"]
             membership_changes.append(len(set(la) ^ set(lb)))
+            removed, added = len(set(la) - set(lb)), len(set(lb) - set(la))
+            removals.append(removed)
+            additions.append(added)
+            replacements.append(min(removed, added))
             common = set(la) & set(lb)
             displacements.append(sum(abs(la.index(n) - lb.index(n)) for n in common))
         results.append(
@@ -141,6 +145,11 @@ def ablations(draws, config):
                 "draws": len(membership_changes),
                 "mean_membership_symmetric_difference": float(np.mean(membership_changes)),
                 "max_membership_symmetric_difference": max(membership_changes),
+                "mean_replacements": float(np.mean(replacements)),
+                "max_replacements": max(replacements),
+                "mean_removed": float(np.mean(removals)),
+                "mean_added": float(np.mean(additions)),
+                "compares_declared_reference": config.reference_case in {a, b},
                 "mean_common_rank_displacement": float(np.mean(displacements)),
                 "retention_decision": "not_made_by_engine",
             }

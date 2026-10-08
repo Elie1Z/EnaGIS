@@ -17,6 +17,7 @@ from enagis.contracts import (
     Value,
 )
 from enagis.data_contracts import RoadWay
+from enagis.science.geography import metric_projection
 
 PARAMETER_UNITS = {
     "residence_days": "day",
@@ -124,7 +125,7 @@ class ScenarioConfig(Contract):
     scenario_id: ID
     purpose: Literal["synthetic_fixture", "scientific_reviewed"]
     as_of: date
-    metric_crs: Literal["EPSG:3347"]
+    metric_crs: str = Field(pattern=r"^EPSG:[0-9]+$")
     distance_unit: Literal["metre"]
     time_unit: Literal["minute"]
     parameters: dict[ID, ParameterRange]
@@ -144,6 +145,7 @@ class ScenarioConfig(Contract):
 
     @model_validator(mode="after")
     def consistency(self):
+        metric_projection(self.metric_crs)
         if set(self.parameters) != set(PARAMETER_UNITS):
             raise ValueError("exact inventory/aeration parameter set required")
         for name, p in self.parameters.items():
@@ -191,6 +193,8 @@ class ScenarioConfig(Contract):
             raise ValueError("development only: Manitoba/other regions require a new protocol")
         if not dataset.data_approval or not self.methods_approval or not self.ranking.approval:
             raise ValueError("data, methods and ranking policy require recorded human review")
+        if dataset.region_id != "ca-prairies" or self.metric_crs != "EPSG:3347":
+            raise ValueError("real Canada benchmark requires ca-prairies and EPSG:3347")
         if self.ranking.top_k != 10:
             raise ValueError("real Phase 6 shortlist budget is ten")
         for item in [*self.parameters.values(), *self.transports]:

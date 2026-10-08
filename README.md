@@ -12,6 +12,11 @@ six outstanding scientific decisions. See the [Phase 6 status](docs/phase-6-stat
 [review packet](docs/phase6-scientific-review.md) and [execution guide](docs/spec/phase6-science.md).
 The final ranking has not been frozen.
 
+The [scientific desk review](docs/phase6-desk-review.md) adds source findings, a concrete
+policy proposal and an evidence worksheet. The shared calculation now passes synthetic
+geography checks in five non-Canadian regions, with explicit local CRS and grain-unit handling.
+These checks demonstrate reusable software; measured regional transfer remains untested.
+
 **Phase 5 is complete:** open [the offline demo](demo/index.html) and click **Start guided demo**.
 It presents ten real pipeline sites, a question-led node card, source/assumption traces and the
 recorded baseline comparison. No sign-in, internet or runtime server is needed; keep the folder

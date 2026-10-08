@@ -1,0 +1,53 @@
+{
+  "schema_version": "phase6-policy-proposal-v1",
+  "status": "proposed_not_approved",
+  "as_of": "2026-10-08",
+  "purpose": "Concrete investigation policy for human review; not an executable scientific scenario",
+  "approval": null,
+  "scope": {
+    "region_id": "ca-prairies",
+    "development_units": ["AB", "SK"],
+    "untouched_transfer_units": ["MB"],
+    "commodity_id": "wheat_non_durum",
+    "service_id": "ambient_air_aeration",
+    "global_direction": "Reuse tested kernels through local adapters, units, climate, transport and service configuration; measure transfer separately"
+  },
+  "proposed_decisions": {
+    "reference_assignment": "nearest_first",
+    "comparison_assignments": ["min_cost_max_served"],
+    "assignment_rationale": "The PRD identifies nearest travel time as the default. The comparison first maximizes served tonnes and then minimizes tonne-minutes. Do not select an arm after seeing favorable ranks.",
+    "unknown_capacity": "exclude_and_flag",
+    "unknown_production": "preserve_unknown_and_mark_accessible_site_totals_unknown",
+    "supply_comparison": "documented_compatible_electrical_kw_minus_modeled_requirement_kw",
+    "undocumented_supply": "no_numeric_margin_and_verify_first",
+    "top_k": 10,
+    "per_draw_order": ["technical_kw_descending", "stable_node_id"],
+    "ensemble_order": ["top_k_inclusion_descending", "median_technical_kw_descending", "stable_node_id"],
+    "robust_inclusion_threshold": 0.8,
+    "robust_requires_every_declared_case": true,
+    "unresolved_evidence_overrides_robust": true,
+    "threshold_rationale": "A proposed decision convention for most draws; no empirical calibration or reliability claim.",
+    "sampling": "scrambled_sobol_complete_power_of_two",
+    "draw_power": 10,
+    "draws_per_case": 1024,
+    "seed": 20261008,
+    "magnitude_quantiles": [0.05, 0.95],
+    "interval_interpretation": "scenario quantiles, not confidence intervals",
+    "case_weights": "equal for each declared case; shared parameter draws across cases",
+    "ablation_rule": "Use the PRD rule: at least two top-ten replacements and no worse predefined hindcast/verification evidence; missing comparison means no retention claim.",
+    "ablation_membership_metric": "replacement_count_min_of_removed_and_added; report removals/additions separately so a shrinking shortlist is not called replacement",
+    "new_region_entry": "document adapters, units, suitable analysis CRS, local source coverage, local parameter evidence and a prospective untouched transfer protocol"
+  },
+  "decisions_still_requiring_evidence": [
+    "production_origin_proxy_and_conserved_weights",
+    "hgv_speed_scenarios_travel_budget_connectors_and_missing_surface_policy",
+    "dated_freight_restrictions_and_seasonal_availability",
+    "wheat_inventory_residence_and_competing_crop_occupancy",
+    "bushel_basis_and_specific_grain_test_weight",
+    "bin_geometry_and_physically_compatible_fan_operating_points",
+    "cycle_completion_and_auxiliary_load_boundary",
+    "joint_parameter_dependence_and_commercial_applicability",
+    "prospective_phase6_hindcast_common_cohort_and_outcome_protocol"
+  ],
+  "scientifically_ready_to_freeze": false
+}
