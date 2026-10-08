@@ -4,6 +4,12 @@ EnaGIS helps productive-use-energy teams decide which agricultural aggregation a
 
 ## Project state
 
+**Phase 5 is complete:** open [the offline demo](demo/index.html) and click **Start guided demo**.
+It presents ten real pipeline sites, a question-led node card, source/assumption traces and the
+recorded baseline comparison. No sign-in, internet or runtime server is needed; keep the folder
+together. The [demo guide](docs/phase-5-demo-guide.md) includes a three-minute presentation and
+rebuild instructions. See [Phase 5 completion](docs/phase-5-completion.md) for verification and limits.
+
 **Phase 4 is complete:** the approved v1.1 comparison was remotely registered, executed and verified. Its verdict is KILL / no demonstrated improvement from this proxy-based accessible-production feature. See the [completion report](docs/phase-4-completion.md) for all arms, uncertainty, hindcast and limitations.
 
 **Phases 0–3 are complete at their recorded boundaries.** The development benchmark is non-durum wheat storage and electricity for ambient-air aeration at Canadian Prairie primary elevators. Alberta and Saskatchewan are the development footprint; Manitoba is reserved for transfer evaluation. The [benchmark lock](docs/decisions/0003-benchmark-lock.md), [architecture](design.md), [interfaces](docs/spec/phase0-interfaces.md) and [Phase 0 audit](docs/phase-0-completion.md) define scope. The [Phase 1 audit](docs/phase-1-completion.md) records the foundation; [Phase 2](docs/phase-2-completion.md) records normalized real inputs; [Phase 3](docs/phase-3-completion.md) records the complete pipeline and a real-data **temporary engineering shortlist**. Scientific use still requires human-reviewed parameters/methods and the recorded data/verification gates.
@@ -30,6 +36,22 @@ uv run --offline --locked --cache-dir .uv-cache python -m enagis smoke --fixture
 ```
 
 On systems with Make, `make setup` and `make check` run these same commands. Windows PowerShell can use the uv commands directly; Make is not required locally. The bundled desktop Python can be selected explicitly using `uv sync --python <absolute-python-path> --locked --cache-dir .uv-cache` if Windows' `python` command is a Store alias. Workspace-local uv/pytest caches avoid restricted temporary-directory problems.
+
+### Rebuild the presentation offline
+
+The demo includes permitted, verified historical evidence and generalized map context. After the
+environment setup above, rebuild and verify without acquiring data or fitting any model:
+
+```sh
+uv run --offline --locked --cache-dir .uv-cache python scripts/build_demo.py
+uv run --offline --locked --cache-dir .uv-cache python scripts/build_demo.py --verify
+```
+
+On systems with Make, use `make demo` and `make verify-demo`. CSV and GeoJSON shortlist exports,
+per-site JSON traces, original run artifacts, licences and checksums accompany the presentation.
+The separate OSM major-road derivative is ODbL; roads and reporting outlines are display context,
+not driving-time catchments. The interface preserves the temporary energy scenario and Phase 4
+KILL verdict. No field validation or Manitoba transfer result is claimed.
 
 For downstream modules:
 

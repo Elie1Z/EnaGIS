@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="An evidence-led shortlist for agricultural energy site assessment.">
+  <title>EnaGIS · From evidence to a first visit</title>
+  <link rel="stylesheet" href="vendor/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to assessment</a>
+<header class="masthead">
+  <a class="brand" href="#" aria-label="EnaGIS home"><span class="brand-mark" aria-hidden="true">E</span>Ena<span>GIS</span></a>
+  <span class="masthead-label">AGRICULTURAL ENERGY INTELLIGENCE</span>
+  <div class="header-actions"><span class="offline"><i></i> OFFLINE DEMO</span><button id="present" class="primary">Start guided demo <span aria-hidden="true">↗</span></button></div>
+</header>
+<main id="main">
+  <section class="intro">
+    <div><p class="eyebrow">CANADIAN PRAIRIES / NON-DURUM WHEAT / 2024</p>
+    <h1>Where should we<br><em>investigate first?</em></h1>
+    <p class="intro-copy">Turn scattered public evidence into a focused site visit.<br>See the requirement, understand its limits, ask the right question.</p></div>
+    <div class="intro-proof"><span class="proof-label">THE DEVELOPMENT SCREEN</span><div class="proof-grid"><div><strong id="candidate-count">—</strong><span>documented candidates</span></div><div><strong id="ranked-count">—</strong><span>with scenario estimates</span></div><div><strong id="short-count">—</strong><span>places to inspect</span></div></div><p>Alberta + Saskatchewan <span>·</span> Manitoba held out</p></div>
+  </section>
+  <dialog id="guide" aria-labelledby="guide-title"><div class="guide-top"><span id="guide-step" class="eyebrow"></span><button id="close-guide" class="quiet" aria-label="Close guided demo">Close ×</button></div><h2 id="guide-title"></h2><p id="guide-copy"></p><div class="guide-controls"><button id="guide-back" class="quiet">← Previous</button><button id="guide-next" class="primary">Next →</button></div></dialog>
+  <nav class="view-tabs" aria-label="Assessment views">
+    <button data-view="shortlist" class="active" aria-current="page"><span>01</span> Investigate</button>
+    <button data-view="evidence"><span>02</span> Follow the evidence</button>
+    <button data-view="comparison"><span>03</span> Test against simpler choices</button>
+    <a href="shortlist.csv" download>Export shortlist ↓</a>
+  </nav>
+  <section id="view-shortlist" class="view">
+    <div class="workspace">
+      <aside class="shortlist-panel" aria-label="Ranked shortlist"><div class="panel-heading"><h2>The first visits</h2><span id="list-count" class="pill">TOP 10</span></div><p class="muted small">Temporary engineering order · select a site</p><label class="search-label"><span class="sr-only">Find a shortlisted site or operator</span><input id="search" type="search" placeholder="Find a site or operator…"></label><div id="shortlist" class="shortlist"></div><p class="list-note">Equal estimates use stable IDs to break ties. Order does not establish urgency or viability.</p></aside>
+      <div class="map-panel"><div class="map-topline"><span><i class="dot"></i> DEVELOPMENT FOOTPRINT</span><button id="reset-map" class="quiet">Fit shortlist ↗</button></div><div id="map" role="region" aria-label="Interactive map of shortlisted primary elevators in Alberta and Saskatchewan"></div><div id="fallback-map" hidden></div><div class="map-bottom"><span><i class="legend-pin"></i> Shortlisted elevator</span><span>Reporting region, not a catchment</span><span>Nearby labels separated; dots mark source coordinates</span></div><p id="map-status" class="sr-only" role="status"></p></div>
+      <aside id="node-card" class="node-card" aria-label="Selected site assessment" aria-live="polite"></aside>
+    </div>
+    <div class="scenario-note"><span class="status estimated">ESTIMATED</span><p><strong>Screening scenario, not an investment recommendation.</strong> Hypothetical assignment, inventory and fan duty. Electrical supply is undocumented; uncertainty tiers and field validation are pending.</p><button id="show-assumptions" class="quiet">See assumptions ↗</button></div>
+  </section>
+  <section id="view-evidence" class="view" hidden>
+    <div class="section-header"><p class="eyebrow">EVERY NUMBER HAS A PATH</p><h2>From source to site question.</h2><p>The interface reads verified pipeline outputs. It never changes the model or the ranking.</p></div>
+    <div id="chain" class="chain"></div>
+    <div class="evidence-grid"><article class="surface"><p class="eyebrow">COVERAGE BEFORE CONFIDENCE</p><h3>What enters the screen?</h3><div id="coverage"></div></article><article class="surface"><p class="eyebrow">EXPLICIT, TEMPORARY ASSUMPTIONS</p><h3>What drives the estimate?</h3><p>One deterministic scenario. Equal lower and upper values are not an uncertainty interval.</p><div id="parameters"></div></article></div>
+    <div class="source-heading"><h3>Pinned public sources</h3><p>OBSERVED means reported by a source; it does not mean field verified. Dates may be year anchors.</p></div><div id="sources" class="sources"></div>
+    <div class="download-row"><a href="manifest.json" download>Provenance + checksums ↓</a><a href="shortlist.geojson" download>Shortlist GeoJSON ↓</a><a href="roads.geojson" download>OSM road derivative (ODbL) ↓</a><a href="evidence/phase3/scenario.json" download>Scenario configuration ↓</a></div>
+  </section>
+  <section id="view-comparison" class="view" hidden>
+    <div class="section-header"><p class="eyebrow">SIMPLER IS A SERIOUS COMPETITOR</p><h2>Earn the complexity.</h2><p>Preregistered spatial comparisons. The site shortlist, CCS siting test and shipping-point hindcast are separate outputs.</p></div>
+    <div class="comparison-grid"><article class="surface"><div class="panel-heading"><h3>Documented elevator presence</h3><span id="verdict" class="pill warning">—</span></div><p id="cohort-description"></p><p class="metric-title">Mean CAR recall · top 20% of CCS in each block</p><div id="primary-chart" class="bar-chart"></div><p id="margin" class="margin"></p><p id="interpretation"></p><p id="power" class="muted small"></p></article><article class="surface"><p class="eyebrow">RETROSPECTIVE VOLUME DIAGNOSTIC</p><h3>Does the allocation rank volumes?</h3><p id="hindcast-description"></p><div id="hindcast-table"></div><p class="small muted">Shipping-point deliveries are counted once. This diagnostic is not a temporal forecast, facility-level validation or proof of absolute volume accuracy.</p><div class="verification-box"><span class="status unknown">UNKNOWN</span><h4>Field verification: not collected</h4><p>n = 0. No confirmed site hits, no metered energy validation and no expert shortlist. Manitoba transfer remains untouched.</p></div></article></div>
+    <div class="surface conclusion"><p class="eyebrow">THE DECISION TODAY</p><h3>Use the evidence to plan a verification visit.</h3><p>Retain the transparent temporary engineering screen. Do not promote the failed siting feature. Resolve inventory, fan duty and supply documentation before making a deployment decision.</p><details><summary>Registration, exclusions and limitations</summary><div id="comparison-details"></div></details></div>
+    <div class="download-row"><a href="evidence/phase4/report.json" download>Recorded comparison report ↓</a><a href="evidence/phase4/protocol.json" download>Registered protocol ↓</a></div>
+  </section>
+</main>
+<footer><span>EnaGIS <span class="muted">/</span> Evidence before intervention.</span><span>AB / SK development · local coverage only · <a href="README.md">Demo guide</a></span></footer>
+<noscript><p class="no-script">Enable JavaScript to inspect the map and site cards. <a href="shortlist.csv">Download the exact shortlist CSV</a> or read <a href="README.md">the demo guide</a>.</p></noscript>
+<script id="demo-data" type="application/json">__DATA__</script>
+<script src="vendor/maplibre-gl.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "phase": 5,
+  "status": "complete_presentation_integration",
+  "as_of": "2026-10-08",
+  "demo_manifest_sha256": "f4aa3a72bcef6bb738459da8ef9843f99a752113b951f80709beba56dd343f8e",
+  "verification": {
+    "verified_artifacts": 32,
+    "status": "verified"
+  },
+  "upstream_verification": {
+    "phase3": {
+      "conserved_known_origins": 16,
+      "nodes": 261,
+      "purpose": "temporary_engineering",
+      "ranked_nodes": 186,
+      "run_id": "phase3:574dcb91cadf6d266812",
+      "shortlist_rows": 10,
+      "verified_artifacts": 10
+    },
+    "phase4": {
+      "run_id": "phase4:ccb98f6b1f4f:050f5cff43a9",
+      "verified_artifacts": 6
+    }
+  },
+  "sources": 11,
+  "scientific_code_sha256": "0396fc8b65020508899642f8108a6af72c74418d7a9baac7bb8b65dd3074754c",
+  "scientific_code_unchanged": true,
+  "frozen_values_check": "PASS",
+  "tests": {
+    "passed": 133,
+    "phase5_tests": 6,
+    "lint": "PASS",
+    "format": "PASS",
+    "javascript_syntax": "PASS",
+    "phase1_smoke_cases": 8,
+    "complete_offline_fixture_pipeline": "PASS",
+    "portable_offline_rebuild": "PASS",
+    "canonical_json_and_lf_bytes": "PASS",
+    "zip_integrity": "PASS",
+    "staged_git_blob_integrity": "PASS: all 33 portable files"
+  },
+  "browser_checks": {
+    "desktop_guide_all_five_steps": "PASS",
+    "all_three_views": "PASS",
+    "search_and_same_town_identity": "PASS",
+    "keyboard_selection": "PASS",
+    "map_selection": "PASS",
+    "mobile_390x844_no_page_horizontal_overflow": "PASS",
+    "schematic_ten_pins_and_keyboard_selection": "PASS",
+    "trace_download_rank3_melfort_richardson": "PASS",
+    "csv_download_matches_pipeline_bytes": true,
+    "application_console_errors": 0,
+    "visual_qa_surface": "localhost-only public static demo folder",
+    "file_url_browser_policy": "direct file URLs prohibited; runtime assets are local"
+  },
+  "screenshots": [
+    {
+      "path": "docs/audits/phase5-demo-comparison.jpg",
+      "sha256": "846a2713c712b477657963af0dba0caa4beb229d2d801291d532f1272f9fc703"
+    },
+    {
+      "path": "docs/audits/phase5-demo-desktop.jpg",
+      "sha256": "aab2fc4d833b4f8ba0d6141d86ea0400f1d0aaf5fa81854cb3907ebf6dd5fbdf"
+    }
+  ],
+  "archive": {
+    "path": "outputs/phase5/EnaGIS-Phase5-Demo.zip",
+    "bytes": 2066162,
+    "sha256": "a1d91a0eb44a5b3e19157e386a0be935ad3e48262431b90f642f114259266b17"
+  },
+  "limitations": [
+    "Temporary engineering scenario; unapproved commercial coefficients",
+    "Rank stability and field hits not assessed; field n=0",
+    "Phase4 KILL verdict unchanged; hindcast diagnostic only",
+    "No Manitoba transfer or worldwide accuracy claim",
+    "No independent human clean-machine sign-off"
+  ],
+  "assumptions": [
+    "Display simplification/rounding is presentation only",
+    "Versioned public evidence archive permits offline rebuild",
+    "No scientific code/config/output was modified"
+  ]
+}

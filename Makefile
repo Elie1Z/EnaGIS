@@ -1,4 +1,4 @@
-.PHONY: setup test lint check smoke acquire ingest verify-data pipeline verify-run prepare-experiment
+.PHONY: setup test lint check smoke acquire ingest verify-data pipeline verify-run prepare-experiment demo verify-demo
 setup:
 	uv sync --locked --cache-dir .uv-cache
 test:
@@ -21,3 +21,7 @@ verify-run:
 	uv run --offline --locked --cache-dir .uv-cache python -m enagis verify-run outputs/phase3
 prepare-experiment:
 	uv run --offline --locked --cache-dir .uv-cache python -m enagis prepare-experiment
+demo:
+	uv run --offline --locked --cache-dir .uv-cache python scripts/build_demo.py
+verify-demo:
+	uv run --offline --locked --cache-dir .uv-cache python scripts/build_demo.py --verify
