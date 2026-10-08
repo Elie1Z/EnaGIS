@@ -1,6 +1,21 @@
 # Phase 4 status
 
-Status: **IMPLEMENTATION READY; scientific execution awaiting protocol approval**, 8 October 2026.
+Current status: **COMPLETE — v1.1 registered, executed and verified**, 8 October 2026.
+
+See the [completion report](phase-4-completion.md) and [machine audit](audits/phase4-evaluation.json)
+for final tables, exclusions, registration and artifact hashes. The primary cohort has 155 CCS,
+60 positives and seven positive CARs. Verdict: **KILL / no demonstrated improvement from this
+proxy-based accessible-production feature**. Full-model recall is 35.71%, versus B0 39.76%;
+the margin interval is [−39.29, −0.71] percentage points. Hindcast completed on 52 common groups.
+All 127 tests and lint/format passed; six output artifacts independently verified. No scientific
+setting changed after the remotely verified registration. Manitoba was not evaluated.
+
+Everything below records the historical preparation stage before conditional approval and
+execution. Its pending tasks and 125-test count are superseded by the completion report above.
+
+---
+
+Historical status: **IMPLEMENTATION READY; scientific execution awaiting protocol approval**.
 
 The user authorized development of Phase 4. All comparisons are implemented and exercised with
 synthetic fixtures. Real source preparation is complete. The proposed scientific assumptions

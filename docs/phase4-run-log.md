@@ -126,3 +126,51 @@ directory preserves the previous v1 artifacts.
 
 The approved method, counts audit, frozen check and implementation will be committed before
 `register-experiment --publish` atomically pushes the commit/tag and verifies their remote hashes.
+
+Step 6 completed successfully. Registration commit:
+`948cf2fddbb5a9f093883dd06b1a58a1d5a905fe`; tag: `preregister-phase4-canada-v1.1`;
+remote: `https://github.com/Elie1Z/EnaGIS.git`. Both `refs/heads/main` and the tag were independently
+confirmed by `git ls-remote` at that exact commit before evaluation. Registration is saved in
+`data/manual/phase4-preregistration.json`, including remote URL/commit and all pinned hashes.
+The registration command succeeded; no push failure occurred. No scientific code, configuration,
+protocol, folds, thresholds, seeds, features or keep/kill rule will change after this registration.
+
+## Step 7 — evaluation running
+
+Started the real `evaluate-experiment --preparation data/processed/phase4-v1.1` command after
+remote verification. It verified the registered hashes before building AB/SK topology/features.
+No new source was acquired and Manitoba is excluded from the real development evaluation.
+
+An optional GitHub Actions status lookup was unavailable because GitHub CLI is not authenticated.
+This did not concern a required execution gate: Git push and independent remote-ref verification
+had already succeeded, and the local full suite passed. No CI-success claim is made from this
+lookup, no credentials were changed, and no registered method was altered. The evaluation command
+continues unchanged. Documentation updates after registration describe execution only; the hashed
+protocol/config/code remain frozen.
+
+## Step 7 — COMPLETE: evaluation and verification passed
+
+Real evaluation exited 0: `siting_status: evaluated`,
+`siting_decision: kill_or_no_demonstrated_improvement`, `hindcast_status: evaluated_diagnostic`.
+Independent `verify-experiment outputs/phase4` exited 0 and verified six artifacts for run
+`phase4:ccb98f6b1f4f:050f5cff43a9`. No evaluation/verification error occurred after registration.
+
+The primary cohort equals the counts-only cohort: 155 CCS, 60 positives, seven positive CARs.
+Full-model top-20% recall: 0.35714285714285715; B0: 0.3976190476190476. Full-minus-best-baseline
+margin: −0.04047619047619044, 95% interval [−0.39285714285714285, −0.0071428571428571175].
+Verdict KILL: **no demonstrated improvement from this proxy-based accessible-production feature**,
+not evidence against road-catchment logic. Few-block intervals/counts are descriptive.
+
+Hindcast: 52 common groups from 138 points in seven CARs; 86 excluded. Phase 3 Spearman
+0.7728304762796138, interval [0.2816421189908316, 0.8214157875066804]. Absolute-volume accuracy
+remains unvalidated. Sensitivity remains descriptive: 360 CCS, 130 positives, 14 positive CARs.
+
+Created completion report, final machine audit and six verified local outputs. Updated status
+and reproduction guide. A reporting-only patch was rejected because it specified both deletion
+and addition of the same status-document path in one patch; it was reapplied as an in-place
+documentation update. No registered code, protocol, config, source or output was affected.
+Reporting changes and registration record are saved separately from the frozen method commit.
+
+Final check: `git diff` against the registration commit for `src/enagis`, experiment configs,
+the frozen protocol, `pyproject.toml` and `uv.lock` is empty. `git diff --check` passes. Only
+registration/result records and explanatory documentation are included in the completion commit.

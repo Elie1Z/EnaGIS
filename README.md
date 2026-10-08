@@ -4,9 +4,11 @@ EnaGIS helps productive-use-energy teams decide which agricultural aggregation a
 
 ## Project state
 
+**Phase 4 is complete:** the approved v1.1 comparison was remotely registered, executed and verified. Its verdict is KILL / no demonstrated improvement from this proxy-based accessible-production feature. See the [completion report](docs/phase-4-completion.md) for all arms, uncertainty, hindcast and limitations.
+
 **Phases 0–3 are complete at their recorded boundaries.** The development benchmark is non-durum wheat storage and electricity for ambient-air aeration at Canadian Prairie primary elevators. Alberta and Saskatchewan are the development footprint; Manitoba is reserved for transfer evaluation. The [benchmark lock](docs/decisions/0003-benchmark-lock.md), [architecture](design.md), [interfaces](docs/spec/phase0-interfaces.md) and [Phase 0 audit](docs/phase-0-completion.md) define scope. The [Phase 1 audit](docs/phase-1-completion.md) records the foundation; [Phase 2](docs/phase-2-completion.md) records normalized real inputs; [Phase 3](docs/phase-3-completion.md) records the complete pipeline and a real-data **temporary engineering shortlist**. Scientific use still requires human-reviewed parameters/methods and the recorded data/verification gates.
 
-The user permits a pilot anywhere in the world, with adaptation through regional adapters/configuration: see [decision 0002](docs/decisions/0002-global-transfer.md). The benchmark follows the PRD best-candidate fallback. Its public inputs now support the walking skeleton; validated commercial energy parameters and committed verification participation remain explicit gates. No fitted siting model or field validation has been completed.
+The user permits a pilot anywhere in the world, with adaptation through regional adapters/configuration: see [decision 0002](docs/decisions/0002-global-transfer.md). The benchmark follows the PRD best-candidate fallback. Its public inputs support the walking skeleton and completed spatial siting comparison; validated commercial energy parameters, field verification and measured transfer remain explicit gates.
 
 The final consolidated project description and the supplied UI concept are retained verbatim in `docs/reference/`. The PRD governs scientific scope, with the user's geographic change recorded in decisions 0002–0003. The UI concept is a design proposal to evaluate when building the map; it does not change scientific claims.
 
@@ -60,15 +62,14 @@ uv run --offline --locked --cache-dir .uv-cache python -m enagis trace outputs/p
 
 The real development run retains 261 nodes, ranks 186 with known production and emits `outputs/phase3/engineering-shortlist.csv` with ten rows. It conserves the 11,918,640-tonne **known subset**; nine development origins stay UNKNOWN. Administrative assignment and fan duty are hypothetical, explicitly configured and unapproved for scientific use. Installed electrical supply is undocumented in the consumed storage registry, not proven absent. [Decision 0005](docs/decisions/0005-phase3-walking-skeleton.md) and the [pipeline guide](docs/spec/phase3-pipeline.md) explain formulas, provenance, traces and gates. Output artifacts are ignored by Git and rebuilt locally.
 
-## Phase 4: comparison implementation
+## Phase 4: completed comparison
 
-**Implemented and tested; real scientific execution awaits protocol approval.** The [Phase 4 status](docs/phase-4-status.md) records B0/B1/B2/population baselines, shipping-point hindcast, independent spatial siting models and paired block uncertainty. Real source preparation is available without fitting:
+**Approved v1.1 registered, executed and verified.** The [completion report](docs/phase-4-completion.md) records 155 complete CCS, 60 positives and seven positive CARs. Full-model top-20% recall is 35.71%, versus B0 39.76%; the margin interval is [−39.29, −0.71] percentage points. Verdict: **KILL / no demonstrated improvement from this proxy-based accessible-production feature**. With few CARs, report intervals descriptively; this is not evidence against road-catchment logic. Hindcast completed on 52 common shipping-point groups; absolute-volume accuracy remains unvalidated.
 
 ```sh
-uv run --offline --locked --cache-dir .uv-cache python -m enagis acquire --manifest docs/data/phase4-manifest.json
-uv run --offline --locked --cache-dir .uv-cache python -m enagis prepare-experiment
+uv run --offline --locked --cache-dir .uv-cache python -m enagis verify-experiment outputs/phase4
 ```
 
-Review the [proposed protocol](docs/spec/phase4-preregistration.md) and [execution guide](docs/spec/phase4-experiment.md). Its coarse production proxy and road-distance settings require human approval before committed/tagged registration and real evaluation. The code refuses draft protocols; synthetic test approvals are not real approvals. Manitoba remains untouched. Shortlist allocation/capacity/energy/gap outputs cannot enter siting features. Scientific energy/routing/verification gates remain open; [pilot-scope.json](configs/pilot-scope.json) remains scope metadata.
+The [approved protocol](docs/spec/phase4-preregistration.md), [registration](data/manual/phase4-preregistration.json), [machine audit](docs/audits/phase4-evaluation.json) and [execution guide](docs/spec/phase4-experiment.md) preserve the method and results. All 127 tests and lint/format passed; six real artifacts verified. The committed/tagged method preceded evaluation and was not retuned. Manitoba remains untouched. Allocation/capacity/energy/gap outputs cannot enter siting features. Scientific energy/routing/verification gates remain open; [pilot-scope.json](configs/pilot-scope.json) remains scope metadata.
 
 Code will be developed with AI assistance under human specifications, scientific decisions and review, following the PRD protocol.

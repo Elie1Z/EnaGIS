@@ -1,0 +1,1124 @@
+{
+  "status": "complete_registered_evaluation_verified",
+  "completed_on": "2026-10-08",
+  "metadata": {
+    "commodity_id": "wheat_non_durum",
+    "config_sha256": "ccb98f6b1f4f90d0e93335d27b9adc8887eca1e18a3069c8041a82cea61f763f",
+    "input_snapshot_ids": [
+      "aafc-elevators-2024",
+      "aafc-fieldcrop-production-20261007",
+      "cgc-deliveries-2024-2025",
+      "osm-alberta-20240101",
+      "osm-saskatchewan-20240101",
+      "statcan-32100002-20261007",
+      "statcan-car-digital-2021",
+      "statcan-ccs-digital-2021",
+      "statcan-csd-development-digital-2021",
+      "statcan-population-csd-2021-20261008"
+    ],
+    "period_end": "2025-07-31",
+    "period_start": "2024-01-01",
+    "region_id": "ca-prairies",
+    "run_id": "phase4:ccb98f6b1f4f:050f5cff43a9",
+    "scenario_id": "phase4-canada-v1.1",
+    "schema_version": "1.0.0",
+    "seed": 20261008,
+    "service_id": "ambient_air_aeration"
+  },
+  "registration": {
+    "code_sha256": "0396fc8b65020508899642f8108a6af72c74418d7a9baac7bb8b65dd3074754c",
+    "git_commit": "948cf2fddbb5a9f093883dd06b1a58a1d5a905fe",
+    "git_tag": "preregister-phase4-canada-v1.1",
+    "lockfile_sha256": "d0f5f2429926afb378d153e9f5597a139b8bb1aa5e80e509f4d58cc5ccf53d92",
+    "phase2_index_sha256": "bf077b5fe497e31324035fdd02934fd2c82496d67370f3ae1220c116c37fe61d",
+    "phase3_index_sha256": "7b175e1229166fe03919652942149a450e5a30070712ef1b19279e0b13346887",
+    "preparation_index_sha256": "050f5cff43a91e55526e4e2847e328fab0b58dd253eee3be0e30ccfdcf51e1c1",
+    "protocol_sha256": "ccb98f6b1f4f90d0e93335d27b9adc8887eca1e18a3069c8041a82cea61f763f",
+    "purpose": "Before real outcome evaluation; Manitoba excluded",
+    "registered_on": "2026-10-08",
+    "remote_branch_ref": "refs/heads/main",
+    "remote_commit": "948cf2fddbb5a9f093883dd06b1a58a1d5a905fe",
+    "remote_url": "https://github.com/Elie1Z/EnaGIS.git",
+    "review_document_sha256": "f503136aa7967c3579bfef62ad419558887ba3a184a55c478c79b2310e8a1d70"
+  },
+  "primary_cohort": {
+    "input_ccs": 369,
+    "complete_ccs": 155,
+    "positive_ccs": 60,
+    "positive_cars": 7,
+    "excluded_ccs": 214,
+    "exclusions_by_reason": {
+      "population_unknown": 7,
+      "production_unknown": 212,
+      "snap_failure": 9,
+      "spatial_review": 2,
+      "unresolved_match": 0
+    },
+    "reason_counts_overlap": true
+  },
+  "sensitivity_cohort": {
+    "input_ccs": 369,
+    "complete_ccs": 360,
+    "positive_ccs": 130,
+    "positive_cars": 14,
+    "excluded_ccs": 9,
+    "exclusions_by_reason": {
+      "population_unknown": 7,
+      "production_unknown": 0,
+      "snap_failure": 0,
+      "spatial_review": 2,
+      "unresolved_match": 0
+    },
+    "reason_counts_overlap": true,
+    "role": "descriptive_only_cannot_override_primary"
+  },
+  "siting": {
+    "status": "evaluated",
+    "decision": "kill_or_no_demonstrated_improvement",
+    "primary": {
+      "arms": {
+        "B0": {
+          "interval": [
+            0.26660714285714293,
+            0.6071428571428571
+          ],
+          "mean": 0.3976190476190476
+        },
+        "B1": {
+          "interval": [
+            0.16666666666666669,
+            0.32857142857142857
+          ],
+          "mean": 0.26190476190476186
+        },
+        "B2": {
+          "interval": [
+            0.15952380952380954,
+            0.32142857142857145
+          ],
+          "mean": 0.25476190476190474
+        },
+        "area_only": {
+          "interval": [
+            0.1619047619047619,
+            0.4357142857142858
+          ],
+          "mean": 0.2928571428571428
+        },
+        "base_model": {
+          "interval": [
+            0.22142857142857145,
+            0.5071428571428571
+          ],
+          "mean": 0.3642857142857143
+        },
+        "full_model": {
+          "interval": [
+            0.21428571428571425,
+            0.49999999999999994
+          ],
+          "mean": 0.35714285714285715
+        },
+        "nearest_presence": {
+          "interval": [
+            0.22619047619047614,
+            0.6142857142857142
+          ],
+          "mean": 0.38809523809523805
+        },
+        "population": {
+          "interval": [
+            0.23095238095238096,
+            0.5166666666666666
+          ],
+          "mean": 0.37380952380952387
+        }
+      },
+      "blocks": 7,
+      "confidence_level": 0.95,
+      "decision": "kill_or_no_demonstrated_improvement",
+      "draws": 2000,
+      "margin_over_best_baseline": {
+        "estimate": -0.04047619047619044,
+        "interval": [
+          -0.39285714285714285,
+          -0.0071428571428571175
+        ]
+      },
+      "seed": 20261008,
+      "status": "evaluated"
+    },
+    "secondary": {
+      "arms": {
+        "B0": {
+          "interval": [
+            0.1261904761904762,
+            0.5571428571428572
+          ],
+          "mean": 0.30476190476190473
+        },
+        "B1": {
+          "interval": [
+            0.10714285714285714,
+            0.2595238095238095
+          ],
+          "mean": 0.18333333333333335
+        },
+        "B2": {
+          "interval": [
+            0.047619047619047616,
+            0.2095238095238095
+          ],
+          "mean": 0.12619047619047616
+        },
+        "area_only": {
+          "interval": [
+            0.09523809523809523,
+            0.2571428571428571
+          ],
+          "mean": 0.1761904761904762
+        },
+        "base_model": {
+          "interval": [
+            0.14285714285714285,
+            0.3142857142857142
+          ],
+          "mean": 0.23095238095238096
+        },
+        "full_model": {
+          "interval": [
+            0.13333333333333333,
+            0.29999999999999993
+          ],
+          "mean": 0.22380952380952382
+        },
+        "nearest_presence": {
+          "interval": [
+            0.08809523809523809,
+            0.5238690476190473
+          ],
+          "mean": 0.26904761904761904
+        },
+        "population": {
+          "interval": [
+            0.14285714285714285,
+            0.31190476190476185
+          ],
+          "mean": 0.23333333333333334
+        }
+      },
+      "blocks": 7,
+      "confidence_level": 0.95,
+      "draws": 2000,
+      "margin_over_best_baseline": {
+        "estimate": -0.08095238095238091,
+        "interval": [
+          -0.40714285714285714,
+          0
+        ]
+      },
+      "role": "Diagnostic only; cannot override primary keep/kill",
+      "seed": 20261008,
+      "status": "evaluated"
+    },
+    "boyce": {
+      "arms": {
+        "B0": {
+          "interval": [
+            0.42857142857142855,
+            0.9999999999999998
+          ],
+          "mean": 0.7142857142857143
+        },
+        "B1": {
+          "interval": [
+            -0.5844406641334969,
+            0.23625322961737508
+          ],
+          "mean": -0.11798284436584953
+        },
+        "B2": {
+          "interval": [
+            -0.708717952321462,
+            -0.052782686058500394
+          ],
+          "mean": -0.37779844794383194
+        },
+        "area_only": {
+          "interval": [
+            0.04522265640543078,
+            0.4395268707457213
+          ],
+          "mean": 0.24583427966311316
+        },
+        "base_model": {
+          "interval": [
+            0.2661187731102378,
+            0.837305394561799
+          ],
+          "mean": 0.5409739681614661
+        },
+        "full_model": {
+          "interval": [
+            0.2191401655777912,
+            0.8721587835571094
+          ],
+          "mean": 0.5456494745674503
+        },
+        "nearest_presence": {
+          "interval": [
+            -0.1552789536664873,
+            0.6174680771699337
+          ],
+          "mean": 0.18036916987103185
+        },
+        "population": {
+          "interval": [
+            -0.19999999999999996,
+            1
+          ],
+          "mean": 0.6
+        }
+      },
+      "blocks": 5,
+      "confidence_level": 0.95,
+      "draws": 2000,
+      "margin_over_best_baseline": {
+        "estimate": -0.16863623971826402,
+        "interval": [
+          -0.6409125020701799,
+          0.02612436867165535
+        ]
+      },
+      "role": "Diagnostic only; cannot override primary keep/kill",
+      "seed": 20261008,
+      "status": "evaluated"
+    },
+    "block_primary": [
+      {
+        "B0": 0.3333333333333333,
+        "B1": 0.3333333333333333,
+        "B2": 0.3333333333333333,
+        "area_only": 0.6666666666666666,
+        "base_model": 0.6666666666666666,
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "full_model": 0.6666666666666666,
+        "nearest_presence": 0.3333333333333333,
+        "population": 0.6666666666666666
+      },
+      {
+        "B0": 0.3333333333333333,
+        "B1": 0.3333333333333333,
+        "B2": 0.3333333333333333,
+        "area_only": 0.3333333333333333,
+        "base_model": 0.3333333333333333,
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "full_model": 0.3333333333333333,
+        "nearest_presence": 0.08333333333333333,
+        "population": 0.3333333333333333
+      },
+      {
+        "B0": 0.25,
+        "B1": 0.3,
+        "B2": 0.25,
+        "area_only": 0.25,
+        "base_model": 0.55,
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "full_model": 0.5,
+        "nearest_presence": 0.3,
+        "population": 0.55
+      },
+      {
+        "B0": 0.2,
+        "B1": 0.2,
+        "B2": 0.2,
+        "area_only": 0.13333333333333333,
+        "base_model": 0.3333333333333333,
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "full_model": 0.3333333333333333,
+        "nearest_presence": 0.3333333333333333,
+        "population": 0.4
+      },
+      {
+        "B0": null,
+        "B1": null,
+        "B2": null,
+        "area_only": null,
+        "base_model": null,
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "full_model": null,
+        "nearest_presence": null,
+        "population": null
+      },
+      {
+        "B0": 0.3333333333333333,
+        "B1": 0.3333333333333333,
+        "B2": 0.3333333333333333,
+        "area_only": 0.3333333333333333,
+        "base_model": 0.3333333333333333,
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "full_model": 0.3333333333333333,
+        "nearest_presence": 0.3333333333333333,
+        "population": 0.3333333333333333
+      },
+      {
+        "B0": 0.3333333333333333,
+        "B1": 0.3333333333333333,
+        "B2": 0.3333333333333333,
+        "area_only": 0.3333333333333333,
+        "base_model": 0.3333333333333333,
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "full_model": 0.3333333333333333,
+        "nearest_presence": 0.3333333333333333,
+        "population": 0.3333333333333333
+      },
+      {
+        "B0": 1,
+        "B1": 0,
+        "B2": 0,
+        "area_only": 0,
+        "base_model": 0,
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "full_model": 0,
+        "nearest_presence": 1,
+        "population": 0
+      }
+    ],
+    "block_boyce": [
+      {
+        "B0": 0.9999999999999999,
+        "B1": -0.20519567041703085,
+        "B2": -0.5002164033860248,
+        "area_only": 0.5,
+        "base_model": 0.9999999999999999,
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "full_model": 0.9999999999999999,
+        "nearest_presence": -0.23145502494313788,
+        "population": 0.9999999999999999
+      },
+      {
+        "B0": 0.9999999999999999,
+        "B1": 0.30895693347268627,
+        "B2": -0.036662438727413434,
+        "area_only": 0.18424892586686278,
+        "base_model": 0.4129336126593896,
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "full_model": 0.47920972363226133,
+        "nearest_presence": -0.12799018195165138,
+        "population": 1
+      },
+      {
+        "B0": 0.3714285714285715,
+        "B1": 0.28299234974954607,
+        "B2": 0.15481392527417484,
+        "area_only": 0.19763435372860608,
+        "base_model": 0.833106101702042,
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "full_model": 0.9407920970766431,
+        "nearest_presence": -0.05750435454285804,
+        "population": 1
+      },
+      {
+        "B0": 0.19999999999999998,
+        "B1": 0.023332165365550793,
+        "B2": -0.5069273228798964,
+        "area_only": -0.15271188127990296,
+        "base_model": 0.3534208711069537,
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "full_model": 0.20283629678940127,
+        "nearest_presence": 0.3187954107928066,
+        "population": 1
+      },
+      {
+        "B0": null,
+        "B1": null,
+        "B2": null,
+        "area_only": null,
+        "base_model": null,
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "full_model": null,
+        "nearest_presence": null,
+        "population": null
+      },
+      {
+        "B0": null,
+        "B1": null,
+        "B2": null,
+        "area_only": null,
+        "base_model": null,
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "full_model": null,
+        "nearest_presence": null,
+        "population": null
+      },
+      {
+        "B0": null,
+        "B1": null,
+        "B2": null,
+        "area_only": null,
+        "base_model": null,
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "full_model": null,
+        "nearest_presence": null,
+        "population": null
+      },
+      {
+        "B0": 0.9999999999999999,
+        "B1": -0.9999999999999999,
+        "B2": -0.9999999999999999,
+        "area_only": 0.5,
+        "base_model": 0.10540925533894598,
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "full_model": 0.10540925533894598,
+        "nearest_presence": 0.9999999999999999,
+        "population": -0.9999999999999999
+      }
+    ],
+    "boyce_diagnostics": [
+      {
+        "arm": "B0",
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "reason": null,
+        "value": 0.9999999999999999,
+        "windows": 2
+      },
+      {
+        "arm": "B1",
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "reason": null,
+        "value": -0.20519567041703085,
+        "windows": 5
+      },
+      {
+        "arm": "B2",
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "reason": null,
+        "value": -0.5002164033860248,
+        "windows": 6
+      },
+      {
+        "arm": "population",
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "reason": null,
+        "value": 0.9999999999999999,
+        "windows": 5
+      },
+      {
+        "arm": "area_only",
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "reason": null,
+        "value": 0.5,
+        "windows": 3
+      },
+      {
+        "arm": "nearest_presence",
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "reason": null,
+        "value": -0.23145502494313788,
+        "windows": 7
+      },
+      {
+        "arm": "base_model",
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "reason": null,
+        "value": 0.9999999999999999,
+        "windows": 2
+      },
+      {
+        "arm": "full_model",
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "reason": null,
+        "value": 0.9999999999999999,
+        "windows": 2
+      },
+      {
+        "arm": "B0",
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "reason": null,
+        "value": 0.9999999999999999,
+        "windows": 2
+      },
+      {
+        "arm": "B1",
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "reason": null,
+        "value": 0.30895693347268627,
+        "windows": 20
+      },
+      {
+        "arm": "B2",
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "reason": null,
+        "value": -0.036662438727413434,
+        "windows": 21
+      },
+      {
+        "arm": "population",
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "reason": null,
+        "value": 1,
+        "windows": 4
+      },
+      {
+        "arm": "area_only",
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "reason": null,
+        "value": 0.18424892586686278,
+        "windows": 14
+      },
+      {
+        "arm": "nearest_presence",
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "reason": null,
+        "value": -0.12799018195165138,
+        "windows": 24
+      },
+      {
+        "arm": "base_model",
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "reason": null,
+        "value": 0.4129336126593896,
+        "windows": 25
+      },
+      {
+        "arm": "full_model",
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "reason": null,
+        "value": 0.47920972363226133,
+        "windows": 26
+      },
+      {
+        "arm": "B0",
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "reason": null,
+        "value": 0.3714285714285715,
+        "windows": 6
+      },
+      {
+        "arm": "B1",
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "reason": null,
+        "value": 0.28299234974954607,
+        "windows": 50
+      },
+      {
+        "arm": "B2",
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "reason": null,
+        "value": 0.15481392527417484,
+        "windows": 40
+      },
+      {
+        "arm": "population",
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "reason": null,
+        "value": 1,
+        "windows": 7
+      },
+      {
+        "arm": "area_only",
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "reason": null,
+        "value": 0.19763435372860608,
+        "windows": 47
+      },
+      {
+        "arm": "nearest_presence",
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "reason": null,
+        "value": -0.05750435454285804,
+        "windows": 62
+      },
+      {
+        "arm": "base_model",
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "reason": null,
+        "value": 0.833106101702042,
+        "windows": 37
+      },
+      {
+        "arm": "full_model",
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "reason": null,
+        "value": 0.9407920970766431,
+        "windows": 41
+      },
+      {
+        "arm": "B0",
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "reason": null,
+        "value": 0.19999999999999998,
+        "windows": 4
+      },
+      {
+        "arm": "B1",
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "reason": null,
+        "value": 0.023332165365550793,
+        "windows": 33
+      },
+      {
+        "arm": "B2",
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "reason": null,
+        "value": -0.5069273228798964,
+        "windows": 31
+      },
+      {
+        "arm": "population",
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "reason": null,
+        "value": 1,
+        "windows": 3
+      },
+      {
+        "arm": "area_only",
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "reason": null,
+        "value": -0.15271188127990296,
+        "windows": 26
+      },
+      {
+        "arm": "nearest_presence",
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "reason": null,
+        "value": 0.3187954107928066,
+        "windows": 33
+      },
+      {
+        "arm": "base_model",
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "reason": null,
+        "value": 0.3534208711069537,
+        "windows": 28
+      },
+      {
+        "arm": "full_model",
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "reason": null,
+        "value": 0.20283629678940127,
+        "windows": 38
+      },
+      {
+        "arm": "B0",
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "reason": "No presences or no score variation",
+        "value": null,
+        "windows": 0
+      },
+      {
+        "arm": "B1",
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "reason": "No presences or no score variation",
+        "value": null,
+        "windows": 0
+      },
+      {
+        "arm": "B2",
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "reason": "No presences or no score variation",
+        "value": null,
+        "windows": 0
+      },
+      {
+        "arm": "population",
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "reason": "No presences or no score variation",
+        "value": null,
+        "windows": 0
+      },
+      {
+        "arm": "area_only",
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "reason": "No presences or no score variation",
+        "value": null,
+        "windows": 0
+      },
+      {
+        "arm": "nearest_presence",
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "reason": "No presences or no score variation",
+        "value": null,
+        "windows": 0
+      },
+      {
+        "arm": "base_model",
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "reason": "No presences or no score variation",
+        "value": null,
+        "windows": 0
+      },
+      {
+        "arm": "full_model",
+        "block_id": "CA:census_agricultural_region:2021:4706",
+        "reason": "No presences or no score variation",
+        "value": null,
+        "windows": 0
+      },
+      {
+        "arm": "B0",
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "B1",
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "B2",
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "population",
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "area_only",
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "nearest_presence",
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "base_model",
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "full_model",
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "B0",
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "B1",
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "B2",
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "population",
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "area_only",
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "nearest_presence",
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "base_model",
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "full_model",
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "reason": "Too few distinct P/E windows",
+        "value": null,
+        "windows": 1
+      },
+      {
+        "arm": "B0",
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "reason": null,
+        "value": 0.9999999999999999,
+        "windows": 2
+      },
+      {
+        "arm": "B1",
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "reason": null,
+        "value": -0.9999999999999999,
+        "windows": 2
+      },
+      {
+        "arm": "B2",
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "reason": null,
+        "value": -0.9999999999999999,
+        "windows": 2
+      },
+      {
+        "arm": "population",
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "reason": null,
+        "value": -0.9999999999999999,
+        "windows": 2
+      },
+      {
+        "arm": "area_only",
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "reason": null,
+        "value": 0.5,
+        "windows": 3
+      },
+      {
+        "arm": "nearest_presence",
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "reason": null,
+        "value": 0.9999999999999999,
+        "windows": 2
+      },
+      {
+        "arm": "base_model",
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "reason": null,
+        "value": 0.10540925533894598,
+        "windows": 4
+      },
+      {
+        "arm": "full_model",
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "reason": null,
+        "value": 0.10540925533894598,
+        "windows": 4
+      }
+    ],
+    "interpretation": "A failed keep rule means no demonstrated improvement from this proxy-based accessible-production feature; it is not evidence against road-catchment logic.",
+    "power": "With few CAR blocks the paired bootstrap interval is wide and potentially unstable; report intervals and counts descriptively.",
+    "documentation_bias": "The AAFC registry is close to a census of primary elevators; this experiment cannot test robustness to documentation bias.",
+    "uncertainty_scope": "Paired empirical block bootstrap conditional on this CV procedure; no retraining per bootstrap and no geographic transfer claim"
+  },
+  "hindcast": {
+    "absolute_volume_accuracy_validated": false,
+    "arms": {
+      "B0": {
+        "interval": [
+          0.017675148106290853,
+          0.7692931885941551
+        ],
+        "spearman": 0.6378600120377925,
+        "top_volume_group_recall": {
+          "hits": 4,
+          "positive_units": 11,
+          "recall": 0.36363636363636365,
+          "selected_units": 11,
+          "units": 52
+        },
+        "valid_bootstrap_draws": 2000
+      },
+      "B1": {
+        "interval": [
+          0.14280224137130232,
+          0.7361358208959433
+        ],
+        "spearman": 0.5734412054775984,
+        "top_volume_group_recall": {
+          "hits": 6,
+          "positive_units": 11,
+          "recall": 0.5454545454545454,
+          "selected_units": 11,
+          "units": 52
+        },
+        "valid_bootstrap_draws": 2000
+      },
+      "B2": {
+        "interval": [
+          0.1997711172139643,
+          0.815366995063285
+        ],
+        "spearman": 0.6572032398095704,
+        "top_volume_group_recall": {
+          "hits": 8,
+          "positive_units": 11,
+          "recall": 0.7272727272727273,
+          "selected_units": 11,
+          "units": 52
+        },
+        "valid_bootstrap_draws": 2000
+      },
+      "EnaGIS_phase3": {
+        "interval": [
+          0.2816421189908316,
+          0.8214157875066804
+        ],
+        "spearman": 0.7728304762796138,
+        "top_volume_group_recall": {
+          "hits": 4,
+          "positive_units": 11,
+          "recall": 0.36363636363636365,
+          "selected_units": 11,
+          "units": 52
+        },
+        "valid_bootstrap_draws": 2000
+      },
+      "population": {
+        "interval": [
+          -0.19180712571088632,
+          0.7013136190542559
+        ],
+        "spearman": 0.3331696819198316,
+        "top_volume_group_recall": {
+          "hits": 2,
+          "positive_units": 11,
+          "recall": 0.18181818181818182,
+          "selected_units": 11,
+          "units": 52
+        },
+        "valid_bootstrap_draws": 2000
+      }
+    },
+    "blocks": 7,
+    "common_comparison_groups": 52,
+    "confidence_level": 0.95,
+    "diagnostic_volume_residuals": {
+      "bias_tonnes": 5842.00824895706,
+      "mae_tonnes": 53412.68657730465,
+      "sum_prediction_over_sum_observation": 1.0701495676654789
+    },
+    "excluded_groups": 86,
+    "expert_shortlist": "Unavailable; no expert elicitation supplied",
+    "facility_level_observations": 0,
+    "observed_groups": 138,
+    "observed_total_tonnes_counted_once": 18606111.417,
+    "partial_car_fallback": [
+      {
+        "block_id": "CA:census_agricultural_region:2021:4701",
+        "complete_district_total": false,
+        "matched_groups": 3,
+        "observed_matched_tonnes": 393334.204,
+        "predicted_matched_tonnes": 479366.9666666667
+      },
+      {
+        "block_id": "CA:census_agricultural_region:2021:4702",
+        "complete_district_total": false,
+        "matched_groups": 8,
+        "observed_matched_tonnes": 379561.509,
+        "predicted_matched_tonnes": 277768.75
+      },
+      {
+        "block_id": "CA:census_agricultural_region:2021:4703",
+        "complete_district_total": false,
+        "matched_groups": 19,
+        "observed_matched_tonnes": 357871.612,
+        "predicted_matched_tonnes": 717117.1711309524
+      },
+      {
+        "block_id": "CA:census_agricultural_region:2021:4704",
+        "complete_district_total": false,
+        "matched_groups": 10,
+        "observed_matched_tonnes": 2013998.239,
+        "predicted_matched_tonnes": 1572472.8148148148
+      },
+      {
+        "block_id": "CA:census_agricultural_region:2021:4810",
+        "complete_district_total": false,
+        "matched_groups": 3,
+        "observed_matched_tonnes": 258716.184,
+        "predicted_matched_tonnes": 442660
+      },
+      {
+        "block_id": "CA:census_agricultural_region:2021:4820",
+        "complete_district_total": false,
+        "matched_groups": 8,
+        "observed_matched_tonnes": 875592.4180000001,
+        "predicted_matched_tonnes": 1071558.3333333333
+      },
+      {
+        "block_id": "CA:census_agricultural_region:2021:4830",
+        "complete_district_total": false,
+        "matched_groups": 1,
+        "observed_matched_tonnes": 51450.441,
+        "predicted_matched_tonnes": 73365
+      }
+    ],
+    "scope": "Retrospective shipping-point diagnostic, not per-facility or temporal forecast validation",
+    "seed": 20261008,
+    "status": "evaluated_diagnostic"
+  },
+  "artifacts": [
+    {
+      "path": "features.json",
+      "sha256": "89281bc3635c5ed7e3e11a19f76a13b972342152191c99095ed5a70285b9251c"
+    },
+    {
+      "path": "predictions.json",
+      "sha256": "ef7b87fb9bcfbefd1345e1f80d31975d96922bb294448d3e127ad226c0028078"
+    },
+    {
+      "path": "fold_models.json",
+      "sha256": "94e453b8f66448000a8700f3f535ec52c3a7ea3b27ac90f4cf9e8c97cd60fdb4"
+    },
+    {
+      "path": "hindcast_groups.json",
+      "sha256": "7711dc223b9a2333e15cb7556fa805471b438ea6d45db00e1b978f1591936d47"
+    },
+    {
+      "path": "report.json",
+      "sha256": "532a93a6d82c47c134fa9ff14c52e5f4cd1f5a39f399a01f953f57f533dc5fba"
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "ca0de0f54a6a7420eb38a1d40de319b12dc3fd0772a04ed1a29e375483ea2a4b"
+    }
+  ],
+  "verification": {
+    "verified_artifacts": 6,
+    "tests_passed": 127,
+    "lint_passed": true,
+    "format_passed": true,
+    "frozen_values_check_passed": true,
+    "remote_commit_tag_verified": true,
+    "scientific_changes_after_registration": false,
+    "manitoba_evaluated": false
+  },
+  "limitations": [
+    "No field or Manitoba transfer validation",
+    "Uniform-area production is a reviewed proxy",
+    "Road distance is a connectivity comparison, not a driving-time catchment",
+    "Siting scores discriminate documented presences from background; not probabilities",
+    "Phase 3 allocation remains a temporary scenario with unvalidated commercial coefficients",
+    "The AAFC registry is close to a census of primary elevators; this experiment cannot test robustness to documentation bias.",
+    "AAFC crop-inventory raster is a possible future v2 only; not acquired in v1.1."
+  ]
+}
