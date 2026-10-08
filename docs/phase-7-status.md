@@ -1,6 +1,6 @@
 # Phase 7 — toolkit verified; real ranking freeze pending
 
-Date: 8 October 2026. The ranking-freeze and verification toolkit is implemented and tested.
+Updated: 9 October 2026. The ranking-freeze and verification toolkit is implemented and tested.
 **Phase 7's real scientific exit has not been reached:** no real `ranking-v1` or verification
 sample has been frozen. The unresolved Phase 6 evidence/review and human verification decisions
 still apply. Engineering work can proceed while those gates remain open.
@@ -57,6 +57,12 @@ creates no output. The [machine audit](audits/phase7-engineering.json) records h
 | Verification cannot silently rewrite original ranking | Downstream-only interfaces, full replay and immutable Git checks tested |
 
 ## What is still required
+
+The immediate next action is obtaining applicable evidence and a real participation commitment.
+The [prepared evidence requests](phase7-evidence-request.md) identify verified public PAMI/CGC
+contacts and contain two ready-to-review messages. Neither has been sent. An existing report or
+applicable class-level source can be sufficient for method review; measurements at every
+candidate are not a blanket prerequisite. Exact applicability and unknowns must remain explicit.
 
 The [Phase 6 desk review](phase6-desk-review.md) identifies missing applicable inventory, fan-duty
 and freight evidence. Resolve those and approve an actual scientific configuration; run it and
