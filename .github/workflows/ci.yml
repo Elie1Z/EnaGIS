@@ -20,6 +20,8 @@ jobs:
         with:
           version: "0.12.5"
           python-version: "3.12.14"
+          cache-local-path: .uv-cache
+          cache-dependency-glob: uv.lock
       - name: Install pinned dependencies
         run: make setup
       - name: Validate contracts, data, pipeline and experiment fixtures offline

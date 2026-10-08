@@ -89,6 +89,9 @@ licence or copyright ownership was assigned.
 The first remote CI run failed before release checks. A fresh checkout reproduced a test
 setup defect: the configured `.pytest_cache/tmp` required a missing parent directory. Test
 initialization now creates that parent explicitly; this does not change scientific behavior.
+The next Linux run passed tests, lint, smoke, JavaScript contracts, application rebuild and
+figure generation, then failed uv cache cleanup because the action used a different cache
+directory from the Makefile. The action now uses `.uv-cache`, keyed by `uv.lock`.
 
 ## Manual handoff checks
 

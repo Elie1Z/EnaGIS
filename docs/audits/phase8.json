@@ -51,6 +51,12 @@
       "credential_helper_log_access": "rejected by automatic approval review; not performed",
       "recovery": "clean source checkout reproduced missing pytest cache parent; test setup fixed"
     },
+    "second_remote_ci": {
+      "url": "https://github.com/Elie1Z/EnaGIS/actions/runs/37861063387",
+      "tests_lint_smoke_javascript_rebuild_and_figures": "PASS",
+      "post_run_cache_cleanup": "failed because action cache directory differed from Makefile",
+      "recovery": "setup-uv cache-local-path aligned with .uv-cache; cache key uses uv.lock"
+    },
     "printed_site_brief": {
       "pages": 1,
       "format": "A4",
