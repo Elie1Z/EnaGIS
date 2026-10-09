@@ -82,3 +82,11 @@ Entries are never edited after they are written; corrections are new entries.
     because the manifest hashed CRLF bytes. Converted them to LF and rebuilt. Final app manifest:
     `ed6d360ae53f38f97aca929f96e73df5adc9e5d82b71b7a42d192f70c9830648`. Re-checked: 230 tests
     passed, ruff clean, preflight 15/15, no CRLF in changed files.
+18. Push: `git push -u origin audit/final-pass-2026-10-09` → `git ls-remote` shows
+    `536590eed26d8ac74846709b567938f7e25421c3`. Branch used instead of a direct push to `main`;
+    merging is a fast-forward left to the maintainer.
+19. Clean room after (fresh clone of the pushed branch into `outputs/cleanroom-after`, locked
+    interpreter workaround as in entry 4): 230 passed, ruff clean, 168 files formatted, smoke OK,
+    `build_mvp --verify` verified, rebuild verified, `app/manifest.json` = `ed6d360a…`
+    (byte-identical), `git status` clean after rebuild, `code_hash` = `f2b1f095…`, JS 6 passed; 28 s.
+20. GitHub CI on `536590e`: https://github.com/Elie1Z/EnaGIS/actions/runs/37961988618 → `success`.
