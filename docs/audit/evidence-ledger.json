@@ -1,0 +1,172 @@
+{
+  "development_nodes": {
+    "fields": {
+      "assigned_tonnes_per_reporting_period": {
+        "ESTIMATED": 186,
+        "UNKNOWN": 75
+      },
+      "facility.facility_class": {
+        "OBSERVED": 261
+      },
+      "facility.location.point": {
+        "OBSERVED": 261
+      },
+      "facility.name": {
+        "OBSERVED": 261
+      },
+      "facility.operator": {
+        "OBSERVED": 261
+      },
+      "facility.status_as_stated": {
+        "OBSERVED": 261
+      },
+      "gap.capacity_minus_requirement_kw": {
+        "UNKNOWN": 261
+      },
+      "gap.classification_evidence": {
+        "INFERRED": 261
+      },
+      "inventory.stored_tonnes": {
+        "ESTIMATED": 186,
+        "UNKNOWN": 75
+      },
+      "node.eligibility_evidence": {
+        "INFERRED": 260,
+        "UNKNOWN": 1
+      },
+      "node.existence": {
+        "OBSERVED": 261
+      },
+      "node.location.point": {
+        "OBSERVED": 261
+      },
+      "requirement.electrical_kw": {
+        "ESTIMATED": 186,
+        "UNKNOWN": 75
+      },
+      "requirement.electricity_kwh": {
+        "ESTIMATED": 186,
+        "UNKNOWN": 75
+      },
+      "storage_capacity.original.amount": {
+        "OBSERVED": 261
+      },
+      "supply": {
+        "INFERRED": 261
+      }
+    },
+    "labels": {
+      "ESTIMATED": 744,
+      "INFERRED": 782,
+      "OBSERVED": 2088,
+      "PREDICTED": 0,
+      "UNKNOWN": 562
+    },
+    "rows": 261,
+    "unknown_by_reason": {
+      "assigned_tonnes_per_reporting_period": {
+        "Missing, suppressed or unreliable published crop component": 72,
+        "spatial_review_required:location_conflict": 2,
+        "stationary_service_eligibility_unknown_or_ineligible": 1
+      },
+      "gap.capacity_minus_requirement_kw": {
+        "No comparable documented electrical capacity or requirement": 261
+      },
+      "inventory.stored_tonnes": {
+        "Missing, suppressed or unreliable published crop component": 72,
+        "spatial_review_required:location_conflict": 2,
+        "stationary_service_eligibility_unknown_or_ineligible": 1
+      },
+      "node.eligibility_evidence": {
+        "Positive physical storage not established by source value": 1
+      },
+      "requirement.electrical_kw": {
+        "Missing, suppressed or unreliable published crop component": 72,
+        "spatial_review_required:location_conflict": 2,
+        "stationary_service_eligibility_unknown_or_ineligible": 1
+      },
+      "requirement.electricity_kwh": {
+        "Missing, suppressed or unreliable published crop component": 72,
+        "spatial_review_required:location_conflict": 2,
+        "stationary_service_eligibility_unknown_or_ineligible": 1
+      }
+    }
+  },
+  "shortlist_traces": {
+    "fields": {
+      "airflow_m3_s": {
+        "ESTIMATED": 10
+      },
+      "allocations[].assigned_tonnes": {
+        "ESTIMATED": 10
+      },
+      "assigned_tonnes_per_reporting_period": {
+        "ESTIMATED": 10
+      },
+      "facility.facility_class": {
+        "OBSERVED": 10
+      },
+      "facility.location.point": {
+        "OBSERVED": 10
+      },
+      "facility.name": {
+        "OBSERVED": 10
+      },
+      "facility.operator": {
+        "OBSERVED": 10
+      },
+      "facility.status_as_stated": {
+        "OBSERVED": 10
+      },
+      "gap.capacity_minus_requirement_kw": {
+        "UNKNOWN": 10
+      },
+      "gap.classification_evidence": {
+        "INFERRED": 10
+      },
+      "inventory.stored_tonnes": {
+        "ESTIMATED": 10
+      },
+      "node.eligibility_evidence": {
+        "INFERRED": 10
+      },
+      "node.existence": {
+        "OBSERVED": 10
+      },
+      "node.location.point": {
+        "OBSERVED": 10
+      },
+      "production_inputs[].modeled_tonnes": {
+        "ESTIMATED": 10
+      },
+      "production_inputs[].original.amount": {
+        "ESTIMATED": 10
+      },
+      "requirement.electrical_kw": {
+        "ESTIMATED": 10
+      },
+      "requirement.electricity_kwh": {
+        "ESTIMATED": 10
+      },
+      "storage_capacity.original.amount": {
+        "OBSERVED": 10
+      },
+      "supply": {
+        "INFERRED": 10
+      }
+    },
+    "labels": {
+      "ESTIMATED": 80,
+      "INFERRED": 30,
+      "OBSERVED": 80,
+      "PREDICTED": 0,
+      "UNKNOWN": 10
+    },
+    "rows": 10,
+    "unknown_by_reason": {
+      "gap.capacity_minus_requirement_kw": {
+        "No comparable documented electrical capacity or requirement": 10
+      }
+    }
+  }
+}

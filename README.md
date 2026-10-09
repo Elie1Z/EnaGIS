@@ -1,144 +1,84 @@
-# EnaGIS
+<p align="center"><img src="web/assets/brand/enagis-wordmark.png" alt="EnaGIS" height="64"></p>
 
-EnaGIS helps productive-use-energy teams decide which agricultural aggregation and processing locations to investigate first, and how confident to be in those choices. It is a screening shortlist for phone checks and site visits, not a feasibility study.
+<p align="center">
+<a href="https://github.com/Elie1Z/EnaGIS/actions"><img alt="CI" src="https://github.com/Elie1Z/EnaGIS/actions/workflows/ci.yml/badge.svg"></a>
+<a href="LICENSE"><img alt="Code: MIT" src="https://img.shields.io/badge/code-MIT-blue"></a>
+<a href="LICENSE-DATA.md"><img alt="Data: OGL-Canada / ODbL" src="https://img.shields.io/badge/data-OGL--Canada%20%7C%20ODbL-lightgrey"></a>
+<img alt="Field verification n=0" src="https://img.shields.io/badge/field%20verification-n%3D0-orange">
+<img alt="Siting model verdict: KILL" src="https://img.shields.io/badge/siting%20model-KILL%20(registered)-red">
+</p>
 
-## Project state
+**EnaGIS tells productive-use-energy teams which agricultural storage sites to investigate
+first, and how sure it is.** It is a screening shortlist for phone checks and site visits, not a
+feasibility study. Submitted to OSEAS 2026, *Assessment and Mapping of Productive Uses of Energy
+(Agriculture)*.
 
-**The final product interface and Phase 8 defense package are delivered.** Open
-[the application](app/index.html): light map-first interface, worldwide indexed place search,
-coordinate/map selection, four lenses, local evidence cards, regional package import, exports
-and an A4 site brief. No presenter overlays or demonstration buttons appear in the product.
-It works offline. The [private presenter guide](docs/phase8-presenter-guide.md) contains the
-defense sequence; the [method report](docs/phase8-method-report.md) and
-[acceptance audit](docs/phase8-acceptance.md) explain evidence and limitations.
+## In 30 seconds
 
-Worldwide navigation is implemented; numerical analysis still needs a compatible local package.
-The built-in Canada screen is a temporary scenario with unknown uncertainty and field sample
-n = 0. **The full scientific PRD is not 100% complete:** the real Phase 6/7 exits remain pending.
-No human approval, participant commitment or field result has been invented.
+After harvest, grain sits in storage that needs electricity for aeration fans. Nobody publishes
+which sites need the most power or which have enough. EnaGIS takes open registries and statistics
+(no private data), estimates a technical energy requirement for each documented site, compares it
+with documented supply, and produces a ranked top 10. Each site comes with its sources, an evidence
+label on every number, and the one question to ask before a visit. Where evidence is missing it
+says **UNKNOWN**, never zero.
 
-**Phase 7 tooling is verified; the real ranking freeze is pending.** The new verification
-workflow binds the ranking and seeded sample to a remote Git tag, validates private observations,
-and reports only aggregate outcomes with missingness and intervals. A complete synthetic
-rehearsal and 218 tests pass. No real `ranking-v1` or field verification is claimed. See the
-[Phase 7 status](docs/phase-7-status.md), [execution guide](docs/spec/phase7-verification.md)
-and [proposed protocol](configs/verification/phase7-canada-v1.review.json).
+The pilot covers 261 primary grain elevators in Alberta and Saskatchewan (AAFC 2024 registry).
+We also ran a preregistered machine-learning siting experiment. It **did not beat** a simple
+production-only baseline, and we report that loss.
 
-**Phase 6 engineering is implemented; scientific completion remains gated.** The new
-`enagis.science` engine covers directed mode/season routing, shared capacity, aeration ranges,
-joint Sobol draws, stability tiers, top-10 exports and replay verification. Its demonstrated
-end-to-end run is **synthetic**, not a replacement for the real demo. The real-data audit found
-six outstanding scientific decisions. See the [Phase 6 status](docs/phase-6-status.md),
-[review packet](docs/phase6-scientific-review.md) and [execution guide](docs/spec/phase6-science.md).
-The final ranking has not been frozen.
+![EnaGIS: ranked investigation list, map and site card](docs/screenshots/1-where-first.png)
 
-The [scientific desk review](docs/phase6-desk-review.md) adds source findings, a concrete
-policy proposal and an evidence worksheet. The shared calculation now passes synthetic
-geography checks in five non-Canadian regions, with explicit local CRS and grain-unit handling.
-These checks demonstrate reusable software; measured regional transfer remains untested.
+## Quick start (3 commands)
 
-**Phase 5 remains as a historical archive:** [the original offline presentation](demo/index.html).
-It presents ten real pipeline sites, a question-led node card, source/assumption traces and the
-recorded baseline comparison. No sign-in, internet or runtime server is needed; keep the folder
-together. The [demo guide](docs/phase-5-demo-guide.md) includes a three-minute presentation and
-rebuild instructions. See [Phase 5 completion](docs/phase-5-completion.md) for verification and limits.
-
-**Phase 4 is complete:** the approved v1.1 comparison was remotely registered, executed and verified. Its verdict is KILL / no demonstrated improvement from this proxy-based accessible-production feature. See the [completion report](docs/phase-4-completion.md) for all arms, uncertainty, hindcast and limitations.
-
-**Phases 0–3 are complete at their recorded boundaries.** The development benchmark is non-durum wheat storage and electricity for ambient-air aeration at Canadian Prairie primary elevators. Alberta and Saskatchewan are the development footprint; Manitoba is reserved for transfer evaluation. The [benchmark lock](docs/decisions/0003-benchmark-lock.md), [architecture](design.md), [interfaces](docs/spec/phase0-interfaces.md) and [Phase 0 audit](docs/phase-0-completion.md) define scope. The [Phase 1 audit](docs/phase-1-completion.md) records the foundation; [Phase 2](docs/phase-2-completion.md) records normalized real inputs; [Phase 3](docs/phase-3-completion.md) records the complete pipeline and a real-data **temporary engineering shortlist**. Scientific use still requires human-reviewed parameters/methods and the recorded data/verification gates.
-
-The user permits a pilot anywhere in the world, with adaptation through regional adapters/configuration: see [decision 0002](docs/decisions/0002-global-transfer.md). The benchmark follows the PRD best-candidate fallback. Its public inputs support the walking skeleton and completed spatial siting comparison; validated commercial energy parameters, field verification and measured transfer remain explicit gates.
-
-The final consolidated project description and the supplied UI concept are retained verbatim in `docs/reference/`. The PRD governs scientific scope, with the user's geographic change recorded in decisions 0002–0003. The UI concept is a design proposal to evaluate when building the map; it does not change scientific claims.
-
-## Development
-
-Use Python **3.12** and uv (tested with Python 3.12.14 / uv 0.12.5). Install once with internet access:
+Needs Python 3.12, [uv](https://docs.astral.sh/uv/) 0.12+, and network for the first install.
+Node.js 22+ is optional (JavaScript tests and demo preflight).
 
 ```sh
+git clone https://github.com/Elie1Z/EnaGIS.git && cd EnaGIS
 uv sync --locked --cache-dir .uv-cache
-```
-
-Then run the checks and tiny fixture offline:
-
-```sh
 uv run --offline --locked --cache-dir .uv-cache python -m pytest
-uv run --offline --locked --cache-dir .uv-cache python -m ruff check .
-uv run --offline --locked --cache-dir .uv-cache python -m ruff format --check .
-uv run --offline --locked --cache-dir .uv-cache python -m enagis smoke --fixture tests/fixtures/phase1.json
 ```
 
-On systems with Make, `make setup` and `make check` run these same commands. Windows PowerShell can use the uv commands directly; Make is not required locally. The bundled desktop Python can be selected explicitly using `uv sync --python <absolute-python-path> --locked --cache-dir .uv-cache` if Windows' `python` command is a Store alias. Workspace-local uv/pytest caches avoid restricted temporary-directory problems.
+Then open **`app/index.html`** in Chrome, Edge or Firefox. It works offline, with no server.
+`make check` runs lint, tests and the smoke fixture; `make mvp verify-mvp` rebuilds and verifies
+the app. Everything else is in [docs/reproducibility.md](docs/reproducibility.md).
 
-### Rebuild the presentation offline
+## What is done, what is not
 
-For the final application and reproducible defense archive, after environment setup:
+| Area | Status | Evidence |
+|---|---|---|
+| Open registry: 340 records with source, date, licence, precision class (all P2) | Done | [data catalogue](docs/data-catalogue.md) |
+| ML siting experiment, preregistered at Git tag `preregister-phase4-canada-v1.1` | Done; **verdict KILL**: full model 35.71% vs production-only 39.76% recall at top 20% | [validation](docs/validation.md) |
+| Shipping-point hindcast (52 groups) | Done; absolute volumes not validated | [validation](docs/validation.md) |
+| Energy requirement and top 10 | Temporary engineering scenario; parameters **not** human-approved; range UNKNOWN | [method](docs/method.md) |
+| Energy *gap* | UNKNOWN for all sites: no open data on installed electrical capacity | [evidence ledger](docs/evidence-ledger.md) |
+| Field verification | **Not done (n = 0)**; tooling tested on synthetic data | [limitations](docs/limitations.md) |
+| Transfer to a new region | Not evaluated; Manitoba hold-out untouched | [scope and transfer](docs/scope-and-transfer.md) |
 
-```sh
-uv run --offline --locked --cache-dir .uv-cache python -m scripts.release_mvp --check
-```
+## Documentation
 
-This rebuilds `app/`, figures and `outputs/mvp-release/EnaGIS-MVP.zip` with a hash audit.
-`make mvp`, `make verify-mvp`, `make figures` and `make release` expose the same workflows.
-No acquisition, fitting, private observations or runtime secrets are required. The separate
-Node view-model tests use only built-in modules; browser QA uses a separately supplied
-Playwright/Edge environment. See the [regional package contract](docs/spec/regional-view-package.md).
+| Start here | For |
+|---|---|
+| [Overview](docs/overview.md) | What EnaGIS is, who it is for, the decision it supports |
+| [Method](docs/method.md) | One-page method plus links to the deep dives |
+| [Validation](docs/validation.md) | Metrics, intervals, n, protocol, verdict, and what it does not show |
+| [Limitations and non-claims](docs/limitations.md) | What we never claim |
+| [Evidence ledger](docs/evidence-ledger.md) | What we know, estimated and do not know, and how to close each gap |
+| [Data catalogue](docs/data-catalogue.md) | Every dataset with source, date, licence, hash and how to fetch it |
+| [Scope and transfer](docs/scope-and-transfer.md) / [Scaling guide](docs/scaling.md) | Why Canada, and how to apply EnaGIS to a new country or crop |
+| [Architecture](docs/architecture.md) · [Glossary](docs/glossary.md) | How the pieces fit; terms |
+| [Reproducibility](docs/reproducibility.md) | Clean rebuild, checksums, runtime, hardware |
+| [FAQ for judges](docs/faq-for-judges.md) · [Challenger Q&A](docs/challenger-qa.md) | Hard questions, honest answers |
+| [Proof of work](docs/proof-of-work.md) | Counts and hashes taken from the repository |
+| [Team guide](docs/TEAM_GUIDE.md) | Learn, explain and demo EnaGIS |
+| [Contributing](CONTRIBUTING.md) · [Help wanted: data](docs/help-wanted-data.md) | How to help |
+| [Roadmap](docs/roadmap.md) · [Changelog](CHANGELOG.md) · [AI use](docs/ai-use.md) | Plans, history, how AI was used |
+| [Proposals awaiting approval](docs/proposals/) | Scientific changes not yet adopted |
+| [Project history](docs/project-history.md) | Phase-by-phase record |
 
-For the unchanged historical Phase 5 archive:
+## Licences and citation
 
-The demo includes permitted, verified historical evidence and generalized map context. After the
-environment setup above, rebuild and verify without acquiring data or fitting any model:
-
-```sh
-uv run --offline --locked --cache-dir .uv-cache python scripts/build_demo.py
-uv run --offline --locked --cache-dir .uv-cache python scripts/build_demo.py --verify
-```
-
-On systems with Make, use `make demo` and `make verify-demo`. CSV and GeoJSON shortlist exports,
-per-site JSON traces, original run artifacts, licences and checksums accompany the presentation.
-The separate OSM major-road derivative is ODbL; roads and reporting outlines are display context,
-not driving-time catchments. The interface preserves the temporary energy scenario and Phase 4
-KILL verdict. No field validation or Manitoba transfer result is claimed.
-
-For downstream modules:
-
-```sh
-uv run --offline --locked --cache-dir .uv-cache python -m enagis validate path/to/bundle.json
-uv run --offline --locked --cache-dir .uv-cache python -m enagis schema --output docs/spec/phase1-bundle.schema.json
-```
-
-Read [executable contracts](docs/spec/phase1-contracts.md), the [JSON schema](docs/spec/phase1-bundle.schema.json), and [worked fixtures](tests/fixtures/README.md). Phase 1 commands validate supplied contract fixtures; the Phase 3 `run` command below executes allocation and fan calculations. GitHub Actions installs the lockfile, then runs `make check` including an offline pipeline fixture without national datasets.
-
-## Pilot data spine
-
-Prepare pinned open inputs once, then rebuild offline:
-
-```sh
-uv run --offline --locked --cache-dir .uv-cache python -m enagis acquire --skip-licensing
-uv run --offline --locked --cache-dir .uv-cache python -m enagis ingest --skip-licensing
-uv run --offline --locked --cache-dir .uv-cache python -m enagis verify-data data/processed/phase2
-```
-
-See [ingestion instructions](docs/spec/phase2-ingestion.md), [manifest](docs/data/manifest.json), [licence audit](docs/data/licence-audit.md) and [source interpretation](docs/decisions/0004-source-normalization.md). The data spine covers registry/candidates/storage, full digital boundaries, production reporting regions, partitioned shipping-point outcomes, road source ways and quality audits. Original values and UNKNOWN states remain explicit. OSM derivatives retain ODbL; restricted licensing rows stay in private audit outputs. Raw files and large derived datasets are ignored by Git and must be prepared/preserved separately.
-
-## First complete pipeline
-
-```sh
-uv run --offline --locked --cache-dir .uv-cache python -m enagis run --allow-temporary-scenario
-uv run --offline --locked --cache-dir .uv-cache python -m enagis verify-run outputs/phase3
-uv run --offline --locked --cache-dir .uv-cache python -m enagis trace outputs/phase3 --node-id NODE_ID
-```
-
-The real development run retains 261 nodes, ranks 186 with known production and emits `outputs/phase3/engineering-shortlist.csv` with ten rows. It conserves the 11,918,640-tonne **known subset**; nine development origins stay UNKNOWN. Administrative assignment and fan duty are hypothetical, explicitly configured and unapproved for scientific use. Installed electrical supply is undocumented in the consumed storage registry, not proven absent. [Decision 0005](docs/decisions/0005-phase3-walking-skeleton.md) and the [pipeline guide](docs/spec/phase3-pipeline.md) explain formulas, provenance, traces and gates. Output artifacts are ignored by Git and rebuilt locally.
-
-## Phase 4: completed comparison
-
-**Approved v1.1 registered, executed and verified.** The [completion report](docs/phase-4-completion.md) records 155 complete CCS, 60 positives and seven positive CARs. Full-model top-20% recall is 35.71%, versus B0 39.76%; the margin interval is [−39.29, −0.71] percentage points. Verdict: **KILL / no demonstrated improvement from this proxy-based accessible-production feature**. With few CARs, report intervals descriptively; this is not evidence against road-catchment logic. Hindcast completed on 52 common shipping-point groups; absolute-volume accuracy remains unvalidated.
-
-```sh
-uv run --offline --locked --cache-dir .uv-cache python -m enagis verify-experiment outputs/phase4
-```
-
-The [approved protocol](docs/spec/phase4-preregistration.md), [registration](data/manual/phase4-preregistration.json), [machine audit](docs/audits/phase4-evaluation.json) and [execution guide](docs/spec/phase4-experiment.md) preserve the method and results. All 127 tests and lint/format passed; six real artifacts verified. The committed/tagged method preceded evaluation and was not retuned. Manitoba remains untouched. Allocation/capacity/energy/gap outputs cannot enter siting features. Scientific energy/routing/verification gates remain open; [pilot-scope.json](configs/pilot-scope.json) remains scope metadata.
-
-Code will be developed with AI assistance under human specifications, scientific decisions and review, following the PRD protocol.
+Code is [MIT](LICENSE). Data keeps its source licence: Open Government Licence – Canada,
+Statistics Canada Open Licence, and **ODbL 1.0 for OpenStreetMap-derived roads**. See
+[LICENSE-DATA.md](LICENSE-DATA.md). Cite with [CITATION.cff](CITATION.cff). AI assistance is
+disclosed in [docs/ai-use.md](docs/ai-use.md).

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use EnaGIS, please cite it as below."
+title: "EnaGIS: evidence-labelled screening of agricultural storage sites for productive-use energy"
+type: software
+authors:
+  - family-names: Mugisha
+    given-names: Elie
+license: MIT
+repository-code: "https://github.com/Elie1Z/EnaGIS"
+version: 0.1.0
+date-released: 2026-10-09
+keywords:
+  - productive use of energy
+  - agriculture
+  - GIS
+  - grain storage
+  - reproducibility
+  - OSEAS
+abstract: >-
+  EnaGIS ranks documented agricultural aggregation points for productive-use-energy
+  investigation, with an evidence label on every value and UNKNOWN never defaulted.
+  Pilot: Alberta and Saskatchewan primary grain elevators (AAFC 2024). It includes a
+  preregistered spatial siting experiment (verdict KILL) and a shipping-point hindcast.
+  Energy values come from a temporary, unapproved scenario. Field verification n = 0.

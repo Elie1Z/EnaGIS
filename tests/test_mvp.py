@@ -69,6 +69,9 @@ def test_application_has_local_resources_and_no_presenter_prompts(application):
     assert "connect-src 'none'" in html
     for name in ("inter.ttf", "fraunces.ttf", "fraunces-italic.ttf"):
         assert (application / "assets" / name).stat().st_size > 10000
+    for name in ("enagis-wordmark.png", "enagis-mark.png"):
+        assert (application / "assets/brand" / name).stat().st_size > 1000
+        assert f"assets/brand/{name}" in html
     assert all(
         token not in html for token in ("__WORLD__", "__DATA__", "__CANDIDATES__", "__CONTEXT__")
     )

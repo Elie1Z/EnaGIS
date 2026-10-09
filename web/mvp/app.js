@@ -66,17 +66,18 @@ function camera(lon,lat,zoom) {
 function fitSites() {
   const sites=topSites();if(!sites.length){camera(0,15,1);return;}
   const xs=sites.map(s=>s.lon),ys=sites.map(s=>s.lat);
-  if(mapReady){const mobile=innerWidth<=760;map.fitBounds([[Math.min(...xs),Math.min(...ys)],[Math.max(...xs),Math.max(...ys)]],{padding:mobile?{top:190,bottom:240,left:60,right:60}:{top:210,bottom:100,left:350,right:360},maxZoom:9,duration:0});}
-  fallbackCamera={lon:(Math.min(...xs)+Math.max(...xs))/2,lat:(Math.min(...ys)+Math.max(...ys))/2,width:Math.max(3,(Math.max(...xs)-Math.min(...xs))*3)};
+  if(mapReady){const mobile=innerWidth<=760;map.fitBounds([[Math.min(...xs),Math.min(...ys)],[Math.max(...xs),Math.max(...ys)]],{padding:mobile?{top:190,bottom:240,left:60,right:60}:{top:320,bottom:120,left:380,right:380},maxZoom:9,duration:0});}
+  {const width=Math.max(3,(Math.max(...xs)-Math.min(...xs))*3);fallbackCamera={lon:(Math.min(...xs)+Math.max(...xs))/2,lat:(Math.min(...ys)+Math.max(...ys))/2+(innerWidth>760?width*.07:0),width};}
   if(fallbackActive)renderFallback();
 }
 function renderList() {
+  const tied=s=>s.need.value===null?1:topSites().filter(o=>o.need.value!==null && Math.abs(o.need.value-s.need.value)<1e-9).length;
   const filtered=topSites().filter(s=>V.normalize(`${s.name} ${s.operator} ${s.province}`).includes(V.normalize($("site-filter").value)));
   $("list-count").textContent=covered()?filtered.length:"—";
   $("site-list").hidden=lens!=="first";
   document.querySelector(".filter-wrap").hidden=lens!=="first" || !covered();
   document.querySelector(".drawer-footer").hidden=lens!=="first" || !covered();
-  $("site-list").innerHTML=!covered()?`<div class="empty"><h3>${esc(t("noData"))}</h3><p>${esc(t("noDataCopy"))}</p></div>`:filtered.map(s=>`<button class="site-row" data-site="${esc(s.id)}" aria-pressed="${selected?.id===s.id}"><span class="row-rank">${s.rank}</span><span class="row-title"><strong>${esc(s.name)}</strong><small>${esc(s.operator)}</small></span><span class="row-power">${num(s.need.value)}<small>${s.need.value===null?esc(t("unknownNeed")):"kW · ESTIMATED"}</small></span></button>`).join("") || `<p class="empty">${esc(t("noRows"))}</p>`;
+  $("site-list").innerHTML=!covered()?`<div class="empty"><h3>${esc(t("noData"))}</h3><p>${esc(t("noDataCopy"))}</p></div>`:filtered.map(s=>`<button class="site-row" data-site="${esc(s.id)}" aria-pressed="${selected?.id===s.id}"><span class="row-rank">${s.rank}</span><span class="row-title"><strong>${esc(s.name)}</strong><small>${tied(s)>1?`<span class="tie" title="Same unrounded estimate: order uses stable IDs, not urgency">Tied ×${tied(s)}</span> `:""}${esc(s.operator)}</small></span><span class="row-power">${num(s.need.value)}<small>${s.need.value===null?esc(t("unknownNeed")):"kW · ESTIMATED"}</small></span></button>`).join("") || `<p class="empty">${esc(t("noRows"))}</p>`;
   $("site-list").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>selectSite(b.dataset.site,true)));
   $("list-title").textContent=t(lens==="first"?"firstVisits":lens);
   $("list-context").textContent=pack===builtIn?t("frame"):`${pack.title} · ${pack.service_id} · ${pack.period_start} / ${pack.period_end}`;
@@ -120,7 +121,7 @@ function renderCard() {
 }
 function printBrief() {
   if(!selected)return;const s=selected;
-  const brief=`<p class="eyebrow">EnaGIS · ${esc(t("rank"))} ${s.rank ?? "—"}</p><h1>${esc(s.name)}</h1><p>${esc(s.operator)} · ${esc(pack.title)}</p><p>${s.lat.toFixed(5)}, ${s.lon.toFixed(5)} · EPSG:4326 · ${esc(s.precision)}</p><h2>${esc(t("why"))}</h2><p>${esc(t("need"))}: ${num(s.need.value)} ${s.need.value===null?"":"kW"} · ${esc(rangeText(s))}</p><p>${esc(t("capacity"))}: ${esc(t({no_documented_asset:"supplyUnknown",documented_unknown_capacity:"supplyUnknownCapacity",documented_known_capacity:"supplyKnown"}[s.supply]))}</p><h2>${esc(t("howSure"))}</h2><p>${esc(s.tier || t("notAssessed"))}</p><div class="check-first"><h2>${esc(t("check"))}</h2><p>${esc(s.question)}</p></div><h2>${esc(t("checklist"))}</h2><p>${esc(t("checklistCopy"))}</p><div class="brief-footer"><p>${esc(t("screeningLine"))}</p><p>${esc(pack.run_id)} · ${esc(s.id)}</p><p>Location: ${esc(s.location.evidence.label)} / ${esc(s.location.evidence.as_of)}. Need: ${esc(s.need.evidence.label)} / ${esc(s.need.evidence.as_of)}. Supply: ${esc(s.supply_evidence.label)}.</p><p>${esc(pack.limitations[0])}</p></div>`;
+  const brief=`<img class="brief-logo" src="assets/brand/enagis-wordmark.png" alt="EnaGIS" width="134" height="32"><p class="eyebrow">${esc(t("rank"))} ${s.rank ?? "—"}</p><h1>${esc(s.name)}</h1><p>${esc(s.operator)} · ${esc(pack.title)}</p><p>${s.lat.toFixed(5)}, ${s.lon.toFixed(5)} · EPSG:4326 · ${esc(s.precision)}</p><h2>${esc(t("why"))}</h2><p>${esc(t("need"))}: ${num(s.need.value)} ${s.need.value===null?"":"kW"} · ${esc(rangeText(s))}</p><p>${esc(t("capacity"))}: ${esc(t({no_documented_asset:"supplyUnknown",documented_unknown_capacity:"supplyUnknownCapacity",documented_known_capacity:"supplyKnown"}[s.supply]))}</p><h2>${esc(t("howSure"))}</h2><p>${esc(s.tier || t("notAssessed"))}</p><div class="check-first"><h2>${esc(t("check"))}</h2><p>${esc(s.question)}</p></div><h2>${esc(t("checklist"))}</h2><p>${esc(t("checklistCopy"))}</p><div class="brief-footer"><p>${esc(t("screeningLine"))}</p><p>${esc(pack.run_id)} · ${esc(s.id)}</p><p>Location: ${esc(s.location.evidence.label)} / ${esc(s.location.evidence.as_of)}. Need: ${esc(s.need.evidence.label)} / ${esc(s.need.evidence.as_of)}. Supply: ${esc(s.supply_evidence.label)}.</p><p>${esc(pack.limitations[0])}</p></div>`;
   $("print-brief").innerHTML=brief;window.print();
 }
 function renderLens() {
@@ -152,7 +153,7 @@ function render() {
   renderList();renderCard();renderLens();
   $("area-label").textContent=area?`${area.name}${area.country && area.country!==area.name?" / "+area.country:""}`:pack.title;
   $("map-subtitle").textContent=area?t(covered()?"knownHere":"noData"):t("start");
-  $("dataset-status").textContent=pack===builtIn?`${D.verified.phase3.nodes} ${t("locations")} · 2024 · ${pack.region_id}`:`${pack.title} · ${pack.run_id}`;
+  $("dataset-status").textContent=pack===builtIn?`${D.verified.phase3.nodes} ${t("locations")} · 2024 · ${pack.title}`:`${pack.title} · ${pack.run_id}`;
   $("synthetic-ribbon").hidden=pack.purpose!=="synthetic";$("synthetic-ribbon").textContent=t("synthetic");
   $("thin-haze").hidden=covered() || !$("haze-layer").checked;
   markers.forEach(m=>m.button.setAttribute("aria-pressed",String(selected?.id===m.site.id)));
@@ -189,7 +190,9 @@ function drawMarkers() {
 }
 function separateMarkers() {
   if(!mapReady)return;const used=[];
-  markers.forEach(m=>{const p=map.project([m.site.lon,m.site.lat]);let y=p.y;while(used.some(q=>Math.abs(q.x-p.x)<46 && Math.abs(q.y-y)<46))y+=48;m.marker.setOffset([0,y-p.y]);used.push({x:p.x,y});});
+  // Nudge overlapping pins to the nearest free slot in any direction so none drift off-screen.
+  const slots=[[0,0]];for(let ring=1;ring<=4;ring++)for(const [dx,dy] of [[0,1],[0,-1],[1,0],[-1,0],[1,1],[-1,1],[1,-1],[-1,-1]])slots.push([dx*60*ring,dy*60*ring]);
+  markers.forEach(m=>{const p=map.project([m.site.lon,m.site.lat]);const [dx,dy]=slots.find(([dx,dy])=>!used.some(q=>Math.abs(q.x-p.x-dx)<58 && Math.abs(q.y-p.y-dy)<58)) || [0,0];m.marker.setOffset([dx,dy]);used.push({x:p.x+dx,y:p.y+dy});});
 }
 function initMap() {
   if(new URLSearchParams(location.search).get("map")==="flat" || !window.maplibregl)return fallback();

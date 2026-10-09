@@ -1,0 +1,32 @@
+{
+  "protocol_id": "sparse-data-stress-v1",
+  "status": "declared_robustness_diagnostic_not_preregistered",
+  "purpose": "Measure how the recorded Phase 3 screening procedure behaves when documentation is deliberately removed: whether it abstains instead of inventing values, how much of the tie-inclusive shortlist survives, and how much missing facilities inflate the remaining sites. This is not evidence of real-world accuracy.",
+  "scenario_path": "configs/scenarios/phase3-engineering-v1.json",
+  "region_path": "configs/regions/ca-prairies.json",
+  "input_dir": "data/processed/phase2",
+  "seed": 20261009,
+  "replicates": 200,
+  "shortlist_size": 10,
+  "kw_tie_tolerance": 1e-9,
+  "mechanisms": {
+    "production_origin_loss": {
+      "fractions": [0.1, 0.25, 0.5, 0.75],
+      "unit": "fraction of development reporting regions with known production",
+      "effect": "known modeled tonnes become UNKNOWN with an explicit missing reason"
+    },
+    "location_unknown": {
+      "fractions": [0.1, 0.25, 0.5],
+      "unit": "fraction of development facilities",
+      "effect": "reporting-region spatial match becomes unmatched; the facility stays listed"
+    },
+    "facility_undocumented": {
+      "fractions": [0.1, 0.25, 0.5],
+      "unit": "fraction of development facilities",
+      "effect": "facility, node, capacity, source row and spatial matches are removed together"
+    }
+  },
+  "abstention_rule": "A node may be ranked only when its location match, stationary-service eligibility and reporting-region production are all known. Otherwise it is reported UNKNOWN with a reason, never ranked or treated as zero.",
+  "transfer_units_untouched": true,
+  "approval": null
+}

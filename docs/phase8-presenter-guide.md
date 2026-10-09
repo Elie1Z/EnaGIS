@@ -6,22 +6,22 @@ The audience sees the normal product; do not open the historic Phase 5 guided in
 ## Preparation
 
 Keep the complete application folder together. Use 1440×900 or larger on the projector.
-Open it once, fit the sites, choose Simple, and select EN (FR/RW available if appropriate).
+**Run `node scripts/demo_preflight.mjs` on the presentation laptop first** (or `make preflight`).
+It walks the exact path below in a headless browser and checks 15 things: logo, map, ten
+non-overlapping pins, KILL verdict, baseline bars, Kigali, flat backup, phone layout and console
+errors. It saves screenshots to `outputs/demo-preflight/` as a backup deck. Do not present
+on a red result.
+Open the app once, fit the sites, choose Simple, and select EN (FR/RW available if appropriate).
 Make sure the mouse is not covering a card or pin. Keep the ZIP and PDF/site brief as backups.
 The local app works with Wi-Fi disconnected. External source/phone-map links need internet.
 Use `app/index.html?map=flat` if WebGL is unavailable; it retains geographic navigation.
 
 ## Three-minute path
 
-| Time | Presenter action | Supported message |
-|---|---|---|
-| 0:00–0:25 | Show Where first with ten sites | “A team can visit only a few agricultural locations. EnaGIS brings the evidence and the next investigation question into one list.” |
-| 0:25–0:55 | Select Dixon, inspect Why / How sure / Check first | “The location and storage are reported; fan duty is estimated. Supply and rank confidence are unknown. Here is the question that makes a visit useful.” |
-| 0:55–1:20 | Copy coordinates or open Site brief | Show the practical handoff: one site, one question, a portable record. The brief uses browser print/Save as PDF. |
-| 1:20–1:45 | Search Kigali; choose its result | “The product can select locations worldwide. This area has no compatible local analysis yet, so requirement stays unknown. The evidence checklist is exportable.” |
-| 1:45–2:25 | Home, then How sure | “The registered siting feature failed the frozen keep rule. Production-only was stronger in this test. The shipping-point hindcast is a separate retrospective diagnostic.” Read the proxy-specific verdict and intervals. |
-| 2:25–2:45 | How to get there | Show copy coordinates, phone-map handoff and checklist. State that seasonal travel results and visit windows are absent from this package; disabled controls communicate that. |
-| 2:45–3:00 | Where first, return to Dixon | “We leave with a traceable investigation list. Real operating evidence and prospective verification are the next scientific steps.” |
+The current demo script, hero example and fallback steps are in [TEAM_GUIDE.md](TEAM_GUIDE.md)
+§2–3. The sparse-data stress result is a **proposal awaiting approval** and is not shown in the
+app. Mention it only as "proposed, not adopted"
+([proposal](proposals/sparse-data-stress-diagnostic.md)).
 
 How it works is ordinary product help: five manually selected steps explain production,
 collection/assignment, technical requirement, unknowns and verification. Use it if asked about
@@ -31,7 +31,8 @@ the method; it is not an on-screen presentation guide. Keep camera/selection dur
 
 Dixon, Richardson Pioneer Limited, SK, is rank 1 of the recorded engineering list; its raw
 scenario is 28.1204 kW, displayed as 28 kW with range UNKNOWN. Five top entries share the
-same unrounded requirement, so stable IDs break ties. Do not claim Dixon is more urgent.
+same unrounded requirement (ranks 7–10 share another), so stable IDs break ties and the list
+shows a **Tied ×N** badge. Do not claim Dixon is more urgent.
 The coordinate is P2 named-place precision. The exact source trace and reported storage are
 available in the card. Supply and actual operating conditions are not validated.
 
@@ -52,6 +53,9 @@ current evidence. Do not substitute a CCS or shipping-point outcome for a field-
 | What does uncertainty mean? | Ranges reflect declared inputs; membership frequency is draw stability, not probability of viability. The public screen has no assessed range/tier yet. |
 | Is this worldwide analysis? | Worldwide location selection and a region package contract are implemented. Accuracy outside the pilot is not established; sparse data can legitimately yield no numerical rank. |
 | What happened in field verification? | No real observations, n = 0. The freeze/analysis software was tested with a separate synthetic rehearsal, which is not displayed as validation. |
+| Did you test it with missing data? | A proposed, not yet approved [sparse-data stress diagnostic](proposals/sparse-data-stress-diagnostic.md) ran 2,000 seeded degraded runs: 0 nodes ranked without evidence, and production was conserved. Lost production shrinks the list but keeps every surviving shortlist member. Unregistered facilities inflate neighbours by about +72% at 10% missing. It is a robustness test, not accuracy evidence. |
+| So what would you do in a poorly documented region? | First establish facility-registry completeness. The stress test shows that is the input the ranking is most sensitive to. A proposed decline-to-rank rule awaits review. Until then, sites in such regions should be shown unranked with a warning. |
+| What did you fix after your own audit? | Brand and layout polish, visible tie groups, a scripted demo preflight and a full documentation suite. The stress diagnostic and UNKNOWN-reduction rules are proposals awaiting approval. The scientific gaps (operating evidence, field verification, Manitoba transfer) are stated as next steps, not hidden. |
 | Why Canada? | One controlled benchmark with open source coverage. The product's location search and presentation contract are geographic, not Canada-only. |
 
 ## Backup and remaining preparation

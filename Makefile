@@ -1,4 +1,4 @@
-.PHONY: setup test lint check smoke acquire ingest verify-data pipeline verify-run prepare-experiment demo verify-demo phase6-audit phase6-fixture verify-phase6 phase7-fixture mvp verify-mvp figures release
+.PHONY: setup test lint check smoke acquire ingest verify-data pipeline verify-run stress prepare-experiment demo verify-demo phase6-audit phase6-fixture verify-phase6 phase7-fixture mvp verify-mvp figures release preflight
 setup:
 	uv sync --locked --cache-dir .uv-cache
 test:
@@ -19,6 +19,8 @@ pipeline:
 	uv run --offline --locked --cache-dir .uv-cache python -m enagis run --allow-temporary-scenario
 verify-run:
 	uv run --offline --locked --cache-dir .uv-cache python -m enagis verify-run outputs/phase3
+stress:
+	uv run --offline --locked --cache-dir .uv-cache python -m scripts.sparse_data_stress --allow-temporary-scenario
 prepare-experiment:
 	uv run --offline --locked --cache-dir .uv-cache python -m enagis prepare-experiment
 demo:
@@ -41,3 +43,5 @@ figures:
 	uv run --offline --locked --cache-dir .uv-cache python -m scripts.generate_figures
 release:
 	uv run --offline --locked --cache-dir .uv-cache python -m scripts.release_mvp --check
+preflight:
+	node scripts/demo_preflight.mjs app/index.html outputs/demo-preflight

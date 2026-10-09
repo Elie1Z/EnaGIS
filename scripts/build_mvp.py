@@ -108,6 +108,10 @@ def build(output):
         "OFL-Fraunces.txt",
     ):
         shutil.copyfile(assets / name, output / "assets" / name)
+    # Project-owned brand marks: the supplied wordmark and its derived web/favicon sizes.
+    (output / "assets/brand").mkdir(exist_ok=True)
+    for name in ("enagis-wordmark.png", "enagis-mark.png"):
+        shutil.copyfile(assets / "brand" / name, output / "assets/brand" / name)
     write_json(output / "evidence/interface-assets.json", provenance)
     shutil.copyfile(ROOT / "web/mvp/README.md", output / "README.md")
     manifest = read(output / "manifest.json")
