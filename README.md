@@ -36,7 +36,7 @@ it is listed in [Rwanda data](#rwanda-data).
 EnaGIS started as a [Canadian pilot](#where-it-started-the-canadian-pilot), where ground truth exists, to
 test the method before applying it in Rwanda.
 
-![EnaGIS: ranked investigation list, map and site card](docs/screenshots/1-where-first.png)
+![EnaGIS Live: Nyabihu ranked list, map and site card](docs/screenshots/nyabihu-where-first.png)
 
 ## Repository map
 
