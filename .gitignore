@@ -8,9 +8,8 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
-.env
-.env.*
 !.env.example
+temp_auto_push.bat
 
 # Acquired data and generated products need explicit licence/privacy review
 data/raw/
@@ -25,3 +24,7 @@ Thumbs.db
 
 # Team material that is not part of the submission (pitch, recordings, process notes)
 _not-for-submission/
+.gitignore
+branch_structure.json
+config.bat
+node_modules
