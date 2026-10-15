@@ -105,11 +105,9 @@ Elie — EnaGIS project
    Any site information learned beforehand is prior evidence and cannot be counted as fresh
    post-freeze validation. Record period differences explicitly.
 
-The assistant can process supplied evidence, implement the reviewed method, execute and verify
+The team can process supplied evidence, implement the reviewed method, execute and verify
 the pipeline, and build the freeze. It cannot create a third party's commitment, invent missing
-operating facts, or attribute human scientific approval to itself. These gates originate in
-[AGENTS.md](../AGENTS.md), the [Phase 0 handoff](phase-0-completion.md) and PRD §9/§11.
+operating facts, or stand in for the scientific approval these gates require. These gates originate in
+[the repository rules](../CONTRIBUTING.md#rules), the [Phase 0 handoff](phase-0-completion.md) and PRD §9/§11.
 
-Sending the above drafts requires explicit user authorization and an available sending account
-or user-supplied contact channel. No sender email has been assumed. No recurring monitoring or
-follow-up messaging has been scheduled.
+The drafts above are sent by a team member from the team's own contact channel.

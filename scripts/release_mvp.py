@@ -34,7 +34,6 @@ def main():
     files = {p.relative_to(ROOT).as_posix(): p for p in (ROOT / "app").rglob("*") if p.is_file()}
     for name in (
         "docs/phase8-method-report.md",
-        "docs/phase8-presenter-guide.md",
         "docs/phase8-acceptance.md",
         "docs/spec/regional-view-package.md",
         "THIRD_PARTY_NOTICES.md",

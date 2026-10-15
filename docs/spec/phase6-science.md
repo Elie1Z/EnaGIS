@@ -31,7 +31,7 @@ period, commodity, service, region, analysis CRS, seed, config/input/code/lock h
 Replay checks hashes and regenerates every artifact byte. It does not certify scientific
 validity. Replay uses a temporary sibling directory and removes only that generated directory.
 Replay requires the matching source-code version. The original engineering acceptance run
-is retained at commit `5953c5f`; the desk-review continuation uses a separate output directory
+is retained at commit `5953c5f`; the desk review uses a separate output directory
 `outputs/phase6-review-fixture/` and records its own hashes in the desk-review audit.
 
 ## Audit real readiness without models or outcomes

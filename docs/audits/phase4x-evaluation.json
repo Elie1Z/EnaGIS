@@ -1,0 +1,834 @@
+{
+ "schema": "enagis-phase4x-evaluation-v1",
+ "generated_at": "2026-10-10T21:07:47Z",
+ "seconds": 85.8,
+ "protocol": {
+  "file": "docs/spec/phase4x-protocol.md",
+  "sha256": "cf8e9382d55287467c5255685b45ae207cbbdeda1aa8dbbba49b18e9ab6e11c4"
+ },
+ "registered_protocol": {
+  "file": "docs/spec/phase4r-protocol.md",
+  "sha256": "1a3bc8caac56aed82ef74ae853061c66f6b27325a1c57c0ca52643013532f018"
+ },
+ "input": {
+  "file": "data/rwanda/siting_cells.csv",
+  "sha256": "664350e8aa446b228ee541143621a3cdaeaca6250b4f6c136355f08565b11c92",
+  "rows": 25281
+ },
+ "software": {
+  "python": "3.12.14",
+  "numpy": "2.5.3",
+  "xgboost": "3.4.1",
+  "scikit_learn": "1.9.1",
+  "hardware": "AMD64 CPU, n_jobs=1, no GPU"
+ },
+ "label": "y_any",
+ "label_y_processing_or_storage": {
+  "positive_cells": 44,
+  "positive_districts": 20,
+  "verdict": "FEASIBILITY (below 60 cells; counts only)"
+ },
+ "cells": 25281,
+ "districts": 30,
+ "positive_cells": 134,
+ "positive_districts": 27,
+ "gate": true,
+ "xgboost_params": {
+  "max_depth": 3,
+  "n_estimators": 200,
+  "learning_rate": 0.05,
+  "subsample": 0.8,
+  "colsample_bytree": 1.0,
+  "min_child_weight": 5,
+  "reg_lambda": 1.0,
+  "reg_alpha": 0.0,
+  "gamma": 0.0,
+  "objective": "binary:logistic",
+  "tree_method": "exact",
+  "n_jobs": 1,
+  "random_state": 20261012
+ },
+ "reproduction": {
+  "logistic_recall_10": 0.7313432835820896,
+  "registered_recall_10": 0.7313432835820896,
+  "best_baseline": "people",
+  "registered_best_baseline": "people",
+  "best_baseline_recall_10": 0.4925373134328358,
+  "margin_10": 0.23880597014925375,
+  "margin_10_ci": [
+   0.13385688144615723,
+   0.3439524690089719
+  ],
+  "registered_margin_10_ci": [
+   0.13385688144615723,
+   0.3439524690089719
+  ],
+  "full_model_max_coef_difference": 3.663042091872626e-14,
+  "pass": true
+ },
+ "arms": [
+  {
+   "arm": "logistic",
+   "label": "Logistic regression (registered Phase 4R model)",
+   "evidence": "ESTIMATED (held-out recall of documented cells)",
+   "recall": [
+    {
+     "k": 0.1,
+     "point": 0.7313432835820896,
+     "ci": [
+      0.6131874360099459,
+      0.8385143257864156
+     ]
+    },
+    {
+     "k": 0.2,
+     "point": 0.8805970149253731,
+     "ci": [
+      0.818168449197861,
+      0.9482803057234269
+     ]
+    }
+   ],
+   "auc": 0.9336670526557573
+  },
+  {
+   "arm": "xgboost",
+   "label": "XGBoost, fixed hyperparameters",
+   "evidence": "ESTIMATED (held-out recall of documented cells)",
+   "recall": [
+    {
+     "k": 0.1,
+     "point": 0.6417910447761194,
+     "ci": [
+      0.5406758077793784,
+      0.7542410050550103
+     ]
+    },
+    {
+     "k": 0.2,
+     "point": 0.8432835820895522,
+     "ci": [
+      0.78125,
+      0.9099099099099099
+     ]
+    }
+   ],
+   "auc": 0.9138112673598643
+  },
+  {
+   "arm": "people",
+   "label": "Most buildings in the cell",
+   "evidence": "ESTIMATED (held-out recall of documented cells)",
+   "recall": [
+    {
+     "k": 0.1,
+     "point": 0.4925373134328358,
+     "ci": [
+      0.4014573712696758,
+      0.5965274009766682
+     ]
+    },
+    {
+     "k": 0.2,
+     "point": 0.6268656716417911,
+     "ci": [
+      0.5357072553430821,
+      0.7253599027795089
+     ]
+    }
+   ],
+   "auc": 0.8540410743039881
+  },
+  {
+   "arm": "density",
+   "label": "Most buildings within 2 km",
+   "evidence": "ESTIMATED (held-out recall of documented cells)",
+   "recall": [
+    {
+     "k": 0.1,
+     "point": 0.35074626865671643,
+     "ci": [
+      0.28695473984319314,
+      0.4112168375037685
+     ]
+    },
+    {
+     "k": 0.2,
+     "point": 0.5373134328358209,
+     "ci": [
+      0.42201210759533175,
+      0.65625
+     ]
+    }
+   ],
+   "auc": 0.7823028947994746
+  },
+  {
+   "arm": "road",
+   "label": "Closest to a major road",
+   "evidence": "ESTIMATED (held-out recall of documented cells)",
+   "recall": [
+    {
+     "k": 0.1,
+     "point": 0.34328358208955223,
+     "ci": [
+      0.2540983606557377,
+      0.43066286867248227
+     ]
+    },
+    {
+     "k": 0.2,
+     "point": 0.6119402985074627,
+     "ci": [
+      0.5182114338901681,
+      0.7090986790986791
+     ]
+    }
+   ],
+   "auc": 0.8257106423186885
+  },
+  {
+   "arm": "town",
+   "label": "Closest to a town or village centre",
+   "evidence": "ESTIMATED (held-out recall of documented cells)",
+   "recall": [
+    {
+     "k": 0.1,
+     "point": 0.291044776119403,
+     "ci": [
+      0.20380853223209913,
+      0.40352743561030224
+     ]
+    },
+    {
+     "k": 0.2,
+     "point": 0.48507462686567165,
+     "ci": [
+      0.40120370370370373,
+      0.6021505376344086
+     ]
+    }
+   ],
+   "auc": 0.7608373213267183
+  },
+  {
+   "arm": "grid",
+   "label": "Closest to the mapped grid",
+   "evidence": "ESTIMATED (held-out recall of documented cells)",
+   "recall": [
+    {
+     "k": 0.1,
+     "point": 0.16417910447761194,
+     "ci": [
+      0.09699339839265213,
+      0.23968543788839763
+     ]
+    },
+    {
+     "k": 0.2,
+     "point": 0.291044776119403,
+     "ci": [
+      0.19489674181339478,
+      0.3760036697247706
+     ]
+    }
+   ],
+   "auc": 0.7026050999229011
+  }
+ ],
+ "xgboost_minus_logistic": [
+  {
+   "k": 0.1,
+   "point": -0.08955223880597019,
+   "ci": [
+    -0.15131578947368418,
+    -0.0325203252032521
+   ]
+  },
+  {
+   "k": 0.2,
+   "point": -0.03731343283582089,
+   "ci": [
+    -0.0714285714285714,
+    0.0
+   ]
+  }
+ ],
+ "margin_over_best_baseline": {
+  "logistic": [
+   {
+    "k": 0.1,
+    "point": 0.23880597014925375,
+    "ci": [
+     0.1367333333333333,
+     0.34127468060394894
+    ]
+   },
+   {
+    "k": 0.2,
+    "point": 0.25373134328358204,
+    "ci": [
+     0.1629539295392954,
+     0.3137290682696436
+    ]
+   }
+  ],
+  "xgboost": [
+   {
+    "k": 0.1,
+    "point": 0.14925373134328357,
+    "ci": [
+     0.05881398013750951,
+     0.25581395348837205
+    ]
+   },
+   {
+    "k": 0.2,
+    "point": 0.21641791044776115,
+    "ci": [
+     0.12924621461487823,
+     0.28185237329042623
+    ]
+   }
+  ]
+ },
+ "calibration": {
+  "logistic": {
+   "brier": 0.0049800547669083045,
+   "ece": 0.00087886620351627,
+   "reliability": [
+    {
+     "n": 2529,
+     "mean_predicted": 2.039361909660784e-06,
+     "observed_share": 0.0
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 2.582613762391755e-05,
+     "observed_share": 0.00039556962025316455
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 7.900624155673006e-05,
+     "observed_share": 0.0
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.0001765698499493597,
+     "observed_share": 0.00039556962025316455
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.00031972555391615365,
+     "observed_share": 0.00039556962025316455
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.0005476793278102641,
+     "observed_share": 0.0011867088607594937
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.0009781657713508432,
+     "observed_share": 0.0007911392405063291
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.0018903304634063957,
+     "observed_share": 0.0015822784810126582
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.00442153154142977,
+     "observed_share": 0.005933544303797469
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.04772320451702043,
+     "observed_share": 0.042325949367088604
+    }
+   ]
+  },
+  "xgboost": {
+   "brier": 0.004950590379849897,
+   "ece": 0.002942462641762046,
+   "reliability": [
+    {
+     "n": 2529,
+     "mean_predicted": 2.5321229023826477e-06,
+     "observed_share": 0.0
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 5.594623243895555e-06,
+     "observed_share": 0.0
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 1.0423069731570175e-05,
+     "observed_share": 0.00039556962025316455
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 2.050822182462626e-05,
+     "observed_share": 0.0015822784810126582
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 3.9835324228357244e-05,
+     "observed_share": 0.0007911392405063291
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 7.661045071487056e-05,
+     "observed_share": 0.0007911392405063291
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.00015307402290166345,
+     "observed_share": 0.0011867088607594937
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.000344012894681812,
+     "observed_share": 0.0023734177215189874
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.001011336487074797,
+     "observed_share": 0.005142405063291139
+    },
+    {
+     "n": 2528,
+     "mean_predicted": 0.021932866024093257,
+     "observed_share": 0.04074367088607595
+    }
+   ]
+  },
+  "method": "prior-corrected held-out probabilities, 10 equal-count bins",
+  "tolerance": 0.01
+ },
+ "decision_rule": {
+  "min_points": false,
+  "interval_above_zero": false,
+  "calibration_not_worse": true,
+  "min_points_required": 0.03
+ },
+ "verdict": "TESTED, NOT BETTER",
+ "importance": {
+  "xgboost_total_gain": [
+   {
+    "feature": "log_bld",
+    "total_gain": 15627.341796875
+   },
+   {
+    "feature": "log_bld_2km",
+    "total_gain": 14382.3720703125
+   },
+   {
+    "feature": "log_roof200",
+    "total_gain": 89174.8203125
+   },
+   {
+    "feature": "log_roof600",
+    "total_gain": 2460.3076171875
+   },
+   {
+    "feature": "log_roof_max",
+    "total_gain": 67435.2578125
+   },
+   {
+    "feature": "major_road_km",
+    "total_gain": 6628.17138671875
+   },
+   {
+    "feature": "log_minor_road_km",
+    "total_gain": 17449.056640625
+   },
+   {
+    "feature": "log_dist_major_road",
+    "total_gain": 28259.876953125
+   },
+   {
+    "feature": "log_dist_power",
+    "total_gain": 8243.498046875
+   },
+   {
+    "feature": "log_dist_centre",
+    "total_gain": 22155.83203125
+   },
+   {
+    "feature": "urban_share",
+    "total_gain": 936.4237060546875
+   }
+  ],
+  "permutation_auc_drop": {
+   "baseline_auc": {
+    "logistic": 0.9336670526557573,
+    "xgboost": 0.9138112673598643
+   },
+   "repeats": 5,
+   "seed": 20261013,
+   "logistic": [
+    {
+     "feature": "log_bld",
+     "auc_drop": 0.03356366060103908
+    },
+    {
+     "feature": "log_bld_2km",
+     "auc_drop": 0.03898177225377473
+    },
+    {
+     "feature": "log_roof200",
+     "auc_drop": 0.009714461058528157
+    },
+    {
+     "feature": "log_roof600",
+     "auc_drop": -0.0006916940331150867
+    },
+    {
+     "feature": "log_roof_max",
+     "auc_drop": 0.16353898776685633
+    },
+    {
+     "feature": "major_road_km",
+     "auc_drop": 0.0061107553258482605
+    },
+    {
+     "feature": "log_minor_road_km",
+     "auc_drop": 0.013283030111303783
+    },
+    {
+     "feature": "log_dist_major_road",
+     "auc_drop": -0.001824733255027544
+    },
+    {
+     "feature": "log_dist_power",
+     "auc_drop": -0.000612102330831954
+    },
+    {
+     "feature": "log_dist_centre",
+     "auc_drop": 0.004966913948965224
+    },
+    {
+     "feature": "urban_share",
+     "auc_drop": -9.425176974311444e-05
+    }
+   ],
+   "xgboost": [
+    {
+     "feature": "log_bld",
+     "auc_drop": 0.0038385932507898346
+    },
+    {
+     "feature": "log_bld_2km",
+     "auc_drop": 0.0006781616631519993
+    },
+    {
+     "feature": "log_roof200",
+     "auc_drop": 0.025020224364319877
+    },
+    {
+     "feature": "log_roof600",
+     "auc_drop": 0.0005650357984602783
+    },
+    {
+     "feature": "log_roof_max",
+     "auc_drop": 0.05119159046300292
+    },
+    {
+     "feature": "major_road_km",
+     "auc_drop": 0.002091107274301729
+    },
+    {
+     "feature": "log_minor_road_km",
+     "auc_drop": 0.013128416849225078
+    },
+    {
+     "feature": "log_dist_major_road",
+     "auc_drop": 0.022688502055673833
+    },
+    {
+     "feature": "log_dist_power",
+     "auc_drop": 0.0009440015099275945
+    },
+    {
+     "feature": "log_dist_centre",
+     "auc_drop": 0.007869013781056955
+    },
+    {
+     "feature": "urban_share",
+     "auc_drop": -0.00024945855682023677
+    }
+   ]
+  },
+  "logistic_full_model_coef": {
+   "log_bld": 1.0055378059020368,
+   "log_bld_2km": -2.346037058485482,
+   "log_roof200": 0.39208418580329446,
+   "log_roof600": -0.05770686464562583,
+   "log_roof_max": 2.487280913853869,
+   "major_road_km": 0.3182534888997653,
+   "log_minor_road_km": 0.4711614354327998,
+   "log_dist_major_road": -0.11486719832028676,
+   "log_dist_power": -0.03252018870073589,
+   "log_dist_centre": -0.4631213890293592,
+   "urban_share": 0.024222674274374547
+  },
+  "spearman_agreement": {
+   "xgb_perm_vs_logistic_perm": 0.33636363636363636,
+   "xgb_perm_vs_logistic_abs_coef": 0.5272727272727273,
+   "logistic_perm_vs_logistic_abs_coef": 0.881818181818182,
+   "xgb_gain_vs_logistic_abs_coef": 0.5636363636363637
+  }
+ },
+ "per_district": [
+  {
+   "district": "Bugesera",
+   "cells": 1280,
+   "positives": 4,
+   "logistic_captured_10": 4.0,
+   "xgboost_captured_10": 4.0,
+   "best_baseline_captured_10": 3.0
+  },
+  {
+   "district": "Burera",
+   "cells": 641,
+   "positives": 1,
+   "logistic_captured_10": 0.0,
+   "xgboost_captured_10": 0.0,
+   "best_baseline_captured_10": 0.0
+  },
+  {
+   "district": "Gakenke",
+   "cells": 712,
+   "positives": 2,
+   "logistic_captured_10": 0.0,
+   "xgboost_captured_10": 0.0,
+   "best_baseline_captured_10": 0.0
+  },
+  {
+   "district": "Gasabo",
+   "cells": 431,
+   "positives": 13,
+   "logistic_captured_10": 10.0,
+   "xgboost_captured_10": 6.0,
+   "best_baseline_captured_10": 6.0
+  },
+  {
+   "district": "Gatsibo",
+   "cells": 1575,
+   "positives": 0,
+   "logistic_captured_10": 0.0,
+   "xgboost_captured_10": 0.0,
+   "best_baseline_captured_10": 0.0
+  },
+  {
+   "district": "Gicumbi",
+   "cells": 841,
+   "positives": 2,
+   "logistic_captured_10": 1.0,
+   "xgboost_captured_10": 1.0,
+   "best_baseline_captured_10": 2.0
+  },
+  {
+   "district": "Gisagara",
+   "cells": 675,
+   "positives": 1,
+   "logistic_captured_10": 1.0,
+   "xgboost_captured_10": 1.0,
+   "best_baseline_captured_10": 1.0
+  },
+  {
+   "district": "Huye",
+   "cells": 573,
+   "positives": 10,
+   "logistic_captured_10": 6.0,
+   "xgboost_captured_10": 6.0,
+   "best_baseline_captured_10": 6.0
+  },
+  {
+   "district": "Kamonyi",
+   "cells": 650,
+   "positives": 0,
+   "logistic_captured_10": 0.0,
+   "xgboost_captured_10": 0.0,
+   "best_baseline_captured_10": 0.0
+  },
+  {
+   "district": "Karongi",
+   "cells": 982,
+   "positives": 4,
+   "logistic_captured_10": 4.0,
+   "xgboost_captured_10": 4.0,
+   "best_baseline_captured_10": 1.0
+  },
+  {
+   "district": "Kayonza",
+   "cells": 1944,
+   "positives": 5,
+   "logistic_captured_10": 4.0,
+   "xgboost_captured_10": 2.0,
+   "best_baseline_captured_10": 2.0
+  },
+  {
+   "district": "Kicukiro",
+   "cells": 172,
+   "positives": 15,
+   "logistic_captured_10": 5.0,
+   "xgboost_captured_10": 5.0,
+   "best_baseline_captured_10": 5.0
+  },
+  {
+   "district": "Kirehe",
+   "cells": 1167,
+   "positives": 2,
+   "logistic_captured_10": 1.0,
+   "xgboost_captured_10": 1.0,
+   "best_baseline_captured_10": 1.0
+  },
+  {
+   "district": "Muhanga",
+   "cells": 654,
+   "positives": 1,
+   "logistic_captured_10": 1.0,
+   "xgboost_captured_10": 1.0,
+   "best_baseline_captured_10": 0.0
+  },
+  {
+   "district": "Musanze",
+   "cells": 533,
+   "positives": 2,
+   "logistic_captured_10": 2.0,
+   "xgboost_captured_10": 2.0,
+   "best_baseline_captured_10": 1.0
+  },
+  {
+   "district": "Ngoma",
+   "cells": 868,
+   "positives": 0,
+   "logistic_captured_10": 0.0,
+   "xgboost_captured_10": 0.0,
+   "best_baseline_captured_10": 0.0
+  },
+  {
+   "district": "Ngororero",
+   "cells": 687,
+   "positives": 6,
+   "logistic_captured_10": 6.0,
+   "xgboost_captured_10": 5.0,
+   "best_baseline_captured_10": 3.0
+  },
+  {
+   "district": "Nyabihu",
+   "cells": 534,
+   "positives": 6,
+   "logistic_captured_10": 5.0,
+   "xgboost_captured_10": 4.0,
+   "best_baseline_captured_10": 4.0
+  },
+  {
+   "district": "Nyagatare",
+   "cells": 1910,
+   "positives": 2,
+   "logistic_captured_10": 2.0,
+   "xgboost_captured_10": 2.0,
+   "best_baseline_captured_10": 2.0
+  },
+  {
+   "district": "Nyamagabe",
+   "cells": 1064,
+   "positives": 9,
+   "logistic_captured_10": 8.0,
+   "xgboost_captured_10": 8.0,
+   "best_baseline_captured_10": 4.0
+  },
+  {
+   "district": "Nyamasheke",
+   "cells": 1189,
+   "positives": 11,
+   "logistic_captured_10": 7.0,
+   "xgboost_captured_10": 5.0,
+   "best_baseline_captured_10": 2.0
+  },
+  {
+   "district": "Nyanza",
+   "cells": 671,
+   "positives": 1,
+   "logistic_captured_10": 1.0,
+   "xgboost_captured_10": 1.0,
+   "best_baseline_captured_10": 0.0
+  },
+  {
+   "district": "Nyarugenge",
+   "cells": 133,
+   "positives": 8,
+   "logistic_captured_10": 5.0,
+   "xgboost_captured_10": 5.0,
+   "best_baseline_captured_10": 3.0
+  },
+  {
+   "district": "Nyaruguru",
+   "cells": 1020,
+   "positives": 4,
+   "logistic_captured_10": 2.0,
+   "xgboost_captured_10": 2.0,
+   "best_baseline_captured_10": 3.0
+  },
+  {
+   "district": "Rubavu",
+   "cells": 400,
+   "positives": 4,
+   "logistic_captured_10": 4.0,
+   "xgboost_captured_10": 4.0,
+   "best_baseline_captured_10": 3.0
+  },
+  {
+   "district": "Ruhango",
+   "cells": 629,
+   "positives": 1,
+   "logistic_captured_10": 0.0,
+   "xgboost_captured_10": 0.0,
+   "best_baseline_captured_10": 0.0
+  },
+  {
+   "district": "Rulindo",
+   "cells": 560,
+   "positives": 2,
+   "logistic_captured_10": 2.0,
+   "xgboost_captured_10": 2.0,
+   "best_baseline_captured_10": 1.0
+  },
+  {
+   "district": "Rusizi",
+   "cells": 963,
+   "positives": 12,
+   "logistic_captured_10": 11.0,
+   "xgboost_captured_10": 9.0,
+   "best_baseline_captured_10": 10.0
+  },
+  {
+   "district": "Rutsiro",
+   "cells": 1151,
+   "positives": 5,
+   "logistic_captured_10": 5.0,
+   "xgboost_captured_10": 5.0,
+   "best_baseline_captured_10": 3.0
+  },
+  {
+   "district": "Rwamagana",
+   "cells": 672,
+   "positives": 1,
+   "logistic_captured_10": 1.0,
+   "xgboost_captured_10": 1.0,
+   "best_baseline_captured_10": 0.0
+  }
+ ],
+ "bootstrap": {
+  "draws": 2000,
+  "seed": 20261012,
+  "generator": "mulberry32",
+  "paired": true,
+  "clusters": "districts with at least one positive cell"
+ }
+}

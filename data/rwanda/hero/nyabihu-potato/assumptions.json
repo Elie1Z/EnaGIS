@@ -1,0 +1,575 @@
+{
+  "schema": "enagis-hero-assumptions-v1",
+  "reviewed_at": "2026-10-10",
+  "human_parameter_approval": false,
+  "rows": [
+    {
+      "id": "capture_share",
+      "title": "Share of catchment harvest that passes through one aggregation site",
+      "value": 0.15,
+      "range": [
+        0.05,
+        0.15,
+        0.3
+      ],
+      "unit": "fraction",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "peak_month_fraction",
+      "title": "Share of the annual volume that arrives in the busiest month (two seasons a year)",
+      "value": 0.2,
+      "range": [
+        0.12,
+        0.2,
+        0.3
+      ],
+      "unit": "fraction",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "storage_days",
+      "title": "Days produce stays in store",
+      "value": 30,
+      "range": [
+        14,
+        30,
+        60
+      ],
+      "unit": "day",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": "https://www.fao.org/4/s1250e/S1250E0y.htm",
+      "year": 1988,
+      "why": "FAO describes storage for months depending on use and conditions; it does not establish the shipped 14/30/60-day residence distribution in Nyabihu."
+    },
+    {
+      "id": "store_temp_c",
+      "title": "Table potatoes 7-10 °C, seed potatoes 2-4 °C",
+      "value": 7,
+      "range": [
+        4,
+        7,
+        10
+      ],
+      "unit": "°C",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": "https://www.fao.org/4/s1250e/S1250E0y.htm",
+      "year": 1988,
+      "why": "FAO distinguishes ware (4–8 °C) and processing potatoes (7–10 °C). This supports context, not the mixed shipped 4/7/10 range or a site-specific setpoint; keep ASSUMED."
+    },
+    {
+      "id": "cp_kj_per_kg_k",
+      "title": "Specific heat of potato",
+      "value": 3.6,
+      "range": [
+        3.4,
+        3.6,
+        3.8
+      ],
+      "unit": "kJ/kg·K",
+      "label": "ASSUMED",
+      "original_label": "ESTIMATED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "holding_kwh_th_per_t_day",
+      "title": "Respiration + walls + door openings",
+      "value": 0.2,
+      "range": [
+        0.1,
+        0.2,
+        0.4
+      ],
+      "unit": "kWh(th)/t·day",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "cop",
+      "title": "Refrigeration coefficient of performance",
+      "value": 2.2,
+      "range": [
+        1.5,
+        2.2,
+        3
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "run_hours",
+      "title": "Compressor running hours per day",
+      "value": 16,
+      "range": [
+        14,
+        16,
+        20
+      ],
+      "unit": "h/day",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "max_travel_min",
+      "title": "Longest trip a farmer makes to deliver produce",
+      "value": 90,
+      "range": [
+        60,
+        90,
+        120
+      ],
+      "unit": "min",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "urban_producer_weight",
+      "title": "Production weight of people in dense built-up cells",
+      "value": 0.15,
+      "range": [
+        0.05,
+        0.15,
+        0.3
+      ],
+      "unit": "fraction",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "local_variation_sd",
+      "title": "How far local production per person can differ from the district (or national) average",
+      "value": 0.35,
+      "range": [
+        0.2,
+        0.35,
+        0.5
+      ],
+      "unit": "log-sd",
+      "label": "ASSUMED",
+      "original_label": "INFERRED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "pv_performance_ratio",
+      "title": "Solar PV system performance ratio",
+      "value": 0.75,
+      "range": [
+        0.65,
+        0.75,
+        0.8
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "original_label": "ESTIMATED",
+      "source": null,
+      "year": null,
+      "why": "Shipped screening range. No source found in the reviewed literature for this exact Nyabihu range; human review remains required."
+    },
+    {
+      "id": "type_cold_store",
+      "title": "Capture multiplier: cold_store",
+      "value": 1,
+      "range": [
+        0.8,
+        1,
+        1.2
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Site-type scenario, not measured utilisation. Multiplies capture_share.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "type_cooperative",
+      "title": "Capture multiplier: cooperative",
+      "value": 0.9,
+      "range": [
+        0.6,
+        0.9,
+        1.1
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Site-type scenario, not measured utilisation. Multiplies capture_share.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "type_warehouse",
+      "title": "Capture multiplier: warehouse",
+      "value": 0.7,
+      "range": [
+        0.4,
+        0.7,
+        1
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Site-type scenario, not measured utilisation. Multiplies capture_share.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "type_market",
+      "title": "Capture multiplier: market",
+      "value": 0.6,
+      "range": [
+        0.3,
+        0.6,
+        0.9
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Site-type scenario, not measured utilisation. Multiplies capture_share.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "type_agro_factory",
+      "title": "Capture multiplier: agro_factory",
+      "value": 0.7,
+      "range": [
+        0.4,
+        0.7,
+        1
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Site-type scenario, not measured utilisation. Multiplies capture_share.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "type_agro_shop",
+      "title": "Capture multiplier: agro_shop",
+      "value": 0.3,
+      "range": [
+        0.1,
+        0.3,
+        0.5
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Site-type scenario, not measured utilisation. Multiplies capture_share.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "type_town",
+      "title": "Capture multiplier: town",
+      "value": 0.4,
+      "range": [
+        0.2,
+        0.4,
+        0.7
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Site-type scenario, not measured utilisation. Multiplies capture_share.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "type_village",
+      "title": "Capture multiplier: village",
+      "value": 0.3,
+      "range": [
+        0.1,
+        0.3,
+        0.5
+      ],
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Site-type scenario, not measured utilisation. Multiplies capture_share.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "type_mult",
+      "title": "Share handled by this site type",
+      "value": "see type rows",
+      "range": "see type rows",
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Uses the relevant type-specific multiplier above.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "persons_per_building",
+      "title": "People per mapped building",
+      "value": "WorldPop total / in-boundary footprints",
+      "range": "0.8 × central to 1.2 × central",
+      "unit": "people/building",
+      "label": "ESTIMATED",
+      "why": "Calibration and ±20% range; not a household census. The ±20% is ASSUMED.",
+      "source": "https://www.worldpop.org/",
+      "year": 2020
+    },
+    {
+      "id": "people",
+      "title": "People per catchment",
+      "value": "weighted buildings × people/building",
+      "range": "300 existing draws",
+      "unit": "people",
+      "label": "ESTIMATED",
+      "why": "Urban producer weight reduces this effective population. This is not a literal headcount of everyone living there.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "production",
+      "title": "Potato production per person",
+      "value": 578.2408234523441,
+      "range": null,
+      "unit": "kg/person/year",
+      "label": "ESTIMATED",
+      "why": "2024 Season A district area × yield share scaled to annual national total, divided by 2022 census. Not a directly observed district annual total.",
+      "source": "https://statistics.gov.rw/sites/default/files/documents/2024-10/SAS_2024%20Season%20A%20Final%20Report%20%282%29_compressed.pdf",
+      "year": 2024
+    },
+    {
+      "id": "local_variation",
+      "title": "Local production multiplier",
+      "value": "lognormal, mean 1",
+      "range": "log-SD 0.2 / 0.35 / 0.5",
+      "unit": "ratio",
+      "label": "ASSUMED",
+      "why": "Each site gets its own existing draw. Shared production scalars alone do not reorder sites.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "rain_factor",
+      "title": "Rainy-season access factor",
+      "value": "surface dependent",
+      "range": [
+        0.45,
+        0.6,
+        0.7,
+        0.85,
+        0.9
+      ],
+      "unit": "speed ratio",
+      "label": "ASSUMED",
+      "why": "Earth/path .45; unknown minor .6; gravel .7; untagged major .85; paved .9; off-network walk ×.8. Scenario comparison, not sampled by the 300 draws.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "road_speeds",
+      "title": "Dry road speeds",
+      "value": {
+        "motorway": 70,
+        "trunk": 60,
+        "primary": 50,
+        "secondary": 40,
+        "tertiary": 30,
+        "unclassified": 25,
+        "road": 20,
+        "residential": 20,
+        "living_street": 10,
+        "service": 15,
+        "track": 15,
+        "path": 5,
+        "footway": 5,
+        "bridleway": 5,
+        "steps": 3,
+        "motorway_link": 40,
+        "trunk_link": 40,
+        "primary_link": 35,
+        "secondary_link": 30,
+        "tertiary_link": 25
+      },
+      "range": null,
+      "unit": "km/h",
+      "label": "ASSUMED",
+      "why": "Mapped highway class selects speed. Walking 4 km/h, distance ×1.3; snap within 3 km, direct walk within 4 km.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "loss_rate",
+      "title": "Crop loss rate",
+      "value": "UNKNOWN / not modeled",
+      "range": null,
+      "unit": "fraction",
+      "label": "UNKNOWN",
+      "why": "No loss-rate parameter exists in the shipped model. Do not imply zero loss or avoided losses. FAO discusses loss mechanisms, not a Nyabihu rate.",
+      "source": "https://www.fao.org/4/s1250e/S1250E0y.htm",
+      "year": 1988
+    },
+    {
+      "id": "ambient",
+      "title": "Ambient temperature",
+      "value": "hottest-month mean daily maximum",
+      "range": "2024 daily archive",
+      "unit": "°C",
+      "label": "ESTIMATED",
+      "why": "ERA5 reanalysis at district centre; not measured at a site. Frozen raw daily values retained.",
+      "source": "https://open-meteo.com/en/docs/historical-weather-api",
+      "year": 2024
+    },
+    {
+      "id": "cooling_load",
+      "title": "Pull-down cooling load per tonne",
+      "value": "cp × max(0, ambient − store temperature) / 3.6",
+      "range": null,
+      "unit": "kWh(th)/t intake",
+      "label": "ESTIMATED",
+      "why": "Thermal load, not electricity. Divide by COP to estimate electrical pull-down.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "intensity",
+      "title": "Holding electricity per tonne-day",
+      "value": 0.09090909090909091,
+      "range": [
+        0.03333333333333333,
+        0.09090909090909091,
+        0.26666666666666666
+      ],
+      "unit": "kWh(e)/t stored/day",
+      "label": "ESTIMATED",
+      "why": "Derived holding load / COP; excludes intake pull-down. Input ranges are ASSUMED.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "energy",
+      "title": "Peak-day electricity",
+      "value": "(intake × cp × ΔT / 3.6 + stored × holding load) / COP",
+      "range": "p5–p95 of 300 draws",
+      "unit": "kWh(e)/day",
+      "label": "ESTIMATED",
+      "why": "Intake = annual catchment tonnes × capture share × type multiplier × peak-month fraction / 30. Stored = intake × storage days. 30 days/month is an accounting convention.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "power",
+      "title": "Running electrical power",
+      "value": "kWh/day ÷ run_hours",
+      "range": "p5–p95",
+      "unit": "kW(e)",
+      "label": "ESTIMATED",
+      "why": "Average while running; not measured peak motor-start or connection capacity.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "solar",
+      "title": "Illustrative PV size",
+      "value": "kWh/day ÷ (darkest-month sun × PV performance ratio)",
+      "range": null,
+      "unit": "kWp",
+      "label": "ESTIMATED",
+      "why": "Does not include batteries, night-time load or a system design.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "ranking",
+      "title": "Rank and stability",
+      "value": "central kWh/day; seed 20261026",
+      "range": "300 draws; top 10",
+      "unit": "rank / share",
+      "label": "ESTIMATED",
+      "why": "Robust ≥80%; Contested ≥40%; otherwise Check first when more than 10 sites. These shipped thresholds are ASSUMED, not calibrated probabilities.",
+      "source": null,
+      "year": null
+    },
+    {
+      "id": "siting",
+      "title": "Siting percentile",
+      "value": "frozen Phase 4R model",
+      "range": "1 km cells",
+      "unit": "percentile",
+      "label": "PREDICTED",
+      "why": "Upstream footprints, roads, grid and settlements only. Separate from energy ranking.",
+      "source": "../spec/phase4r-protocol.md",
+      "year": 2026
+    },
+    {
+      "id": "location",
+      "title": "Location, roofs and mapped grid",
+      "value": "source geometry",
+      "range": "EPSG:4326 longitude, latitude",
+      "unit": "degrees / m / m²",
+      "label": "DOCUMENTED",
+      "why": "Mapped geometry or derived distances/roof area; not surveyed or evidence of operating refrigeration. Buildings can predate the release by years.",
+      "source": "https://docs.overturemaps.org/",
+      "year": 2026
+    },
+    {
+      "id": "verification",
+      "title": "Evidence workflow counts",
+      "value": "count of complete, structurally valid records",
+      "range": null,
+      "unit": "records",
+      "label": "DOCUMENTED",
+      "why": "DOCUMENTED is a source record; PREDICTED is a model output. DESK-CHECKED counts named imagery reviews. PHONE-CHECKED counts completed calls including misses. Neither is field validation. Initial human counts are zero.",
+      "source": "../hero-verification-protocol.md",
+      "year": 2026
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.fao.org/4/s1250e/S1250E0y.htm",
+      "year": 1988,
+      "title": "FAO: Farm structures in tropical climates, chapter 9"
+    },
+    {
+      "url": "https://www.ifc.org/en/what-we-do/programs-projects/sustainable-cooling/sustainable-cooling-of-cold-chains",
+      "year": null,
+      "title": "IFC Sustainable Cooling: Cold Chains; accessed 2026-10-10; context only"
+    },
+    {
+      "url": "https://www.giz.de/en/projects/promotion-nutrition-sensitive-potato-value-chains-east-africa",
+      "year": null,
+      "title": "GIZ potato value chains in East Africa; accessed 2026-10-10; Kenya/Uganda context, not a Rwanda coefficient"
+    },
+    {
+      "url": "https://www.rab.gov.rw/1-1/news-details/potato-seed-value-chain-stages-from-laboratory-to-open-field",
+      "year": null,
+      "title": "RAB potato seed value chain; accessed 2026-10-10; seed context only"
+    },
+    {
+      "url": "https://statistics.gov.rw/statistical-publications/agriculture-environment/seasonal-agricultural-survey-2024-annual-report-2024",
+      "year": 2024,
+      "title": "NISR Seasonal Agricultural Survey annual report"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 Every value EnaGIS shows carries one evidence label. This page counts them in the data the
 application actually embeds, explains every UNKNOWN, and says how to close each gap.
 
-- Counted by: `python -m scripts.evidence_ledger --output docs/audit/evidence-ledger.json`
+- Counted by: `python -m scripts.evidence_ledger --output outputs/evidence-ledger.json`
   (read-only; parses `app/index.html`).
 - Data: 261 development nodes (Alberta + Saskatchewan primary elevators, AAFC 2024 registry),
   Phase 3 temporary engineering scenario `phase3-engineering-v1`, counted 9 October 2026.
@@ -13,7 +13,7 @@ application actually embeds, explains every UNKNOWN, and says how to close each 
 | Label | Meaning in EnaGIS |
 |---|---|
 | OBSERVED | Reported by a named, dated, licensed source. Not verified truth. |
-| PREDICTED | Output of a fitted model. *None in the shipped app: the siting model was killed.* |
+| PREDICTED | Output of a fitted model. *Canadian app: none, because that siting model was killed. EnaGIS Live: the Likely sites lens (Rwanda siting model, registered test KEEP), always labelled PREDICTED. The XGBoost alternative was tested (Phase 4X: TESTED, NOT BETTER, −9.0 points) and produces no PREDICTED values in the app; only its comparison numbers are shown.* |
 | ESTIMATED | Calculated from stated assumptions (here: the temporary scenario). |
 | INFERRED | A rule combining evidence, e.g. "no fan asset documented in the consumed registry". |
 | UNKNOWN | Not supported by evidence. Never defaulted, imputed or treated as zero. |
@@ -86,4 +86,4 @@ uv run --offline --locked --cache-dir .uv-cache python -m scripts.evidence_ledge
 # location conflicts: data/processed/phase2/registry_source_rows.json where location_quality == "conflict"
 ```
 
-The scripts used for the residual and region checks are in [docs/audit/audit-log.md](audit/audit-log.md), entry 6.
+The commands above reproduce the residual and region checks.

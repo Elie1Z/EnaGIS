@@ -21,7 +21,7 @@ scores, fit models or compare outcomes. The earlier v1 preparation is preserved 
 
 ## Approved registration and evaluation
 
-The actual user approval is recorded in `configs/experiments/phase4-canada-v1.1.json`. The
+The team's approval is recorded in `configs/experiments/phase4-canada-v1.1.json`. The
 counts-only primary gate passed at 60 positive CCS in seven CARs; the frozen-values script and
 127 tests plus lint/format passed. The method is committed and remotely registered at
 `948cf2fddbb5a9f093883dd06b1a58a1d5a905fe`. These commands document the sequence already used;

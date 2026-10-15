@@ -1,0 +1,636 @@
+{
+ "schema": "enagis-phase4n-evaluation-v1",
+ "generated_at": "2026-10-11T04:58:12Z",
+ "seconds": 97.8,
+ "protocol": {
+  "file": "docs/spec/phase4n-protocol.md",
+  "sha256": "d3a9cc0268ff97fe6b6a2fbcaa201a891fec4a723957d94340956f60574c5c5b"
+ },
+ "inputs": {
+  "manifest": [
+   {
+    "path": "outputs/phase4n/footprints.csv",
+    "sha256": "9ad278d3ccbcc0e8ef452d7626df7a6114b77cff4e57db7a61e3ee37458602f3",
+    "bytes": 40323404
+   },
+   {
+    "path": "outputs/phase4n/roads.csv",
+    "sha256": "d7fd5093ff92dbef9ffd99bab3ace9ec8e6f98145a053815ad5d4f342cbe4a7e",
+    "bytes": 46097467
+   },
+   {
+    "path": "outputs/phase4n/places.csv",
+    "sha256": "7f7794d65a5ee5af3c974aa3c614bc9df42838bcabab0163f820e8739f9bf470",
+    "bytes": 7518
+   },
+   {
+    "path": "outputs/phase4n/power.csv",
+    "sha256": "f27786c0a2b910870e24606f2a08034e42f566d6306bc2dadf5e361fd83f6707",
+    "bytes": 28542
+   },
+   {
+    "path": "outputs/phase4n/mills.csv",
+    "sha256": "09c1a0569e7164ea0e29390e871c1b169ac8c300c353b6c203b9816974b53836",
+    "bytes": 33351
+   },
+   {
+    "path": "outputs/phase4n/councils.json",
+    "sha256": "6b824d5a89273766272040c26489c352911c8beafcf980fb9838eab3914c6c07",
+    "bytes": 21607
+   },
+   {
+    "path": "outputs/phase4n/boundary.json",
+    "sha256": "0510966700ec3967a2105046a833201c14b89a22eec69aed9810acdd5c1d3904",
+    "bytes": 6360
+   }
+  ],
+  "overture_release": "2026-09-23.1",
+  "osm_relation": 3775101,
+  "counts": {
+   "footprints": 673866,
+   "road_points": 2109059,
+   "places": 344,
+   "power_points": 1311,
+   "mills": 882,
+   "councils": 6
+  },
+  "note": "Inputs stay in the gitignored outputs/phase4n/ (they hold survey points)."
+ },
+ "software": {
+  "python": "3.12.14",
+  "numpy": "2.5.3",
+  "xgboost": "3.4.1",
+  "scikit_learn": "1.9.1",
+  "hardware": "AMD64 CPU, no GPU"
+ },
+ "crs": "EPSG:32736 (UTM 36S), metres",
+ "features": [
+  "log_area",
+  "log_perimeter",
+  "elongation",
+  "rectangularity",
+  "log_bld_200m",
+  "log_bld_1km",
+  "area_share_of_largest_200m",
+  "log_dist_major_road",
+  "log_dist_any_road",
+  "log_dist_settlement",
+  "log_dist_power"
+ ],
+ "xgboost_params": {
+  "max_depth": 3,
+  "n_estimators": 200,
+  "learning_rate": 0.05,
+  "subsample": 0.8,
+  "colsample_bytree": 1.0,
+  "min_child_weight": 5,
+  "reg_lambda": 1.0,
+  "reg_alpha": 0.0,
+  "gamma": 0.0,
+  "objective": "binary:logistic",
+  "tree_method": "hist",
+  "n_jobs": 4,
+  "random_state": 20261012,
+  "max_bin": 256
+ },
+ "councils": [
+  "Makete",
+  "Ludewa",
+  "Njombe",
+  "Wanging'ombe",
+  "Makambako Town",
+  "Njombe Municipal"
+ ],
+ "footprints_outside_councils": 307,
+ "labels": {
+  "mills": 882,
+  "matched_mills": 830,
+  "unmatched_mills": 52,
+  "positive_footprints": 830,
+  "match_radius_m": 30.0,
+  "match_distance_m_median": 8.294614387513093,
+  "positive_councils": 6,
+  "positives_outside_councils": 0
+ },
+ "gate": true,
+ "footprints": 673559,
+ "positives": 830,
+ "positive_blocks": 145,
+ "arms": [
+  {
+   "arm": "logistic",
+   "label": "logistic",
+   "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+   "recall": [
+    {
+     "k": 0.01,
+     "point": 0.056626506024096385,
+     "ci": [
+      0.03791206584402825,
+      0.07734136220027929
+     ]
+    },
+    {
+     "k": 0.05,
+     "point": 0.1963855421686747,
+     "ci": [
+      0.1562029543465793,
+      0.23778307772567658
+     ]
+    }
+   ],
+   "auc": 0.741219571632588
+  },
+  {
+   "arm": "xgboost",
+   "label": "xgboost",
+   "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+   "recall": [
+    {
+     "k": 0.01,
+     "point": 0.05783132530120482,
+     "ci": [
+      0.039839646389566115,
+      0.07717108629736273
+     ]
+    },
+    {
+     "k": 0.05,
+     "point": 0.20722891566265061,
+     "ci": [
+      0.16788277407271263,
+      0.2503563411896745
+     ]
+    }
+   ],
+   "auc": 0.7563977435049797
+  },
+  {
+   "arm": "largest_roof",
+   "label": "Largest roof first",
+   "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+   "recall": [
+    {
+     "k": 0.01,
+     "point": 0.027710843373493974,
+     "ci": [
+      0.017036986845573796,
+      0.0400426283898834
+     ]
+    },
+    {
+     "k": 0.05,
+     "point": 0.12048192771084337,
+     "ci": [
+      0.09447593669250647,
+      0.14772343400281404
+     ]
+    }
+   ],
+   "auc": 0.6282638462681772
+  },
+  {
+   "arm": "neighbours",
+   "label": "Most buildings within 200 m",
+   "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+   "recall": [
+    {
+     "k": 0.01,
+     "point": 0.020481927710843374,
+     "ci": [
+      0.008355388544664697,
+      0.03427371130649274
+     ]
+    },
+    {
+     "k": 0.05,
+     "point": 0.10206827309236947,
+     "ci": [
+      0.06513631028209171,
+      0.13772289321106643
+     ]
+    }
+   ],
+   "auc": 0.6808095902202478
+  },
+  {
+   "arm": "major_road",
+   "label": "Closest to a major road",
+   "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+   "recall": [
+    {
+     "k": 0.01,
+     "point": 0.04096385542168675,
+     "ci": [
+      0.0266154639592266,
+      0.05665802676122384
+     ]
+    },
+    {
+     "k": 0.05,
+     "point": 0.18433734939759036,
+     "ci": [
+      0.14895757177140775,
+      0.22276656738388725
+     ]
+    }
+   ],
+   "auc": 0.6367276753182286
+  }
+ ],
+ "best_baseline": "major_road",
+ "margin_over_best_baseline": {
+  "logistic": {
+   "point": 0.015662650602409636,
+   "ci": [
+    -0.0029424227318045827,
+    0.0339895276292335
+   ]
+  },
+  "xgboost": {
+   "point": 0.016867469879518072,
+   "ci": [
+    0.0,
+    0.033335755813953476
+   ]
+  }
+ },
+ "verdict_footprint_classifier": "KILL",
+ "xgboost_vs_baseline_descriptive": "not above",
+ "xgboost_minus_logistic": [
+  {
+   "point": 0.0012048192771084362,
+   "ci": [
+    -0.018230356560052216,
+    0.019792381407612417
+   ]
+  },
+  {
+   "point": 0.010843373493975905,
+   "ci": [
+    -0.014277802156176763,
+    0.037976020681048314
+   ]
+  }
+ ],
+ "xgboost_rule": {
+  "min_points": false,
+  "interval_above_zero": false,
+  "calibration_not_worse": true
+ },
+ "verdict_xgboost": "NOT BETTER",
+ "calibration": {
+  "logistic": {
+   "brier": 0.0012297358527513034,
+   "ece": 0.0001893683239222816,
+   "reliability": [
+    {
+     "n": 67356,
+     "mean_predicted": 4.94383817811883e-05,
+     "observed_share": 8.907892392659897e-05
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.00015410532913746135,
+     "observed_share": 0.0002226973098164974
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.0002969052853300889,
+     "observed_share": 0.00029692974642199656
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.00048284892929489713,
+     "observed_share": 0.0005493200308806937
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.0007085425044544274,
+     "observed_share": 0.0009056357265870894
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.0009847421876940149,
+     "observed_share": 0.0009798681631925886
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.0013327322497580629,
+     "observed_share": 0.0014104162955044836
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.0018136750996541793,
+     "observed_share": 0.0016034206306787815
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.002587559160911029,
+     "observed_share": 0.0024496704079814717
+    },
+    {
+     "n": 67355,
+     "mean_predicted": 0.0049067779179195825,
+     "observed_share": 0.0038156038898374284
+    }
+   ]
+  },
+  "xgboost": {
+   "brier": 0.001229489310163651,
+   "ece": 0.0002506474346925766,
+   "reliability": [
+    {
+     "n": 67356,
+     "mean_predicted": 2.4441943659706327e-05,
+     "observed_share": 8.907892392659897e-05
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 7.860886219239073e-05,
+     "observed_share": 0.0001633113605320981
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.00016216751882458823,
+     "observed_share": 0.0003860086703485955
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.00027597507984630033,
+     "observed_share": 0.0005047805689173941
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.000429395893950555,
+     "observed_share": 0.0004899340815962943
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.0006391560099072173,
+     "observed_share": 0.0008759427519448898
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.0009349348351357459,
+     "observed_share": 0.0016331136053209811
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.0013818744257491737,
+     "observed_share": 0.001900350377100778
+    },
+    {
+     "n": 67356,
+     "mean_predicted": 0.0021469039752425026,
+     "observed_share": 0.002226973098164974
+    },
+    {
+     "n": 67355,
+     "mean_predicted": 0.00436359155501433,
+     "observed_share": 0.004053151213718358
+    }
+   ]
+  }
+ },
+ "per_council": [
+  {
+   "council": "Makete",
+   "footprints": 108847,
+   "positives": 111,
+   "logistic_captured_1pct": 6.0,
+   "xgboost_captured_1pct": 3.0,
+   "largest_roof_captured_1pct": 5.0,
+   "neighbours_captured_1pct": 6.0,
+   "major_road_captured_1pct": 3.0
+  },
+  {
+   "council": "Ludewa",
+   "footprints": 104927,
+   "positives": 154,
+   "logistic_captured_1pct": 7.0,
+   "xgboost_captured_1pct": 7.0,
+   "largest_roof_captured_1pct": 1.0,
+   "neighbours_captured_1pct": 2.0,
+   "major_road_captured_1pct": 7.0
+  },
+  {
+   "council": "Njombe",
+   "footprints": 95163,
+   "positives": 140,
+   "logistic_captured_1pct": 8.0,
+   "xgboost_captured_1pct": 10.0,
+   "largest_roof_captured_1pct": 2.0,
+   "neighbours_captured_1pct": 4.0,
+   "major_road_captured_1pct": 5.0
+  },
+  {
+   "council": "Wanging'ombe",
+   "footprints": 152458,
+   "positives": 153,
+   "logistic_captured_1pct": 10.0,
+   "xgboost_captured_1pct": 13.0,
+   "largest_roof_captured_1pct": 4.0,
+   "neighbours_captured_1pct": 1.0,
+   "major_road_captured_1pct": 7.0
+  },
+  {
+   "council": "Makambako Town",
+   "footprints": 77816,
+   "positives": 119,
+   "logistic_captured_1pct": 5.0,
+   "xgboost_captured_1pct": 7.0,
+   "largest_roof_captured_1pct": 6.0,
+   "neighbours_captured_1pct": 1.0,
+   "major_road_captured_1pct": 7.0
+  },
+  {
+   "council": "Njombe Municipal",
+   "footprints": 134348,
+   "positives": 153,
+   "logistic_captured_1pct": 11.0,
+   "xgboost_captured_1pct": 8.0,
+   "largest_roof_captured_1pct": 5.0,
+   "neighbours_captured_1pct": 3.0,
+   "major_road_captured_1pct": 5.0
+  }
+ ],
+ "leakage_check": {
+  "source_share_positive": {
+   "Google Open Buildings": 0.3253012048192771,
+   "Microsoft ML Buildings": 0.04457831325301205,
+   "OpenStreetMap": 0.6301204819277109
+  },
+  "source_share_background": {
+   "Google Open Buildings": 0.3624679809103822,
+   "Microsoft ML Buildings": 0.08403413784700967,
+   "OpenStreetMap": 0.5534978812426081
+  },
+  "ml_sources_only": {
+   "footprints": 300623,
+   "positives": 307,
+   "arms": [
+    {
+     "arm": "logistic",
+     "label": "logistic",
+     "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+     "recall": [
+      {
+       "k": 0.01,
+       "point": 0.06514657980456026,
+       "ci": [
+        0.03749787414965986,
+        0.09539473684210527
+       ]
+      },
+      {
+       "k": 0.05,
+       "point": 0.2280130293159609,
+       "ci": [
+        0.16720139366908374,
+        0.29411764705882354
+       ]
+      }
+     ],
+     "auc": 0.7606668858205513
+    },
+    {
+     "arm": "xgboost",
+     "label": "xgboost",
+     "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+     "recall": [
+      {
+       "k": 0.01,
+       "point": 0.07166123778501629,
+       "ci": [
+        0.04281219821342346,
+        0.10546969696969688
+       ]
+      },
+      {
+       "k": 0.05,
+       "point": 0.21172638436482086,
+       "ci": [
+        0.1649415087351071,
+        0.26214398606586453
+       ]
+      }
+     ],
+     "auc": 0.7349347829189953
+    },
+    {
+     "arm": "largest_roof",
+     "label": "Largest roof first",
+     "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+     "recall": [
+      {
+       "k": 0.01,
+       "point": 0.029315960912052116,
+       "ci": [
+        0.012539184952978056,
+        0.04804959598774031
+       ]
+      },
+      {
+       "k": 0.05,
+       "point": 0.09120521172638436,
+       "ci": [
+        0.058159759215853396,
+        0.12837837837837837
+       ]
+      }
+     ],
+     "auc": 0.606157849237023
+    },
+    {
+     "arm": "neighbours",
+     "label": "Most buildings within 200 m",
+     "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+     "recall": [
+      {
+       "k": 0.01,
+       "point": 0.02886667415477929,
+       "ci": [
+        0.010269956235155088,
+        0.05030351022093741
+       ]
+      },
+      {
+       "k": 0.05,
+       "point": 0.13952225841476656,
+       "ci": [
+        0.09342258648054497,
+        0.19157025224098392
+       ]
+      }
+     ],
+     "auc": 0.715198861325354
+    },
+    {
+     "arm": "major_road",
+     "label": "Closest to a major road",
+     "evidence": "ESTIMATED (held-out recall of surveyed mills)",
+     "recall": [
+      {
+       "k": 0.01,
+       "point": 0.06514657980456026,
+       "ci": [
+        0.03870040193754509,
+        0.09408694340036758
+       ]
+      },
+      {
+       "k": 0.05,
+       "point": 0.2280130293159609,
+       "ci": [
+        0.17668620079610792,
+        0.28524590163934427
+       ]
+      }
+     ],
+     "auc": 0.6694454045864306
+    }
+   ],
+   "best_baseline": "major_road",
+   "margin_over_best_baseline": {
+    "logistic": {
+     "point": 0.0,
+     "ci": [
+      -0.03082536367106323,
+      0.029610164691530133
+     ]
+    },
+    "xgboost": {
+     "point": 0.006514657980456029,
+     "ci": [
+      -0.024305819402228982,
+      0.040408699541540846
+     ]
+    }
+   },
+   "xgboost_minus_logistic": [
+    {
+     "point": 0.006514657980456029,
+     "ci": [
+      -0.02405705652328474,
+      0.03750887223974758
+     ]
+    },
+    {
+     "point": -0.016286644951140045,
+     "ci": [
+      -0.06711534608835021,
+      0.03413048777902614
+     ]
+    }
+   ]
+  }
+ },
+ "bootstrap": {
+  "draws": 2000,
+  "seed": 20261015,
+  "generator": "mulberry32",
+  "paired": true,
+  "clusters": "10 km UTM blocks holding a positive"
+ }
+}

@@ -1,8 +1,8 @@
 # 0002 — Global adaptation and data-driven pilot selection
 
-Status: **user-authorized product direction**, 7 October 2026. This decision supersedes the Rwanda-only candidate framing and the need to ask the user for a preferred pilot location. [Decision 0003](0003-benchmark-lock.md) now freezes the first development benchmark.
+Status: **team-authorized product direction**, 7 October 2026. This decision supersedes the Rwanda-only candidate framing and the need to ask for a preferred pilot location. [Decision 0003](0003-benchmark-lock.md) now freezes the first development benchmark.
 
-## User direction
+## Team direction
 
 The initial location can be anywhere in the world that provides strong data for training, reasoning and evaluation. The intended product should adapt quickly and perform well in other locations on the world map. The earlier instruction to keep the candidate choice open is clarified: geography may be selected on evidence rather than personal preference.
 
@@ -10,7 +10,7 @@ The initial location can be anywhere in the world that provides strong data for 
 
 Build a reusable geospatial screening pipeline, prove it on one data-rich commodity/service case, then measure transfer to an untouched region. Select the first benchmark using the PRD's data gates and best-candidate fallback, expanded to international candidates. Decision 0003 selects Canadian Prairie wheat storage/aeration for development; scientific readiness remains conditional on the recorded evidence gates.
 
-The final PRD remains the scientific reference except where this user direction changes geographic scope. Its Rwanda milk no-go is a Rwanda data finding. Its facility, throughput, verification, energy, baseline and uncertainty requirements still apply. Preserve the supplied PRD verbatim and record scope changes here.
+The final PRD remains the scientific reference except where this team direction changes geographic scope. Its Rwanda milk no-go is a Rwanda data finding. Its facility, throughput, verification, energy, baseline and uncertainty requirements still apply. Preserve the supplied PRD verbatim and record scope changes here.
 
 ## What adaptation requires
 

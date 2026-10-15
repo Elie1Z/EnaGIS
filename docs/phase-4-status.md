@@ -17,7 +17,7 @@ execution. Its pending tasks and 125-test count are superseded by the completion
 
 Historical status: **IMPLEMENTATION READY; scientific execution awaiting protocol approval**.
 
-The user authorized development of Phase 4. All comparisons are implemented and exercised with
+The team authorized development of Phase 4. All comparisons are implemented and exercised with
 synthetic fixtures. Real source preparation is complete. The proposed scientific assumptions
 remain unapproved, so no real baseline scores, fitted model, hindcast metrics or keep/kill result
 are reported. This document is not a Phase 4 completion declaration.
@@ -69,7 +69,7 @@ the full suite; the Phase 3 real artifacts have not been rerun or overwritten.
 
 1. Human approval or revision of the [concrete draft protocol](spec/phase4-preregistration.md),
    especially replacing the unaudited crop raster with a coarse proxy and the road-distance
-   settings. Required by `AGENTS.md`; approval is not inferred or fabricated.
+   settings. Required by the repository rules in `CONTRIBUTING.md`; approval is not inferred or fabricated.
 2. Rebuild preparation with approved config, commit/tag preregistration, execute the real
    comparison without relaxing gates, and record outcome metrics or a feasibility failure.
 3. Review those results and limitations before declaring Phase 4 complete. Complete district

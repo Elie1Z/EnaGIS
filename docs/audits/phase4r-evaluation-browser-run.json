@@ -1,0 +1,597 @@
+{
+ "schema": "enagis-phase4r-evaluation-v1",
+ "generated_at": "2026-10-10T10:44Z",
+ "ran_in": "browser (live/tools/harvest.js session; same live/js/siting.js evaluate/train code)",
+ "seconds": 7.905,
+ "protocol": {
+  "file": "docs/spec/phase4r-protocol.md",
+  "version": "v1.1",
+  "sha256": "1a3bc8caac56aed82ef74ae853061c66f6b27325a1c57c0ca52643013532f018"
+ },
+ "code": {
+  "file": "live/js/siting.js",
+  "sha256": "a81a590d2b3ff6eed790d83bbfcc571a790ee3151bd020244a25d3c17ffa436a",
+  "note": "evaluate(), fit(), train() unchanged since the protocol was frozen; later edits touch only in-app display (apply, reasons)"
+ },
+ "input": {
+  "file": "data/rwanda/siting_cells.csv",
+  "sha256": "664350e8aa446b228ee541143621a3cdaeaca6250b4f6c136355f08565b11c92",
+  "rows": 25281,
+  "bytes": 1866355,
+  "overture_release": "2026-09-23.1",
+  "retrieved": "2026-10-10"
+ },
+ "label": "y_any",
+ "v1_processing_or_storage": {
+  "verdict": "FEASIBILITY",
+  "positive_cells": 44,
+  "positive_districts": 20,
+  "gate": false
+ },
+ "verdict": "KEEP",
+ "evaluation": {
+  "protocol": {
+   "label": "y_any",
+   "ks": [
+    0.1,
+    0.2
+   ],
+   "lambda": 1,
+   "draws": 2000,
+   "seed": 20261011,
+   "min_pos": 60,
+   "min_blocks": 6
+  },
+  "cells": 25281,
+  "districts": 30,
+  "positive_cells": 134,
+  "positive_districts": 27,
+  "gate": true,
+  "arms": [
+   {
+    "arm": "model",
+    "label": "EnaGIS siting model (all features)",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.731343,
+      "ci": [
+       0.615385,
+       0.839286
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.880597,
+      "ci": [
+       0.817553,
+       0.945479
+      ]
+     }
+    ],
+    "auc": 0.933667
+   },
+   {
+    "arm": "model_no_roofs",
+    "label": "Same model without roof-size features",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.597015,
+      "ci": [
+       0.5,
+       0.699189
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.761194,
+      "ci": [
+       0.656244,
+       0.852948
+      ]
+     }
+    ],
+    "auc": 0.895124
+   },
+   {
+    "arm": "people",
+    "label": "Most buildings (people) in the cell",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.492537,
+      "ci": [
+       0.390905,
+       0.598299
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.626866,
+      "ci": [
+       0.528662,
+       0.725819
+      ]
+     }
+    ],
+    "auc": 0.854041
+   },
+   {
+    "arm": "density",
+    "label": "Most buildings within 2 km",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.350746,
+      "ci": [
+       0.284768,
+       0.410268
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.537313,
+      "ci": [
+       0.407131,
+       0.65001
+      ]
+     }
+    ],
+    "auc": 0.782303
+   },
+   {
+    "arm": "road",
+    "label": "Closest to a major road",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.343284,
+      "ci": [
+       0.24822,
+       0.434109
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.61194,
+      "ci": [
+       0.510417,
+       0.714286
+      ]
+     }
+    ],
+    "auc": 0.825711
+   },
+   {
+    "arm": "town",
+    "label": "Closest to a town or village centre",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.291045,
+      "ci": [
+       0.202675,
+       0.408375
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.485075,
+      "ci": [
+       0.401194,
+       0.604417
+      ]
+     }
+    ],
+    "auc": 0.760837
+   },
+   {
+    "arm": "grid",
+    "label": "Closest to the mapped grid",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.164179,
+      "ci": [
+       0.091602,
+       0.241386
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.291045,
+      "ci": [
+       0.188522,
+       0.382817
+      ]
+     }
+    ],
+    "auc": 0.702605
+   }
+  ],
+  "best_baseline": [
+   "people",
+   "people"
+  ],
+  "margin": [
+   {
+    "k": 0.1,
+    "point": 0.238806,
+    "ci": [
+     0.133857,
+     0.343952
+    ]
+   },
+   {
+    "k": 0.2,
+    "point": 0.253731,
+    "ci": [
+     0.160579,
+     0.314311
+    ]
+   }
+  ],
+  "roof_gain": [
+   {
+    "k": 0.1,
+    "point": 0.134328,
+    "ci": [
+     0.050505,
+     0.2143
+    ]
+   },
+   {
+    "k": 0.2,
+    "point": 0.119403,
+    "ci": [
+     0.060396,
+     0.194451
+    ]
+   }
+  ],
+  "verdict": "KEEP",
+  "coefficient_stability": [
+   {
+    "feature": "log_bld",
+    "label": "Buildings in the cell",
+    "mean": 1.004316,
+    "positive_share": 1
+   },
+   {
+    "feature": "log_bld_2km",
+    "label": "Buildings within about 2 km",
+    "mean": -2.343712,
+    "positive_share": 0
+   },
+   {
+    "feature": "log_roof200",
+    "label": "Roofs of 200 m² or more",
+    "mean": 0.392504,
+    "positive_share": 1
+   },
+   {
+    "feature": "log_roof600",
+    "label": "Roofs of 600 m² or more",
+    "mean": -0.057422,
+    "positive_share": 0
+   },
+   {
+    "feature": "log_roof_max",
+    "label": "Largest roof in the cell",
+    "mean": 2.489546,
+    "positive_share": 1
+   },
+   {
+    "feature": "major_road_km",
+    "label": "Major road length in the cell",
+    "mean": 0.319186,
+    "positive_share": 1
+   },
+   {
+    "feature": "log_minor_road_km",
+    "label": "Minor roads and tracks",
+    "mean": 0.473288,
+    "positive_share": 1
+   },
+   {
+    "feature": "log_dist_major_road",
+    "label": "Distance to a major road",
+    "mean": -0.114761,
+    "positive_share": 0.033333
+   },
+   {
+    "feature": "log_dist_power",
+    "label": "Distance to the mapped grid",
+    "mean": -0.032089,
+    "positive_share": 0.166667
+   },
+   {
+    "feature": "log_dist_centre",
+    "label": "Distance to a town or village centre",
+    "mean": -0.465335,
+    "positive_share": 0
+   },
+   {
+    "feature": "urban_share",
+    "label": "Share of buildings in dense blocks",
+    "mean": 0.023979,
+    "positive_share": 0.933333
+   }
+  ],
+  "per_district": [
+   {
+    "district": "Bugesera",
+    "cells": 1280,
+    "positives": 4,
+    "model_captured_10": 4,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Burera",
+    "cells": 641,
+    "positives": 1,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Gakenke",
+    "cells": 712,
+    "positives": 2,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Gasabo",
+    "cells": 431,
+    "positives": 13,
+    "model_captured_10": 10,
+    "best_baseline_captured_10": 6
+   },
+   {
+    "district": "Gatsibo",
+    "cells": 1575,
+    "positives": 0,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Gicumbi",
+    "cells": 841,
+    "positives": 2,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 2
+   },
+   {
+    "district": "Gisagara",
+    "cells": 675,
+    "positives": 1,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Huye",
+    "cells": 573,
+    "positives": 10,
+    "model_captured_10": 6,
+    "best_baseline_captured_10": 6
+   },
+   {
+    "district": "Kamonyi",
+    "cells": 650,
+    "positives": 0,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Karongi",
+    "cells": 982,
+    "positives": 4,
+    "model_captured_10": 4,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Kayonza",
+    "cells": 1944,
+    "positives": 5,
+    "model_captured_10": 4,
+    "best_baseline_captured_10": 2
+   },
+   {
+    "district": "Kicukiro",
+    "cells": 172,
+    "positives": 15,
+    "model_captured_10": 5,
+    "best_baseline_captured_10": 5
+   },
+   {
+    "district": "Kirehe",
+    "cells": 1167,
+    "positives": 2,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Muhanga",
+    "cells": 654,
+    "positives": 1,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Musanze",
+    "cells": 533,
+    "positives": 2,
+    "model_captured_10": 2,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Ngoma",
+    "cells": 868,
+    "positives": 0,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Ngororero",
+    "cells": 687,
+    "positives": 6,
+    "model_captured_10": 6,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Nyabihu",
+    "cells": 534,
+    "positives": 6,
+    "model_captured_10": 5,
+    "best_baseline_captured_10": 4
+   },
+   {
+    "district": "Nyagatare",
+    "cells": 1910,
+    "positives": 2,
+    "model_captured_10": 2,
+    "best_baseline_captured_10": 2
+   },
+   {
+    "district": "Nyamagabe",
+    "cells": 1064,
+    "positives": 9,
+    "model_captured_10": 8,
+    "best_baseline_captured_10": 4
+   },
+   {
+    "district": "Nyamasheke",
+    "cells": 1189,
+    "positives": 11,
+    "model_captured_10": 7,
+    "best_baseline_captured_10": 2
+   },
+   {
+    "district": "Nyanza",
+    "cells": 671,
+    "positives": 1,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Nyarugenge",
+    "cells": 133,
+    "positives": 8,
+    "model_captured_10": 5,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Nyaruguru",
+    "cells": 1020,
+    "positives": 4,
+    "model_captured_10": 2,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Rubavu",
+    "cells": 400,
+    "positives": 4,
+    "model_captured_10": 4,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Ruhango",
+    "cells": 629,
+    "positives": 1,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Rulindo",
+    "cells": 560,
+    "positives": 2,
+    "model_captured_10": 2,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Rusizi",
+    "cells": 963,
+    "positives": 12,
+    "model_captured_10": 11,
+    "best_baseline_captured_10": 10
+   },
+   {
+    "district": "Rutsiro",
+    "cells": 1151,
+    "positives": 5,
+    "model_captured_10": 5,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Rwamagana",
+    "cells": 672,
+    "positives": 1,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 0
+   }
+  ]
+ },
+ "model": {
+  "schema": "enagis-siting-v1",
+  "features": [
+   "log_bld",
+   "log_bld_2km",
+   "log_roof200",
+   "log_roof600",
+   "log_roof_max",
+   "major_road_km",
+   "log_minor_road_km",
+   "log_dist_major_road",
+   "log_dist_power",
+   "log_dist_centre",
+   "urban_share"
+  ],
+  "intercept": -2.84367,
+  "coef": [
+   1.005538,
+   -2.346037,
+   0.392084,
+   -0.057707,
+   2.487281,
+   0.318253,
+   0.471161,
+   -0.114867,
+   -0.03252,
+   -0.463121,
+   0.024223
+  ],
+  "mean": [
+   4.208551,
+   7.662676,
+   0.72824,
+   0.109925,
+   4.608483,
+   0.333537,
+   1.210821,
+   0.82463,
+   1.903426,
+   1.754835,
+   0.047522
+  ],
+  "sd": [
+   2.189175,
+   2.425422,
+   1.044379,
+   0.397825,
+   2.085041,
+   0.616538,
+   0.710418,
+   0.549457,
+   0.838965,
+   0.710709,
+   0.15239
+  ],
+  "lambda": 1,
+  "trained_on": {
+   "cells": 25281,
+   "positive_cells": 134,
+   "label": "y_any"
+  }
+ }
+}

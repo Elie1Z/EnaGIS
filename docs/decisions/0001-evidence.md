@@ -1,6 +1,6 @@
 # Evidence packet for commodity and pilot decision
 
-Scope: original **Rwanda** audit. The user subsequently authorized an international pilot in [decision 0002](0002-global-transfer.md); see the [global evidence update](0002-pilot-evidence.md). Local no-go findings here do not exclude a commodity worldwide.
+Scope: original **Rwanda** audit. The team subsequently authorized an international pilot in [decision 0002](0002-global-transfer.md); see the [global evidence update](0002-pilot-evidence.md). Local no-go findings here do not exclude a commodity worldwide.
 
 Audit date: 7 October 2026. Gate rule comes from the final PRD §6: (1) ≥60 geolocated processing/storage facilities at sector level or better; (2) capacity or throughput for ≥30 facilities, with district-total hindcast as stated fallback; (3) documented verification pathway and one named contact; (4) processing at aggregation; (5) plausible energy cost relative to product value. The first candidate passing all gates wins. Unverified means **not yet passed**, not failed in reality.
 

@@ -38,7 +38,7 @@ node scripts/demo_preflight.mjs                       # optional, needs Edge or 
 | Phase 2 input index | `bf077b5fe497e31324035fdd02934fd2c82496d67370f3ae1220c116c37fe61d` |
 | Phase 4 protocol | `ccb98f6b1f4f90d0e93335d27b9adc8887eca1e18a3069c8041a82cea61f763f` |
 | `app/manifest.json` at Phase 8 (`63579eb`) | `d7c8c5549549a85cdc1efe3f27c80bc61296b03aef48ee47eb5e23e1775a07de` |
-| `app/manifest.json` after this audit | see [audit/changes.md](audit/changes.md) |
+| `app/manifest.json` now | recomputed by `make mvp verify-mvp` |
 
 Raw inputs are pinned by SHA-256 in [data/manifest.json](data/manifest.json) and listed in the
 [data catalogue](data-catalogue.md). Seeds: Phase 4 `20261008`; stress proposal `20261009`.
@@ -59,5 +59,5 @@ Raw inputs are pinned by SHA-256 in [data/manifest.json](data/manifest.json) and
 - GitHub-hosted clean Ubuntu runner: CI green on `63579eb`
   (https://github.com/Elie1Z/EnaGIS/actions/runs/37861220385).
 - Author clean-room from a fresh clone: 227 tests passed and the rebuilt `app/manifest.json` was
-  byte-identical to the Phase 8 record ([audit-log](audit/audit-log.md), entry 4).
+  byte-identical to the Phase 8 record (clean-room check, 9 October 2026).
 - **Not yet done:** a rebuild by a person who did not write the pipeline (PRD §10).

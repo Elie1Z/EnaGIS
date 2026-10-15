@@ -1,6 +1,6 @@
 # 0004 — Source normalization and reporting geography
 
-Status: **implemented data interface**, 7 October 2026. The user authorized Phase 2. Decision 0003's country, commodity, node class, service and transfer footprint remain frozen. This decision records concrete source differences found during ingestion; it supplies no scientific parameters.
+Status: **implemented data interface**, 7 October 2026. The team authorized Phase 2. Decision 0003's country, commodity, node class, service and transfer footprint remain frozen. This decision records concrete source differences found during ingestion; it supplies no scientific parameters.
 
 ## Production category and geography
 

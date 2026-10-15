@@ -1,0 +1,594 @@
+{
+ "schema": "enagis-phase4r-evaluation-v1",
+ "generated_at": "2026-10-10T14:19:49.782Z",
+ "seconds": 8.378,
+ "protocol": {
+  "file": "docs/spec/phase4r-protocol.md",
+  "sha256": "1a3bc8caac56aed82ef74ae853061c66f6b27325a1c57c0ca52643013532f018"
+ },
+ "code": {
+  "file": "live/js/siting.js",
+  "sha256": "65cbf15d75f9220908831f9def871fa3526911f30ec3718f9cf0a587a850c716"
+ },
+ "input": {
+  "file": "data/rwanda/siting_cells.csv",
+  "sha256": "664350e8aa446b228ee541143621a3cdaeaca6250b4f6c136355f08565b11c92",
+  "rows": 25281
+ },
+ "protocol_version": "v1.1",
+ "label": "y_any",
+ "v1_processing_or_storage": {
+  "verdict": "FEASIBILITY",
+  "positive_cells": 44,
+  "positive_districts": 20,
+  "gate": false,
+  "arms": null
+ },
+ "verdict": "KEEP",
+ "evaluation": {
+  "protocol": {
+   "label": "y_any",
+   "ks": [
+    0.1,
+    0.2
+   ],
+   "lambda": 1,
+   "draws": 2000,
+   "seed": 20261011,
+   "min_pos": 60,
+   "min_blocks": 6
+  },
+  "cells": 25281,
+  "districts": 30,
+  "positive_cells": 134,
+  "positive_districts": 27,
+  "gate": true,
+  "arms": [
+   {
+    "arm": "model",
+    "label": "EnaGIS siting model (all features)",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.7313432835820896,
+      "ci": [
+       0.6153846153846154,
+       0.8392857142857143
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.8805970149253731,
+      "ci": [
+       0.8175532149796856,
+       0.9454788961038959
+      ]
+     }
+    ],
+    "auc": 0.9336670526557573
+   },
+   {
+    "arm": "model_no_roofs",
+    "label": "Same model without roof-size features",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.5970149253731343,
+      "ci": [
+       0.5,
+       0.6991885200806895
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.7611940298507462,
+      "ci": [
+       0.65624375,
+       0.8529479222881813
+      ]
+     }
+    ],
+    "auc": 0.8951238360232876
+   },
+   {
+    "arm": "people",
+    "label": "Most buildings (people) in the cell",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.4925373134328358,
+      "ci": [
+       0.39090457555689345,
+       0.5982993197278911
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.6268656716417911,
+      "ci": [
+       0.5286624203821656,
+       0.7258191850594227
+      ]
+     }
+    ],
+    "auc": 0.8540410743039881
+   },
+   {
+    "arm": "density",
+    "label": "Most buildings within 2 km",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.35074626865671643,
+      "ci": [
+       0.2847682119205298,
+       0.4102678571428571
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.5373134328358209,
+      "ci": [
+       0.40713095238095237,
+       0.650010162601626
+      ]
+     }
+    ],
+    "auc": 0.7823028947994746
+   },
+   {
+    "arm": "road",
+    "label": "Closest to a major road",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.34328358208955223,
+      "ci": [
+       0.2482196237031827,
+       0.43410852713178294
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.6119402985074627,
+      "ci": [
+       0.5104166666666666,
+       0.7142857142857143
+      ]
+     }
+    ],
+    "auc": 0.8257106423186885
+   },
+   {
+    "arm": "town",
+    "label": "Closest to a town or village centre",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.291044776119403,
+      "ci": [
+       0.2026754577157803,
+       0.40837499999999977
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.48507462686567165,
+      "ci": [
+       0.4011937063373254,
+       0.6044172932330826
+      ]
+     }
+    ],
+    "auc": 0.7608373213267183
+   },
+   {
+    "arm": "grid",
+    "label": "Closest to the mapped grid",
+    "recall": [
+     {
+      "k": 0.1,
+      "point": 0.16417910447761194,
+      "ci": [
+       0.09160170949360284,
+       0.24138649425287353
+      ]
+     },
+     {
+      "k": 0.2,
+      "point": 0.291044776119403,
+      "ci": [
+       0.1885216203373723,
+       0.38281665558510636
+      ]
+     }
+    ],
+    "auc": 0.7026050999229011
+   }
+  ],
+  "best_baseline": [
+   "people",
+   "people"
+  ],
+  "margin": [
+   {
+    "k": 0.1,
+    "point": 0.23880597014925375,
+    "ci": [
+     0.13385688144615723,
+     0.3439524690089719
+    ]
+   },
+   {
+    "k": 0.2,
+    "point": 0.25373134328358204,
+    "ci": [
+     0.1605787770279575,
+     0.3143114543114542
+    ]
+   }
+  ],
+  "roof_gain": [
+   {
+    "k": 0.1,
+    "point": 0.13432835820895528,
+    "ci": [
+     0.0505050505050505,
+     0.21430047225501764
+    ]
+   },
+   {
+    "k": 0.2,
+    "point": 0.11940298507462688,
+    "ci": [
+     0.060396376848160696,
+     0.1944505899705014
+    ]
+   }
+  ],
+  "verdict": "KEEP",
+  "coefficient_stability": [
+   {
+    "feature": "log_bld",
+    "label": "Buildings in the cell",
+    "mean": 1.0043156640152446,
+    "positive_share": 1
+   },
+   {
+    "feature": "log_bld_2km",
+    "label": "Buildings within about 2 km",
+    "mean": -2.3437117189326444,
+    "positive_share": 0
+   },
+   {
+    "feature": "log_roof200",
+    "label": "Roofs of 200 m² or more",
+    "mean": 0.3925043728782623,
+    "positive_share": 1
+   },
+   {
+    "feature": "log_roof600",
+    "label": "Roofs of 600 m² or more",
+    "mean": -0.0574217404934628,
+    "positive_share": 0
+   },
+   {
+    "feature": "log_roof_max",
+    "label": "Largest roof in the cell",
+    "mean": 2.489545932905109,
+    "positive_share": 1
+   },
+   {
+    "feature": "major_road_km",
+    "label": "Major road length in the cell",
+    "mean": 0.319185594744989,
+    "positive_share": 1
+   },
+   {
+    "feature": "log_minor_road_km",
+    "label": "Minor roads and tracks",
+    "mean": 0.47328835963289034,
+    "positive_share": 1
+   },
+   {
+    "feature": "log_dist_major_road",
+    "label": "Distance to a major road",
+    "mean": -0.11476088232967986,
+    "positive_share": 0.03333333333333333
+   },
+   {
+    "feature": "log_dist_power",
+    "label": "Distance to the mapped grid",
+    "mean": -0.032088738303777536,
+    "positive_share": 0.16666666666666666
+   },
+   {
+    "feature": "log_dist_centre",
+    "label": "Distance to a town or village centre",
+    "mean": -0.4653347532806444,
+    "positive_share": 0
+   },
+   {
+    "feature": "urban_share",
+    "label": "Share of buildings in dense blocks",
+    "mean": 0.023979428244369962,
+    "positive_share": 0.9333333333333333
+   }
+  ],
+  "per_district": [
+   {
+    "district": "Bugesera",
+    "cells": 1280,
+    "positives": 4,
+    "model_captured_10": 4,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Burera",
+    "cells": 641,
+    "positives": 1,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Gakenke",
+    "cells": 712,
+    "positives": 2,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Gasabo",
+    "cells": 431,
+    "positives": 13,
+    "model_captured_10": 10,
+    "best_baseline_captured_10": 6
+   },
+   {
+    "district": "Gatsibo",
+    "cells": 1575,
+    "positives": 0,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Gicumbi",
+    "cells": 841,
+    "positives": 2,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 2
+   },
+   {
+    "district": "Gisagara",
+    "cells": 675,
+    "positives": 1,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Huye",
+    "cells": 573,
+    "positives": 10,
+    "model_captured_10": 6,
+    "best_baseline_captured_10": 6
+   },
+   {
+    "district": "Kamonyi",
+    "cells": 650,
+    "positives": 0,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Karongi",
+    "cells": 982,
+    "positives": 4,
+    "model_captured_10": 4,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Kayonza",
+    "cells": 1944,
+    "positives": 5,
+    "model_captured_10": 4,
+    "best_baseline_captured_10": 2
+   },
+   {
+    "district": "Kicukiro",
+    "cells": 172,
+    "positives": 15,
+    "model_captured_10": 5,
+    "best_baseline_captured_10": 5
+   },
+   {
+    "district": "Kirehe",
+    "cells": 1167,
+    "positives": 2,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Muhanga",
+    "cells": 654,
+    "positives": 1,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Musanze",
+    "cells": 533,
+    "positives": 2,
+    "model_captured_10": 2,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Ngoma",
+    "cells": 868,
+    "positives": 0,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Ngororero",
+    "cells": 687,
+    "positives": 6,
+    "model_captured_10": 6,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Nyabihu",
+    "cells": 534,
+    "positives": 6,
+    "model_captured_10": 5,
+    "best_baseline_captured_10": 4
+   },
+   {
+    "district": "Nyagatare",
+    "cells": 1910,
+    "positives": 2,
+    "model_captured_10": 2,
+    "best_baseline_captured_10": 2
+   },
+   {
+    "district": "Nyamagabe",
+    "cells": 1064,
+    "positives": 9,
+    "model_captured_10": 8,
+    "best_baseline_captured_10": 4
+   },
+   {
+    "district": "Nyamasheke",
+    "cells": 1189,
+    "positives": 11,
+    "model_captured_10": 7,
+    "best_baseline_captured_10": 2
+   },
+   {
+    "district": "Nyanza",
+    "cells": 671,
+    "positives": 1,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Nyarugenge",
+    "cells": 133,
+    "positives": 8,
+    "model_captured_10": 5,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Nyaruguru",
+    "cells": 1020,
+    "positives": 4,
+    "model_captured_10": 2,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Rubavu",
+    "cells": 400,
+    "positives": 4,
+    "model_captured_10": 4,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Ruhango",
+    "cells": 629,
+    "positives": 1,
+    "model_captured_10": 0,
+    "best_baseline_captured_10": 0
+   },
+   {
+    "district": "Rulindo",
+    "cells": 560,
+    "positives": 2,
+    "model_captured_10": 2,
+    "best_baseline_captured_10": 1
+   },
+   {
+    "district": "Rusizi",
+    "cells": 963,
+    "positives": 12,
+    "model_captured_10": 11,
+    "best_baseline_captured_10": 10
+   },
+   {
+    "district": "Rutsiro",
+    "cells": 1151,
+    "positives": 5,
+    "model_captured_10": 5,
+    "best_baseline_captured_10": 3
+   },
+   {
+    "district": "Rwamagana",
+    "cells": 672,
+    "positives": 1,
+    "model_captured_10": 1,
+    "best_baseline_captured_10": 0
+   }
+  ]
+ },
+ "sensitivity_any_aggregation_point": null,
+ "model": {
+  "schema": "enagis-siting-v1",
+  "features": [
+   "log_bld",
+   "log_bld_2km",
+   "log_roof200",
+   "log_roof600",
+   "log_roof_max",
+   "major_road_km",
+   "log_minor_road_km",
+   "log_dist_major_road",
+   "log_dist_power",
+   "log_dist_centre",
+   "urban_share"
+  ],
+  "intercept": -2.8436702642034453,
+  "coef": [
+   1.0055378059020685,
+   -2.3460370584854653,
+   0.39208418580330556,
+   -0.05770686464566246,
+   2.487280913853878,
+   0.31825348889976995,
+   0.47116143543278755,
+   -0.11486719832028741,
+   -0.032520188700735066,
+   -0.46312138902938943,
+   0.024222674274374814
+  ],
+  "mean": [
+   4.208550695215297,
+   7.662675774927939,
+   0.7282400780473914,
+   0.10992484020324536,
+   4.608483234488202,
+   0.33353656896483497,
+   1.2108209749820966,
+   0.824630033408396,
+   1.903425549018664,
+   1.754835420744984,
+   0.04752213124480838
+  ],
+  "sd": [
+   2.1891748287832375,
+   2.425421972796285,
+   1.0443785863665587,
+   0.3978253786555462,
+   2.0850414391751215,
+   0.6165378657095304,
+   0.710417668582953,
+   0.549456536089732,
+   0.8389646882405309,
+   0.7107085802129783,
+   0.15239044402322732
+  ],
+  "lambda": 1,
+  "trained_on": {
+   "cells": 25281,
+   "positive_cells": 134,
+   "label": "y_any"
+  }
+ }
+}

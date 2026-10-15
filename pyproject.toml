@@ -17,6 +17,9 @@ enagis = "enagis.cli:main"
 
 [dependency-groups]
 dev = ["pytest>=8,<10", "ruff>=0.14,<1"]
+research = [
+    "xgboost-cpu==3.4.1",
+]
 
 [build-system]
 requires = ["hatchling==1.32.4"]

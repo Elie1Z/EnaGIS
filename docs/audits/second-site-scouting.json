@@ -1,0 +1,3722 @@
+{
+ "schema": "enagis-second-site-scouting-v1",
+ "run": {
+  "started_at": "2026-10-11T04:47:39.569Z",
+  "finished_at": "2026-10-11T04:47:55.066Z",
+  "offline": true,
+  "bytes": 26402645,
+  "requests": 628,
+  "note": "Traffic is cumulative over every live scouting process (restarts and the cache warmer), excluding about 3 MB of manual API probes made while writing the script.",
+  "processes": 5
+ },
+ "config": {
+  "schema": "enagis-second-site-candidates-v1",
+  "status": "Candidate regions and checklist from docs/claude-code-prompt-advanced-tools.md (Elie, 10 Oct 2026). Regions are unverified until scripts/scout-sites.mjs records them.",
+  "checklist": {
+   "energy_access_regions": [
+    "Africa",
+    "South Asia"
+   ],
+   "min_positive_facilities": 300,
+   "min_subdistricts_with_positives": 6,
+   "label_types": [
+    "mill",
+    "milk_centre",
+    "cold_store",
+    "coffee_station",
+    "warehouse",
+    "agro_factory",
+    "tea_factory"
+   ],
+   "any_point_types": [
+    "mill",
+    "milk_centre",
+    "cold_store",
+    "coffee_station",
+    "warehouse",
+    "agro_factory",
+    "tea_factory",
+    "market",
+    "cooperative"
+   ],
+   "redistributable_label_licences": [
+    "ODbL-1.0"
+   ],
+   "detector_max_gsd_m": 1,
+   "detector_small_asset_max_gsd_m": 0.6,
+   "detector_min_covered_positives": 300,
+   "training_licences": [
+    "CC-BY-4.0",
+    "CC-BY-SA-4.0",
+    "CC0-1.0",
+    "PDDL-1.0",
+    "ODbL-1.0"
+   ]
+  },
+  "sampling": {
+   "overture_release": "2026-09-23.1",
+   "zoom": 14,
+   "random_tiles_per_unit": 8,
+   "facility_tiles_per_unit": 8,
+   "facility_roof_radius_m": 100,
+   "seed": 20261014,
+   "traffic_cap_mb": 280
+  },
+  "candidates": [
+   {
+    "id": "in-up-potato-belt",
+    "label": "India, Uttar Pradesh potato cold-storage belt",
+    "region": "South Asia",
+    "country": "IND",
+    "units": [
+     "Agra district, Uttar Pradesh, India",
+     "Firozabad district, Uttar Pradesh, India",
+     "Hathras district, Uttar Pradesh, India"
+    ]
+   },
+   {
+    "id": "in-wb-potato-belt",
+    "label": "India, West Bengal potato cold-storage belt",
+    "region": "South Asia",
+    "country": "IND",
+    "units": [
+     "Hooghly district, West Bengal, India",
+     "Purba Bardhaman district, West Bengal, India"
+    ]
+   },
+   {
+    "id": "bd-potato",
+    "label": "Bangladesh potato areas",
+    "region": "South Asia",
+    "country": "BGD",
+    "units": [
+     "Munshiganj District, Bangladesh",
+     "Bogura District, Bangladesh"
+    ]
+   },
+   {
+    "id": "ke-highlands",
+    "label": "Kenya, Nyandarua and Meru",
+    "region": "Africa",
+    "country": "KEN",
+    "units": [
+     "Nyandarua, Kenya",
+     "Meru County, Kenya"
+    ]
+   },
+   {
+    "id": "ug-kabale",
+    "label": "Uganda, Kabale",
+    "region": "Africa",
+    "country": "UGA",
+    "units": [
+     "Kabale, Uganda"
+    ]
+   },
+   {
+    "id": "tz-njombe",
+    "label": "Tanzania, Njombe",
+    "region": "Africa",
+    "country": "TZA",
+    "units": [
+     "Njombe Region, Tanzania"
+    ]
+   },
+   {
+    "id": "et-gojjam",
+    "label": "Ethiopia, Gojjam (East and West Gojjam zones)",
+    "region": "Africa",
+    "country": "ETH",
+    "units": [
+     "East Gojjam",
+     "West Gojjam"
+    ]
+   }
+  ]
+ },
+ "config_sha256": "4a6584021d58890702fdb0d0bdc09dbaa3e237ded28f4657d8cd09c214e81612",
+ "candidates": [
+  {
+   "id": "in-up-potato-belt",
+   "label": "India, Uttar Pradesh potato cold-storage belt",
+   "tests": {
+    "energy_access_region": {
+     "pass": true,
+     "value": "South Asia"
+    },
+    "labelled_positives": {
+     "pass": false,
+     "value": 13,
+     "strict_rules_value": 13,
+     "need": 300
+    },
+    "subdistrict_spread": {
+     "pass": false,
+     "value": 5,
+     "need": 6
+    },
+    "redistributable_labels": {
+     "pass": true,
+     "value": "OpenStreetMap, ODbL-1.0 (share-alike)"
+    },
+    "detector_imagery": {
+     "pass": false,
+     "value": 0,
+     "value_le_0_6m": 0,
+     "need": 300
+    }
+   },
+   "incomplete_units": [],
+   "footprint_classifier_c1": "FAIL",
+   "image_detector_c2": "FAIL",
+   "failed_tests": [
+    "labelled_positives",
+    "subdistrict_spread",
+    "detector_imagery"
+   ]
+  },
+  {
+   "id": "in-wb-potato-belt",
+   "label": "India, West Bengal potato cold-storage belt",
+   "tests": {
+    "energy_access_region": {
+     "pass": true,
+     "value": "South Asia"
+    },
+    "labelled_positives": {
+     "pass": false,
+     "value": 18,
+     "strict_rules_value": 18,
+     "need": 300
+    },
+    "subdistrict_spread": {
+     "pass": true,
+     "value": 11,
+     "need": 6
+    },
+    "redistributable_labels": {
+     "pass": true,
+     "value": "OpenStreetMap, ODbL-1.0 (share-alike)"
+    },
+    "detector_imagery": {
+     "pass": false,
+     "value": 0,
+     "value_le_0_6m": 0,
+     "need": 300
+    }
+   },
+   "incomplete_units": [],
+   "footprint_classifier_c1": "FAIL",
+   "image_detector_c2": "FAIL",
+   "failed_tests": [
+    "labelled_positives",
+    "detector_imagery"
+   ]
+  },
+  {
+   "id": "bd-potato",
+   "label": "Bangladesh potato areas",
+   "tests": {
+    "energy_access_region": {
+     "pass": true,
+     "value": "South Asia"
+    },
+    "labelled_positives": {
+     "pass": false,
+     "value": 64,
+     "strict_rules_value": 64,
+     "need": 300
+    },
+    "subdistrict_spread": {
+     "pass": true,
+     "value": 11,
+     "need": 6
+    },
+    "redistributable_labels": {
+     "pass": true,
+     "value": "OpenStreetMap, ODbL-1.0 (share-alike)"
+    },
+    "detector_imagery": {
+     "pass": false,
+     "value": 0,
+     "value_le_0_6m": 0,
+     "need": 300
+    }
+   },
+   "incomplete_units": [],
+   "footprint_classifier_c1": "FAIL",
+   "image_detector_c2": "FAIL",
+   "failed_tests": [
+    "labelled_positives",
+    "detector_imagery"
+   ]
+  },
+  {
+   "id": "ke-highlands",
+   "label": "Kenya, Nyandarua and Meru",
+   "tests": {
+    "energy_access_region": {
+     "pass": true,
+     "value": "Africa"
+    },
+    "labelled_positives": {
+     "pass": false,
+     "value": 5,
+     "strict_rules_value": 5,
+     "need": 300
+    },
+    "subdistrict_spread": {
+     "pass": false,
+     "value": 3,
+     "need": 6
+    },
+    "redistributable_labels": {
+     "pass": true,
+     "value": "OpenStreetMap, ODbL-1.0 (share-alike)"
+    },
+    "detector_imagery": {
+     "pass": false,
+     "value": 0,
+     "value_le_0_6m": 0,
+     "need": 300
+    }
+   },
+   "incomplete_units": [],
+   "footprint_classifier_c1": "FAIL",
+   "image_detector_c2": "FAIL",
+   "failed_tests": [
+    "labelled_positives",
+    "subdistrict_spread",
+    "detector_imagery"
+   ]
+  },
+  {
+   "id": "ug-kabale",
+   "label": "Uganda, Kabale",
+   "tests": {
+    "energy_access_region": {
+     "pass": true,
+     "value": "Africa"
+    },
+    "labelled_positives": {
+     "pass": false,
+     "value": 3,
+     "strict_rules_value": 3,
+     "need": 300
+    },
+    "subdistrict_spread": {
+     "pass": false,
+     "value": 0,
+     "need": 6
+    },
+    "redistributable_labels": {
+     "pass": true,
+     "value": "OpenStreetMap, ODbL-1.0 (share-alike)"
+    },
+    "detector_imagery": {
+     "pass": false,
+     "value": 0,
+     "value_le_0_6m": 0,
+     "need": 300
+    }
+   },
+   "incomplete_units": [],
+   "footprint_classifier_c1": "FAIL",
+   "image_detector_c2": "FAIL",
+   "failed_tests": [
+    "labelled_positives",
+    "subdistrict_spread",
+    "detector_imagery"
+   ]
+  },
+  {
+   "id": "tz-njombe",
+   "label": "Tanzania, Njombe",
+   "tests": {
+    "energy_access_region": {
+     "pass": true,
+     "value": "Africa"
+    },
+    "labelled_positives": {
+     "pass": true,
+     "value": 882,
+     "strict_rules_value": 882,
+     "need": 300
+    },
+    "subdistrict_spread": {
+     "pass": true,
+     "value": 6,
+     "need": 6
+    },
+    "redistributable_labels": {
+     "pass": true,
+     "value": "OpenStreetMap, ODbL-1.0 (share-alike)"
+    },
+    "detector_imagery": {
+     "pass": false,
+     "value": 0,
+     "value_le_0_6m": 0,
+     "need": 300
+    }
+   },
+   "incomplete_units": [],
+   "footprint_classifier_c1": "PASS",
+   "image_detector_c2": "FAIL",
+   "failed_tests": [
+    "detector_imagery"
+   ]
+  },
+  {
+   "id": "et-gojjam",
+   "label": "Ethiopia, Gojjam (East and West Gojjam zones)",
+   "tests": {
+    "energy_access_region": {
+     "pass": true,
+     "value": "Africa"
+    },
+    "labelled_positives": {
+     "pass": false,
+     "value": 2,
+     "strict_rules_value": 2,
+     "need": 300
+    },
+    "subdistrict_spread": {
+     "pass": false,
+     "value": 1,
+     "need": 6
+    },
+    "redistributable_labels": {
+     "pass": true,
+     "value": "OpenStreetMap, ODbL-1.0 (share-alike)"
+    },
+    "detector_imagery": {
+     "pass": false,
+     "value": 0,
+     "value_le_0_6m": 0,
+     "need": 300
+    }
+   },
+   "incomplete_units": [],
+   "footprint_classifier_c1": "FAIL",
+   "image_detector_c2": "FAIL",
+   "failed_tests": [
+    "labelled_positives",
+    "subdistrict_spread",
+    "detector_imagery"
+   ]
+  }
+ ],
+ "units": [
+  {
+   "query": "Agra district, Uttar Pradesh, India",
+   "osm_relation": 1958554,
+   "name": "Agra",
+   "display_name": "Agra, Uttar Pradesh, India",
+   "bbox": [
+    77.3979471,
+    26.7417971,
+    78.8537316,
+    27.4092226
+   ],
+   "area_km2": 4028,
+   "admin_level": 5,
+   "relations_by_level": {
+    "6": 6
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 93,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 38,
+    "milk_centre": 8,
+    "cold_store": 3
+   },
+   "positives": 11,
+   "positives_strict_rules": 11,
+   "positive_label_sources": {
+    "(no source tag)": 11
+   },
+   "any_points": 49,
+   "positives_by_subdistrict": {
+    "Agra": 9,
+    "Kiraoli": 1,
+    "Etmadpur": 1
+   },
+   "subdistricts_total": 6,
+   "osm_power_line_ways": 231,
+   "imagery": {
+    "openaerialmap": {
+     "images": 0,
+     "best_gsd_m": null,
+     "le_1m": 0,
+     "footprint_km2_sum": 0,
+     "dates": null,
+     "licences": [],
+     "list": []
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 854,
+    "tiles_sampled": 8,
+    "buildings_estimate": 1092053,
+    "buildings_per_tile_mean": 1278.75,
+    "buildings_per_tile_range": [
+     434,
+     2632
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 10230,
+     "share_ge_200m2": 0.07429130009775171,
+     "share_ge_600m2": 0.007429130009775171,
+     "p50_m2": 42,
+     "p99_m2": 525,
+     "max_m2": 2184,
+     "largest_10_m2": [
+      2184,
+      2181,
+      1963,
+      1733,
+      1670,
+      1556,
+      1482,
+      1465,
+      1414,
+      1381
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "node/3789950315",
+      "type": "milk_centre",
+      "name": "Kajal Dairy",
+      "largest_roof_m2": 466
+     },
+     {
+      "id": "node/3127490380",
+      "type": "cold_store",
+      "name": "Cold Store",
+      "largest_roof_m2": 637
+     },
+     {
+      "id": "node/3770086543",
+      "type": "milk_centre",
+      "name": "Milk Dairy",
+      "largest_roof_m2": 710
+     },
+     {
+      "id": "node/3762474409",
+      "type": "milk_centre",
+      "name": "Milk Dairy",
+      "largest_roof_m2": 569
+     },
+     {
+      "id": "node/3756868643",
+      "type": "milk_centre",
+      "name": "Kajal Dairy",
+      "largest_roof_m2": 294
+     },
+     {
+      "id": "node/3096767582",
+      "type": "milk_centre",
+      "name": "Mittal Dairy",
+      "largest_roof_m2": 688
+     },
+     {
+      "id": "node/9529343817",
+      "type": "cold_store",
+      "name": "shiv shakti cold storage",
+      "largest_roof_m2": 2408
+     },
+     {
+      "id": "way/304823870",
+      "type": "milk_centre",
+      "name": "Verma Dairy",
+      "largest_roof_m2": 1130
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 5,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "node/3096767582",
+     "type": "milk_centre",
+     "lon": 77.96137,
+     "lat": 27.1891,
+     "subdistrict": "Agra"
+    },
+    {
+     "id": "node/3103506829",
+     "type": "milk_centre",
+     "lon": 78.00603,
+     "lat": 27.19735,
+     "subdistrict": "Agra"
+    },
+    {
+     "id": "node/3756868643",
+     "type": "milk_centre",
+     "lon": 77.97002,
+     "lat": 27.20181,
+     "subdistrict": "Agra"
+    },
+    {
+     "id": "node/3762474409",
+     "type": "milk_centre",
+     "lon": 78.03044,
+     "lat": 27.18925,
+     "subdistrict": "Agra"
+    },
+    {
+     "id": "node/3789950315",
+     "type": "milk_centre",
+     "lon": 77.96239,
+     "lat": 27.2001,
+     "subdistrict": "Agra"
+    },
+    {
+     "id": "node/11698050173",
+     "type": "milk_centre",
+     "lon": 77.96534,
+     "lat": 27.19346,
+     "subdistrict": "Agra"
+    },
+    {
+     "id": "way/304823870",
+     "type": "milk_centre",
+     "lon": 77.9541,
+     "lat": 27.1867,
+     "subdistrict": "Agra"
+    },
+    {
+     "id": "node/3127490380",
+     "type": "cold_store",
+     "lon": 77.93819,
+     "lat": 27.22368,
+     "subdistrict": "Agra"
+    },
+    {
+     "id": "node/3770086543",
+     "type": "milk_centre",
+     "lon": 77.99511,
+     "lat": 27.18839,
+     "subdistrict": "Agra"
+    },
+    {
+     "id": "way/303578446",
+     "type": "cold_store",
+     "lon": 77.76416,
+     "lat": 27.17208,
+     "subdistrict": "Kiraoli"
+    },
+    {
+     "id": "node/9529343817",
+     "type": "cold_store",
+     "lon": 78.04077,
+     "lat": 27.27082,
+     "subdistrict": "Etmadpur"
+    }
+   ]
+  },
+  {
+   "query": "Firozabad district, Uttar Pradesh, India",
+   "osm_relation": 1958557,
+   "name": "Firozabad",
+   "display_name": "Firozabad, Uttar Pradesh, India",
+   "bbox": [
+    78.193984,
+    26.8777529,
+    78.8214228,
+    27.5107243
+   ],
+   "area_km2": 2412,
+   "admin_level": 5,
+   "relations_by_level": {
+    "6": 4
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 7,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 1,
+    "mill": 1
+   },
+   "positives": 1,
+   "positives_strict_rules": 1,
+   "positive_label_sources": {
+    "(no source tag)": 1
+   },
+   "any_points": 2,
+   "positives_by_subdistrict": {
+    "Shikohabad": 1
+   },
+   "subdistricts_total": 4,
+   "osm_power_line_ways": 98,
+   "imagery": {
+    "openaerialmap": {
+     "images": 0,
+     "best_gsd_m": null,
+     "le_1m": 0,
+     "footprint_km2_sum": 0,
+     "dates": null,
+     "licences": [],
+     "list": []
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 510,
+    "tiles_sampled": 8,
+    "buildings_estimate": 491258,
+    "buildings_per_tile_mean": 963.25,
+    "buildings_per_tile_range": [
+     577,
+     1692
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 7706,
+     "share_ge_200m2": 0.02556449519854659,
+     "share_ge_600m2": 0.0027251492343628343,
+     "p50_m2": 34,
+     "p99_m2": 313,
+     "max_m2": 2385,
+     "largest_10_m2": [
+      2385,
+      2290,
+      1952,
+      1853,
+      1796,
+      1375,
+      1010,
+      944,
+      921,
+      871
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "way/495834664",
+      "type": "mill",
+      "name": "Paddy Mill",
+      "largest_roof_m2": 1400
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 1,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "way/495834664",
+     "type": "mill",
+     "lon": 78.58855,
+     "lat": 27.11048,
+     "subdistrict": "Shikohabad"
+    }
+   ]
+  },
+  {
+   "query": "Hathras district, Uttar Pradesh, India",
+   "osm_relation": 1958145,
+   "name": "Hathras",
+   "display_name": "Hathras, Uttar Pradesh, India",
+   "bbox": [
+    77.87384,
+    27.2969515,
+    78.5272823,
+    27.8479208
+   ],
+   "area_km2": 1777,
+   "admin_level": 5,
+   "relations_by_level": {
+    "6": 4
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 9,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "cold_store": 1
+   },
+   "positives": 1,
+   "positives_strict_rules": 1,
+   "positive_label_sources": {
+    "(no source tag)": 1
+   },
+   "any_points": 1,
+   "positives_by_subdistrict": {
+    "Sadabad": 1
+   },
+   "subdistricts_total": 4,
+   "osm_power_line_ways": 53,
+   "imagery": {
+    "openaerialmap": {
+     "images": 0,
+     "best_gsd_m": null,
+     "le_1m": 0,
+     "footprint_km2_sum": 0,
+     "dates": null,
+     "licences": [],
+     "list": []
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 379,
+    "tiles_sampled": 8,
+    "buildings_estimate": 586645,
+    "buildings_per_tile_mean": 1547.875,
+    "buildings_per_tile_range": [
+     299,
+     5817
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 12383,
+     "share_ge_200m2": 0.04473875474440765,
+     "share_ge_600m2": 0.0034725026245659373,
+     "p50_m2": 38,
+     "p99_m2": 394,
+     "max_m2": 2094,
+     "largest_10_m2": [
+      2094,
+      1846,
+      1484,
+      1288,
+      1077,
+      1072,
+      1066,
+      1049,
+      1041,
+      1036
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "node/9225753317",
+      "type": "cold_store",
+      "name": "satya shakti cold storage",
+      "largest_roof_m2": 120
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 0,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "node/9225753317",
+     "type": "cold_store",
+     "lon": 78.03687,
+     "lat": 27.38161,
+     "subdistrict": "Sadabad"
+    }
+   ]
+  },
+  {
+   "query": "Hooghly district, West Bengal, India",
+   "osm_relation": 1970297,
+   "name": "Hooghly",
+   "display_name": "Hooghly, West Bengal, India",
+   "bbox": [
+    87.5042173,
+    22.5951599,
+    88.5076636,
+    23.2247469
+   ],
+   "area_km2": 3145,
+   "admin_level": 5,
+   "relations_by_level": {
+    "6": 18,
+    "7": 1
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 49,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 4,
+    "mill": 3,
+    "cold_store": 3,
+    "warehouse": 3,
+    "agro_factory": 3,
+    "milk_centre": 2
+   },
+   "positives": 14,
+   "positives_strict_rules": 14,
+   "positive_label_sources": {
+    "(no source tag)": 12,
+    "Local Knowledge": 1,
+    "local knowledge": 1
+   },
+   "any_points": 18,
+   "positives_by_subdistrict": {
+    "Chinsurah - Magra": 2,
+    "Singur": 1,
+    "Serampur Uttarpara": 3,
+    "Khanakul - I": 1,
+    "Tarakeswar": 1,
+    "Arambag": 3,
+    "Polba - Dadpur": 2,
+    "Chanditala - II": 1
+   },
+   "subdistricts_total": 18,
+   "osm_power_line_ways": 173,
+   "imagery": {
+    "openaerialmap": {
+     "images": 0,
+     "best_gsd_m": null,
+     "le_1m": 0,
+     "footprint_km2_sum": 0,
+     "dates": null,
+     "licences": [],
+     "list": []
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 616,
+    "tiles_sampled": 8,
+    "buildings_estimate": 1177484,
+    "buildings_per_tile_mean": 1911.5,
+    "buildings_per_tile_range": [
+     607,
+     3570
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 15292,
+     "share_ge_200m2": 0.015367512424797279,
+     "share_ge_600m2": 0.0018964164268898771,
+     "p50_m2": 49,
+     "p99_m2": 244,
+     "max_m2": 5231,
+     "largest_10_m2": [
+      5231,
+      4939,
+      4291,
+      4163,
+      3462,
+      2848,
+      2728,
+      2539,
+      2536,
+      1858
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "way/874170936",
+      "type": "milk_centre",
+      "name": "Mother Dairy Garden.",
+      "largest_roof_m2": 535
+     },
+     {
+      "id": "way/1147811262",
+      "type": "cold_store",
+      "name": "cold storage",
+      "largest_roof_m2": 10073
+     },
+     {
+      "id": "way/1529656270",
+      "type": "agro_factory",
+      "name": null,
+      "largest_roof_m2": 1781
+     },
+     {
+      "id": "way/1442898337",
+      "type": "cold_store",
+      "name": "Lokenath Cold Storage Pvt. Ltd.",
+      "largest_roof_m2": 1397
+     },
+     {
+      "id": "way/843255778",
+      "type": "mill",
+      "name": "Sudarshan Oil Mill",
+      "largest_roof_m2": 267
+     },
+     {
+      "id": "way/1529656267",
+      "type": "agro_factory",
+      "name": null,
+      "largest_roof_m2": 2836
+     },
+     {
+      "id": "way/1529656269",
+      "type": "agro_factory",
+      "name": null,
+      "largest_roof_m2": 1430
+     },
+     {
+      "id": "way/1500969932",
+      "type": "warehouse",
+      "name": null,
+      "largest_roof_m2": 777
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 6,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "way/749595675",
+     "type": "mill",
+     "lon": 88.40766,
+     "lat": 23.00715,
+     "subdistrict": "Chinsurah - Magra"
+    },
+    {
+     "id": "way/1442898337",
+     "type": "cold_store",
+     "lon": 88.21874,
+     "lat": 22.87063,
+     "subdistrict": "Singur"
+    },
+    {
+     "id": "way/1500969932",
+     "type": "warehouse",
+     "lon": 88.32427,
+     "lat": 22.78162,
+     "subdistrict": "Serampur Uttarpara"
+    },
+    {
+     "id": "way/1526752373",
+     "type": "warehouse",
+     "lon": 87.85437,
+     "lat": 22.73886,
+     "subdistrict": "Khanakul - I"
+    },
+    {
+     "id": "way/1529311971",
+     "type": "warehouse",
+     "lon": 88.02571,
+     "lat": 22.88222,
+     "subdistrict": "Tarakeswar"
+    },
+    {
+     "id": "way/1529656267",
+     "type": "agro_factory",
+     "lon": 87.82909,
+     "lat": 22.85964,
+     "subdistrict": "Arambag"
+    },
+    {
+     "id": "way/1529656269",
+     "type": "agro_factory",
+     "lon": 87.82151,
+     "lat": 22.86532,
+     "subdistrict": "Arambag"
+    },
+    {
+     "id": "way/1529656270",
+     "type": "agro_factory",
+     "lon": 87.81817,
+     "lat": 22.86654,
+     "subdistrict": "Arambag"
+    },
+    {
+     "id": "node/8089835996",
+     "type": "milk_centre",
+     "lon": 88.30413,
+     "lat": 22.75189,
+     "subdistrict": "Serampur Uttarpara"
+    },
+    {
+     "id": "way/164999534",
+     "type": "mill",
+     "lon": 88.34936,
+     "lat": 22.75276,
+     "subdistrict": "Serampur Uttarpara"
+    },
+    {
+     "id": "way/843255778",
+     "type": "mill",
+     "lon": 88.27795,
+     "lat": 22.97454,
+     "subdistrict": "Polba - Dadpur"
+    },
+    {
+     "id": "way/874170936",
+     "type": "milk_centre",
+     "lon": 88.30568,
+     "lat": 22.68266,
+     "subdistrict": "Chanditala - II"
+    },
+    {
+     "id": "way/1147811262",
+     "type": "cold_store",
+     "lon": 88.37821,
+     "lat": 22.88873,
+     "subdistrict": "Chinsurah - Magra"
+    },
+    {
+     "id": "way/1433033540",
+     "type": "cold_store",
+     "lon": 88.23815,
+     "lat": 22.93044,
+     "subdistrict": "Polba - Dadpur"
+    }
+   ]
+  },
+  {
+   "query": "Purba Bardhaman district, West Bengal, India",
+   "osm_relation": 1970280,
+   "name": "Purba Bardhaman",
+   "display_name": "Purba Bardhaman, West Bengal, India",
+   "bbox": [
+    87.4343705,
+    22.9321718,
+    88.4150227,
+    23.8446652
+   ],
+   "area_km2": 5400,
+   "admin_level": 5,
+   "relations_by_level": {
+    "6": 23
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 28,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 5,
+    "agro_factory": 2,
+    "warehouse": 1,
+    "mill": 1
+   },
+   "positives": 4,
+   "positives_strict_rules": 4,
+   "positive_label_sources": {
+    "(no source tag)": 4
+   },
+   "any_points": 9,
+   "positives_by_subdistrict": {
+    "Ausgram - II": 2,
+    "Raina - I": 1,
+    "Burdwan - I": 1
+   },
+   "subdistricts_total": 23,
+   "osm_power_line_ways": 31,
+   "imagery": {
+    "openaerialmap": {
+     "images": 0,
+     "best_gsd_m": null,
+     "le_1m": 0,
+     "footprint_km2_sum": 0,
+     "dates": null,
+     "licences": [],
+     "list": []
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 1076,
+    "tiles_sampled": 8,
+    "buildings_estimate": 1226506,
+    "buildings_per_tile_mean": 1139.875,
+    "buildings_per_tile_range": [
+     43,
+     3177
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 9119,
+     "share_ge_200m2": 0.015571882881894945,
+     "share_ge_600m2": 0.0013159337646671784,
+     "p50_m2": 41,
+     "p99_m2": 232,
+     "max_m2": 1456,
+     "largest_10_m2": [
+      1456,
+      1119,
+      1085,
+      907,
+      864,
+      711,
+      711,
+      703,
+      700,
+      691
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "way/375748945",
+      "type": "agro_factory",
+      "name": "Matix Fertilizers & Chemicals Ltd.",
+      "largest_roof_m2": 37
+     },
+     {
+      "id": "way/1013952524",
+      "type": "mill",
+      "name": "play ground of Santi rice mill",
+      "largest_roof_m2": 1436
+     },
+     {
+      "id": "node/12899179930",
+      "type": "agro_factory",
+      "name": "Matix Fertilizers & Chemicals Ltd.",
+      "largest_roof_m2": 2143
+     },
+     {
+      "id": "way/874840947",
+      "type": "warehouse",
+      "name": null,
+      "largest_roof_m2": 1807
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 3,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "way/375748945",
+     "type": "agro_factory",
+     "lon": 87.48686,
+     "lat": 23.44216,
+     "subdistrict": "Ausgram - II"
+    },
+    {
+     "id": "node/12899179930",
+     "type": "agro_factory",
+     "lon": 87.49168,
+     "lat": 23.4439,
+     "subdistrict": "Ausgram - II"
+    },
+    {
+     "id": "way/874840947",
+     "type": "warehouse",
+     "lon": 87.8989,
+     "lat": 23.05948,
+     "subdistrict": "Raina - I"
+    },
+    {
+     "id": "way/1013952524",
+     "type": "mill",
+     "lon": 87.83941,
+     "lat": 23.2318,
+     "subdistrict": "Burdwan - I"
+    }
+   ]
+  },
+  {
+   "query": "Munshiganj District, Bangladesh",
+   "osm_relation": 9523777,
+   "name": "মুন্সিগঞ্জ জেলা",
+   "display_name": "মুন্সিগঞ্জ জেলা, ঢাকা বিভাগ, বাংলাদেশ",
+   "bbox": [
+    90.1811939,
+    23.377594,
+    90.7111403,
+    23.6755769
+   ],
+   "area_km2": 927,
+   "admin_level": 5,
+   "relations_by_level": {
+    "6": 6
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 172,
+   "unclassifiable_non_latin_without_english": 7,
+   "counts_by_type": {
+    "market": 50,
+    "milk_centre": 2,
+    "mill": 2,
+    "cold_store": 3
+   },
+   "positives": 7,
+   "positives_strict_rules": 7,
+   "positive_label_sources": {
+    "(no source tag)": 7
+   },
+   "any_points": 57,
+   "positives_by_subdistrict": {
+    "Sreenagar Upazila": 1,
+    "Louhajang Upazila": 3,
+    "Sirajdikhan Upazila": 2,
+    "Gazaria Upazila": 1
+   },
+   "subdistricts_total": 6,
+   "osm_power_line_ways": 10,
+   "imagery": {
+    "openaerialmap": {
+     "images": 48,
+     "best_gsd_m": 0.0281199814414,
+     "le_1m": 48,
+     "footprint_km2_sum": 1139.16,
+     "dates": [
+      "2019-08-16",
+      "2023-01-27"
+     ],
+     "licences": [
+      "CC-BY-4.0",
+      "CC-BY-NC-4.0"
+     ],
+     "list": [
+      {
+       "id": "63d4ea58a72c5f0006688652",
+       "title": "F_62",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.0281199814414,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4a319a72c5f0006688598",
+       "title": "DND",
+       "platform": "satellite",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4c068a72c5f00066885ed",
+       "title": "F_93",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4b6d6a72c5f00066885d5",
+       "title": "F_79",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4d25fa72c5f0006688626",
+       "title": "F_88",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4b782a72c5f00066885d8",
+       "title": "F_80",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4b5b7a72c5f00066885d2",
+       "title": "F_71",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4b4c7a72c5f00066885cf",
+       "title": "F_75",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4bf10a72c5f00066885e7",
+       "title": "F_87",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4d34ca72c5f0006688629",
+       "title": "F_92",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4bdfba72c5f00066885e4",
+       "title": "F_78",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4bb05a72c5f00066885e1",
+       "title": "F_69",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4f3dca72c5f0006688676",
+       "title": "F_68",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.998
+      },
+      {
+       "id": "63d4f532a72c5f0006688679",
+       "title": "F_58",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4ee28a72c5f000668865e",
+       "title": "F_63",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4eed0a72c5f0006688661",
+       "title": "F_64",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4ef99a72c5f0006688664",
+       "title": "F_65",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4c103a72c5f00066885f0",
+       "title": "F_94",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4c778a72c5f0006688605",
+       "title": "F_83",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4b43ba72c5f00066885cc",
+       "title": "F_74",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4c378a72c5f00066885f9",
+       "title": "F_82",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4b3a6a72c5f00066885c9",
+       "title": "F_73",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4c2bba72c5f00066885f6",
+       "title": "F_81",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4b222a72c5f00066885c3",
+       "title": "F_72",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4c685a72c5f0006688602",
+       "title": "F_72",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4c84aa72c5f0006688608",
+       "title": "F_89",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.698
+      },
+      {
+       "id": "63d4b9e1a72c5f00066885de",
+       "title": "F_95",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4d44ba72c5f000668862c",
+       "title": "F_96",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4b8b0a72c5f00066885db",
+       "title": "F_94",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4c1c9a72c5f00066885f3",
+       "title": "F_100",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4d510a72c5f000668862f",
+       "title": "Flight_99",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d20097a72c5f0006688548",
+       "title": "F_70",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d11133fa6d910007a995d7",
+       "title": "80",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d20177a72c5f000668854c",
+       "title": "F_71",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d1f972a72c5f0006688540",
+       "title": "F_61",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d11283fa6d910007a995db",
+       "title": "F_60",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d10b00fa6d910007a995c7",
+       "title": "60",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d1098efa6d910007a995c3",
+       "title": "59",
+       "platform": "satellite",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d1104bfa6d910007a995d3",
+       "title": "79",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d1fff2a72c5f0006688544",
+       "title": "F_69",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d10c44fa6d910007a995cb",
+       "title": "69",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d10d8ffa6d910007a995cf",
+       "title": "70",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-24",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d49fa0a72c5f0006688595",
+       "title": "DND",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-17",
+       "gsd_m": 0.05,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.997
+      },
+      {
+       "id": "63d4bfa9a72c5f00066885ea",
+       "title": "F_92-2",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.0745620086641,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.202
+      },
+      {
+       "id": "5ef0f826dc40b50005b6f21a",
+       "title": "dnd_ph2_part2",
+       "platform": "uav",
+       "provider": "aigeo",
+       "date": "2020-06-04",
+       "gsd_m": 0.1,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 22.882
+      },
+      {
+       "id": "5eda62e7c692f1000793f1da",
+       "title": "dnd_ph2_part1",
+       "platform": "uav",
+       "provider": "aigeo",
+       "date": "2020-06-04",
+       "gsd_m": 0.249389,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 61.72
+      },
+      {
+       "id": "63d4b2c6a72c5f00066885c6",
+       "title": "F_72-2",
+       "platform": "uav",
+       "provider": "GPAD",
+       "date": "2023-01-27",
+       "gsd_m": 0.298248034656,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.467
+      },
+      {
+       "id": "5ebd5bac59a4e6000624f29d",
+       "title": "Maxar 2019 Dhaka Mosaic",
+       "platform": "satellite",
+       "provider": "Maxar",
+       "date": "2019-08-16",
+       "gsd_m": 0.3,
+       "licence": "CC-BY-NC-4.0",
+       "licence_source": "image",
+       "area_km2": 1011.317
+      }
+     ]
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 191,
+    "tiles_sampled": 8,
+    "buildings_estimate": 433761,
+    "buildings_per_tile_mean": 2271,
+    "buildings_per_tile_range": [
+     13,
+     8585
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 18168,
+     "share_ge_200m2": 0.03412593571114047,
+     "share_ge_600m2": 0.0021466314398943197,
+     "p50_m2": 40,
+     "p99_m2": 312,
+     "max_m2": 3160,
+     "largest_10_m2": [
+      3160,
+      3092,
+      2699,
+      1943,
+      1563,
+      1402,
+      1389,
+      1318,
+      1284,
+      1204
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "way/896733397",
+      "type": "milk_centre",
+      "name": "Ayesha Poultry & Dairy Farm",
+      "largest_roof_m2": 541
+     },
+     {
+      "id": "way/435502065",
+      "type": "cold_store",
+      "name": "Anam Cold Store",
+      "largest_roof_m2": 4821
+     },
+     {
+      "id": "node/11721817347",
+      "type": "milk_centre",
+      "name": "R. Rahman Agro & Fisheries, Dairy farm equipment supplier, Dhaka-Mawa Highway, Sreenagar",
+      "largest_roof_m2": 324
+     },
+     {
+      "id": "way/435523772",
+      "type": "cold_store",
+      "name": "Alea Cold Store",
+      "largest_roof_m2": 9608
+     },
+     {
+      "id": "way/435515496",
+      "type": "cold_store",
+      "name": "Cold Store",
+      "largest_roof_m2": 4957
+     },
+     {
+      "id": "way/1067514725",
+      "type": "mill",
+      "name": null,
+      "largest_roof_m2": 790
+     },
+     {
+      "id": "way/526363547",
+      "type": "mill",
+      "name": "Bashundhara Paper Mills Limited Unit-3",
+      "largest_roof_m2": 75003
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 5,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "node/11721817347",
+     "type": "milk_centre",
+     "lon": 90.29116,
+     "lat": 23.53158,
+     "subdistrict": "Sreenagar Upazila"
+    },
+    {
+     "id": "way/1067514725",
+     "type": "mill",
+     "lon": 90.2487,
+     "lat": 23.49545,
+     "subdistrict": "Louhajang Upazila"
+    },
+    {
+     "id": "way/435502065",
+     "type": "cold_store",
+     "lon": 90.38422,
+     "lat": 23.55031,
+     "subdistrict": "Sirajdikhan Upazila"
+    },
+    {
+     "id": "way/435515496",
+     "type": "cold_store",
+     "lon": 90.38804,
+     "lat": 23.57215,
+     "subdistrict": "Sirajdikhan Upazila"
+    },
+    {
+     "id": "way/435523772",
+     "type": "cold_store",
+     "lon": 90.42054,
+     "lat": 23.5234,
+     "subdistrict": "Louhajang Upazila"
+    },
+    {
+     "id": "way/526363547",
+     "type": "mill",
+     "lon": 90.64532,
+     "lat": 23.57543,
+     "subdistrict": "Gazaria Upazila"
+    },
+    {
+     "id": "way/896733397",
+     "type": "milk_centre",
+     "lon": 90.27081,
+     "lat": 23.49271,
+     "subdistrict": "Louhajang Upazila"
+    }
+   ]
+  },
+  {
+   "query": "Bogura District, Bangladesh",
+   "osm_relation": 9494884,
+   "name": "বগুড়া জেলা",
+   "display_name": "বগুড়া জেলা, রাজশাহী বিভাগ, বাংলাদেশ",
+   "bbox": [
+    88.9657669,
+    24.5478573,
+    89.7497111,
+    25.1212759
+   ],
+   "area_km2": 2903,
+   "admin_level": 5,
+   "relations_by_level": {
+    "6": 12
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 270,
+   "unclassifiable_non_latin_without_english": 12,
+   "counts_by_type": {
+    "market": 94,
+    "warehouse": 13,
+    "mill": 35,
+    "agro_factory": 4,
+    "milk_centre": 3,
+    "cold_store": 2
+   },
+   "positives": 57,
+   "positives_strict_rules": 57,
+   "positive_label_sources": {
+    "(no source tag)": 57
+   },
+   "any_points": 151,
+   "positives_by_subdistrict": {
+    "শাজাহানপুর উপজেলা": 10,
+    "Bogura": 13,
+    "Adamdighi Upazila": 4,
+    "Nandigram Upazila": 4,
+    "Sherpur Upazila": 17,
+    "Shibganj Upazila (Bogura)": 8,
+    "Dhunat Upazila": 1
+   },
+   "subdistricts_total": 12,
+   "osm_power_line_ways": 66,
+   "imagery": {
+    "openaerialmap": {
+     "images": 0,
+     "best_gsd_m": null,
+     "le_1m": 0,
+     "footprint_km2_sum": 0,
+     "dates": null,
+     "licences": [],
+     "list": []
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 594,
+    "tiles_sampled": 8,
+    "buildings_estimate": 1064003,
+    "buildings_per_tile_mean": 1791.25,
+    "buildings_per_tile_range": [
+     878,
+     2374
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 14330,
+     "share_ge_200m2": 0.05352407536636427,
+     "share_ge_600m2": 0.005652477320307048,
+     "p50_m2": 53,
+     "p99_m2": 404,
+     "max_m2": 92738,
+     "largest_10_m2": [
+      92738,
+      7626,
+      7500,
+      6050,
+      3710,
+      3123,
+      3070,
+      2922,
+      2649,
+      2428
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "node/12961004577",
+      "type": "warehouse",
+      "name": "Square Pharma Bogura Depot, Warehouse",
+      "largest_roof_m2": 1730
+     },
+     {
+      "id": "node/12986970062",
+      "type": "mill",
+      "name": "Shema Flower Mills, Manufacturer",
+      "largest_roof_m2": 2937
+     },
+     {
+      "id": "node/10901286181",
+      "type": "mill",
+      "name": "M/s B H Rice Mill, Ranbagha, Rajshahi - Bogra Hwy, Bogra",
+      "largest_roof_m2": 127
+     },
+     {
+      "id": "node/6130633368",
+      "type": "milk_centre",
+      "name": "Aarong Dairy, Shibgonj Chilling Center",
+      "largest_roof_m2": 452
+     },
+     {
+      "id": "node/12864375647",
+      "type": "mill",
+      "name": "Khalil Munsi Rice Boiler, Mill",
+      "largest_roof_m2": 418
+     },
+     {
+      "id": "node/12869799772",
+      "type": "milk_centre",
+      "name": "Dairy and Livestock Development Farm, Livestock breeder",
+      "largest_roof_m2": 709
+     },
+     {
+      "id": "node/12919138639",
+      "type": "agro_factory",
+      "name": "Grameen Danone Foods Ltd., Manufacturer",
+      "largest_roof_m2": 454
+     },
+     {
+      "id": "node/12880810714",
+      "type": "warehouse",
+      "name": "Amanot by Agronochain, Warehouse",
+      "largest_roof_m2": 892
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 4,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "node/12880810714",
+     "type": "warehouse",
+     "lon": 89.38717,
+     "lat": 24.79475,
+     "subdistrict": "শাজাহানপুর উপজেলা"
+    },
+    {
+     "id": "node/12925618915",
+     "type": "warehouse",
+     "lon": 89.35751,
+     "lat": 24.80591,
+     "subdistrict": "শাজাহানপুর উপজেলা"
+    },
+    {
+     "id": "node/12961004577",
+     "type": "warehouse",
+     "lon": 89.34738,
+     "lat": 24.83357,
+     "subdistrict": "Bogura"
+    },
+    {
+     "id": "node/12964305565",
+     "type": "mill",
+     "lon": 89.37198,
+     "lat": 24.85092,
+     "subdistrict": "Bogura"
+    },
+    {
+     "id": "node/12969317552",
+     "type": "warehouse",
+     "lon": 89.35169,
+     "lat": 24.86293,
+     "subdistrict": "Bogura"
+    },
+    {
+     "id": "node/12969409432",
+     "type": "warehouse",
+     "lon": 89.3653,
+     "lat": 24.8544,
+     "subdistrict": "Bogura"
+    },
+    {
+     "id": "node/12986925531",
+     "type": "warehouse",
+     "lon": 89.34878,
+     "lat": 24.84812,
+     "subdistrict": "Bogura"
+    },
+    {
+     "id": "node/12986940864",
+     "type": "warehouse",
+     "lon": 89.35047,
+     "lat": 24.85221,
+     "subdistrict": "Bogura"
+    },
+    {
+     "id": "way/1485380667",
+     "type": "warehouse",
+     "lon": 88.9882,
+     "lat": 24.79259,
+     "subdistrict": "Adamdighi Upazila"
+    },
+    {
+     "id": "node/9263401703",
+     "type": "mill",
+     "lon": 89.32212,
+     "lat": 24.92926,
+     "subdistrict": "Bogura"
+    },
+    {
+     "id": "node/10901246172",
+     "type": "mill",
+     "lon": 89.23303,
+     "lat": 24.58937,
+     "subdistrict": "Nandigram Upazila"
+    },
+    {
+     "id": "node/10901286181",
+     "type": "mill",
+     "lon": 89.23391,
+     "lat": 24.58998,
+     "subdistrict": "Nandigram Upazila"
+    },
+    {
+     "id": "node/12855226158",
+     "type": "mill",
+     "lon": 89.42631,
+     "lat": 24.65238,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12855228989",
+     "type": "mill",
+     "lon": 89.42433,
+     "lat": 24.65589,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12855259238",
+     "type": "mill",
+     "lon": 89.42791,
+     "lat": 24.6508,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12860598050",
+     "type": "mill",
+     "lon": 89.45019,
+     "lat": 24.59756,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12862375351",
+     "type": "mill",
+     "lon": 89.44625,
+     "lat": 24.6012,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12862494984",
+     "type": "mill",
+     "lon": 89.43291,
+     "lat": 24.63723,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12862494985",
+     "type": "mill",
+     "lon": 89.42661,
+     "lat": 24.6491,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12862499601",
+     "type": "mill",
+     "lon": 89.42956,
+     "lat": 24.64206,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12864375647",
+     "type": "mill",
+     "lon": 89.42263,
+     "lat": 24.65601,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12864396561",
+     "type": "mill",
+     "lon": 89.41973,
+     "lat": 24.65823,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12866496689",
+     "type": "mill",
+     "lon": 89.41195,
+     "lat": 24.67602,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12873049120",
+     "type": "agro_factory",
+     "lon": 89.40516,
+     "lat": 24.69432,
+     "subdistrict": "Sherpur Upazila"
+    },
+    {
+     "id": "node/12880803907",
+     "type": "mill",
+     "lon": 89.39048,
+     "lat": 24.79505,
+     "subdistrict": "শাজাহানপুর উপজেলা"
+    }
+   ]
+  },
+  {
+   "query": "Nyandarua, Kenya",
+   "osm_relation": 3495557,
+   "name": "Nyandarua",
+   "display_name": "Nyandarua, Kenya",
+   "bbox": [
+    36.2015433,
+    -0.9214,
+    36.7363334,
+    0.1374382
+   ],
+   "area_km2": 3287,
+   "admin_level": 4,
+   "relations_by_level": {
+    "6": 5,
+    "10": 1
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 25,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 6,
+    "warehouse": 2,
+    "milk_centre": 1
+   },
+   "positives": 3,
+   "positives_strict_rules": 3,
+   "positive_label_sources": {
+    "survey": 1,
+    "KRCS2023": 1,
+    "(no source tag)": 1
+   },
+   "any_points": 9,
+   "positives_by_subdistrict": {
+    "Ol Kalou": 1,
+    "Kinangop": 2
+   },
+   "subdistricts_total": 5,
+   "osm_power_line_ways": 2,
+   "imagery": {
+    "openaerialmap": {
+     "images": 2,
+     "best_gsd_m": 0.0605844134787,
+     "le_1m": 1,
+     "footprint_km2_sum": 52882.29,
+     "dates": [
+      "2023-01-12",
+      "2024-07-09"
+     ],
+     "licences": [
+      "CC-BY-4.0"
+     ],
+     "list": [
+      {
+       "id": "63bfd78e27cf930008b88bb2",
+       "title": "Enashipai Resort 30pct OL",
+       "platform": "uav",
+       "provider": "Geo-Cart",
+       "date": "2023-01-12",
+       "gsd_m": 0.0605844134787,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 0.974
+      },
+      {
+       "id": "668e3a741684770001c338bf",
+       "title": "Raster",
+       "platform": "satellite",
+       "provider": "Meru",
+       "date": "2024-07-09",
+       "gsd_m": 30,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 52881.314
+      }
+     ]
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 553,
+    "tiles_sampled": 8,
+    "buildings_estimate": 407907,
+    "buildings_per_tile_mean": 737.625,
+    "buildings_per_tile_range": [
+     0,
+     1385
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 5901,
+     "share_ge_200m2": 0.011184544992374174,
+     "share_ge_600m2": 0.0016946280291476022,
+     "p50_m2": 30,
+     "p99_m2": 210,
+     "max_m2": 25413,
+     "largest_10_m2": [
+      25413,
+      23851,
+      5268,
+      3445,
+      1040,
+      791,
+      758,
+      678,
+      646,
+      644
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "way/1006327567",
+      "type": "warehouse",
+      "name": null,
+      "largest_roof_m2": 506
+     },
+     {
+      "id": "way/1231137140",
+      "type": "warehouse",
+      "name": "Almacen / Warehouse",
+      "largest_roof_m2": 524
+     },
+     {
+      "id": "node/11743549500",
+      "type": "milk_centre",
+      "name": "Kalyet dairy Feeds (kipasan)",
+      "largest_roof_m2": 95
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 0,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "way/1006327567",
+     "type": "warehouse",
+     "lon": 36.37736,
+     "lat": -0.27436,
+     "subdistrict": "Ol Kalou"
+    },
+    {
+     "id": "node/11743549500",
+     "type": "milk_centre",
+     "lon": 36.56392,
+     "lat": -0.75455,
+     "subdistrict": "Kinangop"
+    },
+    {
+     "id": "way/1231137140",
+     "type": "warehouse",
+     "lon": 36.54593,
+     "lat": -0.76767,
+     "subdistrict": "Kinangop"
+    }
+   ]
+  },
+  {
+   "query": "Meru County, Kenya",
+   "osm_relation": 3495553,
+   "name": "Meru",
+   "display_name": "Meru, Kenya",
+   "bbox": [
+    37.0907719,
+    -0.2154671,
+    38.4208288,
+    0.6686272
+   ],
+   "area_km2": 6991,
+   "admin_level": 4,
+   "relations_by_level": {
+    "6": 9,
+    "8": 45,
+    "9": 3,
+    "10": 10
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 29,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 17,
+    "warehouse": 2
+   },
+   "positives": 2,
+   "positives_strict_rules": 2,
+   "positive_label_sources": {
+    "(no source tag)": 2
+   },
+   "any_points": 19,
+   "positives_by_subdistrict": {
+    "Imenti North": 2
+   },
+   "subdistricts_total": 9,
+   "osm_power_line_ways": 3,
+   "imagery": {
+    "openaerialmap": {
+     "images": 1,
+     "best_gsd_m": 30,
+     "le_1m": 0,
+     "footprint_km2_sum": 52881.31,
+     "dates": [
+      "2024-07-09",
+      "2024-07-09"
+     ],
+     "licences": [
+      "CC-BY-4.0"
+     ],
+     "list": [
+      {
+       "id": "668e3a741684770001c338bf",
+       "title": "Raster",
+       "platform": "satellite",
+       "provider": "Meru",
+       "date": "2024-07-09",
+       "gsd_m": 30,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 52881.314
+      }
+     ]
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 1176,
+    "tiles_sampled": 8,
+    "buildings_estimate": 280770,
+    "buildings_per_tile_mean": 238.75,
+    "buildings_per_tile_range": [
+     0,
+     991
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 1910,
+     "share_ge_200m2": 0.010471204188481676,
+     "share_ge_600m2": 0.0005235602094240838,
+     "p50_m2": 26,
+     "p99_m2": 196,
+     "max_m2": 708,
+     "largest_10_m2": [
+      708,
+      466,
+      458,
+      400,
+      363,
+      312,
+      270,
+      269,
+      260,
+      258
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "way/859193446",
+      "type": "warehouse",
+      "name": null,
+      "largest_roof_m2": 4370
+     },
+     {
+      "id": "way/859193444",
+      "type": "warehouse",
+      "name": null,
+      "largest_roof_m2": 1342
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 2,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "way/859193444",
+     "type": "warehouse",
+     "lon": 37.65975,
+     "lat": 0.0415,
+     "subdistrict": "Imenti North"
+    },
+    {
+     "id": "way/859193446",
+     "type": "warehouse",
+     "lon": 37.65852,
+     "lat": 0.04107,
+     "subdistrict": "Imenti North"
+    }
+   ]
+  },
+  {
+   "query": "Kabale, Uganda",
+   "osm_relation": 3501894,
+   "name": "Kabale",
+   "display_name": "Kabale, Western Region, Uganda",
+   "bbox": [
+    29.8776307,
+    -1.4823179,
+    30.1745393,
+    -1.1900169
+   ],
+   "area_km2": 616,
+   "admin_level": 4,
+   "relations_by_level": {},
+   "subdistrict_level": null,
+   "osm_elements_pulled": 31,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 8,
+    "milk_centre": 1,
+    "warehouse": 1,
+    "agro_factory": 1
+   },
+   "positives": 3,
+   "positives_strict_rules": 3,
+   "positive_label_sources": {
+    "(no source tag)": 3
+   },
+   "any_points": 11,
+   "positives_by_subdistrict": {
+    "(no sub-district)": 3
+   },
+   "subdistricts_total": 0,
+   "osm_power_line_ways": 0,
+   "imagery": {
+    "openaerialmap": {
+     "images": 0,
+     "best_gsd_m": null,
+     "le_1m": 0,
+     "footprint_km2_sum": 0,
+     "dates": null,
+     "licences": [],
+     "list": []
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 102,
+    "tiles_sampled": 8,
+    "buildings_estimate": 142188,
+    "buildings_per_tile_mean": 1394,
+    "buildings_per_tile_range": [
+     613,
+     2497
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 11152,
+     "share_ge_200m2": 0.009325681492109038,
+     "share_ge_600m2": 0.0005380200860832137,
+     "p50_m2": 36,
+     "p99_m2": 195,
+     "max_m2": 1040,
+     "largest_10_m2": [
+      1040,
+      986,
+      732,
+      732,
+      711,
+      641,
+      581,
+      539,
+      535,
+      532
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "node/9822407844",
+      "type": "milk_centre",
+      "name": "Independence Dairy",
+      "largest_roof_m2": 282
+     },
+     {
+      "id": "node/7318130540",
+      "type": "agro_factory",
+      "name": "Kigezi Highland Tea Ltd",
+      "largest_roof_m2": 2491
+     },
+     {
+      "id": "node/1701088332",
+      "type": "warehouse",
+      "name": null,
+      "largest_roof_m2": 208
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 1,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "node/9822407844",
+     "type": "milk_centre",
+     "lon": 29.98114,
+     "lat": -1.26273,
+     "subdistrict": null
+    },
+    {
+     "id": "node/1701088332",
+     "type": "warehouse",
+     "lon": 29.9392,
+     "lat": -1.30107,
+     "subdistrict": null
+    },
+    {
+     "id": "node/7318130540",
+     "type": "agro_factory",
+     "lon": 29.99859,
+     "lat": -1.29574,
+     "subdistrict": null
+    }
+   ]
+  },
+  {
+   "query": "Njombe Region, Tanzania",
+   "osm_relation": 3775101,
+   "name": "Njombe",
+   "display_name": "Njombe, Southern Highlands Zone, Tanzania",
+   "bbox": [
+    33.8117379,
+    -10.5401777,
+    35.5239699,
+    -8.6651091
+   ],
+   "area_km2": 21244,
+   "admin_level": 4,
+   "relations_by_level": {
+    "5": 6,
+    "9": 1
+   },
+   "subdistrict_level": 5,
+   "osm_elements_pulled": 943,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 5,
+    "mill": 882
+   },
+   "positives": 882,
+   "positives_strict_rules": 882,
+   "positive_label_sources": {
+    "WFP Field Survey 2021, OMDTZ": 881,
+    "(no source tag)": 1
+   },
+   "any_points": 887,
+   "positives_by_subdistrict": {
+    "Njombe Municipal": 157,
+    "Njombe": 150,
+    "Ludewa": 167,
+    "Makambako Town": 131,
+    "Wanging'ombe": 158,
+    "Makete": 119
+   },
+   "subdistricts_total": 6,
+   "osm_power_line_ways": 5,
+   "imagery": {
+    "openaerialmap": {
+     "images": 1,
+     "best_gsd_m": 0.20000000000001072,
+     "le_1m": 1,
+     "footprint_km2_sum": 313.67,
+     "dates": [
+      "2022-12-13",
+      "2022-12-13"
+     ],
+     "licences": [
+      "CC-BY-4.0"
+     ],
+     "list": [
+      {
+       "id": "64c8dc6b3473010001ab8d8a",
+       "title": "2022 Karonga UNICEF Malawi Orthomosaic ",
+       "platform": "uav",
+       "provider": "UNICEF Malawi",
+       "date": "2022-12-13",
+       "gsd_m": 0.20000000000001072,
+       "licence": "CC-BY-4.0",
+       "licence_source": "image",
+       "area_km2": 313.667
+      }
+     ]
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 3688,
+    "tiles_sampled": 8,
+    "buildings_estimate": 1286190,
+    "buildings_per_tile_mean": 348.75,
+    "buildings_per_tile_range": [
+     0,
+     1145
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 2790,
+     "share_ge_200m2": 0.022222222222222223,
+     "share_ge_600m2": 0.00035842293906810036,
+     "p50_m2": 42,
+     "p99_m2": 240,
+     "max_m2": 1024,
+     "largest_10_m2": [
+      1024,
+      556,
+      377,
+      345,
+      334,
+      321,
+      320,
+      319,
+      314,
+      307
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "node/9425506252",
+      "type": "mill",
+      "name": "Benevet Mills",
+      "largest_roof_m2": 148
+     },
+     {
+      "id": "node/9425504483",
+      "type": "mill",
+      "name": "Frank Milling Machine",
+      "largest_roof_m2": 201
+     },
+     {
+      "id": "node/9425505792",
+      "type": "mill",
+      "name": "Saimon Milling Machine",
+      "largest_roof_m2": 336
+     },
+     {
+      "id": "node/9425504429",
+      "type": "mill",
+      "name": "Amos Mills",
+      "largest_roof_m2": 194
+     },
+     {
+      "id": "node/9425506003",
+      "type": "mill",
+      "name": "Chance Kibena Milling Machine",
+      "largest_roof_m2": 267
+     },
+     {
+      "id": "node/9425506114",
+      "type": "mill",
+      "name": "Fute Milling Machine",
+      "largest_roof_m2": 90
+     },
+     {
+      "id": "node/9425504456",
+      "type": "mill",
+      "name": "Amec Milling Machine",
+      "largest_roof_m2": 119
+     },
+     {
+      "id": "node/9425505454",
+      "type": "mill",
+      "name": "Kigola Milling Machine",
+      "largest_roof_m2": 266
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 0,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "node/9425504420",
+     "type": "mill",
+     "lon": 34.76084,
+     "lat": -9.34471,
+     "subdistrict": "Njombe Municipal"
+    },
+    {
+     "id": "node/9425504421",
+     "type": "mill",
+     "lon": 35.2328,
+     "lat": -9.09983,
+     "subdistrict": "Njombe"
+    },
+    {
+     "id": "node/9425504422",
+     "type": "mill",
+     "lon": 34.73849,
+     "lat": -9.8591,
+     "subdistrict": "Ludewa"
+    },
+    {
+     "id": "node/9425504423",
+     "type": "mill",
+     "lon": 34.94972,
+     "lat": -8.89377,
+     "subdistrict": "Makambako Town"
+    },
+    {
+     "id": "node/9425504424",
+     "type": "mill",
+     "lon": 34.68884,
+     "lat": -8.79499,
+     "subdistrict": "Wanging'ombe"
+    },
+    {
+     "id": "node/9425504425",
+     "type": "mill",
+     "lon": 34.23905,
+     "lat": -9.3798,
+     "subdistrict": "Makete"
+    },
+    {
+     "id": "node/9425504426",
+     "type": "mill",
+     "lon": 34.48047,
+     "lat": -9.17293,
+     "subdistrict": "Wanging'ombe"
+    },
+    {
+     "id": "node/9425504427",
+     "type": "mill",
+     "lon": 34.79259,
+     "lat": -10.37352,
+     "subdistrict": "Ludewa"
+    },
+    {
+     "id": "node/9425504428",
+     "type": "mill",
+     "lon": 34.77694,
+     "lat": -9.30361,
+     "subdistrict": "Njombe Municipal"
+    },
+    {
+     "id": "node/9425504429",
+     "type": "mill",
+     "lon": 34.59899,
+     "lat": -9.01023,
+     "subdistrict": "Wanging'ombe"
+    },
+    {
+     "id": "node/9425504430",
+     "type": "mill",
+     "lon": 34.90559,
+     "lat": -8.9669,
+     "subdistrict": "Njombe"
+    },
+    {
+     "id": "node/9425504431",
+     "type": "mill",
+     "lon": 34.65554,
+     "lat": -9.66837,
+     "subdistrict": "Ludewa"
+    },
+    {
+     "id": "node/9425504432",
+     "type": "mill",
+     "lon": 34.83921,
+     "lat": -8.84792,
+     "subdistrict": "Makambako Town"
+    },
+    {
+     "id": "node/9425504433",
+     "type": "mill",
+     "lon": 34.64916,
+     "lat": -9.48255,
+     "subdistrict": "Njombe Municipal"
+    },
+    {
+     "id": "node/9425504434",
+     "type": "mill",
+     "lon": 34.08963,
+     "lat": -9.25849,
+     "subdistrict": "Makete"
+    },
+    {
+     "id": "node/9425504435",
+     "type": "mill",
+     "lon": 34.7768,
+     "lat": -9.33647,
+     "subdistrict": "Njombe Municipal"
+    },
+    {
+     "id": "node/9425504436",
+     "type": "mill",
+     "lon": 34.80954,
+     "lat": -9.07859,
+     "subdistrict": "Njombe"
+    },
+    {
+     "id": "node/9425504437",
+     "type": "mill",
+     "lon": 34.71235,
+     "lat": -8.88003,
+     "subdistrict": "Wanging'ombe"
+    },
+    {
+     "id": "node/9425504438",
+     "type": "mill",
+     "lon": 34.59203,
+     "lat": -9.78721,
+     "subdistrict": "Ludewa"
+    },
+    {
+     "id": "node/9425504439",
+     "type": "mill",
+     "lon": 34.75749,
+     "lat": -8.75196,
+     "subdistrict": "Wanging'ombe"
+    },
+    {
+     "id": "node/9425504440",
+     "type": "mill",
+     "lon": 34.76398,
+     "lat": -9.36076,
+     "subdistrict": "Njombe Municipal"
+    },
+    {
+     "id": "node/9425504441",
+     "type": "mill",
+     "lon": 35.07711,
+     "lat": -9.14471,
+     "subdistrict": "Njombe"
+    },
+    {
+     "id": "node/9425504442",
+     "type": "mill",
+     "lon": 34.69129,
+     "lat": -10.11569,
+     "subdistrict": "Ludewa"
+    },
+    {
+     "id": "node/9425504443",
+     "type": "mill",
+     "lon": 34.76563,
+     "lat": -9.35955,
+     "subdistrict": "Njombe Municipal"
+    },
+    {
+     "id": "node/9425504444",
+     "type": "mill",
+     "lon": 33.92584,
+     "lat": -8.98995,
+     "subdistrict": "Makete"
+    }
+   ]
+  },
+  {
+   "query": "East Gojjam",
+   "osm_relation": 3306144,
+   "name": "East Gojjam",
+   "display_name": "East Gojjam, አማራ ክልል, ኢትዮጵያ",
+   "bbox": [
+    37.0485303,
+    9.8416116,
+    38.5337895,
+    11.2357234
+   ],
+   "area_km2": 14222,
+   "admin_level": 5,
+   "relations_by_level": {
+    "6": 8,
+    "8": 1
+   },
+   "subdistrict_level": 6,
+   "osm_elements_pulled": 19,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 15,
+    "warehouse": 1
+   },
+   "positives": 1,
+   "positives_strict_rules": 1,
+   "positive_label_sources": {
+    "(no source tag)": 1
+   },
+   "any_points": 16,
+   "positives_by_subdistrict": {
+    "Guzamn": 1
+   },
+   "subdistricts_total": 8,
+   "osm_power_line_ways": 25,
+   "imagery": {
+    "openaerialmap": {
+     "images": 0,
+     "best_gsd_m": null,
+     "le_1m": 0,
+     "footprint_km2_sum": 0,
+     "dates": null,
+     "licences": [],
+     "list": []
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 2474,
+    "tiles_sampled": 8,
+    "buildings_estimate": 1026092,
+    "buildings_per_tile_mean": 414.75,
+    "buildings_per_tile_range": [
+     71,
+     818
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 3318,
+     "share_ge_200m2": 0.006027727546714889,
+     "share_ge_600m2": 0.0003013863773357444,
+     "p50_m2": 54,
+     "p99_m2": 172,
+     "max_m2": 624,
+     "largest_10_m2": [
+      624,
+      386,
+      336,
+      325,
+      323,
+      308,
+      306,
+      279,
+      274,
+      264
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "way/1513909613",
+      "type": "warehouse",
+      "name": null,
+      "largest_roof_m2": 667
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 1,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "way/1513909613",
+     "type": "warehouse",
+     "lon": 37.74169,
+     "lat": 10.33109,
+     "subdistrict": "Guzamn"
+    }
+   ]
+  },
+  {
+   "query": "West Gojjam",
+   "osm_relation": 3306153,
+   "name": "West Gojjam",
+   "display_name": "West Gojjam, አማራ ክልል, ኢትዮጵያ",
+   "bbox": [
+    36.5115433,
+    10.2892474,
+    37.8600065,
+    11.9052112
+   ],
+   "area_km2": 13326,
+   "admin_level": 5,
+   "relations_by_level": {},
+   "subdistrict_level": null,
+   "osm_elements_pulled": 41,
+   "unclassifiable_non_latin_without_english": 0,
+   "counts_by_type": {
+    "market": 34,
+    "warehouse": 1
+   },
+   "positives": 1,
+   "positives_strict_rules": 1,
+   "positive_label_sources": {
+    "(no source tag)": 1
+   },
+   "any_points": 35,
+   "positives_by_subdistrict": {
+    "(no sub-district)": 1
+   },
+   "subdistricts_total": 0,
+   "osm_power_line_ways": 79,
+   "imagery": {
+    "openaerialmap": {
+     "images": 0,
+     "best_gsd_m": null,
+     "le_1m": 0,
+     "footprint_km2_sum": 0,
+     "dates": null,
+     "licences": [],
+     "list": []
+    },
+    "maxar_open_data": [],
+    "positives_covered_open_licence_le_1m": 0,
+    "positives_covered_open_licence_le_0_6m": 0
+   },
+   "buildings": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "tiles_inside": 2338,
+    "tiles_sampled": 8,
+    "buildings_estimate": 1078695,
+    "buildings_per_tile_mean": 461.375,
+    "buildings_per_tile_range": [
+     1,
+     761
+    ],
+    "evidence": "ESTIMATED (mean of randomly sampled tiles x tiles inside the boundary)",
+    "roofs_in_sampled_tiles": {
+     "buildings": 3691,
+     "share_ge_200m2": 0.012462747222974803,
+     "share_ge_600m2": 0.000541858574911948,
+     "p50_m2": 62,
+     "p99_m2": 217,
+     "max_m2": 652,
+     "largest_10_m2": [
+      652,
+      638,
+      574,
+      497,
+      497,
+      464,
+      456,
+      418,
+      380,
+      368
+     ]
+    },
+    "roofs_at_documented_facilities": [
+     {
+      "id": "way/1077715949",
+      "type": "warehouse",
+      "name": null,
+      "largest_roof_m2": 10718
+     }
+    ],
+    "roofs_at_facilities_ge_600m2": 1,
+    "skipped": []
+   },
+   "facilities_sample": [
+    {
+     "id": "way/1077715949",
+     "type": "warehouse",
+     "lon": 37.09094,
+     "lat": 10.69488,
+     "subdistrict": null
+    }
+   ]
+  }
+ ],
+ "maxar": {
+  "licence": "CC-BY-NC-4.0",
+  "events": [
+   {
+    "id": "BayofBengal-Cyclone-Mocha-May-23",
+    "title": "Bay of Bengal Cyclone Mocha 2023",
+    "interval": [
+     "2023-01-03 04:30:17Z",
+     "2023-05-22 04:35:25Z"
+    ]
+   },
+   {
+    "id": "Belize-Wildfires-June24",
+    "title": "Belize Wildfires",
+    "interval": [
+     "2019-08-29 16:48:24Z",
+     "2024-06-03 16:15:09Z"
+    ]
+   },
+   {
+    "id": "Brazil-Flooding-May24",
+    "title": "Brazil Flooding",
+    "interval": [
+     "2018-12-17 13:45:15Z",
+     "2024-05-17 14:01:42Z"
+    ]
+   },
+   {
+    "id": "Cyclone-Chido-Dec15",
+    "title": "Cyclone Chido 2024",
+    "interval": [
+     "2024-05-23 07:18:23Z",
+     "2025-01-01 07:22:22Z"
+    ]
+   },
+   {
+    "id": "Cyclone-Ditwah-Sri-Lanka-Nov-2025",
+    "title": "Cyclone Ditwah Sri Lanka November 2025",
+    "interval": [
+     "2025-01-17 05:06:44Z",
+     "2025-12-05 08:00:38Z"
+    ]
+   },
+   {
+    "id": "Cyclone-Senyar-Indonesia-Nov-2025",
+    "title": "Cyclone Senyar Indonesia November 2025",
+    "interval": [
+     "2025-11-30 06:42:49Z",
+     "2025-11-30 06:42:50Z"
+    ]
+   },
+   {
+    "id": "Cyclone-Senyar-Thailand-Nov-2025",
+    "title": "Cyclone Senyar Thailand November 2025",
+    "interval": [
+     "2025-12-01 03:33:47Z",
+     "2025-12-01 03:41:46Z"
+    ]
+   },
+   {
+    "id": "Earthquake-Myanmar-March-2025",
+    "title": "Myanmar Earthquake 2025",
+    "interval": [
+     "2025-02-02 03:44:47Z",
+     "2025-04-04 07:03:38Z"
+    ]
+   },
+   {
+    "id": "Emilia-Romagna-Italy-flooding-may23",
+    "title": "Emilia Romagna Italy Flooding",
+    "interval": [
+     "2015-05-28 09:58:35Z",
+     "2023-05-23 10:24:11Z"
+    ]
+   },
+   {
+    "id": "Floods-Spain-Oct24",
+    "title": "Floods Spain Oct24",
+    "interval": [
+     "2024-03-14 11:15:15Z",
+     "2024-11-10 11:01:43Z"
+    ]
+   },
+   {
+    "id": "Gambia-flooding-8-11-2022",
+    "title": "Gambia flooding 8-11-2022",
+    "interval": [
+     "2022-03-15 11:33:20Z",
+     "2022-08-13 11:33:20Z"
+    ]
+   },
+   {
+    "id": "Hurricane-Fiona-9-19-2022",
+    "title": "Hurricane Fiona 9-19-2022",
+    "interval": [
+     "2022-02-07 15:18:25Z",
+     "2022-09-29 15:26:07Z"
+    ]
+   },
+   {
+    "id": "Hurricane-Ian-9-26-2022",
+    "title": "Hurricane Ian 9-26-2022",
+    "interval": [
+     "2021-04-29 18:51:09Z",
+     "2022-10-08 19:09:10Z"
+    ]
+   },
+   {
+    "id": "Hurricane-Idalia-Florida-Aug23",
+    "title": "Hurricane Idalia",
+    "interval": [
+     "2017-10-20 16:35:02Z",
+     "2023-08-30 19:19:59Z"
+    ]
+   },
+   {
+    "id": "Hurricane-Maria-PuertoRico-Oct-2017",
+    "title": "Hurricane Maria PuertoRico Oct 2017",
+    "interval": [
+     "2017-08-29 14:52:30Z",
+     "2017-10-12 15:06:54Z"
+    ]
+   },
+   {
+    "id": "Hurricane-Melissa-Oct-2025",
+    "title": "Hurricane Melissa October 2025",
+    "interval": [
+     "2022-10-13 15:53:19Z",
+     "2025-11-09 15:53:51Z"
+    ]
+   },
+   {
+    "id": "HurricaneHelene-Oct24",
+    "title": "Hurricane Helene",
+    "interval": [
+     "2019-11-09 16:12:05Z",
+     "2024-10-06 16:34:55Z"
+    ]
+   },
+   {
+    "id": "HurricaneMilton-Oct24",
+    "title": "Hurricane Milton",
+    "interval": [
+     "2023-11-04 16:29:15Z",
+     "2024-10-10 16:26:38Z"
+    ]
+   },
+   {
+    "id": "Iceland-Volcano_Eruption-Dec-2023",
+    "title": "Iceland Volcano",
+    "interval": [
+     "2023-07-08 13:11:21Z",
+     "2023-07-08 13:11:29Z"
+    ]
+   },
+   {
+    "id": "India-Floods-Oct-2023",
+    "title": "North India Floods",
+    "interval": [
+     "2022-03-07 04:53:47Z",
+     "2023-10-06 05:04:41Z"
+    ]
+   },
+   {
+    "id": "Indonesia-Earthquake22",
+    "title": "Indonesia Earthquake22",
+    "interval": [
+     "2021-07-04 03:22:31Z",
+     "2022-11-28 03:24:19Z"
+    ]
+   },
+   {
+    "id": "Japan-Earthquake-Jan-2024",
+    "title": "Japan Earthquake Jan 2024",
+    "interval": [
+     "2023-08-29 01:48:32Z",
+     "2024-01-02 04:34:50Z"
+    ]
+   },
+   {
+    "id": "Kahramanmaras-turkey-earthquake-23",
+    "title": "Turkey and Syria Earthquake 2023",
+    "interval": [
+     "2021-02-28 08:10:22Z",
+     "2023-03-11 08:29:15Z"
+    ]
+   },
+   {
+    "id": "Kalehe-DRC-Flooding-5-8-23",
+    "title": "Kalehe DRC Flooding 2023",
+    "interval": [
+     "2023-04-10 08:41:23Z",
+     "2023-05-12 08:24:47Z"
+    ]
+   },
+   {
+    "id": "Kenya-Flooding-May24",
+    "title": "Kenya Flooding",
+    "interval": [
+     "2023-11-30 08:00:58Z",
+     "2024-05-11 07:34:02Z"
+    ]
+   },
+   {
+    "id": "Libya-Floods-Sept-2023",
+    "title": "Libya Floods",
+    "interval": [
+     "2023-01-22 09:24:17Z",
+     "2023-09-22 09:24:38Z"
+    ]
+   },
+   {
+    "id": "Marshall-Fire-21-Update",
+    "title": "Marshall Fire",
+    "interval": [
+     "2021-12-30 21:00:34Z",
+     "2021-12-30 21:00:35Z"
+    ]
+   },
+   {
+    "id": "Maui-Hawaii-fires-Aug-23",
+    "title": "Maui Fires",
+    "interval": [
+     "2023-08-09 21:10:34Z",
+     "2023-08-12 21:18:20Z"
+    ]
+   },
+   {
+    "id": "McDougallCreekWildfire-BC-Canada-Aug-23",
+    "title": "McDougall Creek Wildfire",
+    "interval": [
+     "2022-05-18 18:59:06Z",
+     "2022-07-14 18:49:27Z"
+    ]
+   },
+   {
+    "id": "Morocco-Earthquake-Sept-2023",
+    "title": "Morocco Earthquake",
+    "interval": [
+     "2010-06-02 11:32:07Z",
+     "2023-09-11 11:08:54Z"
+    ]
+   },
+   {
+    "id": "Morocco-Flooding-Dec-2025",
+    "title": "Safi Morocco Flooding December 2025",
+    "interval": [
+     "2025-11-11 11:30:25Z",
+     "2025-12-18 11:22:04Z"
+    ]
+   },
+   {
+    "id": "NWT-Canada-Aug-23",
+    "title": "Northwest Territories Fires",
+    "interval": [
+     "2023-08-08 19:00:54Z",
+     "2023-08-21 19:06:38Z"
+    ]
+   },
+   {
+    "id": "Nepal-Earthquake-Apr-2015",
+    "title": "Nepal Earthquake Apr 2015",
+    "interval": [
+     "2023-10-25 04:57:18Z",
+     "2023-10-25 04:57:20Z"
+    ]
+   },
+   {
+    "id": "Nepal-Earthquake-Nov-2023",
+    "title": "Nepal Earthquake",
+    "interval": [
+     "2014-12-04 05:32:05Z",
+     "2023-11-09 05:04:10Z"
+    ]
+   },
+   {
+    "id": "Nepal-Floods-Sept-2024",
+    "title": "Nepal Flooding 2024",
+    "interval": [
+     "2022-03-26 04:54:40Z",
+     "2024-10-06 05:12:36Z"
+    ]
+   },
+   {
+    "id": "New-Zealand-Flooding23",
+    "title": "New Zealand Flooding 2023",
+    "interval": [
+     "2022-11-01 22:36:52Z",
+     "2023-02-08 22:44:18Z"
+    ]
+   },
+   {
+    "id": "Nigeria-Flooding-May-2025",
+    "title": "Nigeria Flooding May 2025",
+    "interval": [
+     "2023-10-09 10:14:02Z",
+     "2025-06-02 10:24:19Z"
+    ]
+   },
+   {
+    "id": "Nigeria-Floods-Sept-2024",
+    "title": "Nigeria Flooding 2024",
+    "interval": [
+     "2024-01-12 09:33:15Z",
+     "2024-03-25 09:39:24Z"
+    ]
+   },
+   {
+    "id": "PNG-Landslide-June24",
+    "title": "Papua New Guinea Landslide",
+    "interval": [
+     "2023-06-27 00:40:13Z",
+     "2024-05-27 00:42:42Z"
+    ]
+   },
+   {
+    "id": "SmokeHouseCreek-Wildfires-Texas-Mar24",
+    "title": "Smokehouse Creek Wildfires",
+    "interval": [
+     "2021-07-31 17:39:11Z",
+     "2024-03-04 17:35:41Z"
+    ]
+   },
+   {
+    "id": "Sudan-flooding-8-22-2022",
+    "title": "Sudan Flooding",
+    "interval": [
+     "2022-03-23 08:58:30Z",
+     "2022-09-07 09:06:15Z"
+    ]
+   },
+   {
+    "id": "Texas-Flooding-July-2025",
+    "title": "Texas Flooding July 2025",
+    "interval": [
+     "2025-07-08 17:33:56Z",
+     "2025-07-09 17:30:46Z"
+    ]
+   },
+   {
+    "id": "Typhoon-Kalmaegi-Nov-2025",
+    "title": "Typhoons Kalmaegi and Fung-wong November 2025",
+    "interval": [
+     "2025-03-04 02:14:02Z",
+     "2025-11-14 02:17:44Z"
+    ]
+   },
+   {
+    "id": "Vanuatu-Earthquake-Dec17",
+    "title": "Vanuatu Earthquake 2024",
+    "interval": [
+     "2024-09-21 23:05:30Z",
+     "2024-12-02 23:03:43Z"
+    ]
+   },
+   {
+    "id": "WildFires-LosAngeles-Jan-2025",
+    "title": "Los Angeles Wildfires 2025",
+    "interval": [
+     "2024-12-14 18:39:04Z",
+     "2025-01-20 18:32:44Z"
+    ]
+   },
+   {
+    "id": "afghanistan-earthquake22",
+    "title": "Afghanistan Earthquake",
+    "interval": [
+     "2021-06-09 06:13:36Z",
+     "2022-06-27 06:09:09Z"
+    ]
+   },
+   {
+    "id": "cyclone-emnati22",
+    "title": "Cyclone Emnati",
+    "interval": [
+     "2020-08-11 07:18:42Z",
+     "2022-02-28 06:52:25Z"
+    ]
+   },
+   {
+    "id": "ghana-explosion22",
+    "title": "Ghana Explosion",
+    "interval": [
+     "2020-01-06 10:43:48Z",
+     "2022-01-22 10:49:54Z"
+    ]
+   },
+   {
+    "id": "kentucky-flooding-7-29-2022",
+    "title": "Kentucky Flooding",
+    "interval": [
+     "2021-07-03 16:31:19Z",
+     "2022-08-07 15:59:01Z"
+    ]
+   },
+   {
+    "id": "pakistan-flooding22",
+    "title": "Pakistan Flooding",
+    "interval": [
+     "2019-11-29 06:22:38Z",
+     "2022-10-11 06:18:37Z"
+    ]
+   },
+   {
+    "id": "shovi-georgia-landslide-8Aug23",
+    "title": "Shovi Landslide",
+    "interval": [
+     "2011-09-19 08:15:02Z",
+     "2023-08-08 07:46:56Z"
+    ]
+   },
+   {
+    "id": "southafrica-flooding22",
+    "title": "South Africa Flooding",
+    "interval": [
+     "2022-04-12 07:59:11Z",
+     "2022-04-21 08:11:20Z"
+    ]
+   },
+   {
+    "id": "tonga-volcano21",
+    "title": "Tonga Volcano",
+    "interval": [
+     "2021-03-27 21:58:24Z",
+     "2022-01-18 21:43:51Z"
+    ]
+   },
+   {
+    "id": "volcano-indonesia21",
+    "title": "Mount Semeru Eruption",
+    "interval": [
+     "2019-05-18 02:46:44Z",
+     "2021-12-11 02:49:44Z"
+    ]
+   },
+   {
+    "id": "yellowstone-flooding22",
+    "title": "Yellowstone Flooding",
+    "interval": [
+     "2022-06-15 18:27:58Z",
+     "2022-06-18 18:18:32Z"
+    ]
+   }
+  ]
+ },
+ "other_imagery": [
+  {
+   "name": "Open Cities AI Challenge (GFDRR; Source Cooperative open-cities/ai-challenge)",
+   "finding": "Checked the STAC catalogues on 10 Oct 2026. Tier-1 training collections are acc, mon, ptn, kam, dar, znz and nia. Their bounding boxes are small urban patches in Accra, Monrovia, Pointe-Noire, Kampala (0.25N 32.63E), Dar es Salaam, Zanzibar and Niamey; tier 2 adds gao, kin and mah. None lies in a candidate district. Per-collection licence 'various' (znz CC-BY-4.0); README licence ODbL-1.0. Labels are building footprints only, with no agricultural storage or processing class. Fails coverage and labels for every candidate.",
+   "urls": [
+    "https://data.source.coop/open-cities/ai-challenge/README.md",
+    "https://data.source.coop/open-cities/ai-challenge/train_tier_1/catalog.json"
+   ]
+  },
+  {
+   "name": "Sentinel-2 (Copernicus)",
+   "finding": "Global, free and open, but the finest bands are 10 m. That is 10 times coarser than the 1 m detector threshold, so it fails the resolution test everywhere. It may show the largest cold-storage roofs, but that is unproven and was not tested.",
+   "urls": [
+    "https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-2"
+   ]
+  },
+  {
+   "name": "Commercial basemaps (Google, Bing, Esri World Imagery)",
+   "finding": "Sub-metre in many places, but these are proprietary basemaps, not open imagery. Their terms were not reviewed in detail. They are treated as failing the open training-and-publishing licence test.",
+   "urls": []
+  }
+ ],
+ "energy_access": {
+  "IND": {
+   "total": 99.9,
+   "rural": 99.9,
+   "year": "2024",
+   "source": "World Bank WDI EG.ELC.ACCS.ZS / EG.ELC.ACCS.RU.ZS"
+  },
+  "BGD": {
+   "total": 99.5,
+   "rural": 99.6,
+   "year": "2024",
+   "source": "World Bank WDI EG.ELC.ACCS.ZS / EG.ELC.ACCS.RU.ZS"
+  },
+  "KEN": {
+   "total": 77,
+   "rural": 67.1,
+   "year": "2024",
+   "source": "World Bank WDI EG.ELC.ACCS.ZS / EG.ELC.ACCS.RU.ZS"
+  },
+  "UGA": {
+   "total": 55.3,
+   "rural": 44.8,
+   "year": "2024",
+   "source": "World Bank WDI EG.ELC.ACCS.ZS / EG.ELC.ACCS.RU.ZS"
+  },
+  "TZA": {
+   "total": 52.4,
+   "rural": 33.7,
+   "year": "2024",
+   "source": "World Bank WDI EG.ELC.ACCS.ZS / EG.ELC.ACCS.RU.ZS"
+  },
+  "ETH": {
+   "total": 56.6,
+   "rural": 44.8,
+   "year": "2024",
+   "source": "World Bank WDI EG.ELC.ACCS.ZS / EG.ELC.ACCS.RU.ZS"
+  }
+ }
+}

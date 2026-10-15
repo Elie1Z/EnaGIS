@@ -2,7 +2,7 @@
 
 Status: **COMPLETE — product and architecture lock**, 7 October 2026.
 
-The user authorized any data-rich location and requested closure of this phase. [Decision 0003](decisions/0003-benchmark-lock.md) freezes the first development benchmark under the PRD best-candidate fallback. Completion means the scope, interfaces and evidence responsibilities are explicit; it does not mean model training, energy validation or field verification has happened.
+The team authorized any data-rich location and requested closure of this phase. [Decision 0003](decisions/0003-benchmark-lock.md) freezes the first development benchmark under the PRD best-candidate fallback. Completion means the scope, interfaces and evidence responsibilities are explicit; it does not mean model training, energy validation or field verification has happened.
 
 ## Exit questions
 
@@ -40,7 +40,7 @@ These are explicit execution gates for subsequent phases, not unanswered Phase 0
 ## Checks completed
 
 - Supplied PRD and UI reference copies matched their originals by SHA-256.
-- Current decision precedence was checked: original PRD → user global direction → benchmark lock.
+- Current decision precedence was checked: original PRD → team global direction → benchmark lock.
 - Local document links and scope JSON were checked; source audit counts reconcile with province totals and outcome-group semantics.
 - Module dependencies, siting leakage boundaries and storage/flow/power distinctions were reviewed.
 - Scientific code, model fitting and UI were not implemented during Phase 0. Runtime tests/lint begin in Phase 1.

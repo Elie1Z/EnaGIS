@@ -2,13 +2,13 @@
 
 Status: **engineering implementation; real freeze awaiting scientific gates**, 8 October 2026.
 
-The user requested Phase 7. Proceed with prospective freeze/sampling, capture and analysis
+The team requested Phase 7. Proceed with prospective freeze/sampling, capture and analysis
 engineering, using unmistakably synthetic inputs for acceptance. The request does not supply
 the outstanding Phase 6 operating data or a concrete human-approved verification protocol.
 
 The core supports stable node IDs and declared protocol settings, so a reviewed new region can
 reuse these verification components. The existing real scientific source remains the frozen
-AB/SK wheat/aeration scope; Manitoba is untouched. The earlier conversational assurance about
+AB/SK wheat/aeration scope; Manitoba is untouched. An earlier statement about
 global use described the intended architecture too broadly: current evidence establishes
 synthetic portability, while real new regions still require adapters, local parameters and an
 untouched evaluation. Scarce evidence may result in UNKNOWN and no defensible numerical rank.

@@ -22,3 +22,6 @@ outputs/
 # Keep source specs, scope metadata, audits, manual non-private tables and fixtures versioned
 .DS_Store
 Thumbs.db
+
+# Team material that is not part of the submission (pitch, recordings, process notes)
+_not-for-submission/

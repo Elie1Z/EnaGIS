@@ -1,0 +1,8 @@
+{
+  "label": "DOCUMENTED",
+  "date": "2026-10-10",
+  "source": "data/rwanda/district_summaries.json",
+  "footprints": 7282084,
+  "documented": 156,
+  "note": "Harvested source records; not a census of cold rooms. Different observation units, not a numerical capacity gap."
+}

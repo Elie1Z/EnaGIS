@@ -70,7 +70,7 @@ review its prospectively specified comparisons/ablations. Bind that sign-off to 
 
 For verification, approve the proposed sample/seed/interval/consent policy, define the meaningful
 failure criteria and time basis, provide a committed participant through a private reference,
-and review the baseline/flag frame. AGENTS.md and PRD §9/§11 require these substantive human
+and review the baseline/flag frame. The repository rules in CONTRIBUTING.md and PRD §9/§11 require these substantive human
 decisions. Moving to Phase 7 does not itself supply them. No external-consultant requirement is
 added, and no outreach has been performed.
 
@@ -81,7 +81,7 @@ untouched evaluation; a data-poor location can legitimately have no defensible n
 
 ## Deviations and reproducibility
 
-- Implemented Phase 7 engineering before Phase 6 scientific closure under the user's request;
+- Implemented Phase 7 engineering before Phase 6 scientific closure by team decision;
   the real freeze gate remains enforced. No phase is falsely marked scientifically complete.
 - The proposed real sample has a 16-node core and at most four supplements; its choices remain
   unapproved. Synthetic quotas/seed differ and are visibly labelled. No gate was relaxed.

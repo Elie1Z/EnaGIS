@@ -1,6 +1,6 @@
 # 0003 — First benchmark and Phase 0 scope lock
 
-Status: **frozen development scope**, 7 October 2026. Authority: the user permits data-driven selection anywhere in the world and asked to finish Phase 0. This resolves the location, commodity and service choices for implementation. Changes require a new decision record with a concrete reason.
+Status: **frozen development scope**, 7 October 2026. Authority: the team permits data-driven selection anywhere in the world and asked to finish Phase 0. This resolves the location, commodity and service choices for implementation. Changes require a new decision record with a concrete reason.
 
 ## Selected scope
 

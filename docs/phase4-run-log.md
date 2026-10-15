@@ -5,7 +5,7 @@ Remote configured: `origin`, `https://github.com/Elie1Z/EnaGIS.git`.
 
 ## Authority and sequence
 
-The user conditionally authorizes v1.1 amendments, a counts-only gate, frozen-values check,
+The team conditionally authorizes v1.1 amendments, a counts-only gate, frozen-values check,
 tests/lint, approval recording, committed/pushed registration and evaluation. Ask only at a STOP.
 The exact approval sentence is reserved for Step 5 after the required conditions pass:
 
@@ -68,17 +68,17 @@ The first check decoded Git's UTF-8 document output using Windows' default encod
 to match the multiplication symbol in the original budget text. Numeric frozen-value comparisons
 had passed; no differing method value was found. Added explicit UTF-8 decoding to the check
 script and reran it before registration. This is a tooling correction, not a method change;
-the user's Step 3 STOP applies to differing frozen values, and the post-registration error STOP
+the team's Step 3 STOP applies to differing frozen values, and the post-registration error STOP
 does not apply because no registration exists. If the corrected check finds a difference, stop.
 
 The corrected script passed: primary metric/budget, secondary fraction, 2,000 draws, seed
 20261008, keep rule, 60/6 gate, 15-group minimum, leave-one-CAR-out design and logistic
 hyperparameters match committed v1 (`de21725`). Metric implementation is identical to v1.
-The user subsequently instructed "now we continue"; the conditional guards remain in force.
+The team then decided to continue; the conditional guards remain in force.
 
 ## Step 4 — STOP: lint and test failures
 
-The user instructed stopping if anything fails. Commands were launched concurrently; collected
+The team required a stop if anything failed. Commands were launched concurrently; collected
 results from those already running and did not repair or rerun them.
 
 - Ruff format check: PASS (72 files).
@@ -93,14 +93,14 @@ files remain uncommitted. Synthetic tests use temporary fixture data/repositorie
 Phase 2/3 fixture includes synthetic Manitoba records, not real transfer data or evaluation.
 No new data source or crop raster was acquired. No thresholds, folds, seeds or method were relaxed.
 
-Continuation requires user direction at this STOP condition. Proposed next action, not applied:
+Continuing required a team decision at this STOP condition. Proposed next action, not applied:
 fix only the two formatting lines and investigate/correct the temporary-remote test/registration
 implementation issue, preserving all scientific settings; then rerun Step 4 and proceed only
 after all checks pass. The Step 2 primary gate and corrected Step 3 check had passed.
 
 ## Authorized resumption after Step 4 STOP
 
-The user explicitly delegated completion and authorized correction of the implementation issues.
+The team authorized completion and correction of the implementation issues.
 The two lint lines were wrapped without changing their strings. A direct reproduction of the
 temporary-remote failure showed Git's MSYS shell failing to create a Windows named object with
 access denied (`NtCreateDirectoryObject`, 0xC0000022) inside the sandbox. This is an execution

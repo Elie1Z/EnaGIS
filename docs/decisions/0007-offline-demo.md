@@ -1,6 +1,6 @@
 # 0007 — Phase 5 offline evidence presentation
 
-Status: **implemented presentation integration**, 8 October 2026. The user authorized Phase 5
+Status: **implemented presentation integration**, 8 October 2026. The team authorized Phase 5
 and requested a compelling, seamless guided demonstration. Decisions 0003–0006 and the
 registered scientific method are unchanged.
 

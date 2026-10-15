@@ -1,6 +1,6 @@
 # EnaGIS architecture and interface lock (Phase 0)
 
-Status: **Phase 0 complete**, 7 October 2026. [Decision 0003](docs/decisions/0003-benchmark-lock.md) freezes the first benchmark under the PRD's best-candidate fallback. This document translates the PRD and the user's global direction into module boundaries; scientific implementation and validation follow in later phases.
+Status: **Phase 0 complete**, 7 October 2026. [Decision 0003](docs/decisions/0003-benchmark-lock.md) freezes the first benchmark under the PRD's best-candidate fallback. This document translates the PRD and the team's global direction into module boundaries; scientific implementation and validation follow in later phases.
 
 ## Product boundary
 

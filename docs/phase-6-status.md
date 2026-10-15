@@ -4,7 +4,7 @@
 Date: 8 October 2026. The authorized engineering work, deterministic synthetic run and real
 source-readiness audit are delivered. Six human-owned scientific gates remain open in the
 [review packet](phase6-scientific-review.md); no temporary coefficients were promoted to
-approved ranges. This follows AGENTS.md, decision 0003 and the Phase 0 execution gates.
+approved ranges. This follows the repository rules in CONTRIBUTING.md, decision 0003 and the Phase 0 execution gates.
 
 ## Delivered and checked
 
@@ -20,14 +20,14 @@ approved ranges. This follows AGENTS.md, decision 0003 and the Phase 0 execution
 The engine writes eight artifacts plus index and fully replays them for verification.
 The [execution guide](spec/phase6-science.md) includes the commands and equations.
 
-## Scientific desk-review continuation
+## Scientific desk review
 
 The [desk review](phase6-desk-review.md) is complete. It supplies source findings, a
 [versioned policy proposal](../configs/scenarios/phase6-policy-proposal-v1.json) and a
 [blank evidence worksheet](../data/manual/phase6-site-evidence-template.json).
 The policy remains unapproved; commercial inventory/fan/transport inputs remain unresolved.
 
-- **191 tests passed**, with Ruff lint and formatting clean. The continuation adds 26 cases
+- **191 tests passed**, with Ruff lint and formatting clean. The desk review adds 26 cases
   covering regional projections, dimensional conversion, approval boundaries and ablations.
 - The same synthetic pipeline runs in five non-Canadian geographies. Its selected CRS is
   explicit and checked locally; these tests demonstrate portability, not predictive transfer.
@@ -42,7 +42,7 @@ The policy remains unapproved; commercial inventory/fan/transport inputs remain 
   two spatial-review nodes, one eligibility issue and zero documented electrical observations.
   All 766,897 AB/SK way rows were checked again. No empirical datasets were acquired.
 
-The [continuation audit](audits/phase6-desk-review.json) records source hashes and checks; its
+The [desk-review audit](audits/phase6-desk-review.json) records source hashes and checks; its
 [readiness audit](audits/phase6-review-readiness.json) binds the updated review packet.
 The original audits below are historical records from commit `5953c5f`, not current-code replay
 certificates. Preserve the matching source version when reproducing each run.
@@ -92,8 +92,8 @@ ranking or public map replacement is created.
 **Remaining evidence gate:** supply applicable inventory, grain/storage, fan-duty/cycle and
 freight assumptions from an existing operator report, engineering study or suitable technical
 source, using the worksheet. Human approval must then identify the exact values and method.
-AGENTS.md and the PRD require that review; they do not require an external consultant.
+The repository rules in CONTRIBUTING.md and the PRD require that review; they do not require an external consultant.
 Real execution, a prospectively specified comparison and reviewed ablations still follow.
 Phase 7's real ranking freeze remains gated. Its [engineering toolkit](phase-7-status.md) has
-since been implemented under the user's next-phase request; no real Phase 6 ranking is
+since been implemented as the team's next phase; no real Phase 6 ranking is
 described as ready to freeze.

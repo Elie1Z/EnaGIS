@@ -31,7 +31,9 @@ Phase 4 inputs · `demo` / `verify-demo` historical Phase 5 archive · `phase6-a
 `phase6-fixture`, `verify-phase6` · `phase7-fixture` · `mvp`, `verify-mvp`, `figures`, `release`
 app and defense archive · `stress` unapproved sparse-data diagnostic · `preflight` demo check.
 
-## Rules (from [AGENTS.md](AGENTS.md); PRs that break them are not merged)
+## Rules
+
+PRs that break these are not merged.
 
 1. Every value keeps an evidence label with source, date, licence and precision. **Never fill
    UNKNOWN** with a default, mean, zero or guess.
@@ -44,6 +46,15 @@ app and defense archive · `stress` unapproved sparse-data diagnostic · `prefli
    `data/manual/phase4-preregistration.json`, configs under a registration).
 7. No private verification data, personal data or restricted sources in the repository.
 8. Tests must not be weakened. Add a test with every behaviour change.
+9. Missing documentation is not evidence of absence. Keep OBSERVED, PREDICTED, ESTIMATED,
+   INFERRED and UNKNOWN distinct.
+10. New regions enter through source adapters and region configuration. Evaluate transfer on
+    untouched spatial blocks and report local data coverage; never claim worldwide accuracy from
+    one pilot.
+11. Record seeds and input hashes. Build offline from pinned, licence-compatible inputs.
+12. Before changing scientific behaviour, read the [PRD](docs/reference/prd-2026-10-04.md),
+    [design.md](design.md), [the Phase 0 interfaces](docs/spec/phase0-interfaces.md) and the
+    relevant [decision records](docs/decisions/).
 
 ## Pull requests
 
@@ -52,7 +63,7 @@ changes). Say what evidence label your change affects. One topic per PR.
 
 ## Good first issues
 
-Drafts are in [docs/audit/draft-issues.md](docs/audit/draft-issues.md): documentation, tests,
+Ready-to-open issues are in [docs/good-first-issues.md](docs/good-first-issues.md): documentation, tests,
 UI accessibility, adapter examples. Labels: `good first issue`, `data wanted`.
 
 ## Code of conduct

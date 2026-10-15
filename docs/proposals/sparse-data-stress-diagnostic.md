@@ -106,6 +106,6 @@ They should be re-tested under this same protocol once real inputs are approved.
 ## If approved
 
 1. Move the protocol to `configs/experiments/` under a new decision record.
-2. Restore the "When data goes missing" block in the How sure lens (the removed code is in
-   [docs/audit/changes.md](../audit/changes.md)).
+2. Restore the "When data goes missing" block in the How sure lens (the removed code is in Git history,
+   9 October 2026).
 3. Add the report to the release archive.

@@ -1,0 +1,19 @@
+{
+  "label": "ESTIMATED",
+  "source": "NISR 2024 Season A area × yield shares scaled to annual national total; census 2022",
+  "crs": "EPSG:4326",
+  "district": "Nyabihu",
+  "row": {
+    "province": "West",
+    "population": 319047,
+    "maize_t": 6800,
+    "potato_t": 184486,
+    "imputed": false
+  },
+  "config": {
+    "province": "West",
+    "population": 319047,
+    "irish_potato": 184486,
+    "maize": 6800
+  }
+}

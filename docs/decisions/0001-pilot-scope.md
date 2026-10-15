@@ -1,11 +1,11 @@
 # 0001 — Commodity and pilot scope
 
-Status: historical Rwanda candidate packet; **superseded for geographic scope by [decision 0002](0002-global-transfer.md)**. On 7 October 2026 the user first kept the choice open, then authorized selection of a data-rich pilot anywhere in the world. The coffee recommendation below remains an unselected candidate, not a default.
+Status: historical Rwanda candidate packet; **superseded for geographic scope by [decision 0002](0002-global-transfer.md)**. On 7 October 2026 the team first kept the choice open, then authorized selection of a data-rich pilot anywhere in the world. The coffee recommendation below remains an unselected candidate, not a default.
 
 ## Already fixed by the final PRD
 
 - User and question: an energy planning team selects agricultural aggregation/processing points for scarce site visits, with uncertainty and an evidence trail.
-- Rwanda was the original country context for the commodity audit; the latest user request permits any country.
+- Rwanda was the original country context for the commodity audit; the latest team decision permits any country.
 - Milk was a no-go for the Rwanda open-data pilot under the PRD audit. That local finding is not a global ban on dairy. The committed siting experiment, baselines, hindcast, frozen verification and top-10 remain required.
 - Processing must occur at the aggregation point. Transit-only nodes cannot receive invented stationary demand.
 

@@ -8,7 +8,7 @@ experiment cannot test robustness to documentation bias.
 
 ## Registration and guards
 
-Approved protocol `phase4-canada-v1.1` was amended before registration. Exact user approval is
+Approved protocol `phase4-canada-v1.1` was amended before registration. Exact team approval is
 recorded in configuration and the frozen protocol. Registration commit:
 `948cf2fddbb5a9f093883dd06b1a58a1d5a905fe`; tag: `preregister-phase4-canada-v1.1`;
 remote: [Elie1Z/EnaGIS](https://github.com/Elie1Z/EnaGIS). Both remote references were independently

@@ -2,7 +2,7 @@
 
 Status: **COMPLETE — walking skeleton with a temporary engineering scenario**, 7 October 2026.
 
-The user authorized Phase 3. Its instructions explicitly allow marked temporary coefficients where human-owned values are unavailable. [Decision 0005](decisions/0005-phase3-walking-skeleton.md) records that boundary. This is completion of end-to-end engineering integration using real pilot sources, not scientific approval, a validated energy shortlist or field verification.
+The team authorized Phase 3. Its instructions explicitly allow marked temporary coefficients where human-owned values are unavailable. [Decision 0005](decisions/0005-phase3-walking-skeleton.md) records that boundary. This is completion of end-to-end engineering integration using real pilot sources, not scientific approval, a validated energy shortlist or field verification.
 
 ## Exit criteria
 

@@ -2,7 +2,7 @@
 
 **COMPLETE at the presentation/integration boundary, 8 October 2026.** Open
 [demo/index.html](../demo/index.html) and click **Start guided demo**. The
-[presenter guide](phase-5-demo-guide.md) provides a three-minute walkthrough and offline rebuild.
+presenter guide (kept out of the repository) provides a three-minute walkthrough and offline rebuild.
 
 ## Delivered
 

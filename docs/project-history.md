@@ -10,7 +10,7 @@ EnaGIS helps productive-use-energy teams decide which agricultural aggregation a
 [the application](../app/index.html): light map-first interface, worldwide indexed place search,
 coordinate/map selection, four lenses, local evidence cards, regional package import, exports
 and an A4 site brief. No presenter overlays or demonstration buttons appear in the product.
-It works offline. The [private presenter guide](phase8-presenter-guide.md) contains the
+It works offline. The private presenter guide (kept out of the repository) contains the
 defense sequence; the [method report](phase8-method-report.md) and
 [acceptance audit](phase8-acceptance.md) explain evidence and limitations.
 
@@ -42,16 +42,16 @@ These checks demonstrate reusable software; measured regional transfer remains u
 **Phase 5 remains as a historical archive:** [the original offline presentation](../demo/index.html).
 It presents ten real pipeline sites, a question-led node card, source/assumption traces and the
 recorded baseline comparison. No sign-in, internet or runtime server is needed; keep the folder
-together. The [demo guide](phase-5-demo-guide.md) includes a three-minute presentation and
+together. The demo guide (kept out of the repository) includes a three-minute presentation and
 rebuild instructions. See [Phase 5 completion](phase-5-completion.md) for verification and limits.
 
 **Phase 4 is complete:** the approved v1.1 comparison was remotely registered, executed and verified. Its verdict is KILL / no demonstrated improvement from this proxy-based accessible-production feature. See the [completion report](phase-4-completion.md) for all arms, uncertainty, hindcast and limitations.
 
 **Phases 0–3 are complete at their recorded boundaries.** The development benchmark is non-durum wheat storage and electricity for ambient-air aeration at Canadian Prairie primary elevators. Alberta and Saskatchewan are the development footprint; Manitoba is reserved for transfer evaluation. The [benchmark lock](decisions/0003-benchmark-lock.md), [architecture](../design.md), [interfaces](spec/phase0-interfaces.md) and [Phase 0 audit](phase-0-completion.md) define scope. The [Phase 1 audit](phase-1-completion.md) records the foundation; [Phase 2](phase-2-completion.md) records normalized real inputs; [Phase 3](phase-3-completion.md) records the complete pipeline and a real-data **temporary engineering shortlist**. Scientific use still requires human-reviewed parameters/methods and the recorded data/verification gates.
 
-The user permits a pilot anywhere in the world, with adaptation through regional adapters/configuration: see [decision 0002](decisions/0002-global-transfer.md). The benchmark follows the PRD best-candidate fallback. Its public inputs support the walking skeleton and completed spatial siting comparison; validated commercial energy parameters, field verification and measured transfer remain explicit gates.
+The team permits a pilot anywhere in the world, with adaptation through regional adapters/configuration: see [decision 0002](decisions/0002-global-transfer.md). The benchmark follows the PRD best-candidate fallback. Its public inputs support the walking skeleton and completed spatial siting comparison; validated commercial energy parameters, field verification and measured transfer remain explicit gates.
 
-The final consolidated project description and the supplied UI concept are retained verbatim in `docs/reference/`. The PRD governs scientific scope, with the user's geographic change recorded in decisions 0002–0003. The UI concept is a design proposal to evaluate when building the map; it does not change scientific claims.
+The final consolidated project description and the supplied UI concept are retained verbatim in `docs/reference/`. The PRD governs scientific scope, with the team's geographic change recorded in decisions 0002–0003. The UI concept is a design proposal to evaluate when building the map; it does not change scientific claims.
 
 ## Development
 
@@ -143,4 +143,4 @@ uv run --offline --locked --cache-dir .uv-cache python -m enagis verify-experime
 
 The [approved protocol](spec/phase4-preregistration.md), [registration](../data/manual/phase4-preregistration.json), [machine audit](audits/phase4-evaluation.json) and [execution guide](spec/phase4-experiment.md) preserve the method and results. All 127 tests and lint/format passed; six real artifacts verified. The committed/tagged method preceded evaluation and was not retuned. Manitoba remains untouched. Allocation/capacity/energy/gap outputs cannot enter siting features. Scientific energy/routing/verification gates remain open; [pilot-scope.json](../configs/pilot-scope.json) remains scope metadata.
 
-Code will be developed with AI assistance under human specifications, scientific decisions and review, following the PRD protocol.
+Code is developed under the team's specifications, scientific decisions and review, following the PRD protocol.

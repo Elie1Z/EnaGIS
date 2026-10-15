@@ -1,4 +1,4 @@
-.PHONY: setup test lint check smoke acquire ingest verify-data pipeline verify-run stress prepare-experiment demo verify-demo phase6-audit phase6-fixture verify-phase6 phase7-fixture mvp verify-mvp figures release preflight
+.PHONY: research-njombe scout-sites research-xgb hero-repro hero-geojson hero-build hero-verification live-test live-e2e live-siting setup test lint check smoke acquire ingest verify-data pipeline verify-run stress prepare-experiment demo verify-demo phase6-audit phase6-fixture verify-phase6 phase7-fixture mvp verify-mvp figures release preflight
 setup:
 	uv sync --locked --cache-dir .uv-cache
 test:
@@ -45,3 +45,27 @@ release:
 	uv run --offline --locked --cache-dir .uv-cache python -m scripts.release_mvp --check
 preflight:
 	node scripts/demo_preflight.mjs app/index.html outputs/demo-preflight
+live-test:
+	node --test tests/live/engine.test.cjs tests/live/overture.test.cjs tests/live/siting.test.cjs tests/live/hero.test.cjs tests/live/scouting.test.mjs tests/live/phase4n.test.mjs
+live-e2e:
+	node tests/live/e2e.cjs outputs/live-e2e
+	node scripts/demo_preflight_live.mjs outputs/demo-preflight-live
+hero-repro:
+	node live/tools/hero-repro.cjs
+	node live/tools/export-hero-geojson.cjs --check
+hero-geojson:
+	node live/tools/export-hero-geojson.cjs
+hero-build:
+	node live/tools/hero-assumptions.cjs
+	node live/tools/build-hero.cjs
+hero-verification:
+	node live/tools/check-hero-verification.cjs
+live-siting:
+	node live/tools/verify-siting.cjs
+research-xgb:
+	uv run --offline --locked --cache-dir .uv-cache --group research python -m research.phase4x.run
+scout-sites:
+	node scripts/scout-sites.mjs --offline
+research-njombe:
+	node research/phase4n/gather.mjs
+	uv run --offline --locked --cache-dir .uv-cache --group research python -m research.phase4n.run

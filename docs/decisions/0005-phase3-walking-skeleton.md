@@ -1,6 +1,6 @@
 # 0005 — Phase 3 walking skeleton and temporary scenario boundary
 
-Status: **implemented engineering integration**, 7 October 2026. The user authorized Phase 3. This follows its explicit permission for temporary scenario inputs; it does not assert human scientific approval or change decision 0003's benchmark.
+Status: **implemented engineering integration**, 7 October 2026. The team authorized Phase 3. This follows its explicit permission for temporary scenario inputs; it does not assert human scientific approval or change decision 0003's benchmark.
 
 ## Executable method
 

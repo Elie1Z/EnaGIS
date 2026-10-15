@@ -1,6 +1,6 @@
 # 0011 — Global location selection and final product appearance
 
-Status: user-authorized interface work, 9 October 2026. The user requested completion through
+Status: team-authorized interface work, 9 October 2026. The team requested completion through
 Phase 8 for the MVP defense, worldwide place selection/search, the updated Design MD appearance,
 and presenter guidance outside the audience interface.
 
@@ -58,7 +58,7 @@ facility coverage. Runtime external links open only through a user action.
 
 ## Completion boundary
 
-Software/UI delivery and real scientific validation are different gates. No user instruction
+Software/UI delivery and real scientific validation are different gates. No team instruction
 to complete the project creates an external participant, operating evidence or consented field
 observations. The remaining Phase 6/7 scientific exits stay open. No `ranking-v1` tag or human
 approval is fabricated, and synthetic checks cannot establish worldwide accuracy.

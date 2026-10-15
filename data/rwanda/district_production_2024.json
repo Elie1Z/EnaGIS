@@ -1,0 +1,212 @@
+{
+"Nyarugenge": {
+"province": "Kigali",
+"population": 374319,
+"maize_t": 1254,
+"potato_t": 328,
+"imputed": false
+},
+"Gasabo": {
+"province": "Kigali",
+"population": 879505,
+"maize_t": 7168,
+"potato_t": 5330,
+"imputed": false
+},
+"Kicukiro": {
+"province": "Kigali",
+"population": 491731,
+"maize_t": 2402,
+"potato_t": 117,
+"imputed": false
+},
+"Nyanza": {
+"province": "South",
+"population": 365718,
+"maize_t": 13650,
+"potato_t": 2668,
+"imputed": false
+},
+"Gisagara": {
+"province": "South",
+"population": 397051,
+"maize_t": 16223,
+"potato_t": 1364,
+"imputed": false
+},
+"Nyaruguru": {
+"province": "South",
+"population": 318126,
+"maize_t": 10114,
+"potato_t": 19800,
+"imputed": false
+},
+"Huye": {
+"province": "South",
+"population": 381900,
+"maize_t": 10610,
+"potato_t": 3740,
+"imputed": false
+},
+"Nyamagabe": {
+"province": "South",
+"population": 371501,
+"maize_t": 12152,
+"potato_t": 43445,
+"imputed": false
+},
+"Ruhango": {
+"province": "South",
+"population": 359121,
+"maize_t": 8126,
+"potato_t": 715,
+"imputed": false
+},
+"Muhanga": {
+"province": "South",
+"population": 358433,
+"maize_t": 4698,
+"potato_t": 2663,
+"imputed": false
+},
+"Kamonyi": {
+"province": "South",
+"population": 450849,
+"maize_t": 13080,
+"potato_t": 3293,
+"imputed": false
+},
+"Karongi": {
+"province": "West",
+"population": 373869,
+"maize_t": 13662,
+"potato_t": 8216,
+"imputed": false
+},
+"Rutsiro": {
+"province": "West",
+"population": 369180,
+"maize_t": 9832,
+"potato_t": 45480,
+"imputed": false
+},
+"Rubavu": {
+"province": "West",
+"population": 546683,
+"maize_t": 5161,
+"potato_t": 145191,
+"imputed": false
+},
+"Nyabihu": {
+"province": "West",
+"population": 319047,
+"maize_t": 6800,
+"potato_t": 184486,
+"imputed": false
+},
+"Ngororero": {
+"province": "West",
+"population": 367955,
+"maize_t": 7096,
+"potato_t": 20000,
+"imputed": false
+},
+"Rusizi": {
+"province": "West",
+"population": 485529,
+"maize_t": 17661,
+"potato_t": 2553,
+"imputed": false
+},
+"Nyamasheke": {
+"province": "West",
+"population": 434221,
+"maize_t": 11150,
+"potato_t": 0,
+"imputed": false
+},
+"Rulindo": {
+"province": "North",
+"population": 360144,
+"maize_t": 11540,
+"potato_t": 14552,
+"imputed": false
+},
+"Gakenke": {
+"province": "North",
+"population": 365292,
+"maize_t": 20357,
+"potato_t": 13516,
+"imputed": false
+},
+"Musanze": {
+"province": "North",
+"population": 476522,
+"maize_t": 13069,
+"potato_t": 86188,
+"imputed": false
+},
+"Burera": {
+"province": "North",
+"population": 387729,
+"maize_t": 23961,
+"potato_t": 90082,
+"imputed": false
+},
+"Gicumbi": {
+"province": "North",
+"population": 448824,
+"maize_t": 12424,
+"potato_t": 51605,
+"imputed": false
+},
+"Rwamagana": {
+"province": "East",
+"population": 484953,
+"maize_t": 22505,
+"potato_t": 12270,
+"imputed": false
+},
+"Nyagatare": {
+"province": "East",
+"population": 653861,
+"maize_t": 116221,
+"potato_t": 6938,
+"imputed": false
+},
+"Gatsibo": {
+"province": "East",
+"population": 551164,
+"maize_t": 52707,
+"potato_t": 21679,
+"imputed": false
+},
+"Kayonza": {
+"province": "East",
+"population": 457156,
+"maize_t": 40880,
+"potato_t": 13125,
+"imputed": false
+},
+"Kirehe": {
+"province": "East",
+"population": 460860,
+"maize_t": 70503,
+"potato_t": 12680,
+"imputed": true
+},
+"Ngoma": {
+"province": "East",
+"population": 404048,
+"maize_t": 44903,
+"potato_t": 12672,
+"imputed": true
+},
+"Bugesera": {
+"province": "East",
+"population": 551103,
+"maize_t": 27176,
+"potato_t": 2661,
+"imputed": true
+}
+}

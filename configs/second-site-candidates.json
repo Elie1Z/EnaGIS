@@ -1,0 +1,41 @@
+{
+  "schema": "enagis-second-site-candidates-v1",
+  "status": "Candidate regions and checklist from docs/claude-code-prompt-advanced-tools.md (Elie, 10 Oct 2026). Regions are unverified until scripts/scout-sites.mjs records them.",
+  "checklist": {
+    "energy_access_regions": ["Africa", "South Asia"],
+    "min_positive_facilities": 300,
+    "min_subdistricts_with_positives": 6,
+    "label_types": ["mill", "milk_centre", "cold_store", "coffee_station", "warehouse", "agro_factory", "tea_factory"],
+    "any_point_types": ["mill", "milk_centre", "cold_store", "coffee_station", "warehouse", "agro_factory", "tea_factory", "market", "cooperative"],
+    "redistributable_label_licences": ["ODbL-1.0"],
+    "detector_max_gsd_m": 1.0,
+    "detector_small_asset_max_gsd_m": 0.6,
+    "detector_min_covered_positives": 300,
+    "training_licences": ["CC-BY-4.0", "CC-BY-SA-4.0", "CC0-1.0", "PDDL-1.0", "ODbL-1.0"]
+  },
+  "sampling": {
+    "overture_release": "2026-09-23.1",
+    "zoom": 14,
+    "random_tiles_per_unit": 8,
+    "facility_tiles_per_unit": 8,
+    "facility_roof_radius_m": 100,
+    "seed": 20261014,
+    "traffic_cap_mb": 280
+  },
+  "candidates": [
+    {"id": "in-up-potato-belt", "label": "India, Uttar Pradesh potato cold-storage belt", "region": "South Asia", "country": "IND",
+     "units": ["Agra district, Uttar Pradesh, India", "Firozabad district, Uttar Pradesh, India", "Hathras district, Uttar Pradesh, India"]},
+    {"id": "in-wb-potato-belt", "label": "India, West Bengal potato cold-storage belt", "region": "South Asia", "country": "IND",
+     "units": ["Hooghly district, West Bengal, India", "Purba Bardhaman district, West Bengal, India"]},
+    {"id": "bd-potato", "label": "Bangladesh potato areas", "region": "South Asia", "country": "BGD",
+     "units": ["Munshiganj District, Bangladesh", "Bogura District, Bangladesh"]},
+    {"id": "ke-highlands", "label": "Kenya, Nyandarua and Meru", "region": "Africa", "country": "KEN",
+     "units": ["Nyandarua, Kenya", "Meru County, Kenya"]},
+    {"id": "ug-kabale", "label": "Uganda, Kabale", "region": "Africa", "country": "UGA",
+     "units": ["Kabale, Uganda"]},
+    {"id": "tz-njombe", "label": "Tanzania, Njombe", "region": "Africa", "country": "TZA",
+     "units": ["Njombe Region, Tanzania"]},
+    {"id": "et-gojjam", "label": "Ethiopia, Gojjam (East and West Gojjam zones)", "region": "Africa", "country": "ETH",
+     "units": ["East Gojjam", "West Gojjam"]}
+  ]
+}

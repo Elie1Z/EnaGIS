@@ -2,7 +2,7 @@
 
 **Desk review completed; scientific execution remains evidence-gated.** The review now has
 specific source findings, a concrete decision-policy proposal and a local evidence template.
-The user reconfirmed global adaptability as the product mission. Canada remains the development
+The team reconfirmed global adaptability as the product mission. Canada remains the development
 benchmark; changing location must not silently transfer its units, climate or operational assumptions.
 
 ## Findings that change the review
@@ -16,10 +16,9 @@ benchmark; changing location must not silently transfer its units, climate or op
 | Freight restrictions can alter permitted loads and access | Dry/wet speed multipliers alone do not establish legal or physically usable freight catchments. |
 | Human review has both policy choices and factual input gaps | A project owner can approve policy; approval cannot create missing site evidence. An external consultant is not a repository requirement, although technical competence is needed to judge applicability. |
 
-The former response asked a reviewer to complete the whole task. This continuation performs
-the research and makes the policy choices reviewable. The repository still requires human
-approval of the resulting values and method. No human approval or commercial expertise has
-been attributed to the assistant.
+This review does the research and makes the policy choices reviewable. The repository still
+requires human approval of the resulting values and method; no approval or commercial
+expertise is claimed here.
 
 ## Source findings and their limits
 

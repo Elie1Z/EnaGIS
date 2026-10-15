@@ -1,0 +1,152 @@
+[
+  {
+    "id": "way/1140774752",
+    "name": "Kora Market",
+    "rank": 1,
+    "lon": 29.4465239,
+    "lat": -1.6115047,
+    "documented": true,
+    "predicted": true,
+    "kind": "ranked"
+  },
+  {
+    "id": "node/10629459394",
+    "name": "Jenda Centre",
+    "rank": 2,
+    "lon": 29.4692507,
+    "lat": -1.6248097,
+    "documented": true,
+    "predicted": true,
+    "kind": "ranked"
+  },
+  {
+    "id": "node/4709310723",
+    "name": "Nyabihu",
+    "rank": 3,
+    "lon": 29.5110997,
+    "lat": -1.6051011,
+    "documented": false,
+    "predicted": true,
+    "kind": "ranked"
+  },
+  {
+    "id": "node/317583601",
+    "name": "Bigogwe",
+    "rank": 4,
+    "lon": 29.4209845,
+    "lat": -1.6284478,
+    "documented": false,
+    "predicted": false,
+    "kind": "ranked"
+  },
+  {
+    "id": "way/1169656259",
+    "name": "Vunga market",
+    "rank": 5,
+    "lon": 29.6329209,
+    "lat": -1.6927732,
+    "documented": true,
+    "predicted": true,
+    "kind": "ranked"
+  },
+  {
+    "id": "node/10629459392",
+    "name": "Mukamira Market",
+    "rank": 6,
+    "lon": 29.4981224,
+    "lat": -1.6139071,
+    "documented": true,
+    "predicted": true,
+    "kind": "ranked"
+  },
+  {
+    "id": "node/11671690783",
+    "name": "Village near Nyabihu (-1.586, 29.501)",
+    "rank": 7,
+    "lon": 29.5012824,
+    "lat": -1.5856418,
+    "documented": false,
+    "predicted": true,
+    "kind": "ranked"
+  },
+  {
+    "id": "node/10629459390",
+    "name": "Cyamabuye (east)",
+    "rank": 8,
+    "lon": 29.5069806,
+    "lat": -1.6446734,
+    "documented": false,
+    "predicted": true,
+    "kind": "ranked"
+  },
+  {
+    "id": "node/10629459383",
+    "name": "Guriro Market",
+    "rank": 9,
+    "lon": 29.5169453,
+    "lat": -1.6742016,
+    "documented": true,
+    "predicted": true,
+    "kind": "ranked"
+  },
+  {
+    "id": "node/11672227186",
+    "name": "Village near Guriro Market (-1.668, 29.501)",
+    "rank": 10,
+    "lon": 29.5006142,
+    "lat": -1.6681926,
+    "documented": false,
+    "predicted": true,
+    "kind": "ranked"
+  },
+  {
+    "id": "lookalike-1",
+    "name": "Look-alike ?1",
+    "rank": 1,
+    "lon": 29.632607821687607,
+    "lat": -1.6999083435317532,
+    "documented": false,
+    "predicted": true,
+    "kind": "look-alike"
+  },
+  {
+    "id": "lookalike-2",
+    "name": "Look-alike ?2",
+    "rank": 2,
+    "lon": 29.50679265104861,
+    "lat": -1.6094433534829022,
+    "documented": false,
+    "predicted": true,
+    "kind": "look-alike"
+  },
+  {
+    "id": "lookalike-3",
+    "name": "Look-alike ?3",
+    "rank": 3,
+    "lon": 29.52476624685418,
+    "lat": -1.681815345521983,
+    "documented": false,
+    "predicted": true,
+    "kind": "look-alike"
+  },
+  {
+    "id": "lookalike-4",
+    "name": "Look-alike ?4",
+    "rank": 4,
+    "lon": 29.632607821687607,
+    "lat": -1.7089548425366383,
+    "documented": false,
+    "predicted": true,
+    "kind": "look-alike"
+  },
+  {
+    "id": "lookalike-5",
+    "name": "Look-alike ?5",
+    "rank": 5,
+    "lon": 29.515779448951395,
+    "lat": -1.681815345521983,
+    "documented": false,
+    "predicted": true,
+    "kind": "look-alike"
+  }
+]

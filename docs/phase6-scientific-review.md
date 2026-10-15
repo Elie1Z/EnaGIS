@@ -5,7 +5,7 @@ acceptance run are available; no real Phase 6 ranking has been generated or froz
 
 ## Why this cannot be completed by a generic approval
 
-AGENTS.md requires sourced, human-approved scientific parameters and scenarios. Decision 0003
+The repository rules in CONTRIBUTING.md require sourced, human-approved scientific parameters and scenarios. Decision 0003
 and the Phase 0 handoff specifically reserve commercial applicability, parameter ranges,
 meaningful gap rules and uncertainty thresholds for R3/R4 review. The Phase 4 approval covered
 a different experiment. Neither it nor permission to implement Phase 6 provides the missing
@@ -17,7 +17,7 @@ task is to supply applicable operating evidence and record human decisions again
 values. The repository requires human scientific approval; it does not require hiring an
 external consultant. Technical competence is needed to judge applicability. Published
 specialists are reference authors, not engaged reviewers. No empirical acquisition or
-outreach has been performed in this continuation.
+outreach has been performed in this review.
 
 ## Evidence already available
 

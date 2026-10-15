@@ -23,6 +23,11 @@ Source: [PRD §1–2](reference/prd-2026-10-04.md).
 6. **Siting experiment (the ML part).** A preregistered, spatially held-out presence-only model
    tested whether road-accessible production predicts where facilities are documented. It lost
    to the production-only baseline (KILL).
+7. **EnaGIS Live (any place; set up for Rwanda).** The same screening logic, run in the browser
+   on open data gathered on the spot. It adds road catchments for dry and rainy seasons and
+   district production. Its siting model, tested on all 30 Rwandan districts under a registered
+   rule, beats counting buildings by +23.9 points (KEEP). See [live-engine](live-engine.md) and
+   [phase4r-results](phase4r-results.md).
 
 ## What you see
 
@@ -42,5 +47,5 @@ energy map, and not validated in the field yet. See [limitations](limitations.md
 
 ## Who built it and how
 
-A small hackathon team with AI-written code under human specifications, tests and review. See
-[ai-use.md](ai-use.md) and the [project history](project-history.md).
+Team Dynamis, a small hackathon team. Specifications, scientific decisions, tests and review
+are ours; see [how we build](development-process.md) and the [project history](project-history.md).

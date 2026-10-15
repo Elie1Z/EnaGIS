@@ -1,0 +1,825 @@
+{
+  "label": "ESTIMATED",
+  "method": "Order-averaged linear sample-variance allocation (64 deterministic orders)",
+  "caveat": "Descriptive associations in the existing draws, not causal effects or a decomposition of the interval. Correlated inputs share credit; residual includes nonlinear effects.",
+  "site_id": "way/1140774752",
+  "season": "dry",
+  "draws": 300,
+  "variance": {
+    "rows": [
+      {
+        "key": "local_variation",
+        "fraction": 0.288054795095517
+      },
+      {
+        "key": "capture_share",
+        "fraction": 0.2805877010478879
+      },
+      {
+        "key": "type_mult",
+        "fraction": 0.11950197974000289
+      },
+      {
+        "key": "peak_month_fraction",
+        "fraction": 0.05139215361168177
+      },
+      {
+        "key": "storage_days",
+        "fraction": 0.03902247311123907
+      },
+      {
+        "key": "cop",
+        "fraction": 0.03507680569100315
+      },
+      {
+        "key": "store_temp_c",
+        "fraction": 0.020166177393702783
+      },
+      {
+        "key": "holding_kwh_th_per_t_day",
+        "fraction": 0.020012808748700144
+      },
+      {
+        "key": "persons_per_building",
+        "fraction": 0.01727423799039451
+      },
+      {
+        "key": "urban_producer_weight",
+        "fraction": 0.012717391286812513
+      },
+      {
+        "key": "max_travel_min",
+        "fraction": 0.007134419710152174
+      },
+      {
+        "key": "local_variation_sd",
+        "fraction": 0.003002956080261167
+      },
+      {
+        "key": "cp_kj_per_kg_k",
+        "fraction": 0.0014374140417492153
+      }
+    ],
+    "explained": 0.8953813135491043,
+    "residual": 0.10461868645089567,
+    "orders": 64
+  },
+  "rank_exits": [
+    {
+      "site_id": "way/1140774752",
+      "name": "Kora Market",
+      "outside_top10": 0,
+      "drivers": [
+        "capture_share",
+        "local_variation",
+        "type_mult"
+      ]
+    },
+    {
+      "site_id": "node/10629459394",
+      "name": "Jenda Centre",
+      "outside_top10": 1,
+      "drivers": [
+        "capture_share",
+        "local_variation",
+        "type_mult"
+      ]
+    },
+    {
+      "site_id": "node/4709310723",
+      "name": "Nyabihu",
+      "outside_top10": 2,
+      "drivers": [
+        "capture_share",
+        "type_mult",
+        "local_variation"
+      ]
+    }
+  ],
+  "ranking_sensitivity": {
+    "label": "ESTIMATED",
+    "method": "One-at-a-time shipped endpoints; local factor uses existing tornado exp(±1.645 × central log-SD). All other sites/parameters central.",
+    "checks": [
+      {
+        "site_id": "node/4709310723",
+        "key": "capture_share",
+        "value": 0.05,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "capture_share",
+        "value": 0.05,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "capture_share",
+        "value": 0.05,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "capture_share",
+        "value": 0.3,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "capture_share",
+        "value": 0.3,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "capture_share",
+        "value": 0.3,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "peak_month_fraction",
+        "value": 0.12,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "peak_month_fraction",
+        "value": 0.12,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "peak_month_fraction",
+        "value": 0.12,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "peak_month_fraction",
+        "value": 0.3,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "peak_month_fraction",
+        "value": 0.3,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "peak_month_fraction",
+        "value": 0.3,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "storage_days",
+        "value": 14,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "storage_days",
+        "value": 14,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "storage_days",
+        "value": 14,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "storage_days",
+        "value": 60,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "storage_days",
+        "value": 60,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "storage_days",
+        "value": 60,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "store_temp_c",
+        "value": 4,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "store_temp_c",
+        "value": 4,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "store_temp_c",
+        "value": 4,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "store_temp_c",
+        "value": 10,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "store_temp_c",
+        "value": 10,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "store_temp_c",
+        "value": 10,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "cp_kj_per_kg_k",
+        "value": 3.4,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "cp_kj_per_kg_k",
+        "value": 3.4,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "cp_kj_per_kg_k",
+        "value": 3.4,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "cp_kj_per_kg_k",
+        "value": 3.8,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "cp_kj_per_kg_k",
+        "value": 3.8,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "cp_kj_per_kg_k",
+        "value": 3.8,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "holding_kwh_th_per_t_day",
+        "value": 0.1,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "holding_kwh_th_per_t_day",
+        "value": 0.1,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "holding_kwh_th_per_t_day",
+        "value": 0.1,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "holding_kwh_th_per_t_day",
+        "value": 0.4,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "holding_kwh_th_per_t_day",
+        "value": 0.4,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "holding_kwh_th_per_t_day",
+        "value": 0.4,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "cop",
+        "value": 1.5,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "cop",
+        "value": 1.5,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "cop",
+        "value": 1.5,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "cop",
+        "value": 3,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "cop",
+        "value": 3,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "cop",
+        "value": 3,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "run_hours",
+        "value": 14,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "run_hours",
+        "value": 14,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "run_hours",
+        "value": 14,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "run_hours",
+        "value": 20,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "run_hours",
+        "value": 20,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "run_hours",
+        "value": 20,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "max_travel_min",
+        "value": 60,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "max_travel_min",
+        "value": 60,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "max_travel_min",
+        "value": 60,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "max_travel_min",
+        "value": 120,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "max_travel_min",
+        "value": 120,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "max_travel_min",
+        "value": 120,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "urban_producer_weight",
+        "value": 0.05,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "urban_producer_weight",
+        "value": 0.05,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "urban_producer_weight",
+        "value": 0.05,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "urban_producer_weight",
+        "value": 0.3,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "urban_producer_weight",
+        "value": 0.3,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "urban_producer_weight",
+        "value": 0.3,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_cold_store",
+        "value": 0.8,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_cold_store",
+        "value": 0.8,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_cold_store",
+        "value": 0.8,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_cold_store",
+        "value": 1.2,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_cold_store",
+        "value": 1.2,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_cold_store",
+        "value": 1.2,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_cooperative",
+        "value": 0.6,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_cooperative",
+        "value": 0.6,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_cooperative",
+        "value": 0.6,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_cooperative",
+        "value": 1.1,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_cooperative",
+        "value": 1.1,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_cooperative",
+        "value": 1.1,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_warehouse",
+        "value": 0.4,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_warehouse",
+        "value": 0.4,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_warehouse",
+        "value": 0.4,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_warehouse",
+        "value": 1,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_warehouse",
+        "value": 1,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_warehouse",
+        "value": 1,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_market",
+        "value": 0.3,
+        "rank": 2
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_market",
+        "value": 0.3,
+        "rank": 4
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_market",
+        "value": 0.3,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_market",
+        "value": 0.9,
+        "rank": 5
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_market",
+        "value": 0.9,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_market",
+        "value": 0.9,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_agro_factory",
+        "value": 0.4,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_agro_factory",
+        "value": 0.4,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_agro_factory",
+        "value": 0.4,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_agro_factory",
+        "value": 1,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_agro_factory",
+        "value": 1,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_agro_factory",
+        "value": 1,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_agro_shop",
+        "value": 0.1,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_agro_shop",
+        "value": 0.1,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_agro_shop",
+        "value": 0.1,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_agro_shop",
+        "value": 0.5,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_agro_shop",
+        "value": 0.5,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_agro_shop",
+        "value": 0.5,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_town",
+        "value": 0.2,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_town",
+        "value": 0.2,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_town",
+        "value": 0.2,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_town",
+        "value": 0.7,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_town",
+        "value": 0.7,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_town",
+        "value": 0.7,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_village",
+        "value": 0.1,
+        "rank": 6
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_village",
+        "value": 0.1,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_village",
+        "value": 0.1,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "type_village",
+        "value": 0.5,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "type_village",
+        "value": 0.5,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "type_village",
+        "value": 0.5,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "persons_per_building",
+        "value": 2.1,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "persons_per_building",
+        "value": 2.1,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "persons_per_building",
+        "value": 2.1,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "persons_per_building",
+        "value": 3.2,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "persons_per_building",
+        "value": 3.2,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "persons_per_building",
+        "value": 3.2,
+        "rank": 1
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "local_variation",
+        "value": 0.5622829983765371,
+        "rank": 7
+      },
+      {
+        "site_id": "node/4709310723",
+        "key": "local_variation",
+        "value": 1.7784638747521624,
+        "rank": 2
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "local_variation",
+        "value": 0.5622829983765371,
+        "rank": 3
+      },
+      {
+        "site_id": "node/10629459394",
+        "key": "local_variation",
+        "value": 1.7784638747521624,
+        "rank": 2
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "local_variation",
+        "value": 0.5622829983765371,
+        "rank": 1
+      },
+      {
+        "site_id": "way/1140774752",
+        "key": "local_variation",
+        "value": 1.7784638747521624,
+        "rank": 1
+      }
+    ]
+  }
+}

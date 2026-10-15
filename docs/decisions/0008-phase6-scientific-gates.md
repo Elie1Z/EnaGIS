@@ -2,8 +2,8 @@
 
 Status: **engineering implementation; scientific choices pending review**, 8 October 2026.
 
-The user requested the complete Phase 6. This authorizes implementation, testing and source
-audits. It does not supply the reviewed scientific values required by AGENTS.md, decision 0003
+The team requested the complete Phase 6. This authorizes implementation, testing and source
+audits. It does not supply the reviewed scientific values required by the repository rules in CONTRIBUTING.md, decision 0003
 and the Phase 0 handoff gates. The detailed Phase 4 approval applies only to its registered
 experiment; it does not approve transport speeds, seasonal effects or commercial fan ranges.
 

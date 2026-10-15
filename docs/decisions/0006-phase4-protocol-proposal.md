@@ -1,11 +1,11 @@
 # 0006 — Proposed Phase 4 comparison protocol
 
-Status: **APPROVED as v1.1 before registration**, 8 October 2026. The user's conditional
+Status: **APPROVED as v1.1 before registration**, 8 October 2026. The team's conditional
 approval was recorded after the 60-positive/seven-CAR counts gate, frozen-values check and
 127 tests plus lint/format passed. See the [run log](../phase4-run-log.md) for the earlier STOP
 and explicit resumption authority. The historical filename is retained for existing links.
 
-The user authorized Phase 4 implementation. Decision 0003 remains the frozen benchmark: Canadian
+The team authorized Phase 4 implementation. Decision 0003 remains the frozen benchmark: Canadian
 Prairie non-durum wheat storage/aeration, AB/SK development and Manitoba transfer holdout.
 
 ## Evidence requiring a method decision
@@ -24,7 +24,7 @@ the [review protocol](../spec/phase4-preregistration.md), with all numerical set
 not a completed crop-location audit or operational travel-time model. The alternative is to keep
 execution gated until an audited crop raster and corresponding protocol are ready.
 
-The user explicitly approved v1.1 with log polygon area in both models, an area-only arm,
+The team explicitly approved v1.1 with log polygon area in both models, an area-only arm,
 proxy-specific interpretation, limited-power and documentation-bias clauses, descriptive
 nonproduction cohort counts and remotely pushed registration. The original v1 numerical
 thresholds, seed, folds and model hyperparameters remain fixed. Exact approval is recorded in

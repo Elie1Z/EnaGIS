@@ -149,4 +149,4 @@ review and timed live defense rehearsals are not claimed.
 
 The delivered product is useful for demonstrating the working evidence workflow and its actual
 limits. The project cannot truthfully be labelled 100% scientifically complete while these exits
-remain unresolved. The software work does not depend on forcing the user to perform outreach.
+remain unresolved. The software work does not depend on forcing team members to perform outreach.

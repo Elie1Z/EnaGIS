@@ -1,0 +1,46 @@
+[
+  {
+    "path": "docs/spec/phase4r-protocol.md",
+    "sha256": "1a3bc8caac56aed82ef74ae853061c66f6b27325a1c57c0ca52643013532f018"
+  },
+  {
+    "path": "docs/spec/phase4r-protocol.sha256",
+    "sha256": "73e5476f31904371c53e3cc200e9c85983a639292bf4f45cee9185af0854e8e8"
+  },
+  {
+    "path": "docs/audits/phase4r-evaluation.json",
+    "sha256": "83a2a8249b8ad869e41f220f16c8aa20f164c2932a5a33f1ea0b2cf24684f27d"
+  },
+  {
+    "path": "docs/audits/phase4r-label-audit.json",
+    "sha256": "63fd5e68c6be18047e3d0c19bbca71b3e276994304005ea9af226f89b79ad284"
+  },
+  {
+    "path": "docs/audits/phase4r-evaluation-browser-run.json",
+    "sha256": "cf05a3ee744498df12a45c46e1eb9ec15f5c9bcc40c798e7f4b20ff572c06d07"
+  },
+  {
+    "path": "live/js/siting-model.js",
+    "sha256": "005677b3651d330c9a507c2ef87080586b0eef9f8dc8376713d3e4f856395f0d"
+  },
+  {
+    "path": "live/js/siting.js",
+    "sha256": "65cbf15d75f9220908831f9def871fa3526911f30ec3718f9cf0a587a850c716"
+  },
+  {
+    "path": "docs/phase4r-results.md",
+    "sha256": "f41dfc36591831fd3b431966b839e73552bebdd1f792454e1494bfba81d9a2b1"
+  },
+  {
+    "path": "live/js/config.js",
+    "sha256": "db58f8d5774879d87eeb95f99b3167c9d2d87f724c334a3ec3a6bad2809be1be"
+  },
+  {
+    "path": "docs/audits/phase4-evaluation.json",
+    "sha256": "c569f16c3aafc52c0a83c8cc6309589bbdc16cd4b7c3fabb7d3a43b8f5ad6caa"
+  },
+  {
+    "path": "data/rwanda/siting_cells.csv",
+    "sha256": "664350e8aa446b228ee541143621a3cdaeaca6250b4f6c136355f08565b11c92"
+  }
+]

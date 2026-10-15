@@ -1,0 +1,8 @@
+{
+  "scope": "reported potato aggregation or storage activity, not energy or refrigeration",
+  "sha256": "2eb6753ab6cfae67fe359e0eff3d5eb91158ee4926bd7bede89e574c53cad837",
+  "schema": "enagis-hero-verification-v1",
+  "frozen_at": "2026-10-10T16:31:44.7668835Z",
+  "minimum_tonnes_exclusive": 0,
+  "approval": "Elie approved activity-only rule in this chat on 2026-10-10"
+}

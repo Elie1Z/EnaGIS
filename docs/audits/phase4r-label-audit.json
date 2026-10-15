@@ -1,0 +1,638 @@
+{
+ "schema": "enagis-phase4r-label-audit-v1",
+ "audited_at": "2026-10-10",
+ "input": {
+  "file": "data/rwanda/siting_cells.csv",
+  "sha256": "664350e8aa446b228ee541143621a3cdaeaca6250b4f6c136355f08565b11c92"
+ },
+ "status": "POST-HOC. Written after the registered evaluation (docs/audits/phase4r-evaluation.json). It does not change the registered verdict; it reports how much the verdict depends on labels later found to be wrong.",
+ "method": "Every documented facility used as a label (157 across 30 districts, from the harvest) was read by name. Facilities that are clearly not a collection or processing point are 'clear'; facilities whose role cannot be told from the name are 'uncertain'. Each was mapped to its 1 km square; a square loses its label only if no other documented facility in it keeps it.",
+ "flagged": [
+  {
+   "district": "Nyarugenge",
+   "name": "Hôtel des Mille Collines",
+   "type": "mill",
+   "level": "clear",
+   "reason": "hotel; 'Mille' matched the mill pattern",
+   "lon": 30.0619,
+   "lat": -1.94708,
+   "cell": [
+    30.06375,
+    -1.94873
+   ],
+   "shares_cell_with": []
+  },
+  {
+   "district": "Nyarugenge",
+   "name": "COMO BUSINESS CENTER",
+   "type": "market",
+   "level": "uncertain",
+   "reason": "commercial building; may or may not host a produce market",
+   "lon": 30.04819,
+   "lat": -1.93956,
+   "cell": [
+    30.04578,
+    -1.93968
+   ],
+   "shares_cell_with": [
+    "Cooperatives buildings"
+   ]
+  },
+  {
+   "district": "Gasabo",
+   "name": "Kagugu Minimarket",
+   "type": "market",
+   "level": "clear",
+   "reason": "a grocery shop",
+   "lon": 30.09091,
+   "lat": -1.91837,
+   "cell": [
+    30.09412,
+    -1.91586
+   ],
+   "shares_cell_with": []
+  },
+  {
+   "district": "Gasabo",
+   "name": "Cellfix.rw",
+   "type": "warehouse",
+   "level": "clear",
+   "reason": "phone repair shop (Overture listing)",
+   "lon": 30.10389,
+   "lat": -1.9448,
+   "cell": [
+    30.10311,
+    -1.94299
+   ],
+   "shares_cell_with": []
+  },
+  {
+   "district": "Gasabo",
+   "name": "Inter Business Co LTD",
+   "type": "warehouse",
+   "level": "uncertain",
+   "reason": "general trading company; storage use unknown",
+   "lon": 30.11898,
+   "lat": -1.96049,
+   "cell": [
+    30.12108,
+    -1.96109
+   ],
+   "shares_cell_with": [
+    "Dairy Gatete",
+    "Remera Market",
+    "unnamed market",
+    "Rwanda Cooperative Agency-RCA"
+   ]
+  },
+  {
+   "district": "Gasabo",
+   "name": "Rwanda Cooperative Agency-RCA",
+   "type": "cooperative",
+   "level": "clear",
+   "reason": "a government agency office, not a cooperative",
+   "lon": 30.11684,
+   "lat": -1.95988,
+   "cell": [
+    30.12108,
+    -1.96109
+   ],
+   "shares_cell_with": [
+    "Dairy Gatete",
+    "Remera Market",
+    "unnamed market",
+    "Inter Business Co LTD"
+   ]
+  },
+  {
+   "district": "Gasabo",
+   "name": "Ceramica Verdi Rwanda",
+   "type": "warehouse",
+   "level": "clear",
+   "reason": "ceramics and tiles seller (Overture listing)",
+   "lon": 30.13262,
+   "lat": -1.93721,
+   "cell": [
+    30.13007,
+    -1.93395
+   ],
+   "shares_cell_with": []
+  },
+  {
+   "district": "Kicukiro",
+   "name": "kabeza coffee shop",
+   "type": "coffee_station",
+   "level": "clear",
+   "reason": "a café, not a washing station",
+   "lon": 30.11902,
+   "lat": -1.96445,
+   "cell": [
+    30.12176,
+    -1.96761
+   ],
+   "shares_cell_with": [
+    "Remera Modern Market"
+   ]
+  },
+  {
+   "district": "Kicukiro",
+   "name": "Fruits shop",
+   "type": "market",
+   "level": "clear",
+   "reason": "a retail shop",
+   "lon": 30.14531,
+   "lat": -1.99855,
+   "cell": [
+    30.14873,
+    -1.99475
+   ],
+   "shares_cell_with": []
+  },
+  {
+   "district": "Kicukiro",
+   "name": "AutoXpress",
+   "type": "warehouse",
+   "level": "clear",
+   "reason": "motor trade (Overture listing)",
+   "lon": 30.10103,
+   "lat": -1.96914,
+   "cell": [
+    30.10379,
+    -1.96761
+   ],
+   "shares_cell_with": []
+  },
+  {
+   "district": "Kicukiro",
+   "name": "Faith Trading Company",
+   "type": "warehouse",
+   "level": "uncertain",
+   "reason": "general trading company; storage use unknown",
+   "lon": 30.11259,
+   "lat": -1.97365,
+   "cell": [
+    30.11278,
+    -1.97666
+   ],
+   "shares_cell_with": [
+    "Sosoma Industries Ltd"
+   ]
+  },
+  {
+   "district": "Huye",
+   "name": "National Speciality Coffee Quality Laboratory & Training Centre",
+   "type": "coffee_station",
+   "level": "uncertain",
+   "reason": "coffee laboratory, not a washing station (listed twice)",
+   "lon": 29.65575,
+   "lat": -2.52633,
+   "cell": [
+    29.65707,
+    -2.52816
+   ],
+   "shares_cell_with": [
+    "Cyizi Market"
+   ]
+  },
+  {
+   "district": "Nyamagabe",
+   "name": "Kitabi Women's Handicraft Cooperative",
+   "type": "cooperative",
+   "level": "uncertain",
+   "reason": "handicraft cooperative, not agricultural",
+   "lon": 29.41024,
+   "lat": -2.52968,
+   "cell": [
+    29.41085,
+    -2.53045
+   ],
+   "shares_cell_with": []
+  },
+  {
+   "district": "Nyabihu",
+   "name": "En: Vunga market's Public Toilet (rw: Ubwiherero rusange bw'isoko rya Vunga)",
+   "type": "market",
+   "level": "clear",
+   "reason": "a market's public toilet",
+   "lon": 29.63152,
+   "lat": -1.69303,
+   "cell": [
+    29.63261,
+    -1.69086
+   ],
+   "shares_cell_with": [
+    "Vunga market"
+   ]
+  },
+  {
+   "district": "Nyamasheke",
+   "name": "Nyungwe Cultural Village Cooperative",
+   "type": "cooperative",
+   "level": "uncertain",
+   "reason": "cultural/tourism cooperative",
+   "lon": 29.08391,
+   "lat": -2.42942,
+   "cell": [
+    29.08771,
+    -2.42612
+   ],
+   "shares_cell_with": []
+  },
+  {
+   "district": "Bugesera",
+   "name": "Nyamata United F.C",
+   "type": "milk_centre",
+   "level": "clear",
+   "reason": "football club; 'amata' matched the milk pattern",
+   "lon": 30.0914,
+   "lat": -2.14556,
+   "cell": [
+    30.08972,
+    -2.14702
+   ],
+   "shares_cell_with": []
+  }
+ ],
+ "checked_and_kept": [
+  {
+   "district": "Rubavu",
+   "name": "Brasserie",
+   "type": "market",
+   "note": "tagged amenity=marketplace in OpenStreetMap: a market named after the brewery neighbourhood of Gisenyi, so both label and type stand"
+  },
+  {
+   "district": "Nyamasheke",
+   "name": "Gatare Tea Collection Centers",
+   "type": "milk_centre",
+   "note": "a tea-leaf collection centre: a collection point, so the label stands; now typed tea_factory"
+  },
+  {
+   "district": "Kicukiro",
+   "name": "Sosoma Industries Ltd",
+   "type": "cooperative",
+   "note": "a food manufacturer: a processing point, so the label stands"
+  }
+ ],
+ "cell_changes": {
+  "clear": [
+   {
+    "district": "Nyarugenge",
+    "lon": 30.06375,
+    "lat": -1.94873,
+    "y": [
+     1,
+     0
+    ],
+    "y_any": [
+     1,
+     0
+    ]
+   },
+   {
+    "district": "Gasabo",
+    "lon": 30.09412,
+    "lat": -1.91586,
+    "y": [
+     0,
+     0
+    ],
+    "y_any": [
+     1,
+     0
+    ]
+   },
+   {
+    "district": "Gasabo",
+    "lon": 30.10311,
+    "lat": -1.94299,
+    "y": [
+     1,
+     0
+    ],
+    "y_any": [
+     1,
+     0
+    ]
+   },
+   {
+    "district": "Gasabo",
+    "lon": 30.13007,
+    "lat": -1.93395,
+    "y": [
+     1,
+     0
+    ],
+    "y_any": [
+     1,
+     0
+    ]
+   },
+   {
+    "district": "Kicukiro",
+    "lon": 30.12176,
+    "lat": -1.96761,
+    "y": [
+     1,
+     0
+    ],
+    "y_any": [
+     1,
+     1
+    ]
+   },
+   {
+    "district": "Kicukiro",
+    "lon": 30.14873,
+    "lat": -1.99475,
+    "y": [
+     0,
+     0
+    ],
+    "y_any": [
+     1,
+     0
+    ]
+   },
+   {
+    "district": "Kicukiro",
+    "lon": 30.10379,
+    "lat": -1.96761,
+    "y": [
+     1,
+     0
+    ],
+    "y_any": [
+     1,
+     0
+    ]
+   },
+   {
+    "district": "Bugesera",
+    "lon": 30.08972,
+    "lat": -2.14702,
+    "y": [
+     1,
+     0
+    ],
+    "y_any": [
+     1,
+     0
+    ]
+   }
+  ],
+  "clear_and_uncertain_extra": [
+   {
+    "district": "Kicukiro",
+    "lon": 30.11278,
+    "lat": -1.97666,
+    "y": [
+     1,
+     0
+    ],
+    "y_any": [
+     1,
+     1
+    ]
+   },
+   {
+    "district": "Huye",
+    "lon": 29.65707,
+    "lat": -2.52816,
+    "y": [
+     1,
+     0
+    ],
+    "y_any": [
+     1,
+     1
+    ]
+   },
+   {
+    "district": "Nyamagabe",
+    "lon": 29.41085,
+    "lat": -2.53045,
+    "y": [
+     0,
+     0
+    ],
+    "y_any": [
+     1,
+     0
+    ]
+   },
+   {
+    "district": "Nyamasheke",
+    "lon": 29.08771,
+    "lat": -2.42612,
+    "y": [
+     0,
+     0
+    ],
+    "y_any": [
+     1,
+     0
+    ]
+   }
+  ]
+ },
+ "sensitivity": {
+  "generated_at": "2026-10-10T14:20:06.781Z",
+  "seconds": 16.867,
+  "label": "y_any",
+  "note": "Descriptive only. The same registered protocol (leave-one-district-out, 2000 cluster-bootstrap draws, seed 20261011) is rerun on corrected labels.",
+  "scenarios": {
+   "registered": {
+    "positive_cells": 134,
+    "positive_districts": 27,
+    "gate": true,
+    "verdict_descriptive": "KEEP",
+    "model_recall10": {
+     "k": 0.1,
+     "point": 0.7313432835820896,
+     "ci": [
+      0.6153846153846154,
+      0.8392857142857143
+     ]
+    },
+    "best_baseline": "people",
+    "baseline_recall10": {
+     "k": 0.1,
+     "point": 0.4925373134328358,
+     "ci": [
+      0.39090457555689345,
+      0.5982993197278911
+     ]
+    },
+    "margin10": {
+     "k": 0.1,
+     "point": 0.23880597014925375,
+     "ci": [
+      0.13385688144615723,
+      0.3439524690089719
+     ]
+    },
+    "margin20": {
+     "k": 0.2,
+     "point": 0.25373134328358204,
+     "ci": [
+      0.1605787770279575,
+      0.3143114543114542
+     ]
+    },
+    "model_auc": 0.9336670526557573,
+    "roof_gain10": {
+     "k": 0.1,
+     "point": 0.13432835820895528,
+     "ci": [
+      0.0505050505050505,
+      0.21430047225501764
+     ]
+    }
+   },
+   "clear_errors_removed": {
+    "positive_cells": 127,
+    "positive_districts": 27,
+    "gate": true,
+    "verdict_descriptive": "KEEP",
+    "model_recall10": {
+     "k": 0.1,
+     "point": 0.7322834645669292,
+     "ci": [
+      0.6128907226806701,
+      0.8421174463937621
+     ]
+    },
+    "best_baseline": "people",
+    "baseline_recall10": {
+     "k": 0.1,
+     "point": 0.49606299212598426,
+     "ci": [
+      0.3916310975609756,
+      0.6
+     ]
+    },
+    "margin10": {
+     "k": 0.1,
+     "point": 0.2362204724409449,
+     "ci": [
+      0.13157894736842113,
+      0.3471139625924315
+     ]
+    },
+    "margin20": {
+     "k": 0.2,
+     "point": 0.25196850393700787,
+     "ci": [
+      0.1484302662037037,
+      0.3217391304347825
+     ]
+    },
+    "model_auc": 0.9303828573467754,
+    "roof_gain10": {
+     "k": 0.1,
+     "point": 0.13385826771653542,
+     "ci": [
+      0.05126582278481006,
+      0.21552931034482745
+     ]
+    }
+   },
+   "clear_and_uncertain_removed": {
+    "positive_cells": 125,
+    "positive_districts": 27,
+    "gate": true,
+    "verdict_descriptive": "KEEP",
+    "model_recall10": {
+     "k": 0.1,
+     "point": 0.752,
+     "ci": [
+      0.6495646766169154,
+      0.851063829787234
+     ]
+    },
+    "best_baseline": "people",
+    "baseline_recall10": {
+     "k": 0.1,
+     "point": 0.504,
+     "ci": [
+      0.40137323943661973,
+      0.6053156280271227
+     ]
+    },
+    "margin10": {
+     "k": 0.1,
+     "point": 0.248,
+     "ci": [
+      0.1566919500856374,
+      0.3471334557698193
+     ]
+    },
+    "margin20": {
+     "k": 0.2,
+     "point": 0.256,
+     "ci": [
+      0.15833333333333333,
+      0.32857861936721
+     ]
+    },
+    "model_auc": 0.9337347750039752,
+    "roof_gain10": {
+     "k": 0.1,
+     "point": 0.16000000000000003,
+     "ci": [
+      0.08107611287758341,
+      0.2444444444444444
+     ]
+    }
+   },
+   "clear_errors_removed_without_kigali": {
+    "positive_cells": 97,
+    "positive_districts": 24,
+    "gate": true,
+    "verdict_descriptive": "KEEP",
+    "model_recall10": {
+     "k": 0.1,
+     "point": 0.8041237113402062,
+     "ci": [
+      0.7073109140182311,
+      0.8947368421052632
+     ]
+    },
+    "best_baseline": "people",
+    "baseline_recall10": {
+     "k": 0.1,
+     "point": 0.5257731958762887,
+     "ci": [
+      0.4022413793103448,
+      0.6451612903225806
+     ]
+    },
+    "margin10": {
+     "k": 0.1,
+     "point": 0.27835051546391754,
+     "ci": [
+      0.1571358543417368,
+      0.39436942757462207
+     ]
+    },
+    "margin20": {
+     "k": 0.2,
+     "point": 0.21649484536082475,
+     "ci": [
+      0.1071428571428572,
+      0.28050685975609746
+     ]
+    },
+    "model_auc": 0.915805732849355,
+    "roof_gain10": {
+     "k": 0.1,
+     "point": 0.20618556701030932,
+     "ci": [
+      0.1386059616599958,
+      0.27084216101694913
+     ]
+    }
+   }
+  }
+ }
+}

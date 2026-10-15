@@ -1,0 +1,21 @@
+{
+  "schema": "enagis-second-site-imagery-notes-v1",
+  "checked_at": "2026-10-10",
+  "sources": [
+    {
+      "name": "Open Cities AI Challenge (GFDRR; Source Cooperative open-cities/ai-challenge)",
+      "finding": "Checked the STAC catalogues on 10 Oct 2026. Tier-1 training collections are acc, mon, ptn, kam, dar, znz and nia. Their bounding boxes are small urban patches in Accra, Monrovia, Pointe-Noire, Kampala (0.25N 32.63E), Dar es Salaam, Zanzibar and Niamey; tier 2 adds gao, kin and mah. None lies in a candidate district. Per-collection licence 'various' (znz CC-BY-4.0); README licence ODbL-1.0. Labels are building footprints only, with no agricultural storage or processing class. Fails coverage and labels for every candidate.",
+      "urls": ["https://data.source.coop/open-cities/ai-challenge/README.md", "https://data.source.coop/open-cities/ai-challenge/train_tier_1/catalog.json"]
+    },
+    {
+      "name": "Sentinel-2 (Copernicus)",
+      "finding": "Global, free and open, but the finest bands are 10 m. That is 10 times coarser than the 1 m detector threshold, so it fails the resolution test everywhere. It may show the largest cold-storage roofs, but that is unproven and was not tested.",
+      "urls": ["https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-2"]
+    },
+    {
+      "name": "Commercial basemaps (Google, Bing, Esri World Imagery)",
+      "finding": "Sub-metre in many places, but these are proprietary basemaps, not open imagery. Their terms were not reviewed in detail. They are treated as failing the open training-and-publishing licence test.",
+      "urls": []
+    }
+  ]
+}

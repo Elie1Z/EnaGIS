@@ -30,5 +30,7 @@ jobs:
         run: make check
       - name: Validate the dependency-free presentation contract
         run: node --test tests/test_view_model.cjs
+      - name: Validate the EnaGIS Live analysis engine
+        run: make live-test live-siting hero-repro
       - name: Rebuild and verify the final offline application
         run: make mvp verify-mvp figures
