@@ -5,6 +5,25 @@ project. It matches the licence already recorded for EnaGIS-authored scenario va
 `configs/scenarios/phase3-engineering-v1.json`. **Data keeps its own licence.** The MIT licence
 does not relicense any source data or its derivatives.
 
+## Rwanda (EnaGIS Live)
+
+| Material in this repository or its outputs | Licence | Redistributed here? |
+|---|---|---|
+| OpenStreetMap data: facilities, markets, settlements (Overpass) and area boundaries (Nominatim) | **[ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/)**, © OpenStreetMap contributors | Derived values in `data/rwanda/`, `data/rwanda/hero/`, `live/hero/` and saved analyses. Public use keeps attribution and share-alike |
+| Overture Maps transportation and base (roads, paths, power; from OpenStreetMap), release `2026-09-23.1` | ODbL 1.0, Overture Maps Foundation; © OpenStreetMap contributors | Derived geometry only; raw PMTiles archives are **not** redistributed |
+| Overture Maps buildings: OpenStreetMap, Google Open Buildings, Microsoft ML Building Footprints | ODbL 1.0 (Google Open Buildings: CC BY 4.0 / ODbL; Microsoft footprints: ODbL) | Derived footprint points and areas |
+| Overture Maps places (Meta, Microsoft) | [CDLA-Permissive-2.0](https://cdla.dev/permissive-2-0/) | Derived facility points |
+| WorldPop 2020 population (`wpgppop`) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), WorldPop, University of Southampton | Totals per study area |
+| Open-Meteo historical weather (ERA5 reanalysis), 2024 | CC BY 4.0, Open-Meteo.com | Raw responses in the frozen Nyabihu bundle |
+| NISR Seasonal Agricultural Survey 2024 and 5th Population and Housing Census 2022 | Public statistics, attributed to NISR in [docs/live-engine.md](docs/live-engine.md) and the assumption sheet | Derived district tables in `data/rwanda/` |
+| Natural Earth countries and places (`live/js/world-data.js`) | Public domain | Yes |
+| Inter and Fraunces fonts (`live/assets/OFL-*.txt`), MapLibre GL JS (`live/vendor/LICENSE-MapLibre.txt`), tile libraries (`live/vendor/LICENSE-tiles.txt`) | SIL OFL 1.1; BSD-3-Clause; BSD-3-Clause and MIT | Yes |
+
+Per-source licence and retrieval time are recorded in each analysis and in
+`data/rwanda/hero/nyabihu-potato/MANIFEST.json`.
+
+## Canadian pilot and shared assets
+
 | Material in this repository or its outputs | Licence | Redistributed here? |
 |---|---|---|
 | AAFC grain elevators 2024, AAFC field-crop production, StatCan census boundaries (CCS, CAR, CD, CSD) | [Open Government Licence – Canada](https://open.canada.ca/en/open-government-licence-canada) | Derived evidence in `app/evidence/`, `demo/evidence/` |

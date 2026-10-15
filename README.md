@@ -3,10 +3,10 @@
 <p align="center">
 <a href="https://github.com/Elie1Z/EnaGIS/actions"><img alt="CI" src="https://github.com/Elie1Z/EnaGIS/actions/workflows/ci.yml/badge.svg"></a>
 <a href="LICENSE"><img alt="Code: MIT" src="https://img.shields.io/badge/code-MIT-blue"></a>
-<a href="LICENSE-DATA.md"><img alt="Data: OGL-Canada / ODbL" src="https://img.shields.io/badge/data-OGL--Canada%20%7C%20ODbL-lightgrey"></a>
+<a href="LICENSE-DATA.md"><img alt="Data: ODbL / CC BY 4.0 / OGL-Canada" src="https://img.shields.io/badge/data-ODbL%20%7C%20CC%20BY%204.0%20%7C%20OGL--Canada-lightgrey"></a>
 <img alt="Field verification n=0" src="https://img.shields.io/badge/field%20verification-n%3D0-orange">
-<img alt="Canada siting test: KILL" src="https://img.shields.io/badge/siting%20test%20Canada-KILL-red">
 <img alt="Rwanda siting test: KEEP" src="https://img.shields.io/badge/siting%20test%20Rwanda-KEEP-brightgreen">
+<img alt="Canada siting test: KILL" src="https://img.shields.io/badge/siting%20test%20Canada-KILL-red">
 </p>
 
 **EnaGIS tells productive-use-energy teams which agricultural storage sites to investigate
@@ -23,24 +23,18 @@ It opens offline on real, hashed inputs; Page Down steps through six preset view
 `make live-siting` verifies the frozen siting experiment without retraining or overwriting it.
 Desk checks and phone calls are recorded in the kit as they happen; today the count is zero.
 
-After harvest, grain sits in storage that needs electricity for aeration fans. Nobody publishes
-which sites need the most power or which have enough. EnaGIS takes open registries and statistics
-(no private data), estimates a technical energy requirement for each documented site, compares it
-with documented supply, and produces a ranked top 10. Each site comes with its sources, an evidence
-label on every number, and the one question to ask before a visit. Where evidence is missing it
-says **UNKNOWN**, never zero.
-
-The pilot covers 261 primary grain elevators in Alberta and Saskatchewan (AAFC 2024 registry).
-We also ran a preregistered machine-learning siting experiment there. It **did not beat** a simple
-production-only baseline, and we report that loss.
-
-**EnaGIS Live** runs the same idea anywhere, in the browser, from open data gathered on the spot,
-and is set up for Rwanda (district production for potato and maize). Its siting model passed a test
-registered before it was run on all 30 Rwandan districts. It puts **73.1%** of documented collection
+**EnaGIS Live** is the main tool. It runs in the browser on open data gathered on the spot and is
+set up for Rwanda: NISR district production for Irish potato and maize, four value chains (potato
+cold storage, milk cooling, maize milling, maize drying), and a siting model tested on all 30
+Rwandan districts under a protocol registered before it was run. It puts **73.1%** of documented collection
 and processing points in the top 10% of their district, against 49.3% for counting buildings
 (+23.9 points, 95% interval 13.4 to 34.4). See [phase4r-results](docs/phase4r-results.md). XGBoost, suggested by the
 challenge brief, was tested against it under a protocol fixed in advance and did worse (−9.0 points, −15.1 to −3.3),
-so the app keeps the logistic model. See [phase4x-results](docs/phase4x-results.md).
+so the app keeps the logistic model. See [phase4x-results](docs/phase4x-results.md). The open data behind
+it is listed in [Rwanda data](#rwanda-data).
+
+EnaGIS started as a [Canadian pilot](#where-it-started-the-canadian-pilot), where ground truth exists, to
+test the method before applying it in Rwanda.
 
 ![EnaGIS: ranked investigation list, map and site card](docs/screenshots/1-where-first.png)
 
@@ -87,6 +81,45 @@ replay offline. All 30 Rwandan districts have been run end to end:
 [0012](docs/decisions/0012-live-analysis-engine.md) and [0013](docs/decisions/0013-open-data-stack.md). Live results are screening estimates from
 open data and unapproved parameters; field verification n = 0.
 
+## Rwanda data
+
+Every value in EnaGIS Live carries its source, retrieval time and licence, in the app and in saved
+analyses. No private data is used.
+
+| Data | Source | Used for | Licence |
+|---|---|---|---|
+| District production, Irish potato and maize | NISR Seasonal Agricultural Survey 2024 (Season A area and yield tables, 2024 annual totals) | Harvest volume per district | Public statistics, attributed to NISR |
+| District population | NISR 5th Population and Housing Census, 2022 (via citypopulation.de) | District context | Public statistics, attributed to NISR |
+| Area boundaries | Nominatim (OpenStreetMap geocoder) | Study area | ODbL 1.0, © OpenStreetMap contributors |
+| Facilities, markets, settlements | OpenStreetMap via Overpass | Sites to rank | ODbL 1.0, © OpenStreetMap contributors |
+| Agricultural places | Overture Maps places, release `2026-09-23.1` | Extra documented facilities | CDLA-Permissive-2.0 |
+| Buildings | Overture Maps buildings: OpenStreetMap, Google Open Buildings, Microsoft footprints | Settlement density, roof sizes, siting features | ODbL 1.0 (Google Open Buildings: CC BY 4.0 / ODbL) |
+| Roads, paths and power lines | Overture Maps transportation and base (from OpenStreetMap) | Road catchments, distance to the mapped grid | ODbL 1.0 |
+| Population grid | WorldPop 2020 | Population inside the study area | CC BY 4.0 |
+| Climate | Open-Meteo ERA5 archive, 2024 | Cooling load (hottest-month temperature) | CC BY 4.0 |
+| Offline basemap and place names | Natural Earth | World map without internet | Public domain |
+
+Files and hashes: [data/rwanda/](data/rwanda/README.md) (district production and the siting training
+table) and [data/rwanda/hero/](data/rwanda/hero/README.md) (the frozen Nyabihu inputs, with a per-file
+manifest). Raw Overture tile archives are not redistributed. Licence obligations are in
+[LICENSE-DATA.md](LICENSE-DATA.md); data vintages and newer releases are in
+[hero-data-freshness](docs/hero-data-freshness.md).
+
+## Where it started: the Canadian pilot
+
+After harvest, grain sits in storage that needs electricity for aeration fans. Nobody publishes
+which sites need the most power or which have enough. EnaGIS takes open registries and statistics
+(no private data), estimates a technical energy requirement for each documented site, compares it
+with documented supply, and produces a ranked top 10. Each site comes with its sources, an evidence
+label on every number, and the one question to ask before a visit. Where evidence is missing it
+says **UNKNOWN**, never zero.
+
+The pilot covers 261 primary grain elevators in Alberta and Saskatchewan (AAFC 2024 registry).
+We also ran a preregistered machine-learning siting experiment there. It **did not beat** a simple
+production-only baseline, and we report that loss.
+
+The pilot app is [`app/`](app/README.md); its datasets are in the [data catalogue](docs/data-catalogue.md).
+
 ## Quick start (3 commands)
 
 Needs Python 3.12, [uv](https://docs.astral.sh/uv/) 0.12+, and network for the first install.
@@ -103,20 +136,25 @@ Edge or Firefox. Both work offline, with no server. `make live-test hero-repro` 
 `make check` runs lint, tests and the smoke fixture; `make mvp verify-mvp` rebuilds and verifies
 the app. Everything else is in [docs/reproducibility.md](docs/reproducibility.md).
 
+**New to the code?** Open `live/index.html` and press **Nyabihu · Irish potato cold storage**; read
+[live/README.md](live/README.md) (file map) and [docs/live-engine.md](docs/live-engine.md) (how the engine
+works); run `make live-test hero-repro`; then pick a task from
+[good first issues](docs/good-first-issues.md) and follow the [rules](CONTRIBUTING.md#rules).
+
 ## What is done, what is not
 
 | Area | Status | Evidence |
 |---|---|---|
-| Open registry: 340 records with source, date, licence, precision class (all P2) | Done | [data catalogue](docs/data-catalogue.md) |
-| ML siting experiment, Canada, preregistered at Git tag `preregister-phase4-canada-v1.1` | Done; **verdict KILL**: full model 35.71% vs production-only 39.76% recall at top 20% | [validation](docs/validation.md) |
 | ML siting model, Rwanda (EnaGIS Live), registered protocol v1.1, all 30 districts held out in turn | Done; **verdict KEEP**: 73.1% vs 49.3% recall at top 10%, margin +23.9 [13.4, 34.4]; holds after a label audit | [phase4r-results](docs/phase4r-results.md) |
 | XGBoost vs the Rwanda siting model (Phase 4X), protocol hashed before scoring | Done; **TESTED, NOT BETTER**: 64.2% vs 73.1%, difference −9.0 [−15.1, −3.3]; app keeps logistic | [phase4x-results](docs/phase4x-results.md) |
 | Second site for the suggested tools: 7 regions scouted; footprint classifier on Njombe (Tanzania) grain mills | Done; no region has open sub-metre imagery over labelled facilities (no image detector possible); Njombe footprint classifier **KILL** (+1.6 [−0.3, 3.4]) | [second site](docs/second-site.md) |
-| Shipping-point hindcast (52 groups) | Done; absolute volumes not validated | [validation](docs/validation.md) |
-| Energy requirement and top 10 | Temporary engineering scenario; parameters **not** human-approved; range UNKNOWN | [method](docs/method.md) |
+| Canadian pilot: open registry: 340 records with source, date, licence, precision class (all P2) | Done | [data catalogue](docs/data-catalogue.md) |
+| ML siting experiment, Canada, preregistered at Git tag `preregister-phase4-canada-v1.1` | Done; **verdict KILL**: full model 35.71% vs production-only 39.76% recall at top 20% | [validation](docs/validation.md) |
+| Canadian pilot: shipping-point hindcast (52 groups) | Done; absolute volumes not validated | [validation](docs/validation.md) |
+| Canadian pilot: energy requirement and top 10 | Temporary engineering scenario; parameters **not** human-approved; range UNKNOWN | [method](docs/method.md) |
 | Energy *gap* | UNKNOWN for all sites: no open data on installed electrical capacity | [evidence ledger](docs/evidence-ledger.md) |
 | Field verification | **Not done (n = 0)**; tooling tested on synthetic data | [limitations](docs/limitations.md) |
-| Transfer to a new region | Not evaluated; Manitoba hold-out untouched | [scope and transfer](docs/scope-and-transfer.md) |
+| Canadian pilot: transfer to a new region | Not evaluated; Manitoba hold-out untouched | [scope and transfer](docs/scope-and-transfer.md) |
 
 ## Documentation
 
@@ -129,7 +167,7 @@ Full index: [docs/README.md](docs/README.md).
 | [Validation](docs/validation.md) | Metrics, intervals, n, protocol, verdict, and what it does not show |
 | [Limitations and non-claims](docs/limitations.md) | What we never claim |
 | [Evidence ledger](docs/evidence-ledger.md) | What we know, estimated and do not know, and how to close each gap |
-| [Data catalogue](docs/data-catalogue.md) | Every dataset with source, date, licence, hash and how to fetch it |
+| [Rwanda data](#rwanda-data) · [Data catalogue](docs/data-catalogue.md) | Every dataset with source, date, licence and hash (catalogue: Canadian pilot) |
 | [Scope and transfer](docs/scope-and-transfer.md) / [Scaling guide](docs/scaling.md) | Why Canada, and how to apply EnaGIS to a new country or crop |
 | [Architecture](docs/architecture.md) · [Glossary](docs/glossary.md) | How the pieces fit; terms |
 | [Reproducibility](docs/reproducibility.md) | Clean rebuild, checksums, runtime, hardware |
@@ -142,6 +180,8 @@ Full index: [docs/README.md](docs/README.md).
 
 ## Licences and citation
 
-Code is [MIT](LICENSE). Data keeps its source licence: Open Government Licence – Canada,
-Statistics Canada Open Licence, and **ODbL 1.0 for OpenStreetMap-derived roads**. See
-[LICENSE-DATA.md](LICENSE-DATA.md). Cite with [CITATION.cff](CITATION.cff).
+Code is [MIT](LICENSE). Data keeps its source licence. Rwanda (EnaGIS Live): **ODbL 1.0** for
+OpenStreetMap- and Overture-derived boundaries, facilities, buildings, roads and power;
+CDLA-Permissive-2.0 for Overture places; CC BY 4.0 for WorldPop and Open-Meteo; NISR statistics
+with attribution. Canadian pilot: Open Government Licence – Canada, Statistics Canada Open Licence
+and ODbL 1.0 for OpenStreetMap-derived roads. See [LICENSE-DATA.md](LICENSE-DATA.md). Cite with [CITATION.cff](CITATION.cff).

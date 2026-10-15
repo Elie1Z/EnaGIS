@@ -28,7 +28,7 @@ New here? Read the four pages under **Start here**, then go to the section you n
 |---|---|
 | [Validation](validation.md) | Metrics, intervals, protocol, verdicts |
 | [Evidence ledger](evidence-ledger.md) | What we know, estimated and do not know |
-| [Data catalogue](data-catalogue.md) · [Licence audit](data/licence-audit.md) | Every dataset: source, date, licence, hash |
+| [Rwanda data](../data/rwanda/README.md) · [Data catalogue](data-catalogue.md) · [Licence audit](data/licence-audit.md) | Every dataset: source, date, licence, hash (the catalogue covers the Canadian pilot) |
 | [Reproducibility](reproducibility.md) · [Proof of work](proof-of-work.md) | Clean rebuild, checksums, counts |
 | [Scope and transfer](scope-and-transfer.md) · [Scaling guide](scaling.md) | Applying EnaGIS to a new country or crop |
 | [FAQ](faq-for-judges.md) | Hard questions, short answers |
