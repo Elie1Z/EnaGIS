@@ -1,3 +1,12 @@
 # Normalize authored text; retain the supplied reference bytes exactly.
 * text=auto eol=lf
 docs/reference/* -text
+
+# Hash-pinned files: keep the exact bytes that were hashed (including CRLF).
+configs/hero-frozen-artifacts.json -text
+data/rwanda/district_production_2024.csv -text
+data/rwanda/hero/verification-protocol.json -text
+docs/audits/phase4n-evaluation.json -text
+docs/audits/phase4x-evaluation.json -text
+docs/hero-verification-protocol.sha256 -text
+live/js/model-comparison.js -text
