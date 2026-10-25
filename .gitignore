@@ -8,8 +8,6 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
-.env
-.env.*
 !.env.example
 
 # Acquired data and generated products need explicit licence/privacy review
@@ -29,3 +27,5 @@ branch_structure.json
 temp_auto_push.bat
 temp_interactive_push.bat
 .gitignore
+config.bat
+node_modules
