@@ -6,7 +6,6 @@ import numpy as np
 from scipy.optimize import linprog
 from scipy.sparse import csr_matrix
 
-
 def allocate(masses, limits, routes, variant, unknown_capacity, tolerance):
     if variant not in {"min_cost_max_served", "nearest_first"}:
         raise ValueError("unknown allocation variant")
