@@ -51,7 +51,7 @@
   let ovtProtocol = null;
   try { if (window.EnaTiles && OV) { ovtProtocol = new EnaTiles.Protocol(); maplibregl.addProtocol("pmtiles", ovtProtocol.tile); } } catch (e) { ovtProtocol = null; }
   if (navigator.onLine === false || new URLSearchParams(location.search).get("hero") === "offline") S.base = "paper";
-  const map = new maplibregl.Map({container: "map", style: BASES[S.base](), center: [29.9, -1.95], zoom: 7.4,
+  const map = new maplibregl.Map({container: "map", style: BASES[S.base](), center: [15, 12], zoom: 1.8,
     attributionControl: false, maxPitch: 0, dragRotate: false, pitchWithRotate: false});
   map.addControl(new maplibregl.AttributionControl({compact: true,
     customAttribution: "© OpenStreetMap contributors · Overture Maps · WorldPop · Open-Meteo (licences under Sources)"}), "bottom-right");
@@ -343,6 +343,19 @@
 
   function renderDrawer() {
     const d = $("drawer");
+    if (S.phase === "explore") {
+      const large = E.areaOf(S.area) > C.MAX_AREA_KM2;
+      d.innerHTML = `<div class="drawer-head"><p class="eyebrow">Explore your area</p><h2>${esc(S.area.name)}</h2><p class="meta">${esc(S.area.display_name || "")}</p></div>
+        <div class="drawer-body explore-summary"><p>Your starting point is ready. Explore the map, then choose an agricultural activity in the top bar when you want to estimate its energy requirements.</p>
+        <p><strong>${fmt(E.areaOf(S.area))} km²</strong> · ${S.area.polygon ? "Selected geographic boundary" : "Selected study window"}</p>
+        ${large ? '<p>This is a regional overview. Zoom to a smaller area and use <strong>Analyze this view</strong> to begin a detailed study.</p>' : ''}
+        <p>Satellite imagery and mapped buildings provide context. Local production, operation and energy evidence still need to be checked for the activity you select.</p>
+        <p class="meta">No energy estimate or ranking has been calculated. A place on the map does not establish an operating facility or electricity connection.</p>
+        <button id="explore-choose" class="primary">Choose an activity ↑</button><button id="explore-home">Explore another place</button></div>`;
+      $("explore-choose").onclick=()=>$("model").focus();
+      $("explore-home").onclick=()=>window.EnaLanding?.show();
+      return;
+    }
     if (S.phase === "idle") {
       d.innerHTML = `<div class="drawer-head"><p class="eyebrow">Agricultural energy screening · live</p>
         <h2>Where should we investigate first?</h2></div>
@@ -902,6 +915,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
       "Example districts are ready: they now open in seconds, even without internet.");
   }
   function analyzeView() {
+    if (!$("model").value) { toast("Choose an activity in the top bar first."); $("model").focus(); return; }
     const b = map.getBounds(), bbox = [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()];
     const c = map.getCenter();
     runArea(SRC.areaFromView(bbox, `View around ${c.lat.toFixed(3)}, ${c.lng.toFixed(3)}`), []);
@@ -929,7 +943,12 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   }
 
   // ------------------------------------------------------------------ events
-  $("search-form").addEventListener("submit", (e) => { e.preventDefault(); search($("q").value); });
+  $("search-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!$("model").value) { window.EnaLanding?.show($("q").value); return; }
+    if (S.phase === "explore" && $("q").value === S.area.display_name) runArea(S.area, []);
+    else search($("q").value);
+  });
   $("model").value = S.model;
   $("model").addEventListener("change", () => {
     S.hero = null; if (H) H.render();
@@ -1036,10 +1055,21 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   document.querySelectorAll("[data-base]").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.base === S.base)));
   renderDrawer(); renderLegend();
   const params = new URLSearchParams(location.search);
+  function previewArea(area) {
+    job++; S.hero=null; S.input=null; S.result=null; S.selected=null; S.cand=null;
+    S.area=area; S.phase="explore"; S.alternates=[]; S.steps=[]; S.overrides={}; S.perCap={};
+    S.synthetic=false; $("synthetic-ribbon").hidden=true;
+    $("model").value=""; $("q").value=area.display_name||area.name;
+    if(H) H.render(); closePanel(); renderSheet(); setCompare(false);
+    setBase(navigator.onLine === false ? "paper" : "satellite");
+    fitArea(area); renderDrawer(); applyLens(); renderLegend();
+    history.replaceState(null,"",location.pathname);
+    status(`Exploring ${area.name} · select an activity to calculate energy requirements`);
+  }
   if (params.get("model") && C.MODELS[params.get("model")]) { S.model = params.get("model"); $("model").value = S.model; }
   // Run once the map is ready, or after a few seconds even if basemap tiles never arrive.
   const onMapReady = (fn) => { let done = false; const go = () => { if (!done) { done = true; fn(); } }; map.once("load", go); setTimeout(go, 5000); };
   if (params.get("q")) { $("q").value = params.get("q"); onMapReady(() => search(params.get("q"))); }
   if (params.get("demo") === "synthetic") onMapReady(synthDemo);
-  window.EnaApp = {state: () => S, search, runArea, openPackage, analyzeNow, prepareDemo, map: () => map, engine: () => ({worker: !!worker, workerOK})};
+  window.EnaApp = {state: () => S, search, runArea, openPackage, previewArea, analyzeNow, prepareDemo, map: () => map, engine: () => ({worker: !!worker, workerOK})};
 })();
