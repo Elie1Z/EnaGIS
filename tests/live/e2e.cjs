@@ -71,6 +71,8 @@ const ok = (name, cond, detail) => { checks.push({name, pass: !!cond, detail: de
   await ctx.route(/\/js\/siting-model\.js/, r => r.fulfill({body: testModel(), headers: {"Content-Type": "text/javascript"}}));
 
   await page.goto(base);
+  // This suite exercises the existing analysis workspace; the global entry has its own suite.
+  await page.evaluate(() => window.EnaLanding.dismiss());
   await page.waitForSelector(".drawer .examples");
   await page.screenshot({path: path.join(OUT, "01-idle.png")});
   ok("idle screen shows examples", await page.locator("[data-example]").count() >= 5);
@@ -187,6 +189,7 @@ const ok = (name, cond, detail) => { checks.push({name, pass: !!cond, detail: de
   const fb = await fbCtx.newPage();
   fb.on("pageerror", e => errors.push("fallback: " + e));
   await fb.goto(base);
+  await fb.evaluate(() => window.EnaLanding.dismiss());
   await fb.fill("#q", "Synthetic District"); await fb.click("#go");
   await fb.waitForSelector(".site-row", {timeout: 60000});
   const fbP = await fb.evaluate(() => EnaApp.state().result.providers);
@@ -212,6 +215,7 @@ const ok = (name, cond, detail) => { checks.push({name, pass: !!cond, detail: de
   const rt = await rtCtx.newPage();
   rt.on("pageerror", e => errors.push("retry: " + e));
   await rt.goto(base);
+  await rt.evaluate(() => window.EnaLanding.dismiss());
   await rt.evaluate(() => { EnaConfig.OVERPASS_RETRY_MS = 50; });
   await rt.fill("#q", "Synthetic District"); await rt.click("#go");
   await rt.waitForSelector(".site-row", {timeout: 60000});
