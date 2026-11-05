@@ -4,8 +4,8 @@
   const $ = id => document.getElementById(id), shell = $('landing'), canvas = $('earth'), ctx = canvas.getContext('2d');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const rad = Math.PI / 180;
-  const rings = window.ENA_WORLD.countries.features.flatMap(f => (f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates).map(p => p[0].filter((_, i) => i % 2 === 0).map(([lon, lat]) => [lon * rad, lat * rad])));
-  let width=0,height=0,lon=18,lat=12,paused=reduced.matches,focused=false,drag=null,selection=null,flight=null,frame=0,last=0,request=0,transitioning=false;
+  const rings = window.ENA_WORLD.countries.features.flatMap(f => (f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates).map(p => p[0].map(([lon, lat]) => [lon * rad, lat * rad])));
+  let width=0,height=0,lon=18,lat=12,paused=reduced.matches,focused=false,drag=null,selection=null,flight=null,frame=0,last=0,request=0,transitioning=false,scale=1;
   const stars = Array.from({length:140},(_,i)=>({x:((i*7919)%1009)/1009,y:((i*3571)%1013)/1013,a:.12+(i%5)*.07}));
   function size(){width=innerWidth;height=innerHeight;const d=Math.min(devicePixelRatio||1,2);canvas.width=width*d;canvas.height=height*d;ctx.setTransform(d,0,0,d,0,0);}
   function project(a,b){const dl=a-lon*rad, p=lat*rad;return [Math.cos(b)*Math.sin(dl),Math.cos(p)*Math.sin(b)-Math.sin(p)*Math.cos(b)*Math.cos(dl),Math.sin(p)*Math.sin(b)+Math.cos(p)*Math.cos(b)*Math.cos(dl)];}
@@ -15,7 +15,9 @@
     if(flight){const t=Math.min(1,(now-flight.time)/1400),e=1-Math.pow(1-t,3);lon=flight.lon+flight.dx*e;lat=flight.lat+(flight.toLat-flight.lat)*e;if(t===1)flight=null;}
     else if(!paused&&!focused&&!drag&&!selection&&!document.hidden)lon+=dt*2.3;
     ctx.clearRect(0,0,width,height);
-    const mobile=width<800,cx=width*(mobile?.78:.77),cy=height*(mobile?.29:.51),radius=Math.min(width*(mobile?.59:.32),height*.43);
+    const targetScale=transitioning?2.8:selection?1.12:1;
+    scale=reduced.matches?targetScale:scale+(targetScale-scale)*Math.min(1,dt*4);
+    const mobile=width<800,cx=width*(mobile?.78:.77),cy=height*(mobile?.29:.51),radius=Math.min(width*(mobile?.59:.32),height*.43)*scale;
     stars.forEach(s=>{ctx.fillStyle=`rgba(177,210,230,${s.a})`;ctx.fillRect(s.x*width,s.y*height,1,1);});
     let halo=ctx.createRadialGradient(cx,cy,radius*.8,cx,cy,radius*1.22);halo.addColorStop(0,'#195e5e18');halo.addColorStop(.68,'#23869032');halo.addColorStop(1,'#0c252500');ctx.fillStyle=halo;ctx.fillRect(cx-radius*1.3,cy-radius*1.3,radius*2.6,radius*2.6);
     ctx.save();ctx.beginPath();ctx.arc(cx,cy,radius,0,Math.PI*2);ctx.clip();
@@ -44,7 +46,7 @@
   function dismiss(){shell.hidden=true;document.body.classList.remove('landing-open');cancelAnimationFrame(frame);EnaApp.map().resize();}
   $('orbit-enter').onclick=()=>{if(!selection||transitioning)return;transitioning=true;EnaApp.previewArea(selection);document.body.classList.remove('landing-open');EnaApp.map().resize();shell.classList.add('departing');setTimeout(()=>{dismiss();$('q').focus();},reduced.matches?0:650);};
   $('orbit-open').onclick=()=>{dismiss();$('open-file').click();};
-  function show(query='') {transitioning=false;shell.hidden=false;shell.classList.remove('departing');document.body.classList.add('landing-open');selection=null;flight=null;$('orbit-selection').hidden=true;$('orbit-results').replaceChildren();$('orbit-query').value=query;size();last=performance.now();cancelAnimationFrame(frame);frame=requestAnimationFrame(draw);$('orbit-query').focus();if(query)$('orbit-search').requestSubmit();}
+  function show(query='') {request++;transitioning=false;shell.hidden=false;shell.classList.remove('departing');document.body.classList.add('landing-open');selection=null;flight=null;scale=1;$('orbit-status').textContent="I'll help you find your starting point.";$('orbit-selection').hidden=true;$('orbit-results').replaceChildren();$('orbit-query').value=query;size();last=performance.now();cancelAnimationFrame(frame);frame=requestAnimationFrame(draw);$('orbit-query').focus();if(query)$('orbit-search').requestSubmit();}
   window.EnaLanding={select,dismiss,show};
   const params=new URLSearchParams(location.search);if(params.has('q')||params.has('demo'))dismiss();else {size();motion();frame=requestAnimationFrame(draw);}
   window.addEventListener('resize',size);

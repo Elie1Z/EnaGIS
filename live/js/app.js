@@ -831,7 +831,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   function fitArea(a) {
     const b = a.bbox;
     const padL = window.innerWidth > 900 ? 380 : 20, padR = window.innerWidth > 900 ? 380 : 20;
-    map.fitBounds([[b[0], b[1]], [b[2], b[3]]], {padding: {left: padL, right: padR, top: 60, bottom: 60}, duration: 900, maxZoom: 13});
+    map.fitBounds([[b[0], b[1]], [b[2], b[3]]], {padding: {left: padL, right: padR, top: 60, bottom: 60}, duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 900, maxZoom: 13});
   }
   async function runArea(area, alternates) {
     S.hero = null; if (H) H.render();
@@ -924,6 +924,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
     try {
       const pkg = JSON.parse(await file.text());
       if (pkg.format !== "enagis-live-package-v1" || !pkg.input || !pkg.input.area) throw new Error("Not an EnaGIS Live analysis file");
+      window.EnaLanding?.dismiss();
       S.hero = null; if (H) H.render(); setCompare(false); setBase("paper");
       setInput(pkg.input); S.area = pkg.input.area; S.alternates = [];
       if (pkg.options && pkg.options.model) { S.model = pkg.options.model; $("model").value = S.model; }
