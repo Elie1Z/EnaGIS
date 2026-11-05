@@ -9,11 +9,27 @@
 <link rel="icon" type="image/png" href="assets/brand/enagis-mark.png">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="landing.css">
 <link rel="preload" href="assets/inter.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="assets/fraunces.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="assets/fraunces-italic.ttf" as="font" type="font/ttf" crossorigin>
 </head>
-<body class="simple">
+<body class="simple landing-open">
+<section id="landing" aria-label="Explore with EnaGIS">
+  <canvas id="earth" aria-label="Interactive globe. Drag to rotate." tabindex="0"></canvas>
+  <header class="orbit-header"><a class="orbit-brand" href="index.html"><img src="assets/brand/enagis-wordmark.png" alt="EnaGIS"></a><span>Agricultural energy intelligence</span><button id="orbit-open" type="button">Open saved analysis ↗</button></header>
+  <main class="orbit-copy">
+    <p class="orbit-eyebrow"><span></span> A world of possibilities</p>
+    <h1>Every place.<br>A new <em>possibility.</em></h1>
+    <p class="orbit-description">Explore energy opportunities in agriculture.<br>Start with a place. See what the evidence reveals.</p>
+    <form id="orbit-search" role="search"><label for="orbit-query">Where shall we explore?</label><div class="orbit-input"><input id="orbit-query" type="search" required placeholder="A place, a region, or coordinates" autocomplete="off"><button type="submit" aria-label="Find a place">↗</button></div></form>
+    <p id="orbit-status" role="status">I'll help you find your starting point.</p>
+    <div id="orbit-results" aria-label="Matching places"></div>
+    <div id="orbit-selection" hidden><p id="orbit-place"></p><button id="orbit-enter" type="button">Explore this area →</button><button id="orbit-reset" type="button">Choose another place</button></div>
+  </main>
+  <div class="orbit-globe-tools"><button id="orbit-motion" type="button" aria-pressed="false">Pause rotation</button><span>Drag to explore · Natural Earth</span></div>
+  <footer class="orbit-footer"><span>Mapping Energy. Powering Agriculture.</span><span>From Dynamis <i>✦</i> Built for discovery</span></footer>
+</section>
 <a class="skip" href="#drawer">Skip to results</a>
 <header class="topbar">
   <a class="brand" href="index.html" title="Back to the start screen" aria-label="EnaGIS Live home"><img src="assets/brand/enagis-wordmark.png" alt="EnaGIS" height="36"></a>
@@ -23,6 +39,7 @@
       <input id="q" type="search" placeholder="Search a district, sector or town · or lat, lon" required></label>
     <label class="model-box"><span class="sr-only">Value chain</span>
       <select id="model">
+        <option value="" disabled>Choose an activity to analyse</option>
         <option value="potato_storage">Cold storage · Irish potato</option>
         <option value="milk_cooling">Cooling · Milk collection</option>
         <option value="maize_milling">Milling · Maize</option>
@@ -107,5 +124,6 @@
 <script src="js/hero-verification.js"></script>
 <script src="js/hero-ui.js"></script>
 <script src="js/app.js"></script>
+<script src="js/landing.js"></script>
 </body>
 </html>
