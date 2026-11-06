@@ -98,6 +98,8 @@ function enaConfigFactory() {
 
   // Versioned registries. Legacy presets retain their exact parameter order and equations.
   const SCENARIO_VERSION = "enagis-scenarios-v1";
+  const SITING_SCOPE = {id: "rwanda-training-scope-v1", country_codes: ["RW"],
+    note: "The shipped model was trained in Rwanda. Training scope is not a claim of local validation."};
   const COMMODITIES = {
     irish_potato: {id: "irish_potato", name: "Irish potato", properties: {cp_kj_per_kg_k: p(3.4, 3.6, 3.8, "kJ/kg·K", "ESTIMATED", "Specific heat of potato")}},
     milk: {id: "milk", name: "Milk", properties: {cp_kj_per_kg_k: p(3.85, 3.93, 3.98, "kJ/kg·K", "ESTIMATED", "Specific heat of milk")}},
@@ -243,7 +245,7 @@ function enaConfigFactory() {
     const params = {};
     for (const [key, entry] of Object.entries(recipe.params || {})) {
       const value = entry.commodity_property ? commodity.properties[entry.commodity_property] : entry;
-      if (!value || value.unit !== process.required[key]) throw new Error(`Unsupported parameter or incompatible unit: ${key}`);
+      if (!Object.hasOwn(process.required, key) || !value || value.unit !== process.required[key]) throw new Error(`Unsupported parameter or incompatible unit: ${key}`);
       const r = value.range;
       if (!Array.isArray(r) || r.length !== 3 || !r.every(Number.isFinite) || r[0] > r[1] || r[1] > r[2]) throw new Error(`Invalid parameter range: ${key}`);
       if ((value.unit !== "°C" && r[0] < 0) || (["cop", "run_hours", "operating_days", "harvest_window_days"].includes(key) && r[0] <= 0) || (value.unit === "fraction" && r[2] > 1)) throw new Error(`Parameter outside its physical domain: ${key}`);
@@ -253,6 +255,10 @@ function enaConfigFactory() {
       params[key] = value;
     }
     for (const key of Object.keys(process.required)) if (!params[key]) throw new Error(`Missing required parameter: ${key}`);
+    if (!recipe.types || !Object.keys(recipe.types).length) throw new Error("Recipe needs eligible site types");
+    for (const [type, range] of Object.entries(recipe.types)) {
+      if (!Object.hasOwn(SITE_TYPES, type) || !Array.isArray(range) || range.length !== 3 || !range.every(Number.isFinite) || range[0] < 0 || range[0] > range[1] || range[1] > range[2]) throw new Error(`Invalid site eligibility: ${type}`);
+    }
     // The compatibility view deliberately retains the old object shape and iteration order.
     return {id: recipe.id, name: recipe.name, short: recipe.short, commodity: recipe.commodity,
       unit_out: recipe.unit_out, service: recipe.service, question_volume: recipe.question_volume,
@@ -276,7 +282,7 @@ function enaConfigFactory() {
     }
     return value;
   }
-  [COMMODITIES, PROCESSES, RECIPES, MODELS].forEach(freezeRegistry);
+  [COMMODITIES, PROCESSES, RECIPES, MODELS, SITING_SCOPE].forEach(freezeRegistry);
 
   function validateProductionRecord(record) {
     if (!record || record.schema !== "enagis-production-input-v1") throw new Error("Unsupported production evidence format");
@@ -377,7 +383,7 @@ function enaConfigFactory() {
     exclude: /(government|religious|marketing|printing|consult|professional|computer|software|media|agency|technology|bank|financial|hotel|lodging|restaurant|coffee_shop|cafe|bar$|church|worship|school|education|hospital|clinic|pharmacy|salon|beauty|fashion|apparel|electronics|phone|real_estate|travel|insurance|supermarket|department_store|grocery|convenience|fish_farm|farm$|ranch)/
   };
 
-  return {SCENARIO_VERSION, COMMODITIES, PROCESSES, RECIPES, compileRecipe, resolveScenario, validateProductionRecord,
+  return {SCENARIO_VERSION, SITING_SCOPE, COMMODITIES, PROCESSES, RECIPES, compileRecipe, resolveScenario, validateProductionRecord,
     COUNTRIES, GENERIC_COUNTRY, SITE_TYPES, MODELS, SHARED, SPEEDS, rainFactor, NAME_PATTERNS, OVERTURE, PLACE_RULES,
     // Public Overpass servers that answer browsers (CORS) and were reachable from Kigali in Oct 2026.
     OVERPASS: ["https://overpass-api.de/api/interpreter", "https://maps.mail.ru/osm/tools/overpass/api/interpreter"],

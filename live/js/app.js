@@ -547,6 +547,9 @@
   function likelyHTML(R, listFor) {
     const sit = R.siting, SM = window.EnaSitingModel;
     if (!SM || !SM.model) return `<p class="headline">Likely processing sites</p><p class="warn">The siting model is not loaded in this build.</p>`;
+    if (sit && sit.status === "not_validated") return `<p class="headline">Not validated here</p><p class="warn">${esc(sit.reason)}</p>
+      <p>You can still explore mapped facilities, roads and energy infrastructure, and estimate energy for a supported activity when its inputs are available.</p>
+      <p class="meta">Using this prediction model in a new setting requires a separately registered local evaluation. Rwanda's historical test result does not establish accuracy here.</p>`;
     if (!sit || sit.status !== "ok") return `<p class="headline">Likely processing sites</p><p class="warn">The siting model could not run here: missing ${esc(((sit && sit.missing) || ["inputs"]).join(", "))}. It needs Overture building footprints with their sizes, and roads.</p>`;
     const ev = SM.evaluation, v = SM.verdict;
     const share = sit.documented_cells ? Math.round(100 * sit.documented_in_top / sit.documented_cells) : null;
