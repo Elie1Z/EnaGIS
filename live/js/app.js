@@ -50,6 +50,8 @@
   // Overture building footprints are drawn straight from the public PMTiles archive.
   let ovtProtocol = null;
   try { if (window.EnaTiles && OV) { ovtProtocol = new EnaTiles.Protocol(); maplibregl.addProtocol("pmtiles", ovtProtocol.tile); } } catch (e) { ovtProtocol = null; }
+  const startsOnEarth = !new URLSearchParams(location.search).has("q") && !new URLSearchParams(location.search).has("demo");
+  if (startsOnEarth) S.base = "satellite";
   if (navigator.onLine === false || new URLSearchParams(location.search).get("hero") === "offline") S.base = "paper";
   const map = new maplibregl.Map({container: "map", style: BASES[S.base](), center: [15, 12], zoom: 1.8,
     attributionControl: false, maxPitch: 0, dragRotate: false, pitchWithRotate: false});
@@ -71,7 +73,11 @@
       if (baseFailures === 3) { toast(`${BASE_NAMES[S.base]} map tiles are not loading (offline?). Switched to the offline map.`); setBase("paper"); }
     }
   });
-  map.on("style.load", () => { addOverlays(map, false); addOvt(map); applyLens(); });
+  function earthProjection(m) {
+    m.setProjection({type: "globe"});
+    m.setSky({"atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 0, 1, 4, 1, 7, 0]});
+  }
+  map.on("style.load", () => { earthProjection(map); addOverlays(map, false); addOvt(map); applyLens(); });
   if (OV) OV.release().then(r => { S.ovtRelease = r; [map, mapB].forEach(m => { if (ready(m)) addOvt(m); }); applyLens(); });
 
   // Building footprints (OpenStreetMap + Google + Microsoft, merged by Overture) from zoom 14.
@@ -292,7 +298,7 @@
     if (on && !mapB) {
       mapB = new maplibregl.Map({container: "map-b", style: BASES[S.compareBase](), center: map.getCenter(), zoom: map.getZoom(),
         attributionControl: false, interactive: false});
-      mapB.on("style.load", () => { addOverlays(mapB, true); addOvt(mapB); applyLens(); });
+      mapB.on("style.load", () => { earthProjection(mapB); addOverlays(mapB, true); addOvt(mapB); applyLens(); });
       mapB.on("error", () => { /* missing tiles offline: the left map still works */ });
       map.on("move", syncB);
       setSwipe(0.5);
@@ -334,7 +340,8 @@
     const i = S.steps.findIndex(s => s.id === id);
     const row = {id, status, detail, label: label || STEP_LABELS[id] || id};
     if (i >= 0) S.steps[i] = row; else S.steps.push(row);
-    if (S.phase === "working") renderDrawer();
+    if (S.phase === "working" || S.phase === "explore") renderDrawer();
+    if (S.phase === "explore") window.dispatchEvent(new CustomEvent("enagis:exploration-progress", {detail: row.label}));
   }
   function stepsHTML(list) {
     return `<ol class="steps">${list.map(s => `<li class="${s.status}"><i class="ico" aria-hidden="true"></i><div><strong>${esc(s.label)}</strong><span>${esc(s.detail || (s.status === "running" ? "working…" : ""))}</span></div></li>`).join("")}</ol>`;
@@ -345,13 +352,15 @@
     const d = $("drawer");
     if (S.phase === "explore") {
       const large = E.areaOf(S.area) > C.MAX_AREA_KM2;
+      const done = S.steps.filter(s => s.status === "done" && s.id !== "g_area").length;
+      const missing = S.steps.filter(s => s.status === "failed").length;
       d.innerHTML = `<div class="drawer-head"><p class="eyebrow">Explore your area</p><h2>${esc(S.area.name)}</h2><p class="meta">${esc(S.area.display_name || "")}</p></div>
-        <div class="drawer-body explore-summary"><p>Your starting point is ready. Explore the map, then choose an agricultural activity in the top bar when you want to estimate its energy requirements.</p>
+        <div class="drawer-body explore-summary"><p>${S.exploring ? 'We are checking the open data for your area. You can explore the map while it arrives.' : large ? 'Your regional overview is ready. Choose a smaller study area to investigate its energy opportunities.' : 'Your open-data check is complete. Choose an activity to turn the available evidence into an energy assessment.'}</p>
         <p><strong>${fmt(E.areaOf(S.area))} km²</strong> · ${S.area.polygon ? "Selected geographic boundary" : "Selected study window"}</p>
         ${large ? '<p>This is a regional overview. Zoom to a smaller area and use <strong>Analyze this view</strong> to begin a detailed study.</p>' : ''}
-        <p>Satellite imagery and mapped buildings provide context. Local production, operation and energy evidence still need to be checked for the activity you select.</p>
-        <p class="meta">No energy estimate or ranking has been calculated. A place on the map does not establish an operating facility or electricity connection.</p>
-        <button id="explore-choose" class="primary">Choose an activity ↑</button><button id="explore-home">Explore another place</button></div>`;
+        ${!large ? `<div class="explore-evidence"><strong>${S.exploring ? 'Checking local evidence…' : `${done} data checks returned${missing ? ` · ${missing} unavailable` : ''}`}</strong><p class="meta">Missing data stays unknown. Map coverage does not confirm an operating facility or an electricity connection.</p></div>` : ''}
+        <button id="explore-choose" class="primary">${$("model").value ? 'Activity selected · waiting for data' : 'Choose an activity ↑'}</button><button id="explore-home">Explore another place</button>
+        ${stepsHTML(S.steps)}<p class="meta">Energy estimates and rankings begin after you choose an activity. Production and operating assumptions must be checked for the selected area.</p></div>`;
       $("explore-choose").onclick=()=>$("model").focus();
       $("explore-home").onclick=()=>window.EnaLanding?.show();
       return;
@@ -834,6 +843,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
     map.fitBounds([[b[0], b[1]], [b[2], b[3]]], {padding: {left: padL, right: padR, top: 60, bottom: 60}, duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 900, maxZoom: 13});
   }
   async function runArea(area, alternates) {
+    cancelExploration();
     S.hero = null; if (H) H.render();
     S.area = area; S.alternates = alternates || []; S.result = null; S.selected = null; setInput(null); S.steps = [];
     renderSheet(); drawMarkers(); refreshSources(); fitArea(area);
@@ -947,13 +957,17 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   $("search-form").addEventListener("submit", (e) => {
     e.preventDefault();
     if (!$("model").value) { window.EnaLanding?.show($("q").value); return; }
-    if (S.phase === "explore" && $("q").value === S.area.display_name) runArea(S.area, []);
+    if (S.phase === "explore" && $("q").value === (S.area.display_name || S.area.name)) {
+      if (S.exploring) { toast("Checking local evidence. Your analysis will begin when the data check finishes."); return; }
+      if (S.input) analyzeNow(false); else runArea(S.area, []);
+    }
     else search($("q").value);
   });
   $("model").value = S.model;
   $("model").addEventListener("change", () => {
     S.hero = null; if (H) H.render();
     S.model = $("model").value; store.set("model", S.model);
+    if (S.exploring) { renderDrawer(); toast("Activity selected. Analysis will begin when the data check finishes."); }
     if (S.input) { S.selected = null; analyzeNow(false); toast(`Re-analyzed for ${modelOf().name} using the data already gathered.`); }
   });
   document.querySelectorAll("[data-season]").forEach(b => b.addEventListener("click", () => {
@@ -1056,21 +1070,41 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   document.querySelectorAll("[data-base]").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.base === S.base)));
   renderDrawer(); renderLegend();
   const params = new URLSearchParams(location.search);
-  function previewArea(area) {
-    job++; S.hero=null; S.input=null; S.result=null; S.selected=null; S.cand=null;
+  let explorationRequest = 0;
+  function cancelExploration() { explorationRequest++; job++; S.exploring=false; }
+  function showEarth() { cancelExploration(); S.area=null; S.result=null; setInput(null); S.selected=null; S.cand=null; setCompare(false); setBase(navigator.onLine === false ? "paper" : "satellite"); }
+  async function previewArea(area, options = {}) {
+    cancelExploration(); const ticket = explorationRequest;
+    S.hero=null; setInput(null); S.result=null; S.selected=null; S.cand=null;
     S.area=area; S.phase="explore"; S.alternates=[]; S.steps=[]; S.overrides={}; S.perCap={};
     S.synthetic=false; $("synthetic-ribbon").hidden=true;
     $("model").value=""; $("q").value=area.display_name||area.name;
     if(H) H.render(); closePanel(); renderSheet(); setCompare(false);
-    setBase(navigator.onLine === false ? "paper" : "satellite");
-    fitArea(area); renderDrawer(); applyLens(); renderLegend();
+    S.exploring = E.areaOf(area) <= C.MAX_AREA_KM2;
+    if (!options.keepCamera) { setBase(navigator.onLine === false ? "paper" : "satellite"); fitArea(area); }
+    renderDrawer(); applyLens(); renderLegend();
     history.replaceState(null,"",location.pathname);
     status(`Exploring ${area.name} · select an activity to calculate energy requirements`);
+    if (!S.exploring) return;
+    setStep("g_area", "done", `${fmt(E.areaOf(area))} km² · selected study area`);
+    try {
+      const input = await SRC.gather(area, step => {
+        if (ticket === explorationRequest) setStep(step.id, step.status, step.detail);
+      });
+      if (ticket !== explorationRequest) return;
+      S.exploring=false; setInput(input); renderDrawer();
+      status(`Open-data check complete for ${area.name} · choose an activity to estimate energy`);
+      if ($("model").value) await analyzeNow(false);
+    } catch (error) {
+      if (ticket !== explorationRequest) return;
+      S.exploring=false; setStep("g_error", "failed", String(error.message || error), "Data unavailable");
+      renderDrawer();
+    }
   }
   if (params.get("model") && C.MODELS[params.get("model")]) { S.model = params.get("model"); $("model").value = S.model; }
   // Run once the map is ready, or after a few seconds even if basemap tiles never arrive.
   const onMapReady = (fn) => { let done = false; const go = () => { if (!done) { done = true; fn(); } }; map.once("load", go); setTimeout(go, 5000); };
   if (params.get("q")) { $("q").value = params.get("q"); onMapReady(() => search(params.get("q"))); }
   if (params.get("demo") === "synthetic") onMapReady(synthDemo);
-  window.EnaApp = {state: () => S, search, runArea, openPackage, previewArea, analyzeNow, prepareDemo, map: () => map, engine: () => ({worker: !!worker, workerOK})};
+  window.EnaApp = {state: () => S, search, runArea, openPackage, previewArea, cancelExploration, showEarth, analyzeNow, prepareDemo, map: () => map, engine: () => ({worker: !!worker, workerOK})};
 })();

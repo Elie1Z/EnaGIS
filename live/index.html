@@ -14,22 +14,23 @@
 <link rel="preload" href="assets/fraunces.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="assets/fraunces-italic.ttf" as="font" type="font/ttf" crossorigin>
 </head>
-<body class="simple landing-open">
+<body class="simple landing-open globe-experience">
 <section id="landing" aria-label="Explore with EnaGIS">
-  <canvas id="earth" aria-label="Interactive globe. Drag to rotate." tabindex="0"></canvas>
+  <div class="orbit-wash" aria-hidden="true"></div>
   <header class="orbit-header"><a class="orbit-brand" href="index.html"><img src="assets/brand/enagis-wordmark.png" alt="EnaGIS"></a><span>Agricultural energy intelligence</span><button id="orbit-open" type="button">Open saved analysis ↗</button></header>
   <main class="orbit-copy">
-    <p class="orbit-eyebrow"><span></span> A world of possibilities</p>
-    <h1>Every place.<br>A new <em>possibility.</em></h1>
-    <p class="orbit-description">Explore energy opportunities in agriculture.<br>Start with a place. See what the evidence reveals.</p>
     <form id="orbit-search" role="search"><label for="orbit-query">Where shall we explore?</label><div class="orbit-input"><input id="orbit-query" type="search" required placeholder="A place, a region, or coordinates" autocomplete="off"><button type="submit" aria-label="Find a place">↗</button></div></form>
-    <p id="orbit-status" role="status">I'll help you find your starting point.</p>
+    <p id="orbit-status" role="status">Find your place. We'll take you there.</p>
     <div id="orbit-results" aria-label="Matching places"></div>
-    <div id="orbit-selection" hidden><p id="orbit-place"></p><button id="orbit-enter" type="button">Explore this area →</button><button id="orbit-reset" type="button">Choose another place</button></div>
+    <div class="orbit-intro"><p class="orbit-eyebrow"><span></span> A world of possibilities</p>
+    <h1>Explore energy.<br><em>See potential.</em></h1>
+    <p class="orbit-description">Discover where energy can support agriculture.<br>From a world of possibilities to the evidence in your area.</p>
+    <button id="orbit-start" type="button">Find your starting point <span aria-hidden="true">→</span></button></div>
   </main>
-  <div class="orbit-globe-tools"><button id="orbit-motion" type="button" aria-pressed="false">Pause rotation</button><span>Drag to explore · Natural Earth</span></div>
+  <div class="orbit-globe-tools"><button id="orbit-motion" type="button" aria-pressed="false">Pause rotation</button><span id="orbit-imagery">Satellite Earth · drag to explore</span></div>
   <footer class="orbit-footer"><span>Mapping Energy. Powering Agriculture.</span><span>From Dynamis <i>✦</i> Built for discovery</span></footer>
 </section>
+<aside id="orbit-flight" hidden aria-live="polite"><span class="flight-dot" aria-hidden="true"></span><div><small>Your exploration starts here</small><strong id="flight-place"></strong><span id="flight-status">Bringing your area into view…</span></div><button id="flight-skip" type="button">Skip flight →</button></aside>
 <a class="skip" href="#drawer">Skip to results</a>
 <header class="topbar">
   <a class="brand" href="index.html" title="Back to the start screen" aria-label="EnaGIS Live home"><img src="assets/brand/enagis-wordmark.png" alt="EnaGIS" height="36"></a>
