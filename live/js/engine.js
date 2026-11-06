@@ -478,6 +478,12 @@ function enaEngineFactory(root) {
     if (scenario && options.model && options.model !== scenario.recipe) throw new Error("Scenario and legacy model disagree");
     const model = C.MODELS[scenario ? scenario.recipe : options.model || "potato_storage"];
     if (!model) throw new Error("Unknown value chain model");
+    const hasRecord = options.production_records && Object.hasOwn(options.production_records, model.commodity);
+    const productionRecord = hasRecord ? C.validateProductionRecord(options.production_records[model.commodity]) : null;
+    const userPerCap = options.per_capita_kg && options.per_capita_kg[model.commodity];
+    const hasLegacyProduction = userPerCap !== undefined && userPerCap !== null && userPerCap !== "";
+    if (hasLegacyProduction && ((typeof userPerCap !== "number" && typeof userPerCap !== "string") || String(userPerCap).trim() === "" || !Number.isFinite(+userPerCap) || +userPerCap < 0)) throw new Error("Invalid legacy production value");
+    if (productionRecord && hasLegacyProduction && productionRecord.value !== +userPerCap) throw new Error("Conflicting production inputs");
     const seed = options.seed || 20261026, draws = options.draws || C.DRAWS, K = C.TOP_K;
     const overrides = options.overrides || {};
     const area = input.area;
@@ -555,12 +561,16 @@ function enaEngineFactory(root) {
 
     // 6. Production per person
     const com = country.commodities[model.commodity];
-    const userPerCap = options.per_capita_kg && options.per_capita_kg[model.commodity];
     let perCapT = null, perCapEvidence;
-    if (userPerCap !== undefined && userPerCap !== null && userPerCap !== "") {
+    if (productionRecord) {
+      perCapT = productionRecord.value / 1000;
+      perCapEvidence = {label: productionRecord.label, source: productionRecord.source, source_date: productionRecord.source_date,
+        licence: productionRecord.licence, verification: productionRecord.verification, unit: productionRecord.unit,
+        note: `${productionRecord.value} kg per person per year; user-supplied source, not independently verified`};
+    } else if (hasLegacyProduction) {
       perCapT = +userPerCap / 1000;
-      perCapEvidence = {label: "OBSERVED", source: "Entered by user", note: `${userPerCap} kg per person per year`};
-    } else if (com && country.districts && districtOf(area, country) && country.districts[districtOf(area, country)][model.commodity]) {
+      perCapEvidence = {label: "INFERRED", source: "Legacy user input; provenance missing", note: `${userPerCap} kg per person per year; source, date and licence were not recorded`};
+    } else if (com && country.districts && districtOf(area, country) && Number.isFinite(country.districts[districtOf(area, country)][model.commodity])) {
       const dn = districtOf(area, country), d = country.districts[dn], ds = country.district_source;
       perCapT = d[model.commodity] / d.population;
       perCapEvidence = {label: ds.label, source: ds.source, url: ds.url, district: dn,

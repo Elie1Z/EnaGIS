@@ -278,6 +278,19 @@ function enaConfigFactory() {
   }
   [COMMODITIES, PROCESSES, RECIPES, MODELS].forEach(freezeRegistry);
 
+  function validateProductionRecord(record) {
+    if (!record || record.schema !== "enagis-production-input-v1") throw new Error("Unsupported production evidence format");
+    if (typeof record.value !== "number" || !Number.isFinite(record.value) || record.value < 0) throw new Error("Production must be a finite number greater than or equal to zero");
+    if (record.unit !== "kg/person/year") throw new Error("Production unit must be kg/person/year");
+    if (!["OBSERVED", "ESTIMATED", "INFERRED"].includes(record.label)) throw new Error("Choose the production evidence label");
+    for (const key of ["source", "source_date", "licence"]) if (typeof record[key] !== "string" || !record[key].trim()) throw new Error(`Production evidence needs ${key.replace("_", " ")}`);
+    const date = new Date(record.source_date + "T00:00:00Z");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(record.source_date) || !Number.isFinite(date.getTime()) || date.toISOString().slice(0,10) !== record.source_date) throw new Error("Production source date must be a valid YYYY-MM-DD date");
+    return {schema: record.schema, value: record.value, unit: record.unit, label: record.label,
+      source: record.source.trim(), source_date: record.source_date, licence: record.licence.trim(),
+      verification: "user_supplied_not_independently_verified"};
+  }
+
   // Shared assumptions used by every model.
   const SHARED = {
     max_travel_min: p(60, 90, 120, "min", "INFERRED", "Longest trip a farmer makes to deliver produce"),
@@ -364,7 +377,7 @@ function enaConfigFactory() {
     exclude: /(government|religious|marketing|printing|consult|professional|computer|software|media|agency|technology|bank|financial|hotel|lodging|restaurant|coffee_shop|cafe|bar$|church|worship|school|education|hospital|clinic|pharmacy|salon|beauty|fashion|apparel|electronics|phone|real_estate|travel|insurance|supermarket|department_store|grocery|convenience|fish_farm|farm$|ranch)/
   };
 
-  return {SCENARIO_VERSION, COMMODITIES, PROCESSES, RECIPES, compileRecipe, resolveScenario,
+  return {SCENARIO_VERSION, COMMODITIES, PROCESSES, RECIPES, compileRecipe, resolveScenario, validateProductionRecord,
     COUNTRIES, GENERIC_COUNTRY, SITE_TYPES, MODELS, SHARED, SPEEDS, rainFactor, NAME_PATTERNS, OVERTURE, PLACE_RULES,
     // Public Overpass servers that answer browsers (CORS) and were reachable from Kigali in Oct 2026.
     OVERPASS: ["https://overpass-api.de/api/interpreter", "https://maps.mail.ru/osm/tools/overpass/api/interpreter"],

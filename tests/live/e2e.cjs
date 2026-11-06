@@ -144,6 +144,9 @@ const ok = (name, cond, detail) => { checks.push({name, pass: !!cond, detail: de
   const before = await page.evaluate(() => EnaApp.state().result.sites.find(s => s.dry.rank === 1).dry.kwh_day.central);
   await page.click("#assumptions");
   await page.fill("#percap", "200");
+  await page.fill("#production-source", "Synthetic agricultural test report");
+  await page.fill("#production-date", "2026-10-01");
+  await page.fill("#production-licence", "Synthetic fixture only");
   await page.click("#apply-assumptions");
   await page.waitForFunction(before => EnaApp.state().result.sites.find(s => s.dry.rank === 1).dry.kwh_day.central > before * 2, before, {timeout:30000});
   const after = await page.evaluate(() => EnaApp.state().result.sites.find(s => s.dry.rank === 1).dry.kwh_day.central);

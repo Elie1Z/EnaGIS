@@ -19,7 +19,7 @@
     lens: "first", season: "dry", expert: store.get("expert", false), base: store.get("base2", "paper"),
     compare: false, compareBase: "satellite", model: store.get("model", "potato_storage"),
     phase: "idle", area: null, alternates: [], input: null, result: null, selected: null,
-    steps: [], overrides: {}, perCap: {}, showAll: false, error: null, synthetic: false
+    steps: [], overrides: {}, perCap: {}, productionRecords: {}, showAll: false, error: null, synthetic: false
   };
 
   // ------------------------------------------------------------------ basemaps
@@ -693,11 +693,19 @@
       const r = S.overrides[k] || v.range;
       return `<div class="row3"><span>${esc(v.note)}<small>${esc(v.unit)} · ${esc(v.label)}</small></span>${[0, 1, 2].map(i => `<input type="number" step="any" data-param="${k}" data-i="${i}" value="${r[i]}" aria-label="${esc(k)} ${["low", "central", "high"][i]}">`).join("")}</div>`;
     }).join("");
-    const com = model.commodity, def = m && m.per_capita.t ? (m.per_capita.t * 1000).toFixed(1) : "";
+    const com = model.commodity, def = m && m.per_capita.t !== null ? (m.per_capita.t * 1000).toFixed(1) : "";
+    const production = S.productionRecords[com] || {};
     openPanel(`<h2>Assumptions</h2><p class="meta">Change any value and press Apply: the analysis re-runs instantly on the data already gathered. Low · central · high.</p>
       <div class="card"><p class="eyebrow">Production per person</p>
       <div class="row3"><span>${esc(com.replace("_", " "))}, kg per person per year<small>${m ? esc(m.per_capita.evidence.label + " · " + (m.per_capita.evidence.source || "none")) : ""}</small></span>
-      <input type="number" step="any" id="percap" value="${esc(S.perCap[com] ?? "")}" placeholder="${esc(def)}" aria-label="kg per person per year" style="grid-column:span 3"></div></div>
+      <input type="number" min="0" step="any" id="percap" value="${esc(production.value ?? S.perCap[com] ?? "")}" placeholder="${esc(def)}" aria-label="kg per person per year" style="grid-column:span 3"></div>
+      <p class="meta">For a manual value, record where it came from. Leave the value empty to use available statistics. Zero means a reported zero.</p>
+      <div class="production-evidence-fields">
+        <label>Source or report<input id="production-source" value="${esc(production.source || "")}" placeholder="Report title, table or record"></label>
+        <label>Source date<input id="production-date" type="date" value="${esc(production.source_date || "")}"></label>
+        <label>Evidence label<select id="production-label">${["ESTIMATED", "OBSERVED", "INFERRED"].map(label => `<option ${label === (production.label || "ESTIMATED") ? 'selected' : ''}>${label}</option>`).join("")}</select></label>
+        <label>Licence or reuse conditions<input id="production-licence" value="${esc(production.licence || "")}" placeholder="Stated licence or permission; unknown if not established"></label>
+      </div><p class="meta">OBSERVED means reported by the named source, not independently verified. These fields are included when you save or export.</p></div>
       <div class="card"><p class="eyebrow">${esc(model.name)}</p>${rows(model.params)}</div>
       <div class="card"><p class="eyebrow">Shared</p>${rows(C.SHARED)}</div>
       <div class="actions"><button class="primary" id="apply-assumptions">Apply</button><button id="reset-assumptions">Reset to defaults</button></div>
@@ -732,6 +740,8 @@
         <p class="meta">${esc(s.endpoint || "")}${s.cached ? " · served from this browser's cache" : ""} · ${esc(s.retrieved_at || "")}</p>
         ${s.query ? `<details><summary class="meta">Query</summary><pre style="white-space:pre-wrap;font-size:11px">${esc(s.query)}</pre></details>` : ""}</div>`).join("")}
       <div class="card"><strong>Production statistics</strong><p class="meta">${esc(R.meta.per_capita.evidence.source || "None")}</p>
+        <p class="meta">${esc(R.meta.per_capita.evidence.label)}${R.meta.per_capita.evidence.source_date ? ` · ${esc(R.meta.per_capita.evidence.source_date)}` : ''}${R.meta.per_capita.evidence.licence ? ` · ${esc(R.meta.per_capita.evidence.licence)}` : ''}</p>
+        <p class="meta">${esc(R.meta.per_capita.evidence.note || "")}</p>
         ${R.meta.per_capita.evidence.url ? `<a href="${esc(R.meta.per_capita.evidence.url)}" target="_blank" rel="noopener">Source</a>` : ""}</div>`);
   }
 
@@ -744,18 +754,21 @@
   }
   const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40);
   function exportCSV() {
-    const R = S.result, head = ["season", "rank", "tier", "p_top", "name", "type", "lat", "lon", "people", "production_t_yr", "kwh_day_central", "kwh_day_p5", "kwh_day_p95", "kw_central", "supply_state", "nearest_line_m", "solar_kwp", "question", "osm_url"];
+    const R = S.result, head = ["season", "rank", "tier", "p_top", "name", "type", "lat", "lon", "people", "production_t_yr", "kwh_day_central", "kwh_day_p5", "kwh_day_p95", "kw_central", "supply_state", "nearest_line_m", "solar_kwp", "question", "osm_url", "recipe", "registry_version", "production_label", "production_source", "production_source_date", "production_licence"];
     const rows = [head.join(",")];
     ["dry", "rainy"].forEach(se => R.sites.forEach(s => {
       const r = s[se], k = r.kwh_day || {}, q = (v) => `"${String(v ?? "").replace(/"/g, "\"\"")}"`;
+      const evidence = R.meta.per_capita.evidence, safe = v => q(/^[=+@\-]/.test(String(v || "")) ? "'" + v : v);
       rows.push([se, r.rank ?? "", r.tier ?? "", r.p_top ?? "", q(s.name), s.type, s.lat, s.lon, Math.round(r.people || 0), r.production_t ?? "",
-        k.central ?? "", k.p5 ?? "", k.p95 ?? "", r.kw ? r.kw.central : "", s.supply.state, s.supply.line_m ? Math.round(s.supply.line_m) : "", s.solar ? s.solar.kwp : "", q(s.question), s.osm_url].join(","));
+        k.central ?? "", k.p5 ?? "", k.p95 ?? "", r.kw ? r.kw.central : "", s.supply.state, s.supply.line_m ? Math.round(s.supply.line_m) : "", s.solar ? s.solar.kwp : "", q(s.question), s.osm_url,
+        q(R.meta.model.id), q(R.meta.scenario?.registry_version || "legacy"), q(evidence.label), safe(evidence.source), safe(evidence.source_date), safe(evidence.licence)].join(","));
     }));
     download(`enagis-${slug(R.meta.area.name)}-${R.meta.model.id}.csv`, rows.join("\n"), "text/csv");
   }
   function exportGeo() {
     const R = S.result;
-    const fc = {type: "FeatureCollection", properties: {area: R.meta.area, model: R.meta.model, generated_at: R.meta.generated_at, licence: "Derived from OpenStreetMap and Overture Maps (ODbL 1.0; Overture places CDLA-Permissive-2.0); WorldPop and Open-Meteo CC BY 4.0"},
+    const fc = {type: "FeatureCollection", properties: {area: R.meta.area, model: R.meta.model, scenario: R.meta.scenario || null,
+      production_evidence: R.meta.per_capita.evidence, generated_at: R.meta.generated_at, licence: "Derived from OpenStreetMap and Overture Maps (ODbL 1.0; Overture places CDLA-Permissive-2.0); WorldPop and Open-Meteo CC BY 4.0"},
       features: R.sites.map(s => ({type: "Feature", geometry: {type: "Point", coordinates: [s.lon, s.lat]},
         properties: {id: s.id, name: s.name, type: s.type, rank_dry: s.dry.rank, rank_rainy: s.rainy.rank, tier_dry: s.dry.tier,
           kwh_day: s.dry.kwh_day ? s.dry.kwh_day.central : null, kwh_day_p5: s.dry.kwh_day ? s.dry.kwh_day.p5 : null,
@@ -767,7 +780,7 @@
     const compactB = b && !b.compact ? {compact: "lonlat", elements: b.elements.map(el => {
       const c = el.type === "node" ? [el.lon, el.lat] : el.center ? [el.center.lon, el.center.lat] : null;
       return c ? [+c[0].toFixed(6), +c[1].toFixed(6)] : null; }).filter(Boolean)} : b;
-    const pkg = {format: "enagis-live-package-v1", saved_at: new Date().toISOString(), options: engineOptions(), synthetic: S.synthetic,
+    const pkg = {format: "enagis-live-package-v2", saved_at: new Date().toISOString(), options: engineOptions(), synthetic: S.synthetic,
       input: {...inp, osm: {...inp.osm, buildings: compactB}}};
     download(`enagis-${slug(S.input.area.name)}-data.json`, JSON.stringify(pkg), "application/json");
     toast("Saved. Open this file later to replay the analysis offline.");
@@ -782,13 +795,15 @@
       <div class="kv"><span>People within reach</span><strong>${fmt(r.people)}</strong></div>
       <div class="kv"><span>Electricity</span><strong>${esc(SUPPLY_TEXT[s.supply.state](s))}</strong></div>
       <h2 style="margin-top:8mm">Check first</h2><p><em>${esc(s.question)}</em></p><ul>${s.followups.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
-      <p style="margin-top:8mm;font-size:9pt">Screening estimate from open data (OpenStreetMap and Overture Maps ODbL, WorldPop and Open-Meteo CC BY 4.0) and unapproved assumptions. Not a feasibility study. Generated ${esc(m.generated_at || "")}.</p>`;
+      <p style="margin-top:8mm;font-size:9pt">Production: ${esc(m.per_capita.evidence.label)} · ${esc(m.per_capita.evidence.source || "Unknown source")} · ${esc(m.per_capita.evidence.source_date || "See source period")} · ${esc(m.per_capita.evidence.licence || "See source reuse conditions")}</p>
+      <p style="font-size:9pt">Screening estimate from open data (OpenStreetMap and Overture Maps ODbL, WorldPop and Open-Meteo CC BY 4.0) and unapproved assumptions. Not a feasibility study. Generated ${esc(m.generated_at || "")}.</p>`;
     window.print();
   }
 
   // ------------------------------------------------------------------ the pipeline
   function engineOptions() {
-    return {model: S.model, overrides: S.overrides, per_capita_kg: S.perCap, seed: 20261026, draws: C.DRAWS};
+    return {model: S.model, scenario: C.resolveScenario({recipe: S.model}), overrides: S.overrides,
+      per_capita_kg: S.perCap, production_records: S.productionRecords, seed: 20261026, draws: C.DRAWS};
   }
   // Analysis runs in a background worker built from the same engine code, so the page never freezes.
   // If workers are unavailable (some browsers block them for file:// pages) it runs on the page instead.
@@ -847,6 +862,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   }
   async function runArea(area, alternates) {
     cancelExploration();
+    S.perCap = {}; S.productionRecords = {};
     S.hero = null; if (H) H.render();
     S.area = area; S.alternates = alternates || []; S.result = null; S.selected = null; setInput(null); S.steps = [];
     renderSheet(); drawMarkers(); refreshSources(); fitArea(area);
@@ -936,12 +952,21 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   async function openPackage(file) {
     try {
       const pkg = JSON.parse(await file.text());
-      if (pkg.format !== "enagis-live-package-v1" || !pkg.input || !pkg.input.area) throw new Error("Not an EnaGIS Live analysis file");
+      if (!["enagis-live-package-v1", "enagis-live-package-v2"].includes(pkg.format) || !pkg.input || !pkg.input.area) throw new Error("Not an EnaGIS Live analysis file");
+      const options = pkg.options || {};
+      if (pkg.format === "enagis-live-package-v2" && !options.scenario) throw new Error("Saved analysis is missing its versioned scenario");
+      const scenario = C.resolveScenario(options.scenario || {recipe: options.model || "potato_storage"});
+      if (options.model && options.model !== scenario.recipe) throw new Error("Saved scenario and model disagree");
+      const records = {};
+      for (const [commodity, record] of Object.entries(options.production_records || {})) {
+        if (!Object.hasOwn(C.COMMODITIES, commodity)) throw new Error("Unsupported production commodity");
+        records[commodity] = C.validateProductionRecord(record);
+      }
       cancelExploration();
       window.EnaLanding?.dismiss();
       S.hero = null; if (H) H.render(); setCompare(false); setBase("paper");
       setInput(pkg.input); S.area = pkg.input.area; S.alternates = [];
-      if (pkg.options && pkg.options.model) { S.model = pkg.options.model; $("model").value = S.model; }
+      S.model = scenario.recipe; $("model").value = S.model; S.productionRecords = records;
       S.overrides = (pkg.options && pkg.options.overrides) || {}; S.perCap = (pkg.options && pkg.options.per_capita_kg) || {};
       S.synthetic = !!pkg.synthetic; $("synthetic-ribbon").hidden = !S.synthetic;
       S.steps = []; fitArea(S.area); analyzeNow(false);
@@ -950,6 +975,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   }
   function synthDemo() {
     cancelExploration();
+    S.perCap = {}; S.productionRecords = {};
     S.hero = null; if (H) H.render();
     // Small built-in synthetic area so the interface can be explored with no internet. Clearly labelled.
     const pkg = window.ENA_SYNTH && window.ENA_SYNTH();
@@ -1029,8 +1055,17 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
       (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => toast("Copied " + txt), () => toast(txt));
     } else if (t.id === "apply-assumptions" || t.id === "reset-assumptions") {
       S.hero = null; if (H) H.render();
-      if (t.id === "reset-assumptions") { S.overrides = {}; S.perCap = {}; }
+      if (t.id === "reset-assumptions") { S.overrides = {}; S.perCap = {}; S.productionRecords = {}; }
       else {
+        const pc = $("percap").value.trim(), com = modelOf().commodity;
+        let production = null;
+        if (pc !== "") {
+          try {
+            production = C.validateProductionRecord({schema: "enagis-production-input-v1", value: Number(pc), unit: "kg/person/year",
+              source: $("production-source").value, source_date: $("production-date").value,
+              label: $("production-label").value, licence: $("production-licence").value});
+          } catch (error) { toast(error.message); return; }
+        }
         const ov = {};
         document.querySelectorAll("#panel [data-param]").forEach(inp => {
           const k = inp.dataset.param, i = +inp.dataset.i, v = parseFloat(inp.value);
@@ -1041,8 +1076,8 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
           if (!(r[0] <= r[1] && r[1] <= r[2])) { toast(`Range for ${k} must be low ≤ central ≤ high.`); delete ov[k]; }
           else if (r.every((v, i) => v === def[i])) delete ov[k]; });
         S.overrides = ov;
-        const pc = $("percap").value.trim(); const com = modelOf().commodity;
-        if (pc === "") delete S.perCap[com]; else S.perCap[com] = +pc;
+        delete S.perCap[com];
+        if (production) S.productionRecords[com] = production; else delete S.productionRecords[com];
       }
       if (S.input) analyzeNow(true);
       assumptionsPanel(); toast("Assumptions applied. Results updated.");
@@ -1056,7 +1091,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
     replay: async bundle => {
       cancelExploration();
       S.hero = bundle.manifest; S.phase = "working"; S.model = "potato_storage"; $("model").value = S.model;
-      S.overrides = {}; S.perCap = {}; S.season = "dry"; S.lens = "first"; S.cand = null; S.showAll = false;
+      S.overrides = {}; S.perCap = {}; S.productionRecords = {}; S.season = "dry"; S.lens = "first"; S.cand = null; S.showAll = false;
       S.synthetic = false; $("synthetic-ribbon").hidden = true; S.alternates = []; S.steps = [];
       setCompare(false); setBase("paper"); setInput(bundle.pkg.input); S.area = bundle.pkg.input.area;
       await analyzeNow(false); fitArea(S.area);
@@ -1082,7 +1117,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   async function previewArea(area, options = {}) {
     cancelExploration(); const ticket = explorationRequest;
     S.hero=null; setInput(null); S.result=null; S.selected=null; S.cand=null;
-    S.area=area; S.phase="explore"; S.alternates=[]; S.steps=[]; S.overrides={}; S.perCap={};
+    S.area=area; S.phase="explore"; S.alternates=[]; S.steps=[]; S.overrides={}; S.perCap={}; S.productionRecords={};
     S.synthetic=false; $("synthetic-ribbon").hidden=true;
     $("model").value=""; $("q").value=area.display_name||area.name;
     if(H) H.render(); closePanel(); renderSheet(); setCompare(false);
