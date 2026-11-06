@@ -5,7 +5,7 @@
   const shell = $('landing'), map = EnaApp.map();
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reduced.matches, focused = false, dragging = false;
-  let frame = 0, last = 0, request = 0, flight = null;
+  let frame = 0, last = 0, request = 0, flight = null, departureTimer = 0;
 
   function motion() {
     $('orbit-motion').textContent = paused ? 'Resume rotation' : 'Pause rotation';
@@ -21,7 +21,7 @@
   }
   function homeCamera() {
     map.resize();
-    map.jumpTo({center: [20, 12], zoom: innerWidth < 800 ? .2 : 1.45,
+    map.jumpTo({center: [20, 12], zoom: innerWidth < 800 ? 1.9 : 2.65,
       padding: {left: innerWidth < 800 ? 0 : Math.round(innerWidth * .48), right: 0,
         top: 0, bottom: innerWidth < 800 ? Math.round(innerHeight * .38) : 0}, bearing: 0, pitch: 0});
   }
@@ -40,6 +40,7 @@
   $('orbit-start').onclick = () => $('orbit-query').focus();
 
   function revealWorkspace() {
+    clearTimeout(departureTimer); shell.hidden = true; shell.classList.remove('departing');
     document.body.classList.remove('landing-open', 'earth-flight');
     $('orbit-flight').hidden = true;
     $('model').focus({preventScroll: true});
@@ -55,7 +56,8 @@
     request++; cancelAnimationFrame(frame); map.stop();
     if (flight) { map.off('moveend', flight.done); flight = null; }
     EnaApp.previewArea(area, {keepCamera: true});
-    shell.hidden = true;
+    shell.classList.add('departing');
+    departureTimer = setTimeout(() => { shell.hidden = true; }, reduced.matches ? 0 : 650);
     document.body.classList.add('earth-flight');
     $('orbit-flight').hidden = false;
     $('flight-place').textContent = area.name;
@@ -64,6 +66,9 @@
     const padding = mobile ? {left: 28, right: 28, top: 150, bottom: 260}
       : {left: 450, right: 100, top: 110, bottom: 90};
     const camera = map.cameraForBounds([[b[0], b[1]], [b[2], b[3]]], {padding, maxZoom: 13});
+    // cameraForBounds already offsets its center for padding. Use the geographic
+    // center with explicit flight padding so that offset is not applied twice.
+    camera.center = [(b[0] + b[2]) / 2, (b[1] + b[3]) / 2];
     camera.padding = padding;
     const done = () => finishFlight();
     flight = {camera, done};
@@ -105,6 +110,7 @@
     }
   });
   function dismiss() {
+    clearTimeout(departureTimer); shell.classList.remove('departing');
     request++; cancelAnimationFrame(frame);
     if (flight) finishFlight(true);
     shell.hidden = true; map.stop();

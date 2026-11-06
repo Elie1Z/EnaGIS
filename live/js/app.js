@@ -37,7 +37,8 @@
           tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"]},
         ref: {type: "raster", tileSize: 256, maxzoom: 19,
           tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"]}},
-      layers: [{id: "sat", type: "raster", source: "sat"}, {id: "ref", type: "raster", source: "ref", paint: {"raster-opacity": 0.85}}]}),
+      layers: [{id: "sat", type: "raster", source: "sat"}, {id: "ref", type: "raster", source: "ref", minzoom: 5,
+        paint: {"raster-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0, 7, 0.85]}}]}),
     terrain: () => ({version: 8, name: "terrain",
       sources: {topo: {type: "raster", tileSize: 256, maxzoom: 17,
         attribution: "© OpenTopoMap (CC-BY-SA) · © OpenStreetMap contributors · SRTM",
@@ -54,7 +55,8 @@
   if (startsOnEarth) S.base = "satellite";
   if (navigator.onLine === false || new URLSearchParams(location.search).get("hero") === "offline") S.base = "paper";
   const map = new maplibregl.Map({container: "map", style: BASES[S.base](), center: [15, 12], zoom: 1.8,
-    attributionControl: false, maxPitch: 0, dragRotate: false, pitchWithRotate: false});
+    attributionControl: false, maxPitch: 0, dragRotate: false, pitchWithRotate: false,
+    cancelPendingTileRequestsWhileZooming: false});
   map.addControl(new maplibregl.AttributionControl({compact: true,
     customAttribution: "© OpenStreetMap contributors · Overture Maps · WorldPop · Open-Meteo (licences under Sources)"}), "bottom-right");
   map.addControl(new maplibregl.NavigationControl({showCompass: false}), "bottom-right");
@@ -934,6 +936,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
     try {
       const pkg = JSON.parse(await file.text());
       if (pkg.format !== "enagis-live-package-v1" || !pkg.input || !pkg.input.area) throw new Error("Not an EnaGIS Live analysis file");
+      cancelExploration();
       window.EnaLanding?.dismiss();
       S.hero = null; if (H) H.render(); setCompare(false); setBase("paper");
       setInput(pkg.input); S.area = pkg.input.area; S.alternates = [];
@@ -945,6 +948,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
     } catch (e) { toast("Could not open: " + (e.message || e)); }
   }
   function synthDemo() {
+    cancelExploration();
     S.hero = null; if (H) H.render();
     // Small built-in synthetic area so the interface can be explored with no internet. Clearly labelled.
     const pkg = window.ENA_SYNTH && window.ENA_SYNTH();

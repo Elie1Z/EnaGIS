@@ -11,6 +11,7 @@
 .landing-open .maplibregl-marker{visibility:hidden}
 #landing{position:fixed;inset:0;z-index:1000;color:#071c30;pointer-events:none;overflow:hidden}
 #landing[hidden],#orbit-flight[hidden]{display:none}
+#landing.departing{opacity:0;transition:opacity .65s;pointer-events:none}#landing.departing *{pointer-events:none}
 .orbit-wash{position:absolute;inset:0;background:linear-gradient(90deg,#f7fafaff 0%,#f7fafafa 28%,#f7fafae8 38%,#e8f3f7a8 48%,#cde4ed30 58%,transparent 70%)}
 .orbit-header{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;gap:26px;padding:30px 4.5%;z-index:2}
 .orbit-header>*{pointer-events:auto}.orbit-brand img{display:block;width:156px;height:auto}
