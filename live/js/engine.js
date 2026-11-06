@@ -474,7 +474,9 @@ function enaEngineFactory(root) {
   function analyze(input, options) {
     const t0 = Date.now();
     options = options || {};
-    const model = C.MODELS[options.model || "potato_storage"];
+    const scenario = options.scenario ? C.resolveScenario(options.scenario) : null;
+    if (scenario && options.model && options.model !== scenario.recipe) throw new Error("Scenario and legacy model disagree");
+    const model = C.MODELS[scenario ? scenario.recipe : options.model || "potato_storage"];
     if (!model) throw new Error("Unknown value chain model");
     const seed = options.seed || 20261026, draws = options.draws || C.DRAWS, K = C.TOP_K;
     const overrides = options.overrides || {};
@@ -868,6 +870,7 @@ function enaEngineFactory(root) {
       assumptions: {model: model.params, shared: C.SHARED, types: model.types, persons_per_building: ppbInfo,
         overrides}
     };
+    if (scenario) out.meta.scenario = scenario;
     if (simulationTrace) {
       out.simulation_trace = {site_ids: eligible.map(s => s.id), seasons: simulationTrace};
       // Reporting counterfactuals only, using the same demand function and shipped endpoints.
