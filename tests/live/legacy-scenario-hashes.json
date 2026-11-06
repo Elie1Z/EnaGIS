@@ -1,0 +1,13 @@
+{
+  "baseline_commit": "30071bf",
+  "fixture": "makeFixture() defaults; no siting module loaded",
+  "seed": 20261026,
+  "draws": 300,
+  "normalization": "meta.elapsed_ms = 0",
+  "hashes": {
+    "potato_storage": "fb4927f6a75e4148a4d6f91245826c6f9c3a28671f579d7299f8095d09ec19d9",
+    "milk_cooling": "b4a0f4cb657e0e8827bb49bf9ab191ce2787dbd726dabed300a9c59052d4661e",
+    "maize_milling": "d4af1040a5d09a7a2106e7e772837299ac5758fe11c9167596f5c8eb19440a56",
+    "maize_drying": "478013631361769a97da5540f044b98e0c19291bdc9fb7774aceafa7daaf7c97"
+  }
+}
