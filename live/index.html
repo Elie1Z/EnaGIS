@@ -17,18 +17,17 @@
 <body class="simple landing-open globe-experience">
 <section id="landing" aria-label="Explore with EnaGIS">
   <div class="orbit-wash" aria-hidden="true"></div>
-  <header class="orbit-header"><a class="orbit-brand" href="index.html"><img src="assets/brand/enagis-wordmark.png" alt="EnaGIS"></a><span>Agricultural energy intelligence</span><button id="orbit-open" type="button">Open saved analysis ↗</button></header>
   <main class="orbit-copy">
-    <form id="orbit-search" role="search"><label for="orbit-query">Where shall we explore?</label><div class="orbit-input"><input id="orbit-query" type="search" required placeholder="A place, a region, or coordinates" autocomplete="off"><button type="submit" aria-label="Find a place">↗</button></div></form>
-    <p id="orbit-status" role="status">Find your place. We'll take you there.</p>
+    <form id="orbit-search" role="search"><label for="orbit-query">Search a place, region, or coordinates</label><div class="orbit-input"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="m16 16 6 6"></path></svg><input id="orbit-query" type="search" required placeholder="Search a place, region, or coordinates" autocomplete="off"><button type="submit" aria-label="Find a place">↗</button></div></form>
+    <p id="orbit-status" role="status"></p>
     <div id="orbit-results" aria-label="Matching places"></div>
-    <div class="orbit-intro"><p class="orbit-eyebrow"><span></span> A world of possibilities</p>
+    <div class="orbit-intro">
     <h1>Explore energy.<br><em>See potential.</em></h1>
-    <p class="orbit-description">Discover where energy can support agriculture.<br> From a world of possibilities to the evidence in your area.</p>
-    <button id="orbit-start" type="button">Find your starting point <span aria-hidden="true">→</span></button></div>
+    <p class="orbit-description">Discover where energy can support agriculture.</p>
+    <div class="orbit-actions"><button id="orbit-start" type="button">Find your starting point <span aria-hidden="true">→</span></button><button id="orbit-open" type="button">Open saved analysis <span aria-hidden="true">↗</span></button></div></div>
   </main>
-  <div class="orbit-globe-tools"><button id="orbit-motion" type="button" aria-pressed="false">Pause rotation</button><span id="orbit-imagery">Satellite Earth · drag to explore</span></div>
-  <footer class="orbit-footer"><span>Mapping Energy. Powering Agriculture.</span><span>From Dynamis <i>✦</i> Built for discovery</span></footer>
+  <div class="orbit-globe-tools"><button id="orbit-motion" type="button" aria-pressed="false">Pause rotation</button></div>
+  <footer class="orbit-footer"><span id="orbit-imagery">Satellite imagery · © Esri, Maxar, Earthstar Geographics</span></footer>
 </section>
 <aside id="orbit-flight" hidden aria-live="polite"><span class="flight-dot" aria-hidden="true"></span><div><small>Your exploration starts here</small><strong id="flight-place"></strong><span id="flight-status">Bringing your area into view…</span></div><button id="flight-skip" type="button">Skip flight →</button></aside>
 <a class="skip" href="#drawer">Skip to results</a>

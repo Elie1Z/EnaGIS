@@ -27,7 +27,8 @@
   }
   function imageryLabel() {
     $('orbit-imagery').textContent = EnaApp.state().base === 'paper'
-      ? 'Imagery unavailable · geographic outline' : 'Satellite Earth · drag to explore';
+      ? 'Imagery unavailable · geographic outline · Natural Earth (public domain)'
+      : 'Satellite imagery · © Esri, Maxar, Earthstar Geographics';
   }
   map.on('style.load', imageryLabel);
   map.on('dragstart', () => { dragging = true; });
@@ -128,7 +129,7 @@
     dismiss(); EnaApp.cancelExploration();
     focused = false; dragging = false;
     shell.hidden = false; document.body.classList.add('landing-open');
-    $('orbit-status').textContent = "Find your place. We'll take you there.";
+    $('orbit-status').textContent = '';
     $('orbit-results').replaceChildren(); $('orbit-query').value = query;
     EnaApp.showEarth(); homeCamera(); imageryLabel();
     last = performance.now(); frame = requestAnimationFrame(rotate);
