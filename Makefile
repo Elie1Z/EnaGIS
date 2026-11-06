@@ -47,8 +47,11 @@ preflight:
 	node scripts/demo_preflight.mjs app/index.html outputs/demo-preflight
 live-test:
 	node --test tests/live/engine.test.cjs tests/live/overture.test.cjs tests/live/siting.test.cjs tests/live/hero.test.cjs tests/live/scouting.test.mjs tests/live/phase4n.test.mjs
+	node --test tests/live/scenario-compatibility.test.cjs tests/live/scenarios.test.cjs tests/live/production-evidence.test.cjs tests/live/siting-scope.test.cjs
 live-e2e:
 	node tests/live/e2e.cjs outputs/live-e2e
+	node tests/live/landing.cjs
+	node tests/live/scenario-ui.cjs
 	node scripts/demo_preflight_live.mjs outputs/demo-preflight-live
 hero-repro:
 	node live/tools/hero-repro.cjs

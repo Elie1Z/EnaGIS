@@ -14,9 +14,12 @@ await ctx.route('https://**/*',r=>r.abort());
 const checks=[];const check=(name,ok)=>{assert.ok(ok,name);checks.push({name,pass:true});console.log('PASS',name);};
 try{
   await page.goto(base+'/live/index.html?hero=offline');
-  await page.waitForFunction(()=>window.EnaApp&&EnaApp.map().loaded());
+  await page.waitForFunction(()=>window.EnaApp&&window.EnaLanding);
+  // This verifies the archived workspace; the global arrival has its own browser suite.
+  await page.evaluate(()=>EnaLanding.dismiss());
+  await page.waitForFunction(()=>EnaApp.map().loaded());
   await page.screenshot({path:path.join(out,'00-start.png')});
-  check('all four chains and district exploration retained',await page.locator('#model option').count()===4&&await page.locator('[data-example]').count()>=6);
+  check('all four chains and district exploration retained',await page.locator('#model option:not([disabled])').count()===4&&await page.locator('[data-example]').count()>=6);
   await ctx.setOffline(true);const before=requests.length;
   await page.click('#hero-replay');await page.waitForFunction(()=>EnaApp.state().phase==='results',{},{timeout:90000});
   if(requests.length!==before)console.log('Replay requests:',requests.slice(before));
@@ -66,10 +69,10 @@ try{
   check('zero console errors',errors.length===0);
   fs.copyFileSync(path.join(ROOT,'data/rwanda/hero/nyabihu-potato/saved-analysis.json'),path.join(out,'saved-analysis.json'));
   // file:// replay also works without a local server.
-  const filePage=await ctx.newPage();await filePage.goto(new URL('../live/index.html',import.meta.url).href+'?hero=offline');await filePage.click('#hero-replay');await filePage.waitForFunction(()=>window.EnaApp&&EnaApp.state().phase==='results',{},{timeout:90000});check('file URL offline replay',await filePage.locator('.site-row').count()===10);
+  const filePage=await ctx.newPage();await filePage.goto(new URL('../live/index.html',import.meta.url).href+'?hero=offline');await filePage.evaluate(()=>EnaLanding.dismiss());await filePage.click('#hero-replay');await filePage.waitForFunction(()=>window.EnaApp&&EnaApp.state().phase==='results',{},{timeout:90000});check('file URL offline replay',await filePage.locator('.site-row').count()===10);
   await filePage.close();
   // Rehearsal-only controls appear only when the presenter opens ?presenter=1.
-  const rehearsal=await ctx.newPage();await rehearsal.goto(new URL('../live/index.html',import.meta.url).href+'?hero=offline&presenter=1');await rehearsal.click('#hero-replay');await rehearsal.waitForFunction(()=>window.EnaApp&&EnaApp.state().phase==='results',{},{timeout:90000});
+  const rehearsal=await ctx.newPage();await rehearsal.goto(new URL('../live/index.html',import.meta.url).href+'?hero=offline&presenter=1');await rehearsal.evaluate(()=>EnaLanding.dismiss());await rehearsal.click('#hero-replay');await rehearsal.waitForFunction(()=>window.EnaApp&&EnaApp.state().phase==='results',{},{timeout:90000});
   await rehearsal.click('[data-hero-step="0"]');check('presenter=1 shows rehearsal controls and captions',await rehearsal.locator('#hero-stepper').isVisible()&&(await rehearsal.locator('#hero-caption').innerText()).length>25);
   await rehearsal.close();
   const shots=['00-start','02-why','01-provenance','step-1','step-2','step-3','03-assumptions','step-4','04-sensitivity','step-5','step-6'];

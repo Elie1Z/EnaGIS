@@ -1,4 +1,4 @@
-/* EnaGIS Live: interface. Search → gather (live) → analyze (engine.js) → respond (map, list, site card). */
+/* EnaGIS Live: interface. Search → gather (live) → analyze (engine-v2.js) → respond (map, list, site card). */
 (function () {
   "use strict";
   const C = window.EnaConfig, E = window.EnaEngine, SRC = window.EnaSources, W = window.ENA_WORLD;
@@ -606,6 +606,9 @@
   function renderLegend() {
     const L = $("legend");
     if (!S.result) { L.innerHTML = ""; return; }
+    if (S.lens === "likely" && S.result.siting?.status === "not_validated") {
+      L.innerHTML = '<h4>Predictions unavailable here</h4><p class="meta">No siting scores were calculated for this area.</p>'; return;
+    }
     const kinds = Array.from(new Set(S.result.sites.map(s => s.type)));
     const ctx = Array.from(new Set(S.result.context.map(s => s.type))).filter(k => !kinds.includes(k));
     const powerKinds = S.result.layers.power ? Array.from(new Set(S.result.layers.power.features.filter(f => f.geometry.type === "Point")
@@ -850,6 +853,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
       if (myJob !== job) return; // a newer request superseded this one
       S.result = r;
     } catch (e) {
+      if (myJob !== job) return;
       S.phase = "error"; S.error = {title: "Analysis failed", text: String(e.message || e)}; renderDrawer(); return;
     }
     S.result.meta.sites_travel = (S.overrides.max_travel_min || C.SHARED.max_travel_min.range)[1];
@@ -865,6 +869,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   }
   async function runArea(area, alternates) {
     cancelExploration();
+    const ticket = explorationRequest;
     S.perCap = {}; S.productionRecords = {};
     S.hero = null; if (H) H.render();
     S.area = area; S.alternates = alternates || []; S.result = null; S.selected = null; setInput(null); S.steps = [];
@@ -879,18 +884,24 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
     setStep("g_area", "done", `${area.kind ? area.kind + " · " : ""}${fmt(km2)} km²${area.polygon ? " inside the official boundary" : " (no boundary found; using the box)"}`);
     status(`Gathering open data for ${area.name}…`);
     try {
-      const input = await SRC.gather(area, ({id, status: st, detail}) => setStep(id, st, detail));
+      const input = await SRC.gather(area, ({id, status: st, detail}) => {
+        if (ticket === explorationRequest) setStep(id, st, detail);
+      });
+      if (ticket !== explorationRequest) return;
       setInput(input);
       S.synthetic = false; $("synthetic-ribbon").hidden = true;
       setStep("analyze", "running", "Building road catchments, estimating need, running simulations…");
       await analyzeNow(false);
+      if (ticket !== explorationRequest) return;
       history.replaceState(null, "", `?q=${encodeURIComponent(area.display_name || area.name)}&model=${S.model}`);
     } catch (e) {
+      if (ticket !== explorationRequest) return;
       S.phase = "error"; S.error = {title: "Could not gather data", text: String(e.message || e)}; renderDrawer();
     }
   }
   async function search(q) {
     q = q.trim(); if (!q) return;
+    cancelExploration(); const ticket = explorationRequest;
     closePanel();
     const coord = q.match(/^\s*(-?\d+(?:\.\d+)?)\s*[,; ]\s*(-?\d+(?:\.\d+)?)\s*$/);
     S.phase = "working"; S.steps = []; S.area = {name: q, display_name: "Searching…", bbox: map.getBounds().toArray().flat()}; S.alternates = [];
@@ -901,12 +912,14 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
         const lat = +coord[1], lon = +coord[2];
         let a = null;
         try { a = await SRC.reverse(lat, lon, 10); } catch (e) { /* fall back to a box */ }
+        if (ticket !== explorationRequest) return;
         if (!a || E.areaOf(a) > C.MAX_AREA_KM2) {
           const d = 0.09; a = SRC.areaFromView([lon - d, lat - d, lon + d, lat + d], `Around ${lat.toFixed(3)}, ${lon.toFixed(3)}`);
         }
         return runArea(a, []);
       }
       const res = await SRC.geocode(q);
+      if (ticket !== explorationRequest) return;
       if (!res.length) {
         S.phase = "error"; S.error = {title: `No place called “${q}” found`, text: "Try a district, sector or town name, add the country, or type coordinates as lat, lon."};
         renderDrawer(); return;
@@ -916,6 +929,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
       const best = ok.find(a => a.polygon) || ok[0] || res[0];
       runArea(best, res.filter(a => a !== best).slice(0, 5));
     } catch (e) {
+      if (ticket !== explorationRequest) return;
       S.phase = "error"; S.error = {title: "Search failed", text: `${e.message || e}. Check the internet connection, or open a saved analysis.`};
       renderDrawer();
     }
@@ -972,7 +986,8 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
       S.model = scenario.recipe; $("model").value = S.model; S.productionRecords = records;
       S.overrides = (pkg.options && pkg.options.overrides) || {}; S.perCap = (pkg.options && pkg.options.per_capita_kg) || {};
       S.synthetic = !!pkg.synthetic; $("synthetic-ribbon").hidden = !S.synthetic;
-      S.steps = []; fitArea(S.area); analyzeNow(false);
+      S.phase = "working"; S.result = null; S.selected = null;
+      S.steps = []; renderDrawer(); fitArea(S.area); analyzeNow(false);
       toast(`Opened saved analysis of ${S.area.name} (data from ${pkg.input.retrieved_at || "unknown date"}).`);
     } catch (e) { toast("Could not open: " + (e.message || e)); }
   }
