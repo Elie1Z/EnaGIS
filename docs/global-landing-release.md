@@ -40,3 +40,13 @@ MapLibre's official [globe camera example](https://maplibre.org/maplibre-gl-js/d
 Serve the `live` directory and open its root page. The active local preview is `http://localhost:8766/`. Reload the page to pick up the new files. The public Netlify deployment has not been updated.
 
 All task commits use the configured author Elie Mugisha, mugishaelie160@gmail.com. Unrelated README edits, packaging scripts and video-project files were left out of these commits.
+
+## Simplified landing revision — 6 November 2026
+
+Updated to the user's “Explore Energy, See Potential” reference: dark space background, white/green headline, outlined search and one primary action. Removed the landing logo, header strapline, eyebrow, extra description, motto footer and “From Dynamis” credit. Branding inside the analysis workspace is unchanged.
+
+“Open saved analysis” remains directly below the primary action. The footer identifies the active satellite imagery providers or Natural Earth when the imagery fallback is active. Existing map attribution remains available. The small rotation control is retained for accessibility; the geographic globe and flight use the existing live map canvas.
+
+Verification for this visual revision: all 27 journey checks passed; live satellite previews were inspected at 1680×945, 390×844, 820×600 and 740×390 with no horizontal page overflow. Short landscape layouts can scroll vertically. The primary action focuses search and the saved-analysis action opens the file chooser. Git whitespace checks passed. This revision did not alter analysis equations or scientific artifacts.
+
+Local previews: `outputs/global-landing/simple-desktop.png`, `simple-mobile.png`, `simple-short.png` and `simple-landscape.png`. The controlled test images separately show the unavailable-imagery fallback. Implementation commit: `31c5a80`; this verification note is a separate commit. No deployment or remote push was performed.
