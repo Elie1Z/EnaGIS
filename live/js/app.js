@@ -300,19 +300,20 @@
     if (on && !mapB) {
       mapB = new maplibregl.Map({container: "map-b", style: BASES[S.compareBase](), center: map.getCenter(), zoom: map.getZoom(),
         attributionControl: false, interactive: false});
-      mapB.on("style.load", () => { earthProjection(mapB); addOverlays(mapB, true); addOvt(mapB); applyLens(); });
+      mapB.on("style.load", () => { earthProjection(mapB); syncB(); addOverlays(mapB, true); addOvt(mapB); applyLens(); });
       mapB.on("error", () => { /* missing tiles offline: the left map still works */ });
       map.on("move", syncB);
       setSwipe(0.5);
     }
     if (!on && mapB) { map.off("move", syncB); mapB.remove(); mapB = null; }
   }
-  function syncB() { if (mapB) mapB.jumpTo({center: map.getCenter(), zoom: map.getZoom()}); }
+  function syncB() { if (mapB) mapB.jumpTo({center: map.getCenter(), zoom: map.getZoom(), padding: map.getPadding()}); }
   let swipeX = 0.5;
   function setSwipe(f) {
     swipeX = Math.min(0.95, Math.max(0.05, f));
     const w = $("map").clientWidth, x = Math.round(w * swipeX);
-    $("swipe").style.left = x + "px";
+    const stageLeft = $("swipe").parentElement.getBoundingClientRect().left;
+    $("swipe").style.left = (x + $("map").getBoundingClientRect().left - stageLeft) + "px";
     $("map-b").style.clipPath = `inset(0 0 0 ${x}px)`;
   }
   (function swipeDrag() {
@@ -1053,6 +1054,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   if (H) H.init({state: () => S, openPanel, closePanel, editAssumptions: assumptionsPanel,
     refresh: () => {renderDrawer(); renderSheet();},
     replay: async bundle => {
+      cancelExploration();
       S.hero = bundle.manifest; S.phase = "working"; S.model = "potato_storage"; $("model").value = S.model;
       S.overrides = {}; S.perCap = {}; S.season = "dry"; S.lens = "first"; S.cand = null; S.showAll = false;
       S.synthetic = false; $("synthetic-ribbon").hidden = true; S.alternates = []; S.steps = [];

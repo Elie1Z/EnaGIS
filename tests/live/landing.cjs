@@ -76,6 +76,10 @@ function check(name,condition){assert(condition,name);checks++;console.log('PASS
       return Math.abs(p.x-895)<15&&Math.abs(p.y-510)<15;
     }));
     check('arrival retains chosen country and requires activity',await page.evaluate(()=>EnaApp.state().area.country_code==='tz'&&!document.getElementById('model').value&&EnaApp.state().result===null));
+    check('selected area fills the available map without landing-padding shrinkage',await page.evaluate(()=>{
+      const m=EnaApp.map(),b=EnaApp.state().area.bbox,a=m.project([b[0],b[1]]),c=m.project([b[2],b[3]]);
+      return Math.max(Math.abs(c.x-a.x)/890,Math.abs(c.y-a.y)/800)>.85;
+    }));
     await page.evaluate(()=>testRequests[0].finish());
     await page.waitForFunction(()=>!!EnaApp.state().input);
     check('unavailable evidence remains visible',(await page.locator('#drawer').innerText()).includes('1 unavailable'));
@@ -84,6 +88,18 @@ function check(name,condition){assert(condition,name);checks++;console.log('PASS
     await page.locator('#model').selectOption('maize_milling');
     await page.waitForFunction(()=>EnaApp.state().phase==='results',{},{timeout:30000});
     check('activity selection uses gathered inputs without refetching',await page.evaluate(()=>testRequests.length===1&&EnaApp.state().result.meta.area.country_code==='tz'));
+    await page.evaluate(()=>{
+      const OriginalMap=maplibregl.Map;
+      maplibregl.Map=class extends OriginalMap {constructor(options){super(options);window.testComparison=this;}};
+    });
+    await page.locator('#compare').click();
+    await page.waitForFunction(()=>window.testComparison?.getProjection()?.type==='globe');
+    check('comparison retains the arrival camera padding',await page.evaluate(()=>{
+      const center=EnaApp.map().getCenter(),a=EnaApp.map().project(center),b=testComparison.project(center);
+      return Math.hypot(a.x-b.x,a.y-b.y)<1;
+    }));
+    check('comparison divider meets the imagery split',await page.evaluate(()=>Math.abs(document.getElementById('swipe').getBoundingClientRect().left-innerWidth/2)<2));
+    await page.locator('#compare').click();
     await page.evaluate(()=>EnaLanding.show());
     const area={name:'New place',display_name:'New place',bbox:[34.72,-9.35,34.82,-9.25],country_code:'tz'};
     await page.evaluate(a=>EnaLanding.select(a),area);

@@ -3,6 +3,7 @@
 .globe-experience .workspace,.globe-experience .map-stage{pointer-events:none}
 .globe-experience .map-stage{background:transparent;overflow:visible}
 .globe-experience .map-stage>*:not([hidden]),.globe-experience .lens-rail{pointer-events:auto}
+.globe-experience .map-stage>#map-b{pointer-events:none}
 .globe-experience #map{background-color:#020c19;background-image:radial-gradient(circle at 15% 32%,#b9dffb80 0 1px,transparent 1.5px),radial-gradient(circle at 65% 72%,#c9e8ff70 0 1px,transparent 1.5px),radial-gradient(ellipse at 85% 55%,#123751,transparent 65%);background-size:173px 197px,287px 241px,100% 100%}
 .globe-experience .maplibregl-ctrl-bottom-right{bottom:38px;right:12px}
 .landing-open>.topbar,.landing-open>.statusbar,.landing-open .lens-rail,.landing-open .map-stage>:not(#map),.landing-open #hero-stepper{visibility:hidden}

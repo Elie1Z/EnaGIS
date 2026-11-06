@@ -63,9 +63,14 @@
     $('flight-place').textContent = area.name;
     $('flight-status').textContent = 'Bringing your area into view…';
     const mobile = innerWidth < 800, b = area.bbox;
-    const padding = mobile ? {left: 28, right: 28, top: 150, bottom: 260}
+    const padding = mobile ? {left: 28, right: 28, top: Math.min(150, innerHeight * .2), bottom: Math.min(260, innerHeight * .35)}
       : {left: 450, right: 100, top: 110, bottom: 90};
+    // Fit against the full viewport, not the landing's already padded viewport.
+    // Both changes happen before the next paint; the visible camera stays put.
+    const initialPadding = map.getPadding();
+    map.setPadding({top: 0, bottom: 0, left: 0, right: 0});
     const camera = map.cameraForBounds([[b[0], b[1]], [b[2], b[3]]], {padding, maxZoom: 13});
+    map.setPadding(initialPadding);
     // cameraForBounds already offsets its center for padding. Use the geographic
     // center with explicit flight padding so that offset is not applied twice.
     camera.center = [(b[0] + b[2]) / 2, (b[1] + b[3]) / 2];
@@ -121,6 +126,7 @@
   $('orbit-open').onclick = () => $('open-file').click();
   function show(query = '') {
     dismiss(); EnaApp.cancelExploration();
+    focused = false; dragging = false;
     shell.hidden = false; document.body.classList.add('landing-open');
     $('orbit-status').textContent = "Find your place. We'll take you there.";
     $('orbit-results').replaceChildren(); $('orbit-query').value = query;
