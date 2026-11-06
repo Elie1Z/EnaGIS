@@ -140,4 +140,3 @@
   else { homeCamera(); motion(); imageryLabel(); last = performance.now(); frame = requestAnimationFrame(rotate); }
   window.addEventListener('resize', () => { if (!shell.hidden) homeCamera(); });
 })();
-

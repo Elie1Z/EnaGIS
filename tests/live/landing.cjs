@@ -135,4 +135,3 @@ function check(name,condition){assert(condition,name);checks++;console.log('PASS
     console.log(checks+' journey checks passed');
   } finally {if(browser)await browser.close();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
-
