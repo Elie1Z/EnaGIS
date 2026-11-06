@@ -2,8 +2,8 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
-require('../../live/js/config.js');
-const E = require('../../live/js/engine.js');
+require('../../live/js/config-v2.js');
+const E = require('../../live/js/engine-v2.js');
 const {makeFixture} = require('./fixture.cjs');
 const baseline = require('./legacy-scenario-hashes.json');
 

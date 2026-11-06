@@ -8,6 +8,8 @@ Separate the existing commodity properties, process equations and recipe records
 
 Before refactoring, capture full-result SHA-256 values for all four scenarios on the existing synthetic fixture (elapsed time normalised). Do not regenerate these expectations to accommodate a change. The Nyabihu reproduction manifest and frozen Rwanda/Canada artifacts remain unchanged.
 
+The original `live/js/config.js` and `live/js/engine.js` are themselves hash-pinned in the historical manifest. Preserve those files byte-for-byte. The application and current-runtime tests load `config-v2.js` and `engine-v2.js`; the reproduction verifier checks both the current and archived runtime against the original expected ranking. Do not rehash or relax the historical manifest to permit a source change.
+
 ## Registry contract
 
 Commodities describe named material properties. Processes own equations, required parameter units and output boundaries. Recipes explicitly connect a commodity, process, operating assumptions and eligible site types. Only declared compatible recipes resolve. Unknown identifiers, unsupported combinations and incompatible registry versions fail before calculation.

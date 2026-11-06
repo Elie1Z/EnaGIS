@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm');
-const C=require('../../live/js/config.js'),E=require('../../live/js/engine.js');
+const C=require('../../live/js/config-v2.js'),E=require('../../live/js/engine-v2.js');
 const {makeFixture}=require('./fixture.cjs');
 
 test('crop-first and energy-use-first resolve the same declared recipe',()=>{

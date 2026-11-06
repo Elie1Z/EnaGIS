@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict');
-const C=require('../../live/js/config.js');require('../../live/js/engine.js');
+const C=require('../../live/js/config-v2.js');require('../../live/js/engine-v2.js');
 const {makeFixture}=require('./fixture.cjs');
 test('outside the training setting, siting is withheld before any feature scoring',()=>{
   const E=globalThis.enaEngineFactory({EnaConfig:C,EnaSitingModel:{model:{}},EnaSiting:{cells(){throw Error('Scoring must not run');}}});

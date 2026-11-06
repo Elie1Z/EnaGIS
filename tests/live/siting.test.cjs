@@ -3,9 +3,9 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("node:path");
-require(path.join(__dirname, "../../live/js/config.js"));
+require(path.join(__dirname, "../../live/js/config-v2.js"));
 const S = require(path.join(__dirname, "../../live/js/siting.js"));
-const E = require(path.join(__dirname, "../../live/js/engine.js"));
+const E = require(path.join(__dirname, "../../live/js/engine-v2.js"));
 const {makeFixture} = require("./fixture.cjs");
 
 function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }

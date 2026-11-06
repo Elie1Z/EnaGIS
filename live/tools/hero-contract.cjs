@@ -4,9 +4,11 @@ const {ROOT} = require('./local-server.cjs');
 const DIR = path.join(ROOT, 'data/rwanda/hero/nyabihu-potato');
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const read = name => JSON.parse(fs.readFileSync(path.join(DIR, name), 'utf8'));
-function engine() {
+function engine(runtime = 'current') {
   const root = {};
-  for (const f of ['config.js', 'siting.js', 'siting-model.js', 'engine.js']) vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'live/js', f), 'utf8'), {window:root, console});
+  if (!['current','frozen'].includes(runtime)) throw new Error('Unknown runtime');
+  const suffix = runtime === 'current' ? '-v2' : '';
+  for (const f of [`config${suffix}.js`, 'siting.js', 'siting-model.js', `engine${suffix}.js`]) vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'live/js', f), 'utf8'), {window:root, console});
   return root.EnaEngine;
 }
 const options = {model:'potato_storage', seed:20261026, draws:300, overrides:{}, per_capita_kg:{}};

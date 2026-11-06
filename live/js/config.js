@@ -96,67 +96,9 @@ function enaConfigFactory() {
 
   const p = (low, central, high, unit, label, note) => ({range: [low, central, high], unit, label, note});
 
-  // Versioned registries. Legacy presets retain their exact parameter order and equations.
-  const SCENARIO_VERSION = "enagis-scenarios-v1";
-  const SITING_SCOPE = {id: "rwanda-training-scope-v1", country_codes: ["RW"],
-    note: "The shipped model was trained in Rwanda. Training scope is not a claim of local validation."};
-  const COMMODITIES = {
-    irish_potato: {id: "irish_potato", name: "Irish potato", properties: {cp_kj_per_kg_k: p(3.4, 3.6, 3.8, "kJ/kg·K", "ESTIMATED", "Specific heat of potato")}},
-    milk: {id: "milk", name: "Milk", properties: {cp_kj_per_kg_k: p(3.85, 3.93, 3.98, "kJ/kg·K", "ESTIMATED", "Specific heat of milk")}},
-    maize: {id: "maize", name: "Maize", properties: {}}
-  };
-
-  const PROCESSES = {
-    refrigerated_storage: {
-      id: "refrigerated_storage", name: "Refrigerated storage after harvest",
-      output: "kWh/day", boundary: "Refrigeration electricity, including the existing holding-load assumption.",
-      required: {"capture_share":"fraction","peak_month_fraction":"fraction","storage_days":"day","store_temp_c":"°C","cp_kj_per_kg_k":"kJ/kg·K","holding_kwh_th_per_t_day":"kWh(th)/t·day","cop":"ratio","run_hours":"h/day"},
-      compute(a, q, ambient) {
-        const intake = a * q.peak_month_fraction / 30; // t/day at peak
-        const stored = intake * q.storage_days;
-        const dT = Math.max(0, ambient - q.store_temp_c);
-        const pull = intake * 1000 * q.cp_kj_per_kg_k * dT / 3600;
-        const hold = stored * q.holding_kwh_th_per_t_day;
-        const kwh = (pull + hold) / q.cop;
-        return {kwh_day: kwh, kw: kwh / q.run_hours, throughput_t_day: intake, stored_t: stored};
-      }
-    },
-    liquid_cooling: {
-      id: "liquid_cooling", name: "Chilling raw milk at collection",
-      output: "kWh/day", boundary: "Milk cooling electricity, using the existing 1.03 kg/L conversion for the volume display.",
-      required: {"capture_share":"fraction","peak_factor":"ratio","milk_in_c":"°C","milk_out_c":"°C","cp_kj_per_kg_k":"kJ/kg·K","holding_fraction":"fraction","cop":"ratio","run_hours":"h/day"},
-      compute(a, q) {
-        const kgDay = a * 1000 / 365 * q.peak_factor;
-        const th = kgDay * q.cp_kj_per_kg_k * Math.max(0, q.milk_in_c - q.milk_out_c) / 3600 * (1 + q.holding_fraction);
-        const kwh = th / q.cop;
-        return {kwh_day: kwh, kw: kwh / q.run_hours, throughput_t_day: kgDay / 1000, litres_day: kgDay / 1.03};
-      }
-    },
-    milling: {
-      id: "milling", name: "Hammer or roller milling into flour",
-      output: "kWh/day", boundary: "Milling electricity for the declared throughput.",
-      required: {"capture_share":"fraction","operating_days":"day/yr","specific_energy":"kWh/t","run_hours":"h/day"},
-      compute(a, q) {
-        const tDay = a / q.operating_days;
-        const kwh = tDay * q.specific_energy;
-        return {kwh_day: kwh, kw: kwh / q.run_hours, throughput_t_day: tDay};
-      }
-    },
-    drying_auxiliary: {
-      id: "drying_auxiliary", name: "Mechanical drying after harvest (electric fans and handling; heat from other fuels)",
-      output: "kWh/day", boundary: "Fans and handling electricity only; drying heat from other fuels is excluded.",
-      required: {"capture_share":"fraction","harvest_window_days":"day","seasons_per_year":"count","specific_energy":"kWh/t","run_hours":"h/day"},
-      compute(a, q) {
-        const tDay = a / Math.max(1, Math.round(q.seasons_per_year)) / q.harvest_window_days;
-        const kwh = tDay * q.specific_energy;
-        return {kwh_day: kwh, kw: kwh / q.run_hours, throughput_t_day: tDay};
-      }
-    },
-  };
-
-  const RECIPES = {
+  const MODELS = {
     potato_storage: {
-      id: "potato_storage", process: "refrigerated_storage", version: "legacy-v1", evidence_status: "legacy_screening",
+      id: "potato_storage",
       name: "Cold storage · Irish potato",
       short: "Potato cold storage",
       commodity: "irish_potato",
@@ -171,14 +113,23 @@ function enaConfigFactory() {
         peak_month_fraction: p(0.12, 0.20, 0.30, "fraction", "INFERRED", "Share of the annual volume that arrives in the busiest month (two seasons a year)"),
         storage_days: p(14, 30, 60, "day", "INFERRED", "Days produce stays in store"),
         store_temp_c: p(4, 7, 10, "°C", "INFERRED", "Table potatoes 7-10 °C, seed potatoes 2-4 °C"),
-        cp_kj_per_kg_k: {commodity_property: "cp_kj_per_kg_k"},
+        cp_kj_per_kg_k: p(3.4, 3.6, 3.8, "kJ/kg·K", "ESTIMATED", "Specific heat of potato"),
         holding_kwh_th_per_t_day: p(0.10, 0.20, 0.40, "kWh(th)/t·day", "INFERRED", "Respiration + walls + door openings"),
         cop: p(1.5, 2.2, 3.0, "ratio", "INFERRED", "Refrigeration coefficient of performance"),
         run_hours: p(14, 16, 20, "h/day", "INFERRED", "Compressor running hours per day")
       },
+      compute(a, q, ambient) {
+        const intake = a * q.peak_month_fraction / 30; // t/day at peak
+        const stored = intake * q.storage_days;
+        const dT = Math.max(0, ambient - q.store_temp_c);
+        const pull = intake * 1000 * q.cp_kj_per_kg_k * dT / 3600;
+        const hold = stored * q.holding_kwh_th_per_t_day;
+        const kwh = (pull + hold) / q.cop;
+        return {kwh_day: kwh, kw: kwh / q.run_hours, throughput_t_day: intake, stored_t: stored};
+      }
     },
     milk_cooling: {
-      id: "milk_cooling", process: "liquid_cooling", version: "legacy-v1", evidence_status: "legacy_screening",
+      id: "milk_cooling",
       name: "Cooling · Milk collection",
       short: "Milk cooling",
       commodity: "milk",
@@ -192,14 +143,20 @@ function enaConfigFactory() {
         peak_factor: p(1.05, 1.25, 1.45, "ratio", "INFERRED", "Rainy-season peak day relative to average day"),
         milk_in_c: p(28, 32, 36, "°C", "INFERRED", "Milk temperature on arrival"),
         milk_out_c: p(4, 4, 6, "°C", "INFERRED", "Target storage temperature"),
-        cp_kj_per_kg_k: {commodity_property: "cp_kj_per_kg_k"},
+        cp_kj_per_kg_k: p(3.85, 3.93, 3.98, "kJ/kg·K", "ESTIMATED", "Specific heat of milk"),
         holding_fraction: p(0.05, 0.10, 0.20, "fraction", "INFERRED", "Holding losses as a share of pull-down energy"),
         cop: p(1.8, 2.5, 3.2, "ratio", "INFERRED", "Bulk cooler coefficient of performance"),
         run_hours: p(8, 10, 14, "h/day", "INFERRED", "Cooler running hours per day")
       },
+      compute(a, q) {
+        const kgDay = a * 1000 / 365 * q.peak_factor;
+        const th = kgDay * q.cp_kj_per_kg_k * Math.max(0, q.milk_in_c - q.milk_out_c) / 3600 * (1 + q.holding_fraction);
+        const kwh = th / q.cop;
+        return {kwh_day: kwh, kw: kwh / q.run_hours, throughput_t_day: kgDay / 1000, litres_day: kgDay / 1.03};
+      }
     },
     maize_milling: {
-      id: "maize_milling", process: "milling", version: "legacy-v1", evidence_status: "legacy_screening",
+      id: "maize_milling",
       name: "Milling · Maize",
       short: "Maize milling",
       commodity: "maize",
@@ -214,9 +171,14 @@ function enaConfigFactory() {
         specific_energy: p(15, 25, 40, "kWh/t", "ESTIMATED", "Electricity per tonne milled (hammer mills, literature range)"),
         run_hours: p(6, 8, 10, "h/day", "INFERRED", "Mill running hours per day")
       },
+      compute(a, q) {
+        const tDay = a / q.operating_days;
+        const kwh = tDay * q.specific_energy;
+        return {kwh_day: kwh, kw: kwh / q.run_hours, throughput_t_day: tDay};
+      }
     },
     maize_drying: {
-      id: "maize_drying", process: "drying_auxiliary", version: "legacy-v1", evidence_status: "legacy_screening",
+      id: "maize_drying",
       name: "Drying · Maize (fans and handling)",
       short: "Maize drying",
       commodity: "maize",
@@ -232,70 +194,13 @@ function enaConfigFactory() {
         specific_energy: p(4, 8, 15, "kWh/t", "ESTIMATED", "Fan and handling electricity per tonne dried"),
         run_hours: p(10, 12, 16, "h/day", "INFERRED", "Dryer running hours per day")
       },
+      compute(a, q) {
+        const tDay = a / Math.max(1, Math.round(q.seasons_per_year)) / q.harvest_window_days;
+        const kwh = tDay * q.specific_energy;
+        return {kwh_day: kwh, kw: kwh / q.run_hours, throughput_t_day: tDay};
+      }
     }
   };
-
-  function compileRecipe(recipe) {
-    if (!recipe || !Object.hasOwn(COMMODITIES, recipe.commodity) || !Object.hasOwn(PROCESSES, recipe.process)) throw new Error("Unsupported commodity or process");
-    const commodity = COMMODITIES[recipe.commodity], process = PROCESSES[recipe.process];
-    const legacy = RECIPES[recipe.id] === recipe && recipe.evidence_status === "legacy_screening";
-    if (!legacy && (recipe.evidence_status !== "reviewed" || !recipe.review || !recipe.review.reviewer || !recipe.review.date)) {
-      throw new Error("New recipes need independent review metadata");
-    }
-    const params = {};
-    for (const [key, entry] of Object.entries(recipe.params || {})) {
-      const value = entry.commodity_property ? commodity.properties[entry.commodity_property] : entry;
-      if (!Object.hasOwn(process.required, key) || !value || value.unit !== process.required[key]) throw new Error(`Unsupported parameter or incompatible unit: ${key}`);
-      const r = value.range;
-      if (!Array.isArray(r) || r.length !== 3 || !r.every(Number.isFinite) || r[0] > r[1] || r[1] > r[2]) throw new Error(`Invalid parameter range: ${key}`);
-      if ((value.unit !== "°C" && r[0] < 0) || (["cop", "run_hours", "operating_days", "harvest_window_days"].includes(key) && r[0] <= 0) || (value.unit === "fraction" && r[2] > 1)) throw new Error(`Parameter outside its physical domain: ${key}`);
-      if (!legacy && (!value.source || !value.source_date || !value.licence || !["OBSERVED", "ESTIMATED", "INFERRED"].includes(value.label))) {
-        throw new Error(`New recipe parameter needs sourced evidence: ${key}`);
-      }
-      params[key] = value;
-    }
-    for (const key of Object.keys(process.required)) if (!params[key]) throw new Error(`Missing required parameter: ${key}`);
-    if (!recipe.types || !Object.keys(recipe.types).length) throw new Error("Recipe needs eligible site types");
-    for (const [type, range] of Object.entries(recipe.types)) {
-      if (!Object.hasOwn(SITE_TYPES, type) || !Array.isArray(range) || range.length !== 3 || !range.every(Number.isFinite) || range[0] < 0 || range[0] > range[1] || range[1] > range[2]) throw new Error(`Invalid site eligibility: ${type}`);
-    }
-    // The compatibility view deliberately retains the old object shape and iteration order.
-    return {id: recipe.id, name: recipe.name, short: recipe.short, commodity: recipe.commodity,
-      unit_out: recipe.unit_out, service: recipe.service, question_volume: recipe.question_volume,
-      types: recipe.types, params, compute: process.compute};
-  }
-  const MODELS = Object.fromEntries(Object.entries(RECIPES).map(([id, recipe]) => [id, compileRecipe(recipe)]));
-  function resolveScenario(spec) {
-    if (!spec || typeof spec !== "object") throw new Error("Choose a supported scenario");
-    if (spec.registry_version && spec.registry_version !== SCENARIO_VERSION) throw new Error("Unsupported scenario registry version");
-    const recipe = spec.recipe ? (Object.hasOwn(RECIPES, spec.recipe) ? RECIPES[spec.recipe] : null) : Object.values(RECIPES).find(r => r.commodity === spec.commodity && r.process === spec.process);
-    if (!recipe || (spec.commodity && spec.commodity !== recipe.commodity) || (spec.process && spec.process !== recipe.process)) {
-      throw new Error("Unsupported crop and energy-use combination");
-    }
-    if (spec.recipe_version && spec.recipe_version !== recipe.version) throw new Error("Unsupported recipe version");
-    return {recipe: recipe.id, recipe_version: recipe.version, registry_version: SCENARIO_VERSION,
-      commodity: recipe.commodity, process: recipe.process, evidence_status: recipe.evidence_status};
-  }
-  function freezeRegistry(value) {
-    if (value && typeof value === "object" && !Object.isFrozen(value)) {
-      Object.values(value).forEach(freezeRegistry); Object.freeze(value);
-    }
-    return value;
-  }
-  [COMMODITIES, PROCESSES, RECIPES, MODELS, SITING_SCOPE].forEach(freezeRegistry);
-
-  function validateProductionRecord(record) {
-    if (!record || record.schema !== "enagis-production-input-v1") throw new Error("Unsupported production evidence format");
-    if (typeof record.value !== "number" || !Number.isFinite(record.value) || record.value < 0) throw new Error("Production must be a finite number greater than or equal to zero");
-    if (record.unit !== "kg/person/year") throw new Error("Production unit must be kg/person/year");
-    if (!["OBSERVED", "ESTIMATED", "INFERRED"].includes(record.label)) throw new Error("Choose the production evidence label");
-    for (const key of ["source", "source_date", "licence"]) if (typeof record[key] !== "string" || !record[key].trim()) throw new Error(`Production evidence needs ${key.replace("_", " ")}`);
-    const date = new Date(record.source_date + "T00:00:00Z");
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(record.source_date) || !Number.isFinite(date.getTime()) || date.toISOString().slice(0,10) !== record.source_date) throw new Error("Production source date must be a valid YYYY-MM-DD date");
-    return {schema: record.schema, value: record.value, unit: record.unit, label: record.label,
-      source: record.source.trim(), source_date: record.source_date, licence: record.licence.trim(),
-      verification: "user_supplied_not_independently_verified"};
-  }
 
   // Shared assumptions used by every model.
   const SHARED = {
@@ -383,8 +288,7 @@ function enaConfigFactory() {
     exclude: /(government|religious|marketing|printing|consult|professional|computer|software|media|agency|technology|bank|financial|hotel|lodging|restaurant|coffee_shop|cafe|bar$|church|worship|school|education|hospital|clinic|pharmacy|salon|beauty|fashion|apparel|electronics|phone|real_estate|travel|insurance|supermarket|department_store|grocery|convenience|fish_farm|farm$|ranch)/
   };
 
-  return {SCENARIO_VERSION, SITING_SCOPE, COMMODITIES, PROCESSES, RECIPES, compileRecipe, resolveScenario, validateProductionRecord,
-    COUNTRIES, GENERIC_COUNTRY, SITE_TYPES, MODELS, SHARED, SPEEDS, rainFactor, NAME_PATTERNS, OVERTURE, PLACE_RULES,
+  return {COUNTRIES, GENERIC_COUNTRY, SITE_TYPES, MODELS, SHARED, SPEEDS, rainFactor, NAME_PATTERNS, OVERTURE, PLACE_RULES,
     // Public Overpass servers that answer browsers (CORS) and were reachable from Kigali in Oct 2026.
     OVERPASS: ["https://overpass-api.de/api/interpreter", "https://maps.mail.ru/osm/tools/overpass/api/interpreter"],
     NOMINATIM: "https://nominatim.openstreetmap.org",

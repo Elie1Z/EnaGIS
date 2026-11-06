@@ -474,17 +474,8 @@ function enaEngineFactory(root) {
   function analyze(input, options) {
     const t0 = Date.now();
     options = options || {};
-    const scenario = options.scenario ? C.resolveScenario(options.scenario) : null;
-    if (scenario && options.model && options.model !== scenario.recipe) throw new Error("Scenario and legacy model disagree");
-    const modelId = scenario ? scenario.recipe : options.model || "potato_storage";
-    if (!Object.hasOwn(C.MODELS, modelId)) throw new Error("Unknown value chain model");
-    const model = C.MODELS[modelId];
-    const hasRecord = options.production_records && Object.hasOwn(options.production_records, model.commodity);
-    const productionRecord = hasRecord ? C.validateProductionRecord(options.production_records[model.commodity]) : null;
-    const userPerCap = options.per_capita_kg && options.per_capita_kg[model.commodity];
-    const hasLegacyProduction = userPerCap !== undefined && userPerCap !== null && userPerCap !== "";
-    if (hasLegacyProduction && ((typeof userPerCap !== "number" && typeof userPerCap !== "string") || String(userPerCap).trim() === "" || !Number.isFinite(+userPerCap) || +userPerCap < 0)) throw new Error("Invalid legacy production value");
-    if (productionRecord && hasLegacyProduction && productionRecord.value !== +userPerCap) throw new Error("Conflicting production inputs");
+    const model = C.MODELS[options.model || "potato_storage"];
+    if (!model) throw new Error("Unknown value chain model");
     const seed = options.seed || 20261026, draws = options.draws || C.DRAWS, K = C.TOP_K;
     const overrides = options.overrides || {};
     const area = input.area;
@@ -562,16 +553,12 @@ function enaEngineFactory(root) {
 
     // 6. Production per person
     const com = country.commodities[model.commodity];
+    const userPerCap = options.per_capita_kg && options.per_capita_kg[model.commodity];
     let perCapT = null, perCapEvidence;
-    if (productionRecord) {
-      perCapT = productionRecord.value / 1000;
-      perCapEvidence = {label: productionRecord.label, source: productionRecord.source, source_date: productionRecord.source_date,
-        licence: productionRecord.licence, verification: productionRecord.verification, unit: productionRecord.unit,
-        note: `${productionRecord.value} kg per person per year; user-supplied source, not independently verified`};
-    } else if (hasLegacyProduction) {
+    if (userPerCap !== undefined && userPerCap !== null && userPerCap !== "") {
       perCapT = +userPerCap / 1000;
-      perCapEvidence = {label: "INFERRED", source: "Legacy user input; provenance missing", note: `${userPerCap} kg per person per year; source, date and licence were not recorded`};
-    } else if (com && country.districts && districtOf(area, country) && Number.isFinite(country.districts[districtOf(area, country)][model.commodity])) {
+      perCapEvidence = {label: "OBSERVED", source: "Entered by user", note: `${userPerCap} kg per person per year`};
+    } else if (com && country.districts && districtOf(area, country) && country.districts[districtOf(area, country)][model.commodity]) {
       const dn = districtOf(area, country), d = country.districts[dn], ds = country.district_source;
       perCapT = d[model.commodity] / d.population;
       perCapEvidence = {label: ds.label, source: ds.source, url: ds.url, district: dn,
@@ -704,10 +691,7 @@ function enaEngineFactory(root) {
     // 9b. Siting model (PREDICTED): where processing or storage facilities are likely, from footprints, roads and grid.
     let siting = null;
     const SIT = root.EnaSiting, SM = root.EnaSitingModel;
-    if (SIT && SM && SM.model && !C.SITING_SCOPE.country_codes.includes(String(area.country_code || "").toUpperCase())) {
-      siting = {status: "not_validated", scope: C.SITING_SCOPE.id,
-        reason: "Not validated here. The shipped siting model was trained in Rwanda; no cells or facilities have been scored for this area."};
-    } else if (SIT && SM && SM.model && B) {
+    if (SIT && SM && SM.model && B) {
       const cellSet = SIT.cells({P, area, inGeometry, GridIndex, B, urban, G, PW, settlements: parseSettlements(input.osm.sites, P), sites: allSites});
       const ap = SIT.apply(SM.model, cellSet, eligible.map(s => ({x: s.x, y: s.y})));
       if (ap && ap.status === "ok") {
@@ -719,7 +703,7 @@ function enaEngineFactory(root) {
             properties: {p: Math.round(g.p * 1000) / 1000, documented: g.y}, geometry: {type: "Polygon", coordinates: [ring(g.i, g.j)]}}))}};
       } else siting = {status: ap ? ap.status : "no_cells", missing: ap && ap.missing};
     } else if (SIT && SM && SM.model) siting = {status: "missing_inputs", missing: ["building footprints"]};
-    if (siting) step("siting", "Predicted likely processing sites", siting.status === "not_validated" ? siting.reason : siting.status === "ok" ?
+    if (siting) step("siting", "Predicted likely processing sites", siting.status === "ok" ?
       `${siting.cells.toLocaleString("en")} cells of 1 km scored; ${siting.documented_in_top} of ${siting.documented_cells} cells with a documented facility fall in the top 10%; ${siting.candidates.length} unmapped look-alikes to check` :
       `Not run: missing ${(siting.missing || ["inputs"]).join(", ")}`, siting.status === "ok" ? "done" : "failed");
 
@@ -884,7 +868,6 @@ function enaEngineFactory(root) {
       assumptions: {model: model.params, shared: C.SHARED, types: model.types, persons_per_building: ppbInfo,
         overrides}
     };
-    if (scenario) out.meta.scenario = scenario;
     if (simulationTrace) {
       out.simulation_trace = {site_ids: eligible.map(s => s.id), seasons: simulationTrace};
       // Reporting counterfactuals only, using the same demand function and shipped endpoints.

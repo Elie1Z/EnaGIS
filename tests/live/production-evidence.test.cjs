@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict');
-const C=require('../../live/js/config.js'),E=require('../../live/js/engine.js');
+const C=require('../../live/js/config-v2.js'),E=require('../../live/js/engine-v2.js');
 const {makeFixture}=require('./fixture.cjs');
 const record=()=>({schema:'enagis-production-input-v1',value:200,unit:'kg/person/year',label:'ESTIMATED',source:'Synthetic agronomy report',source_date:'2026-10-01',licence:'Synthetic test fixture only'});
 function analyze(value){return E.analyze(makeFixture({country:'zz'}),{model:'maize_milling',draws:10,production_records:{maize:value}});}

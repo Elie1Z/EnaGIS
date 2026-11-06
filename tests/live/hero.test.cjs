@@ -26,7 +26,7 @@ test('browser bundle matches frozen input, manifest, expected options and assump
   const root={};vm.runInNewContext(fs.readFileSync(path.join(H.ROOT,'live/hero/nyabihu-potato.js'),'utf8'),{window:root});
   const raw=zlib.gunzipSync(Buffer.from(root.ENA_HERO_BUNDLE.data,'base64'));assert.equal(H.sha(raw),root.ENA_HERO_BUNDLE.sha256);
   const b=JSON.parse(raw);assert.deepEqual(b.pkg.input,H.read('input.json'));assert.deepEqual(b.manifest,H.read('MANIFEST.json'));assert.deepEqual(b.pkg.options,H.options);
-  const C=require('../../live/js/config.js');for(const [k,v] of Object.entries({...C.MODELS.potato_storage.params,...C.SHARED}))assert.deepEqual(b.assumptions.rows.find(r=>r.id===k).range,v.range);
+  const C=require('../../live/js/config-v2.js');for(const [k,v] of Object.entries({...C.MODELS.potato_storage.params,...C.SHARED}))assert.deepEqual(b.assumptions.rows.find(r=>r.id===k).range,v.range);
   assert.equal(b.assumptions.rows.find(r=>r.id==='loss_rate').label,'UNKNOWN');assert.equal(b.targets.length,15);
 });
 test('verification never counts empty templates, invented confirmations, pre-protocol calls or wrong hashes',()=>{

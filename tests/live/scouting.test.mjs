@@ -10,7 +10,7 @@ import * as S from "../../scripts/scout-sites.mjs";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, "configs/second-site-candidates.json"), "utf8"));
 const root = {};
-for (const f of ["config.js", "siting.js", "engine.js"]) vm.runInNewContext(fs.readFileSync(path.join(ROOT, "live/js", f), "utf8"), {window: root, console});
+for (const f of ["config-v2.js", "siting.js", "engine-v2.js"]) vm.runInNewContext(fs.readFileSync(path.join(ROOT, "live/js", f), "utf8"), {window: root, console});
 const classify = root.EnaEngine.classifySite;
 
 test("polygon helpers: holes excluded, area of a 1-degree box near the equator", () => {

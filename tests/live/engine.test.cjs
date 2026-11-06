@@ -2,8 +2,8 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("node:path");
-require(path.join(__dirname, "../../live/js/config.js"));
-const E = require(path.join(__dirname, "../../live/js/engine.js"));
+require(path.join(__dirname, "../../live/js/config-v2.js"));
+const E = require(path.join(__dirname, "../../live/js/engine-v2.js"));
 const {makeFixture} = require("./fixture.cjs");
 
 test("classifies facilities and excludes look-alikes", () => {
