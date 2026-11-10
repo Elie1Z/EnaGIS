@@ -265,9 +265,101 @@ function enaConfigFactory() {
       types: recipe.types, params, compute: process.compute};
   }
   const MODELS = Object.fromEntries(Object.entries(RECIPES).map(([id, recipe]) => [id, compileRecipe(recipe)]));
+  // Service scenarios are versioned separately from the four archived commodity recipes.
+  // These ranges are screening transfers, with applicability disclosed in the result.
+  const SERVICES = {
+    cold_storage: {name: "Cold storage", base: "potato_storage", production: "produce_for_storage",
+      crops: ["irish_potato", "vegetables", "fruits"],
+      boundary: "Chilled produce storage electricity. Product groups may require separate rooms and temperature settings.",
+      question: "What total quantity could use refrigerated storage here, and what temperatures and storage times are required?"},
+    cooling: {name: "Cooling", base: "potato_storage", production: "produce_for_cooling",
+      crops: ["irish_potato", "vegetables", "fruits"],
+      boundary: "Produce pull-down cooling electricity. Long-term holding and freezing are excluded.",
+      question: "How much produce arrives each day, at what temperature, and how quickly must it be cooled?"},
+    milling: {name: "Milling", base: "maize_milling", production: "grain_for_milling",
+      crops: ["maize", "sorghum", "wheat", "paddy_rice"],
+      boundary: "Grain milling electricity. Actual requirements depend on equipment, grain and fineness.",
+      question: "How many tonnes of grain could be processed here per day, and which equipment would be used?"},
+    drying: {name: "Drying", base: "maize_drying", production: "harvest_for_drying",
+      crops: ["maize", "sorghum", "wheat", "paddy_rice", "beans", "pea", "groundnut", "soybean"],
+      boundary: "Electric fans and handling only. Drying heat requires separate moisture, fuel and efficiency inputs.",
+      question: "What volume needs drying at harvest, what moisture must be removed, and how will heat be supplied?"},
+    shelling: {name: "Shelling and threshing", base: "maize_milling", production: "harvest_for_shelling",
+      crops: ["maize", "sorghum", "wheat", "paddy_rice", "beans", "pea", "groundnut", "soybean"], requires_intensity: true,
+      boundary: "Electric motor energy for the specified equipment and input-mass basis. Reported harvested grain is an opportunity proxy, not unshelled crop mass.",
+      question: "Which shelling or threshing equipment is needed, and what input mass and electricity per tonne does it require?"},
+    oil_pressing: {name: "Oil pressing", base: "maize_milling", production: "oilseeds_for_pressing",
+      crops: ["groundnut", "soybean"], requires_intensity: true,
+      boundary: "Mechanical pressing electricity. Heating, refining and solvent extraction require separate assessment.",
+      question: "Which oilseeds are available, and what throughput and electricity demand does the press specify?"},
+    feed_preparation: {name: "Feed preparation", base: "maize_milling", production: "crops_for_feed",
+      crops: ["maize", "sorghum", "wheat", "soybean"], requires_intensity: true,
+      boundary: "Grinding and mixing electricity. Feed allocation competes with food uses. Pellet heating and drying are excluded.",
+      question: "What share of production is available for feed, and what electricity does grinding and mixing require?"}
+  };
+  const SERVICE_MODELS = Object.fromEntries(Object.entries(SERVICES).map(([id, service]) => {
+    const base = MODELS[service.base];
+    const params = Object.fromEntries(Object.entries(base.params).map(([key, value]) => [key, {
+      ...value, range: value.range.slice(), label: "INFERRED",
+      note: value.note.replace(/catchment maize/g, "eligible catchment production").replace(/potato/gi, "produce")
+    }]));
+    if (id === "cold_storage" || id === "cooling") {
+      params.store_temp_c.note = "Illustrative chilled-service temperature; check the product mix and separate temperature zones";
+      params.cp_kj_per_kg_k.note = "Illustrative produce heat capacity; verify against the local product mix";
+    }
+    if (id === "cooling") {
+      params.storage_days.range = [0, 0, 0];
+      params.storage_days.note = "Holding days excluded from the cooling-only scenario";
+    }
+    if (service.requires_intensity) {
+      params.specific_energy = {range: [0, 0, 0], unit: "kWh/t", label: "UNKNOWN", required_input: true,
+        note: "Equipment electricity per tonne — enter low, central and high values from equipment or operating evidence"};
+    }
+    return [id, {...base, id, name: service.name, short: service.name, commodity: service.production,
+      service: service.boundary, question_volume: service.question, params, service_id: id}];
+  }));
+  // NISR SAS 2024 annual report, Table 0, printed page x. Sum of reported A/B/C tonnes.
+  // Components are disjoint leaf categories. Never add a category total to its children.
+  const SERVICE_PRODUCTION = {
+    RW: {
+      year: 2024, source: "NISR Seasonal Agricultural Survey 2024, Table 0, page x",
+      url: "https://statistics.gov.rw/sites/default/files/documents/2025-02/SAS%202024%20Annual.pdf",
+      source_date: "2025-02-11", retrieved_at: "2026-11-10",
+      licence: "Publicly published NISR statistics; source attribution retained; explicit reuse licence not established",
+      annual_t: {irish_potato: 827355, maize: 627086, sorghum: 187766, paddy_rice: 141932,
+        wheat: 16416, beans: 478427, pea: 12219, groundnut: 14390, soybean: 36705,
+        vegetables: 389462, fruits: 52469}
+    }
+  };
+  function getModel(id) {
+    return Object.hasOwn(SERVICE_MODELS, id) ? SERVICE_MODELS[id] : Object.hasOwn(MODELS, id) ? MODELS[id] : null;
+  }
+
+  function validateServiceOverrides(id, overrides = {}) {
+    const model = SERVICE_MODELS[id];
+    if (!model) return;
+    for (const [key, range] of Object.entries(overrides)) {
+      const parameter = model.params[key] || SHARED[key];
+      if (!parameter && key !== "persons_per_building" && !key.startsWith("type_")) throw new Error(`Unsupported service assumption: ${key}`);
+      if (key.startsWith("type_") && !Object.hasOwn(model.types, key.slice(5))) throw new Error("Unsupported facility assumption");
+      if (!Array.isArray(range) || range.length !== 3 || !range.every(Number.isFinite) || range[0] > range[1] || range[1] > range[2]) throw new Error(`Invalid range: ${key}`);
+      if (parameter?.unit !== "°C" && range[0] < 0) throw new Error(`Negative assumption: ${key}`);
+      if (parameter?.unit === "fraction" && range[2] > 1) throw new Error(`Fraction exceeds one: ${key}`);
+      if (["cop", "run_hours", "operating_days", "harvest_window_days", "seasons_per_year", "persons_per_building"].includes(key) && range[0] <= 0) throw new Error(`Positive assumption required: ${key}`);
+      if (key === "run_hours" && range[2] > 24) throw new Error("Operating hours cannot exceed 24 per day");
+      if (id === "cooling" && key === "storage_days" && range.some(value => value !== 0)) throw new Error("Use Cold storage to include holding days");
+    }
+  }
   function resolveScenario(spec) {
     if (!spec || typeof spec !== "object") throw new Error("Choose a supported scenario");
     if (spec.registry_version && spec.registry_version !== SCENARIO_VERSION) throw new Error("Unsupported scenario registry version");
+    if (Object.hasOwn(SERVICES, spec.recipe || "")) {
+      const model = SERVICE_MODELS[spec.recipe];
+      if (spec.recipe_version && spec.recipe_version !== "service-v1") throw new Error("Unsupported recipe version");
+      if ((spec.commodity && spec.commodity !== model.commodity) || (spec.process && spec.process !== spec.recipe)) throw new Error("Service scenario identifiers disagree");
+      return {recipe: spec.recipe, recipe_version: "service-v1", registry_version: SCENARIO_VERSION,
+        commodity: model.commodity, process: spec.recipe, evidence_status: "inferred_service_screening"};
+    }
     const recipe = spec.recipe ? (Object.hasOwn(RECIPES, spec.recipe) ? RECIPES[spec.recipe] : null) : Object.values(RECIPES).find(r => r.commodity === spec.commodity && r.process === spec.process);
     if (!recipe || (spec.commodity && spec.commodity !== recipe.commodity) || (spec.process && spec.process !== recipe.process)) {
       throw new Error("Unsupported crop and energy-use combination");
@@ -282,7 +374,7 @@ function enaConfigFactory() {
     }
     return value;
   }
-  [COMMODITIES, PROCESSES, RECIPES, MODELS, SITING_SCOPE].forEach(freezeRegistry);
+  [COMMODITIES, PROCESSES, RECIPES, MODELS, SITING_SCOPE, SERVICES, SERVICE_MODELS, SERVICE_PRODUCTION].forEach(freezeRegistry);
 
   function validateProductionRecord(record) {
     if (!record || record.schema !== "enagis-production-input-v1") throw new Error("Unsupported production evidence format");
@@ -295,6 +387,13 @@ function enaConfigFactory() {
     return {schema: record.schema, value: record.value, unit: record.unit, label: record.label,
       source: record.source.trim(), source_date: record.source_date, licence: record.licence.trim(),
       verification: "user_supplied_not_independently_verified"};
+  }
+
+  function validateEnergyEvidence(record) {
+    if (!record || record.schema !== "enagis-equipment-evidence-v1") throw new Error("Equipment energy needs a source, date and reuse note");
+    const checked = validateProductionRecord({...record, schema: "enagis-production-input-v1", value: 0, unit: "kg/person/year"});
+    return {schema: record.schema, source: checked.source, source_date: checked.source_date,
+      licence: checked.licence, label: checked.label, verification: checked.verification};
   }
 
   // Shared assumptions used by every model.
@@ -384,6 +483,7 @@ function enaConfigFactory() {
   };
 
   return {SCENARIO_VERSION, SITING_SCOPE, COMMODITIES, PROCESSES, RECIPES, compileRecipe, resolveScenario, validateProductionRecord,
+    SERVICES, SERVICE_MODELS, SERVICE_PRODUCTION, getModel, validateServiceOverrides, validateEnergyEvidence,
     COUNTRIES, GENERIC_COUNTRY, SITE_TYPES, MODELS, SHARED, SPEEDS, rainFactor, NAME_PATTERNS, OVERTURE, PLACE_RULES,
     // Public Overpass servers that answer browsers (CORS) and were reachable from Kigali in Oct 2026.
     OVERPASS: ["https://overpass-api.de/api/interpreter", "https://maps.mail.ru/osm/tools/overpass/api/interpreter"],

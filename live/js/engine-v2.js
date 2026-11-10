@@ -477,8 +477,10 @@ function enaEngineFactory(root) {
     const scenario = options.scenario ? C.resolveScenario(options.scenario) : null;
     if (scenario && options.model && options.model !== scenario.recipe) throw new Error("Scenario and legacy model disagree");
     const modelId = scenario ? scenario.recipe : options.model || "potato_storage";
-    if (!Object.hasOwn(C.MODELS, modelId)) throw new Error("Unknown value chain model");
-    const model = C.MODELS[modelId];
+    const model = C.getModel(modelId);
+    if (!model) throw new Error("Unknown agricultural service or saved model");
+    const service = model.service_id ? C.SERVICES[model.service_id] : null;
+    C.validateServiceOverrides(modelId, options.overrides);
     const hasRecord = options.production_records && Object.hasOwn(options.production_records, model.commodity);
     const productionRecord = hasRecord ? C.validateProductionRecord(options.production_records[model.commodity]) : null;
     const userPerCap = options.per_capita_kg && options.per_capita_kg[model.commodity];
@@ -487,9 +489,16 @@ function enaEngineFactory(root) {
     if (productionRecord && hasLegacyProduction && productionRecord.value !== +userPerCap) throw new Error("Conflicting production inputs");
     const seed = options.seed || 20261026, draws = options.draws || C.DRAWS, K = C.TOP_K;
     const overrides = options.overrides || {};
+    const energyReady = !service?.requires_intensity || (overrides.specific_energy?.[0] > 0);
+    const energyEvidence = service?.requires_intensity && energyReady ? C.validateEnergyEvidence(options.energy_evidence?.[modelId]) : null;
     const area = input.area;
     const P = projector(area.bbox);
     const warnings = [];
+    if (service) {
+      warnings.push(service.boundary);
+      warnings.push("Service estimates use inferred operating assumptions. Confirm the local product mix, equipment and share needing this service. Service scenarios overlap and must not be added together.");
+      if (!energyReady) warnings.push("Energy requirement UNKNOWN. Enter equipment electricity per tonne in Assumptions to estimate demand. Mapped candidates remain available for investigation.");
+    }
     const country = (area.country_code && C.COUNTRIES[area.country_code.toUpperCase()]) || C.GENERIC_COUNTRY;
     const steps = [];
     const step = (id, label, detail, status) => steps.push({id, label, detail, status: status || "done"});
@@ -558,7 +567,7 @@ function enaEngineFactory(root) {
     step("climate", "Read the local climate", climate ? `Hottest month averages ${climate.t_hot.toFixed(1)} °C by day; ${climate.rainy_months.length ? "rainy months " + climate.rainy_months.join(", ") : "no month above 100 mm"}; sun ${climate.psh_min ? climate.psh_min.toFixed(1) : "?"} kWh/m²/day in the darkest month` :
       "Climate unavailable; cooling uses an assumed 25 °C", climate ? "done" : "failed");
     const ambient = climate ? climate.t_hot : 25;
-    if (!climate && model.id === "potato_storage") warnings.push("Climate data missing: ambient temperature assumed 25 °C (INFERRED).");
+    if (!climate && (model.id === "potato_storage" || model.id === "cold_storage" || model.id === "cooling")) warnings.push("Climate data missing: ambient temperature assumed 25 °C (INFERRED).");
 
     // 6. Production per person
     const com = country.commodities[model.commodity];
@@ -571,6 +580,25 @@ function enaEngineFactory(root) {
     } else if (hasLegacyProduction) {
       perCapT = +userPerCap / 1000;
       perCapEvidence = {label: "INFERRED", source: "Legacy user input; provenance missing", note: `${userPerCap} kg per person per year; source, date and licence were not recorded`};
+    } else if (service) {
+      const pack = C.SERVICE_PRODUCTION[country.id];
+      const district = country.districts && districtOf(area, country);
+      const components = service.crops.map(crop => {
+        const local = district && country.districts[district];
+        if (local && Number.isFinite(local[crop])) return {crop, annual_t: local[crop], population: local.population,
+          scope: district + " District", label: "ESTIMATED", source: country.district_source.source, url: country.district_source.url};
+        const annual = pack?.annual_t[crop];
+        return {crop, annual_t: Number.isFinite(annual) ? annual : null, population: country.population?.value || null,
+          scope: "National proxy", label: Number.isFinite(annual) ? "ESTIMATED" : "UNKNOWN",
+          source: pack?.source || null, url: pack?.url || null};
+      });
+      const known = components.filter(component => component.annual_t !== null && component.population > 0);
+      perCapT = known.length ? known.reduce((sum, component) => sum + component.annual_t / component.population, 0) : null;
+      perCapEvidence = {label: perCapT === null ? "UNKNOWN" : "INFERRED", source: pack?.source || null,
+        url: pack?.url || null, source_date: pack?.source_date || null, licence: pack?.licence || null,
+        components, coverage: "partial", note: "Reported production for selected relevant product groups, allocated using population and mapped homes. Other products and local service demand are unmeasured. Crops are disclosed as evidence, not required selections."};
+      warnings.push(perCapT === null ? "No service production evidence for this area. Add sourced total eligible production in Assumptions."
+        : `${known.length} reported product groups contribute. Coverage is partial; national proxies are used where local production is unavailable. These quantities do not establish demand for the service.`);
     } else if (com && country.districts && districtOf(area, country) && Number.isFinite(country.districts[districtOf(area, country)][model.commodity])) {
       const dn = districtOf(area, country), d = country.districts[dn], ds = country.district_source;
       perCapT = d[model.commodity] / d.population;
@@ -614,8 +642,9 @@ function enaEngineFactory(root) {
       const people = (countWithin(pc.rural, sh.max_travel_min) + sh.urban_producer_weight * countWithin(pc.urban, sh.max_travel_min)) * ppbV;
       if (perCapT === null || !B) return {people, production: null, out: null};
       const production = people * perCapT * local;
-      const a = production * q.capture_share * typeMult;
-      return {people, production, out: model.compute(a, q, ambient)};
+      const share = q.capture_share * typeMult;
+      const a = production * (service ? Math.min(1, share) : share);
+      return {people, production, out: energyReady ? model.compute(a, q, ambient) : null};
     }
     const centralShared = {}; Object.entries(shared).forEach(([k, r]) => { centralShared[k] = r[1]; });
     const q0 = centralParams(model, overrides);
@@ -629,7 +658,7 @@ function enaEngineFactory(root) {
       const rnd = mulberry32(seed + (season === "rainy" ? 7919 : 0));
       const kwhDraws = eligible.map(() => []), kwDraws = eligible.map(() => []), rankDraws = eligible.map(() => []);
       const topCount = new Int32Array(eligible.length);
-      const canSim = perCapT !== null && B && eligible.length;
+      const canSim = energyReady && perCapT !== null && B && eligible.length;
       if (simulationTrace) simulationTrace[season] = [];
       if (canSim) for (let d = 0; d < draws; d++) {
         const q = sampleParams(model, rnd, overrides);
@@ -680,8 +709,8 @@ function enaEngineFactory(root) {
         };
       });
     });
-    step("demand", "Estimated energy requirement", perCapT === null ? "UNKNOWN: no production figure" :
-      `${model.name}; ${draws} simulations of every assumption`, perCapT === null ? "failed" : "done");
+    step("demand", "Estimated energy requirement", !energyReady ? "UNKNOWN: equipment electricity per tonne required" : perCapT === null ? "UNKNOWN: no production figure" :
+      `${model.name}; ${draws} simulations of every assumption`, perCapT === null || !energyReady ? "failed" : "done");
 
     // 9. Supply context and solar sizing
     const supply = eligible.map(s => {
@@ -885,6 +914,9 @@ function enaEngineFactory(root) {
         overrides}
     };
     if (scenario) out.meta.scenario = scenario;
+    if (service) out.meta.service = {id: model.id, version: "service-v1", boundary: service.boundary,
+      energy_ready: energyReady, coverage: productionRecord ? "user_reported" : "partial",
+      components: perCapEvidence.components || [], energy_evidence: energyEvidence, assumptions: "INFERRED operating scenario"};
     if (simulationTrace) {
       out.simulation_trace = {site_ids: eligible.map(s => s.id), seasons: simulationTrace};
       // Reporting counterfactuals only, using the same demand function and shipped endpoints.
@@ -989,7 +1021,7 @@ function enaEngineFactory(root) {
     const headline = ranked.length ?
       `${ranked.length} places to check first in ${m.area.name} for ${m.model.short.toLowerCase()}` :
       `No ranking for ${m.area.name} yet`;
-    paras.push(`EnaGIS searched ${m.area.name} (${fmt(m.area.area_km2)} km²) and found ${res.coverage.documented} mapped facilities and ${res.coverage.settlements} town or village centres. ${sites.length} of them could handle ${m.model.commodity.replace("_", " ")} (${docs} facilities, ${sites.length - docs} centres). The map here is ${res.coverage.text}.`);
+    paras.push(m.service ? `${sites.length} mapped places in ${m.area.name} could be investigated for ${m.model.short.toLowerCase()}. Production evidence covers ${m.service.components.length || "user-reported"} product groups. Local service suitability and operating demand need checking.` : `EnaGIS searched ${m.area.name} (${fmt(m.area.area_km2)} km²) and found ${res.coverage.documented} mapped facilities and ${res.coverage.settlements} town or village centres. ${sites.length} of them could handle ${m.model.commodity.replace("_", " ")} (${docs} facilities, ${sites.length - docs} centres). The map here is ${res.coverage.text}.`);
     if (ranked.length && ranked[0][season].kwh_day) {
       const tot = ranked.reduce((s, r) => s + r[season].kwh_day.central, 0);
       const robust = ranked.filter(r => r[season].tier === "Robust").length;
@@ -1000,6 +1032,8 @@ function enaEngineFactory(root) {
         `${robust} of the ${ranked.length} keep almost the same rank across ${m.draws} simulations; the others move when assumptions change.`);
       const near = ranked.filter(r => r.supply.state === "grid_near").length, far = ranked.filter(r => r.supply.state === "grid_not_mapped").length;
       paras.push(`${near} of them have a mapped power line within 500 m and ${far} have none mapped within 5 km. Mapped lines do not prove a connection.`);
+    } else if (m.service && !m.service.energy_ready) {
+      paras.push("Energy estimates need equipment electricity per tonne. Open Assumptions to add a sourced operating range.");
     } else if (m.per_capita.t === null) {
       paras.push(`Energy requirements are UNKNOWN because there is no production figure for ${m.country.name}. Enter one under Assumptions to run the estimate.`);
     }
