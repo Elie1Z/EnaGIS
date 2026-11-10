@@ -643,7 +643,7 @@ function enaEngineFactory(root) {
       if (perCapT === null || !B) return {people, production: null, out: null};
       const production = people * perCapT * local;
       const share = q.capture_share * typeMult;
-      const a = production * (service ? Math.min(1, share) : share);
+      const a = service ? production * Math.min(1, share) : production * q.capture_share * typeMult;
       return {people, production, out: energyReady ? model.compute(a, q, ambient) : null};
     }
     const centralShared = {}; Object.entries(shared).forEach(([k, r]) => { centralShared[k] = r[1]; });
@@ -983,7 +983,10 @@ function enaEngineFactory(root) {
     const more = [];
     let main;
     const top = drivers[0] ? drivers[0].key : "capture_share";
-    if (!documented) {
+    if (model.service_id) {
+      main = model.question_volume;
+      if (!documented) more.push("Confirm that an aggregation or processing location exists here and identify its operator.");
+    } else if (!documented) {
       main = `Is there a place in ${s.name || "this centre"} where farmers bring ${model.commodity.replace("_", " ")} today? Who runs it?`;
       more.push(model.question_volume);
     } else if (/capture_share|peak|type_mult|storage_days|operating_days|harvest_window/.test(top)) {

@@ -95,3 +95,10 @@ test('true zero service production is retained', () => {
   assert.equal(result.meta.per_capita.t, 0);
   assert.ok(result.sites.every(site => site.dry.kwh_day.central === 0));
 });
+
+test('service capture cannot exceed the available catchment production', () => {
+  const result = run('milling', {overrides: {capture_share: [1, 1, 1], type_mill: [2, 2, 2]}});
+  for (const site of result.sites) {
+    assert.ok(site.dry.throughput_t_day * 300 <= site.dry.production_t + 1e-9);
+  }
+});

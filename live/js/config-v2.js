@@ -302,6 +302,8 @@ function enaConfigFactory() {
     const params = Object.fromEntries(Object.entries(base.params).map(([key, value]) => [key, {
       ...value, range: value.range.slice(), label: "INFERRED",
       note: value.note.replace(/catchment maize/g, "eligible catchment production").replace(/potato/gi, "produce")
+        .replace("Maize seasons per year (A and B)", "Assumed harvest seasons per year")
+        .replace("(hammer mills, literature range)", "(transferred screening assumption; verify equipment)")
     }]));
     if (id === "cold_storage" || id === "cooling") {
       params.store_temp_c.note = "Illustrative chilled-service temperature; check the product mix and separate temperature zones";
