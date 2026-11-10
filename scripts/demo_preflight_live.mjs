@@ -19,7 +19,7 @@ try{
   await page.evaluate(()=>EnaLanding.dismiss());
   await page.waitForFunction(()=>EnaApp.map().loaded());
   await page.screenshot({path:path.join(out,'00-start.png')});
-  check('all four chains and district exploration retained',await page.locator('#model option:not([disabled])').count()===4&&await page.locator('[data-example]').count()>=6);
+  check('all four saved recipes and district exploration retained',await page.locator('#model option[data-legacy]').count()===4&&await page.locator('[data-example]').count()>=6);
   await ctx.setOffline(true);const before=requests.length;
   await page.click('#hero-replay');await page.waitForFunction(()=>EnaApp.state().phase==='results',{},{timeout:90000});
   if(requests.length!==before)console.log('Replay requests:',requests.slice(before));

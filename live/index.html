@@ -37,13 +37,20 @@
     <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
       <span class="sr-only">Place to analyze</span>
       <input id="q" type="search" placeholder="Search a district, sector or town · or lat, lon" required></label>
-    <label class="model-box"><span class="sr-only">Value chain</span>
+    <label class="model-box"><span class="sr-only">Agricultural energy service</span>
       <select id="model">
         <option value="" disabled>Choose an activity to analyse</option>
-        <option value="potato_storage">Cold storage · Irish potato</option>
-        <option value="milk_cooling">Cooling · Milk collection</option>
-        <option value="maize_milling">Milling · Maize</option>
-        <option value="maize_drying">Drying · Maize</option>
+        <option value="cold_storage">Cold storage</option>
+        <option value="cooling">Cooling</option>
+        <option value="milling">Milling</option>
+        <option value="drying">Drying</option>
+        <option value="shelling">Shelling and threshing</option>
+        <option value="oil_pressing">Oil pressing</option>
+        <option value="feed_preparation">Feed preparation</option>
+        <option data-legacy hidden value="potato_storage">Cold storage · Irish potato (saved recipe)</option>
+        <option data-legacy hidden value="milk_cooling">Cooling · Milk collection (saved recipe)</option>
+        <option data-legacy hidden value="maize_milling">Milling · Maize (saved recipe)</option>
+        <option data-legacy hidden value="maize_drying">Drying · Maize (saved recipe)</option>
       </select></label>
     <button class="primary" type="submit" id="go">Analyze</button>
   </form>

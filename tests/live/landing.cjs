@@ -85,7 +85,7 @@ function check(name,condition){assert(condition,name);checks++;console.log('PASS
     check('unavailable evidence remains visible',(await page.locator('#drawer').innerText()).includes('1 unavailable'));
     check('gather alone does not rank sites',await page.evaluate(()=>EnaApp.state().result===null));
     await page.screenshot({path:path.join(out,'area-overview.png')});
-    await page.locator('#model').selectOption('maize_milling');
+    await page.locator('#model').selectOption('milling');
     await page.waitForFunction(()=>EnaApp.state().phase==='results',{},{timeout:30000});
     check('activity selection uses gathered inputs without refetching',await page.evaluate(()=>testRequests.length===1&&EnaApp.state().result.meta.area.country_code==='tz'));
     await page.evaluate(()=>{

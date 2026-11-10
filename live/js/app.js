@@ -17,9 +17,9 @@
   const HEROES = ["Musanze", "Nyabihu", "Rubavu", "Gicumbi", "Gatsibo", "Kirehe"];
   const S = {
     lens: "first", season: "dry", expert: store.get("expert", false), base: store.get("base2", "paper"),
-    compare: false, compareBase: "satellite", model: store.get("model", "potato_storage"),
+    compare: false, compareBase: "satellite", model: "cold_storage",
     phase: "idle", area: null, alternates: [], input: null, result: null, selected: null,
-    steps: [], overrides: {}, perCap: {}, productionRecords: {}, showAll: false, error: null, synthetic: false
+    steps: [], overrides: {}, perCap: {}, productionRecords: {}, energyEvidence: {}, showAll: false, error: null, synthetic: false
   };
 
   // ------------------------------------------------------------------ basemaps
@@ -136,7 +136,7 @@
     // Demand glow under the top sites (size = estimated kWh per peak day).
     add({id: "ena-demand", type: "circle", source: "ena-sites", filter: ["==", ["get", "top"], true], paint: {
       "circle-radius": ["interpolate", ["linear"], ["zoom"], 7, ["+", 6, ["*", 18, ["get", "size"]]], 13, ["+", 18, ["*", 60, ["get", "size"]]]],
-      "circle-color": DEMAND_COLOR[(C.MODELS[S.model] || {}).commodity] || "#00B576", "circle-opacity": 0.22, "circle-blur": 0.7}});
+      "circle-color": DEMAND_COLOR[(C.getModel(S.model) || {}).commodity] || "#00B576", "circle-opacity": 0.22, "circle-blur": 0.7}});
     // Every candidate site as a symbol of its kind; the top 10 are numbered pins on the main map.
     add({id: "ena-sites", type: "symbol", source: "ena-sites", filter: isB ? ["has", "id"] : ["!=", ["get", "top"], true],
       layout: {"icon-image": ["get", "icon"], "icon-allow-overlap": true, "icon-ignore-placement": true, "symbol-sort-key": ["get", "order"],
@@ -349,7 +349,16 @@
   function stepsHTML(list) {
     return `<ol class="steps">${list.map(s => `<li class="${s.status}"><i class="ico" aria-hidden="true"></i><div><strong>${esc(s.label)}</strong><span>${esc(s.detail || (s.status === "running" ? "working…" : ""))}</span></div></li>`).join("")}</ol>`;
   }
-  function modelOf() { return C.MODELS[S.model]; }
+  function modelOf() { return C.getModel(S.model); }
+  function serviceEvidenceHTML() {
+    const service = S.result?.meta.service;
+    if (!service) return "";
+    return `<details class="service-evidence"><summary>What this service estimate covers</summary>
+      <p>${esc(service.boundary)}</p><p>Production coverage is ${esc(service.coverage.replace(/_/g, " "))}. The local share requiring this service is an assumption.</p>
+      ${service.components.length ? `<ul>${service.components.map(component => `<li>${esc(component.crop.replace(/_/g, " "))} · ${esc(component.scope)} · ${component.annual_t === null ? "UNKNOWN" : fmt(component.annual_t) + " t/year"}</li>`).join("")}</ul>` : ""}
+      <p>Operating assumptions are INFERRED. Check equipment and product compatibility before investment. Each service is a separate scenario.</p>
+      ${service.energy_evidence ? `<p>Equipment source · ${esc(service.energy_evidence.source)} · ${esc(service.energy_evidence.source_date)}</p>` : ""}</details>`;
+  }
 
   function renderDrawer() {
     const d = $("drawer");
@@ -444,13 +453,13 @@
     if (S.lens === "first") {
       body = `<div class="findings"><p class="headline">${esc(nar.headline)}</p><p>${esc(nar.paragraphs[0])}</p>${nar.paragraphs[1] ? `<p>${esc(nar.paragraphs[1])}</p>` : ""}
         ${nar.paragraphs.length > 2 ? `<details><summary>More findings</summary>${nar.paragraphs.slice(2).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}</div>${warn}
-        ${top.length ? listFor(S.showAll ? all : top, S.showAll ? `All ${all.length} sites` : "Check these first", seasonName) : `<p class="warn">No site could be ranked. ${esc(m.per_capita.evidence.note || "")}</p>`}
+        ${top.length ? listFor(S.showAll ? all : top, S.showAll ? `All ${all.length} sites` : "Check these first", seasonName) : `<p class="warn">Energy ranking needs more evidence. ${esc(m.per_capita.evidence.note || "")}</p>${m.service ? listFor(R.sites, "Mapped places to investigate", "unranked") : ""}`}
         ${all.length > top.length ? `<button id="show-all" style="width:100%;margin-top:8px">${S.showAll ? "Show top 10 only" : `Show all ${all.length} sites`}</button>` : ""}`;
     } else if (S.lens === "harvest") {
       const byProd = R.sites.slice().sort((a, b) => (seasonOf(b).production_t || 0) - (seasonOf(a).production_t || 0)).slice(0, 15);
-      body = `<p class="headline">Where the ${esc(m.model.commodity.replace("_", " "))} comes from</p>
-        <p class="muted">Green squares show estimated production from mapped rural homes (${fmt(m.per_capita.t ? m.per_capita.t * 1000 : null)} kg per person per year, ${m.per_capita.evidence.district ? esc(m.per_capita.evidence.district) + " District average" : "national average"}). Select a site to see who can reach it.</p>
-        <div class="card"><div class="kv"><span>Production per person</span><strong>${m.per_capita.t ? fmt(m.per_capita.t * 1000) + " kg/yr" : "UNKNOWN"}</strong></div>
+      body = `<p class="headline">Where the ${esc(m.model.commodity.replace(/_/g, " "))} comes from</p>
+        <p class="muted">Green squares show estimated production from mapped rural homes (${fmt(m.per_capita.t !== null ? m.per_capita.t * 1000 : null)} kg per person per year, ${m.per_capita.evidence.district ? esc(m.per_capita.evidence.district) + " District average" : "national average"}). Select a site to see who can reach it.</p>
+        <div class="card"><div class="kv"><span>Production per person</span><strong>${m.per_capita.t !== null ? fmt(m.per_capita.t * 1000) + " kg/yr" : "UNKNOWN"}</strong></div>
         <div class="kv"><span>Evidence</span><strong><span class="status-chip ${m.per_capita.evidence.label.toLowerCase()}">${m.per_capita.evidence.label}</span></strong></div>
         <p class="meta" style="margin-top:6px">${esc(m.per_capita.evidence.note)}</p></div>${warn}
         ${listFor(byProd, "Largest catchments", "estimated t/yr")}`;
@@ -505,7 +514,7 @@
     }
     d.innerHTML = `<div class="drawer-head"><p class="eyebrow">${esc(m.model.name)} · ${esc(seasonName)}</p><h2>${esc(m.area.name)}</h2>
       <p class="meta">${esc(m.area.display_name || "")} · ${fmt(m.area.area_km2)} km²</p></div>
-      <div class="drawer-body">${body}${altHTML()}</div>
+      <div class="drawer-body">${serviceEvidenceHTML()}${body}${altHTML()}</div>
       <div class="drawer-foot"><button id="assumptions">Assumptions</button><button id="save">Save analysis</button>
       <button id="export-csv">CSV</button><button id="export-geo">GeoJSON</button><button id="sources">Sources</button></div>`;
     if (H) H.render();
@@ -655,7 +664,7 @@
     if (cand) { el.hidden = false; el.innerHTML = candSheetHTML(cand); if (H) H.decorate(); return; }
     if (!s) { el.hidden = true; return; }
     const r = seasonOf(s), m = S.result.meta, other = S.season === "dry" ? s.rainy : s.dry;
-    const commodity = m.model.commodity.replace("_", " ");
+    const commodity = m.model.commodity.replace(/_/g, " ");
     const chip = (k, e) => `<span class="status-chip ${e.label.toLowerCase()}" title="${esc(e.text)}">${k}: ${e.label}</span>`;
     const maxSwing = s.drivers.length ? s.drivers[0].swing : 1;
     el.hidden = false;
@@ -697,13 +706,19 @@
     const model = modelOf(), m = S.result ? S.result.meta : null;
     const rows = (obj, prefix) => Object.entries(obj).map(([k, v]) => {
       const r = S.overrides[k] || v.range;
-      return `<div class="row3"><span>${esc(v.note)}<small>${esc(v.unit)} · ${esc(v.label)}</small></span>${[0, 1, 2].map(i => `<input type="number" step="any" data-param="${k}" data-i="${i}" value="${r[i]}" aria-label="${esc(k)} ${["low", "central", "high"][i]}">`).join("")}</div>`;
+      return `<div class="row3"><span>${esc(v.note)}<small>${esc(v.unit)} · ${esc(v.label)}</small></span>${[0, 1, 2].map(i => `<input type="number" step="any" data-param="${k}" data-i="${i}" value="${v.required_input && !S.overrides[k] ? "" : r[i]}" placeholder="Required" aria-label="${esc(k)} ${["low", "central", "high"][i]}">`).join("")}</div>`;
     }).join("");
     const com = model.commodity, def = m && m.per_capita.t !== null ? (m.per_capita.t * 1000).toFixed(1) : "";
     const production = S.productionRecords[com] || {};
+    const equipment = S.energyEvidence[S.model] || {};
+    const equipmentFields = C.SERVICES[S.model]?.requires_intensity ? `<div class="card production-evidence-fields"><p>Equipment electricity evidence</p>
+      <label>Source or specification<input id="equipment-source" value="${esc(equipment.source || "")}"></label>
+      <label>Source date<input id="equipment-date" type="date" value="${esc(equipment.source_date || "")}"></label>
+      <label>Licence or reuse conditions<input id="equipment-licence" value="${esc(equipment.licence || "")}"></label>
+      <p class="meta">Enter all three electricity-per-tonne values above to calculate an operating scenario.</p></div>` : "";
     openPanel(`<h2>Assumptions</h2><p class="meta">Change any value and press Apply: the analysis re-runs instantly on the data already gathered. Low · central · high.</p>
       <div class="card"><p class="eyebrow">Production per person</p>
-      <div class="row3"><span>${esc(com.replace("_", " "))}, kg per person per year<small>${m ? esc(m.per_capita.evidence.label + " · " + (m.per_capita.evidence.source || "none")) : ""}</small></span>
+      <div class="row3"><span>${esc(com.replace(/_/g, " "))}, kg per person per year<small>${m ? esc(m.per_capita.evidence.label + " · " + (m.per_capita.evidence.source || "none")) : ""}</small></span>
       <input type="number" min="0" step="any" id="percap" value="${esc(production.value ?? S.perCap[com] ?? "")}" placeholder="${esc(def)}" aria-label="kg per person per year" style="grid-column:span 3"></div>
       <p class="meta">For a manual value, record where it came from. Leave the value empty to use available statistics. Zero means a reported zero.</p>
       <div class="production-evidence-fields">
@@ -713,7 +728,7 @@
         <label>Licence or reuse conditions<input id="production-licence" value="${esc(production.licence || "")}" placeholder="Stated licence or permission; unknown if not established"></label>
       </div><p class="meta">OBSERVED means reported by the named source, not independently verified. These fields are included when you save or export.</p></div>
       <div class="card"><p class="eyebrow">${esc(model.name)}</p>${rows(model.params)}</div>
-      <div class="card"><p class="eyebrow">Shared</p>${rows(C.SHARED)}</div>
+      ${equipmentFields}<div class="card"><p class="eyebrow">Shared</p>${rows(C.SHARED)}</div>
       <div class="actions"><button class="primary" id="apply-assumptions">Apply</button><button id="reset-assumptions">Reset to defaults</button></div>
       <p class="meta" style="margin-top:10px">None of these values are human-approved. They are screening ranges; enter local evidence when you have it.</p>`);
   }
@@ -741,7 +756,7 @@
   }
   function sourcesPanel() {
     const R = S.result;
-    openPanel(`<h2>Sources for this analysis</h2><p class="meta">Retrieved ${esc(R.meta.generated_at || "")} · seed ${R.meta.seed} · ${R.meta.draws} simulations · engine ${R.meta.elapsed_ms} ms</p>
+    openPanel(`<h2>Sources for this analysis</h2>${serviceEvidenceHTML()}<p class="meta">Retrieved ${esc(R.meta.generated_at || "")} · seed ${R.meta.seed} · ${R.meta.draws} simulations · engine ${R.meta.elapsed_ms} ms</p>
       ${(R.meta.sources || []).map(s => `<div class="card"><strong>${esc(s.label)}</strong><p class="meta">${esc(s.licence || "")}</p>
         <p class="meta">${esc(s.endpoint || "")}${s.cached ? " · served from this browser's cache" : ""} · ${esc(s.retrieved_at || "")}</p>
         ${s.query ? `<details><summary class="meta">Query</summary><pre style="white-space:pre-wrap;font-size:11px">${esc(s.query)}</pre></details>` : ""}</div>`).join("")}
@@ -760,21 +775,21 @@
   }
   const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40);
   function exportCSV() {
-    const R = S.result, head = ["season", "rank", "tier", "p_top", "name", "type", "lat", "lon", "people", "production_t_yr", "kwh_day_central", "kwh_day_p5", "kwh_day_p95", "kw_central", "supply_state", "nearest_line_m", "solar_kwp", "question", "osm_url", "recipe", "registry_version", "production_label", "production_source", "production_source_date", "production_licence"];
+    const R = S.result, head = ["season", "rank", "tier", "p_top", "name", "type", "lat", "lon", "people", "production_t_yr", "kwh_day_central", "kwh_day_p5", "kwh_day_p95", "kw_central", "supply_state", "nearest_line_m", "solar_kwp", "question", "osm_url", "recipe", "registry_version", "production_label", "production_source", "production_source_date", "production_licence", "service_boundary", "service_coverage", "production_components", "equipment_evidence"];
     const rows = [head.join(",")];
     ["dry", "rainy"].forEach(se => R.sites.forEach(s => {
       const r = s[se], k = r.kwh_day || {}, q = (v) => `"${String(v ?? "").replace(/"/g, "\"\"")}"`;
       const evidence = R.meta.per_capita.evidence, safe = v => q(/^[=+@\-]/.test(String(v || "")) ? "'" + v : v);
       rows.push([se, r.rank ?? "", r.tier ?? "", r.p_top ?? "", q(s.name), s.type, s.lat, s.lon, Math.round(r.people || 0), r.production_t ?? "",
         k.central ?? "", k.p5 ?? "", k.p95 ?? "", r.kw ? r.kw.central : "", s.supply.state, s.supply.line_m ? Math.round(s.supply.line_m) : "", s.solar ? s.solar.kwp : "", q(s.question), s.osm_url,
-        q(R.meta.model.id), q(R.meta.scenario?.registry_version || "legacy"), q(evidence.label), safe(evidence.source), safe(evidence.source_date), safe(evidence.licence)].join(","));
+        q(R.meta.model.id), q(R.meta.scenario?.registry_version || "legacy"), q(evidence.label), safe(evidence.source), safe(evidence.source_date), safe(evidence.licence), q(R.meta.service?.boundary), q(R.meta.service?.coverage), q(JSON.stringify(R.meta.service?.components || [])), q(JSON.stringify(R.meta.service?.energy_evidence || null))].join(","));
     }));
     download(`enagis-${slug(R.meta.area.name)}-${R.meta.model.id}.csv`, rows.join("\n"), "text/csv");
   }
   function exportGeo() {
     const R = S.result;
     const fc = {type: "FeatureCollection", properties: {area: R.meta.area, model: R.meta.model, scenario: R.meta.scenario || null,
-      production_evidence: R.meta.per_capita.evidence, generated_at: R.meta.generated_at, licence: "Derived from OpenStreetMap and Overture Maps (ODbL 1.0; Overture places CDLA-Permissive-2.0); WorldPop and Open-Meteo CC BY 4.0"},
+      production_evidence: R.meta.per_capita.evidence, service: R.meta.service || null, generated_at: R.meta.generated_at, licence: "Derived from OpenStreetMap and Overture Maps (ODbL 1.0; Overture places CDLA-Permissive-2.0); WorldPop and Open-Meteo CC BY 4.0"},
       features: R.sites.map(s => ({type: "Feature", geometry: {type: "Point", coordinates: [s.lon, s.lat]},
         properties: {id: s.id, name: s.name, type: s.type, rank_dry: s.dry.rank, rank_rainy: s.rainy.rank, tier_dry: s.dry.tier,
           kwh_day: s.dry.kwh_day ? s.dry.kwh_day.central : null, kwh_day_p5: s.dry.kwh_day ? s.dry.kwh_day.p5 : null,
@@ -809,7 +824,7 @@
   // ------------------------------------------------------------------ the pipeline
   function engineOptions() {
     return {model: S.model, scenario: C.resolveScenario({recipe: S.model}), overrides: S.overrides,
-      per_capita_kg: S.perCap, production_records: S.productionRecords, seed: 20261026, draws: C.DRAWS};
+      per_capita_kg: S.perCap, production_records: S.productionRecords, energy_evidence: S.energyEvidence, seed: 20261026, draws: C.DRAWS};
   }
   // Analysis runs in a background worker built from the same engine code, so the page never freezes.
   // If workers are unavailable (some browsers block them for file:// pages) it runs on the page instead.
@@ -870,7 +885,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   async function runArea(area, alternates) {
     cancelExploration();
     const ticket = explorationRequest;
-    S.perCap = {}; S.productionRecords = {};
+    S.overrides = {}; S.perCap = {}; S.productionRecords = {}; S.energyEvidence = {};
     S.hero = null; if (H) H.render();
     S.area = area; S.alternates = alternates || []; S.result = null; S.selected = null; setInput(null); S.steps = [];
     renderSheet(); drawMarkers(); refreshSources(); fitArea(area);
@@ -976,14 +991,21 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
       if (options.model && options.model !== scenario.recipe) throw new Error("Saved scenario and model disagree");
       const records = {};
       for (const [commodity, record] of Object.entries(options.production_records || {})) {
-        if (!Object.hasOwn(C.COMMODITIES, commodity)) throw new Error("Unsupported production commodity");
+        if (!Object.hasOwn(C.COMMODITIES, commodity) && !Object.values(C.SERVICE_MODELS).some(model => model.commodity === commodity)) throw new Error("Unsupported production commodity or service");
         records[commodity] = C.validateProductionRecord(record);
       }
+      const energyEvidence = {};
+      for (const [service, record] of Object.entries(options.energy_evidence || {})) {
+        if (!Object.hasOwn(C.SERVICES, service)) throw new Error("Unknown equipment service");
+        energyEvidence[service] = C.validateEnergyEvidence(record);
+      }
+      C.validateServiceOverrides(scenario.recipe, options.overrides);
+      if (C.SERVICES[scenario.recipe]?.requires_intensity && options.overrides?.specific_energy?.[0] > 0 && !energyEvidence[scenario.recipe]) throw new Error("Equipment energy source is missing");
       cancelExploration();
       window.EnaLanding?.dismiss();
       S.hero = null; if (H) H.render(); setCompare(false); setBase("paper");
       setInput(pkg.input); S.area = pkg.input.area; S.alternates = [];
-      S.model = scenario.recipe; $("model").value = S.model; S.productionRecords = records;
+      S.model = scenario.recipe; $("model").value = S.model; S.productionRecords = records; S.energyEvidence = energyEvidence;
       S.overrides = (pkg.options && pkg.options.overrides) || {}; S.perCap = (pkg.options && pkg.options.per_capita_kg) || {};
       S.synthetic = !!pkg.synthetic; $("synthetic-ribbon").hidden = !S.synthetic;
       S.phase = "working"; S.result = null; S.selected = null;
@@ -993,7 +1015,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   }
   function synthDemo() {
     cancelExploration();
-    S.perCap = {}; S.productionRecords = {};
+    S.perCap = {}; S.productionRecords = {}; S.energyEvidence = {};
     S.hero = null; if (H) H.render();
     // Small built-in synthetic area so the interface can be explored with no internet. Clearly labelled.
     const pkg = window.ENA_SYNTH && window.ENA_SYNTH();
@@ -1016,6 +1038,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   $("model").addEventListener("change", () => {
     S.hero = null; if (H) H.render();
     S.model = $("model").value; store.set("model", S.model);
+    S.overrides = {};
     if (S.exploring) { renderDrawer(); toast("Activity selected. Analysis will begin when the data check finishes."); }
     if (S.input) { S.selected = null; analyzeNow(false); toast(`Re-analyzed for ${modelOf().name} using the data already gathered.`); }
   });
@@ -1073,7 +1096,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
       (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => toast("Copied " + txt), () => toast(txt));
     } else if (t.id === "apply-assumptions" || t.id === "reset-assumptions") {
       S.hero = null; if (H) H.render();
-      if (t.id === "reset-assumptions") { S.overrides = {}; S.perCap = {}; S.productionRecords = {}; }
+      if (t.id === "reset-assumptions") { S.overrides = {}; S.perCap = {}; S.productionRecords = {}; S.energyEvidence = {}; }
       else {
         const pc = $("percap").value.trim(), com = modelOf().commodity;
         let production = null;
@@ -1087,12 +1110,21 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
         const ov = {};
         document.querySelectorAll("#panel [data-param]").forEach(inp => {
           const k = inp.dataset.param, i = +inp.dataset.i, v = parseFloat(inp.value);
-          const base = (C.MODELS[S.model].params[k] || C.SHARED[k]).range;
+          const base = (modelOf().params[k] || C.SHARED[k]).range;
           ov[k] = ov[k] || base.slice(); if (isFinite(v)) ov[k][i] = v;
         });
-        Object.keys(ov).forEach(k => { const r = ov[k]; const def = (C.MODELS[S.model].params[k] || C.SHARED[k]).range;
-          if (!(r[0] <= r[1] && r[1] <= r[2])) { toast(`Range for ${k} must be low ≤ central ≤ high.`); delete ov[k]; }
+        Object.keys(ov).forEach(k => { const r = ov[k]; const def = (modelOf().params[k] || C.SHARED[k]).range;
+          if (!(r[0] <= r[1] && r[1] <= r[2])) { toast(`Range for ${k} must be low ≤ central ≤ high.`); if (!C.SERVICES[S.model]) delete ov[k]; }
           else if (r.every((v, i) => v === def[i])) delete ov[k]; });
+        try {
+          C.validateServiceOverrides(S.model, ov);
+          if (C.SERVICES[S.model]?.requires_intensity && ov.specific_energy) {
+            const fields = Array.from(document.querySelectorAll('#panel [data-param="specific_energy"]'));
+            if (fields.some(field => field.value.trim() === "") || ov.specific_energy[0] <= 0) throw new Error("Enter all three positive equipment electricity values");
+            S.energyEvidence[S.model] = C.validateEnergyEvidence({schema: "enagis-equipment-evidence-v1", label: "INFERRED",
+              source: $("equipment-source").value, source_date: $("equipment-date").value, licence: $("equipment-licence").value});
+          }
+        } catch (error) { toast(error.message); return; }
         S.overrides = ov;
         delete S.perCap[com];
         if (production) S.productionRecords[com] = production; else delete S.productionRecords[com];
@@ -1109,7 +1141,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
     replay: async bundle => {
       cancelExploration();
       S.hero = bundle.manifest; S.phase = "working"; S.model = "potato_storage"; $("model").value = S.model;
-      S.overrides = {}; S.perCap = {}; S.productionRecords = {}; S.season = "dry"; S.lens = "first"; S.cand = null; S.showAll = false;
+      S.overrides = {}; S.perCap = {}; S.productionRecords = {}; S.energyEvidence = {}; S.season = "dry"; S.lens = "first"; S.cand = null; S.showAll = false;
       S.synthetic = false; $("synthetic-ribbon").hidden = true; S.alternates = []; S.steps = [];
       setCompare(false); setBase("paper"); setInput(bundle.pkg.input); S.area = bundle.pkg.input.area;
       await analyzeNow(false); fitArea(S.area);
@@ -1135,7 +1167,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
   async function previewArea(area, options = {}) {
     cancelExploration(); const ticket = explorationRequest;
     S.hero=null; setInput(null); S.result=null; S.selected=null; S.cand=null;
-    S.area=area; S.phase="explore"; S.alternates=[]; S.steps=[]; S.overrides={}; S.perCap={}; S.productionRecords={};
+    S.area=area; S.phase="explore"; S.alternates=[]; S.steps=[]; S.overrides={}; S.perCap={}; S.productionRecords={}; S.energyEvidence={};
     S.synthetic=false; $("synthetic-ribbon").hidden=true;
     $("model").value=""; $("q").value=area.display_name||area.name;
     if(H) H.render(); closePanel(); renderSheet(); setCompare(false);
@@ -1160,7 +1192,7 @@ catch(err){self.postMessage({job:d.job,ok:false,error:String(err&&err.message||e
       renderDrawer();
     }
   }
-  if (params.get("model") && C.MODELS[params.get("model")]) { S.model = params.get("model"); $("model").value = S.model; }
+  if (params.get("model") && C.getModel(params.get("model"))) { S.model = params.get("model"); $("model").value = S.model; }
   // Run once the map is ready, or after a few seconds even if basemap tiles never arrive.
   const onMapReady = (fn) => { let done = false; const go = () => { if (!done) { done = true; fn(); } }; map.once("load", go); setTimeout(go, 5000); };
   if (params.get("q")) { $("q").value = params.get("q"); onMapReady(() => search(params.get("q"))); }

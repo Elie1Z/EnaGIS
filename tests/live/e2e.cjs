@@ -73,6 +73,7 @@ const ok = (name, cond, detail) => { checks.push({name, pass: !!cond, detail: de
   await page.goto(base);
   // This suite exercises the existing analysis workspace; the global entry has its own suite.
   await page.evaluate(() => window.EnaLanding.dismiss());
+  await page.selectOption('#model', 'potato_storage');
   await page.waitForSelector(".drawer .examples");
   await page.screenshot({path: path.join(OUT, "01-idle.png")});
   ok("idle screen shows examples", await page.locator("[data-example]").count() >= 5);
