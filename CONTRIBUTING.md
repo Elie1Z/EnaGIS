@@ -31,6 +31,12 @@ Phase 4 inputs · `demo` / `verify-demo` historical Phase 5 archive · `phase6-a
 `phase6-fixture`, `verify-phase6` · `phase7-fixture` · `mvp`, `verify-mvp`, `figures`, `release`
 app and defense archive · `stress` unapproved sparse-data diagnostic · `preflight` demo check.
 
+The standalone `enagis-film/` Remotion project is not part of the application Python
+environment. Root Ruff checks exclude that directory; application, research and packaging
+Python scripts remain checked. Film source checks run separately with `npm run lint`
+inside `enagis-film/` after installing its dependencies. The application workflow does not
+validate or render the films.
+
 ## Rules
 
 PRs that break these are not merged.
