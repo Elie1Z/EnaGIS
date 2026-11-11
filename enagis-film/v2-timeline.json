@@ -1,0 +1,96 @@
+{
+  "durationSeconds": 107,
+  "voice": "en-US-AvaMultilingualNeural",
+  "provider": "Microsoft online neural speech via edge-tts 7.3.1",
+  "scenes": [
+    {
+      "id": "hook",
+      "startSeconds": 0,
+      "durationSeconds": 6,
+      "text": "Every harvest has potential. Energy helps unlock what comes next.",
+      "voice": "en-US-AvaMultilingualNeural",
+      "audio": "v2/audio/hook.mp3"
+    },
+    {
+      "id": "brand",
+      "startSeconds": 6,
+      "durationSeconds": 5,
+      "text": "Meet EnaGIS. Mapping Energy. Powering Agriculture.",
+      "voice": "en-US-AvaNeural",
+      "audio": "v2/audio/brand.mp3"
+    },
+    {
+      "id": "search",
+      "startSeconds": 11,
+      "durationSeconds": 11,
+      "text": "Choose your place. Choose your purpose. Cooling. Storage. Milling. Drying. Your next investigation starts on the map.",
+      "voice": "en-US-AvaMultilingualNeural",
+      "audio": "v2/audio/search.mp3"
+    },
+    {
+      "id": "evidence",
+      "startSeconds": 22,
+      "durationSeconds": 9,
+      "text": "Turn open maps into a clearer picture of agriculture, people, and the places that connect them.",
+      "voice": "en-US-AvaMultilingualNeural",
+      "audio": "v2/audio/evidence.mp3"
+    },
+    {
+      "id": "access",
+      "startSeconds": 31,
+      "durationSeconds": 10,
+      "text": "Follow real roads. Compare dry and rainy seasons. Understand what each location can reach.",
+      "voice": "en-US-AvaMultilingualNeural",
+      "audio": "v2/audio/access.mp3"
+    },
+    {
+      "id": "energy",
+      "startSeconds": 41,
+      "durationSeconds": 14,
+      "text": "Open Energy. See mapped power lines, nearby infrastructure, and an indicative solar option. A mapped line is a lead. Connection and capacity still need checking.",
+      "voice": "en-US-AvaMultilingualNeural",
+      "audio": "v2/audio/energy.mp3"
+    },
+    {
+      "id": "demand",
+      "startSeconds": 55,
+      "durationSeconds": 13,
+      "text": "Now explore the need. See estimated daily electricity demand, a range of possibilities, and the assumptions behind every number.",
+      "voice": "en-US-AvaMultilingualNeural",
+      "audio": "v2/audio/demand.mp3"
+    },
+    {
+      "id": "confidence",
+      "startSeconds": 68,
+      "durationSeconds": 11,
+      "text": "Challenge those assumptions across 300 scenarios. See which sites hold their place, and where the evidence needs work.",
+      "voice": "en-US-AvaMultilingualNeural",
+      "audio": "v2/audio/confidence.mp3"
+    },
+    {
+      "id": "discover",
+      "startSeconds": 79,
+      "durationSeconds": 9,
+      "text": "Look beyond recorded locations. Find predicted places worth investigating, with the evidence behind each suggestion.",
+      "voice": "en-US-AvaMultilingualNeural",
+      "audio": "v2/audio/discover.mp3"
+    },
+    {
+      "id": "shortlist",
+      "startSeconds": 88,
+      "durationSeconds": 9,
+      "text": "Take the next step. Export a ranked shortlist, the evidence, and the questions that turn screening into investigation.",
+      "voice": "en-US-AvaMultilingualNeural",
+      "audio": "v2/audio/shortlist.mp3"
+    },
+    {
+      "id": "close",
+      "startSeconds": 97,
+      "durationSeconds": 10,
+      "text": "EnaGIS. Mapping Energy. Powering Agriculture.",
+      "voice": "en-US-AvaNeural",
+      "audio": "v2/audio/close.mp3"
+    }
+  ],
+  "mottoVoice": "en-US-AvaNeural (English-only)"
+}

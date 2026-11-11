@@ -1,0 +1,100 @@
+[
+  {
+    "text": "Follow",
+    "startMs": 122.541,
+    "endMs": 428.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "real",
+    "startMs": 441.166,
+    "endMs": 710.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "roads",
+    "startMs": 723.041,
+    "endMs": 1249.999,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Compare",
+    "startMs": 1605.375,
+    "endMs": 2009.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "dry",
+    "startMs": 2022.041,
+    "endMs": 2499.999,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 2769.625,
+    "endMs": 3063.75,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "rainy",
+    "startMs": 3125.0,
+    "endMs": 3468.125,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "seasons",
+    "startMs": 3480.375,
+    "endMs": 4129.875,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Understand",
+    "startMs": 4522.041,
+    "endMs": 5220.582,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "what",
+    "startMs": 5232.833,
+    "endMs": 5379.874,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "each",
+    "startMs": 5465.666,
+    "endMs": 5661.749,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "location",
+    "startMs": 5674.0,
+    "endMs": 6274.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "can",
+    "startMs": 6286.75,
+    "endMs": 6482.833,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "reach",
+    "startMs": 6495.083,
+    "endMs": 6973.041,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

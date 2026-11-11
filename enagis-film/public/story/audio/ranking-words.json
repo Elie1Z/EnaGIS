@@ -1,0 +1,114 @@
+[
+  {
+    "text": "Where",
+    "startMs": 100.0,
+    "endMs": 425.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "first",
+    "startMs": 437.5,
+    "endMs": 862.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "gives",
+    "startMs": 900.0,
+    "endMs": 1125.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "you",
+    "startMs": 1137.5,
+    "endMs": 1237.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 1250.0,
+    "endMs": 1300.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "shortlist",
+    "startMs": 1312.5,
+    "endMs": 2050.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Start",
+    "startMs": 2412.5,
+    "endMs": 2800.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "with",
+    "startMs": 2812.5,
+    "endMs": 2975.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Kora",
+    "startMs": 2987.5,
+    "endMs": 3287.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Market",
+    "startMs": 3300.0,
+    "endMs": 3750.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "then",
+    "startMs": 4012.5,
+    "endMs": 4187.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ask",
+    "startMs": 4212.5,
+    "endMs": 4512.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "why",
+    "startMs": 4525.0,
+    "endMs": 4712.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "it",
+    "startMs": 4725.0,
+    "endMs": 4800.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "deserves",
+    "startMs": 4812.5,
+    "endMs": 5212.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "attention",
+    "startMs": 5225.0,
+    "endMs": 5850.0,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

@@ -15,6 +15,9 @@ Pick one of these:
 - **Open `live/index.html` in Chrome, Edge or Firefox.** No install, no server, no account.
 - **Serve the folder:** `python -m http.server -d live 8080`, then open <http://localhost:8080>.
 - **Publish it:** the `live/` folder is a static site and works on GitHub Pages as it is.
+- **Netlify Drop:** run `python -m scripts.package_netlify` from the repository root, then drop
+  `outputs/netlify-drop/EnaGIS-Netlify-Drop.zip` at <https://app.netlify.com/drop>.
+  See [packaging instructions](../docs/netlify-drop.md).
 
 Searching needs the internet. Without it you can:
 

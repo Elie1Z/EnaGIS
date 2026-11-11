@@ -1,0 +1,65 @@
+{
+  "checkedAtUtc": "2026-10-21T06:20:09.459738+00:00",
+  "status": "passed",
+  "durationSeconds": 107,
+  "fps": 30,
+  "frames": 3210,
+  "designCanvas": "3840x2160",
+  "captureResolution": "1280x672",
+  "captureHashesAndDimensions": "passed",
+  "captureCount": 20,
+  "measuredClickTargetsInsideCapture": 11,
+  "captionWordingAndFit": "passed",
+  "narrationFit": "passed",
+  "audio": {
+    "durationSeconds": 107,
+    "sampleRate": 48000,
+    "voice": "en-US-AvaMultilingualNeural",
+    "mottoVoice": "en-US-AvaNeural (English-only)",
+    "clippedSamples": 0,
+    "mixPeakDb": -2.09,
+    "music": "Original 104 BPM procedural commercial score",
+    "speech": "Neural female voice, normalized per scene"
+  },
+  "playback": {
+    "reviewedOn": "2026-10-21",
+    "composition": "EnaGIS-Commercial-V2",
+    "completedLoop": true,
+    "durationInFrames": 3210,
+    "revision": "English-only motto, synchronized purpose motion, creator outro",
+    "observedFramesInOrder": [
+      93,
+      231,
+      2455,
+      756
+    ],
+    "playing": true,
+    "muted": false,
+    "volume": 1,
+    "playbackRate": 1,
+    "looping": true,
+    "errorOverlay": null,
+    "reviewMethod": "Remotion Studio WebMCP state and browser screenshot; actual Play button unlocked playback. A lower frame following frame 2455 confirms the full 3210-frame loop completed. Outro decode was also checked in a rendered composition still."
+  },
+  "typescriptAndEslint": "passed: npm run lint",
+  "stillReview": [
+    "v2-click-focus.png",
+    "v2-energy-preview.png",
+    "v2-demand-preview.png",
+    "v2-export-preview.png",
+    "v2-purpose-preview.png",
+    "v2-outro-preview.png"
+  ],
+  "fallbackArchiveSha256": "c14dc4caa75f698f1472e532dce4ec5b8d5a9a2ff754040d3f2c69d3a8fbdbe8",
+  "unchangedV1MediaAndSceneFiles": 57,
+  "priorV2ArchiveSha256": "af6759842e3711cc2c994698abc7fd7ec5fa66b6ef7be466fef7e7c4b9bb363e",
+  "cameraChoreographyAndOtherNarration": "unchanged",
+  "creatorOutro": {
+    "sha256": "322bdd72d5ded39a2142686da7a1255471fcccadcdb5422daabfda8bbae2cf70",
+    "source": "outputs/product-film-v2/outro enagis.mp4",
+    "durationSeconds": 10,
+    "playbackRate": 1,
+    "originalAudioMuted": true
+  },
+  "delivery": "Editable Remotion project and interactive preview; no final MP4 export"
+}

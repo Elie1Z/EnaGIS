@@ -1,0 +1,184 @@
+[
+  {
+    "id": "harvest-0",
+    "text": "A harvest is only the beginning.",
+    "spokenText": "A harvest is only the beginning.",
+    "start": 0.2,
+    "end": 2.7
+  },
+  {
+    "id": "harvest-1",
+    "text": "What happens next depends on energy.",
+    "spokenText": "What happens next depends on energy.",
+    "start": 3.0,
+    "end": 5.8
+  },
+  {
+    "id": "introduce-0",
+    "text": "But where should agricultural energy investment begin?",
+    "spokenText": "But where should agricultural energy investment begin?",
+    "start": 6.1,
+    "end": 9.4
+  },
+  {
+    "id": "introduce-1",
+    "text": "Meet EnaGIS.",
+    "spokenText": "Meet Enna Jiss.",
+    "start": 9.7,
+    "end": 11.7
+  },
+  {
+    "id": "search-0",
+    "text": "Start with a place.",
+    "spokenText": "Start with a place.",
+    "start": 12.4,
+    "end": 15.0
+  },
+  {
+    "id": "search-1",
+    "text": "Search the map, then choose what you want to study:",
+    "spokenText": "Search the map, then choose what you want to study:",
+    "start": 15.2,
+    "end": 18.1
+  },
+  {
+    "id": "search-2",
+    "text": "cooling, storage, milling, or drying.",
+    "spokenText": "cooling, storage, milling, or drying.",
+    "start": 18.3,
+    "end": 24.7
+  },
+  {
+    "id": "evidence-0",
+    "text": "EnaGIS brings open maps and agricultural evidence together,",
+    "spokenText": "Enna Jiss brings open maps and agricultural evidence together,",
+    "start": 26.4,
+    "end": 30.6
+  },
+  {
+    "id": "evidence-1",
+    "text": "revealing mapped activity",
+    "spokenText": "revealing mapped activity",
+    "start": 30.8,
+    "end": 34.1
+  },
+  {
+    "id": "evidence-2",
+    "text": "and the areas each candidate can reach.",
+    "spokenText": "and the areas each candidate can reach.",
+    "start": 34.3,
+    "end": 37.6
+  },
+  {
+    "id": "access-0",
+    "text": "Follow the roads.",
+    "spokenText": "Follow the roads.",
+    "start": 38.4,
+    "end": 41.2
+  },
+  {
+    "id": "access-1",
+    "text": "Compare the seasons.",
+    "spokenText": "Compare the seasons.",
+    "start": 41.4,
+    "end": 44.4
+  },
+  {
+    "id": "access-2",
+    "text": "See how access changes when conditions do.",
+    "spokenText": "See how access changes when conditions do.",
+    "start": 44.6,
+    "end": 49.4
+  },
+  {
+    "id": "demand-0",
+    "text": "Open a promising site.",
+    "spokenText": "Open a promising site.",
+    "start": 50.4,
+    "end": 53.9
+  },
+  {
+    "id": "demand-1",
+    "text": "See estimated energy demand",
+    "spokenText": "See estimated energy demand",
+    "start": 54.1,
+    "end": 58.0
+  },
+  {
+    "id": "demand-2",
+    "text": "with a range around it,",
+    "spokenText": "with a range around it,",
+    "start": 58.2,
+    "end": 61.9
+  },
+  {
+    "id": "demand-3",
+    "text": "and the assumptions behind the number.",
+    "spokenText": "and the assumptions behind the number.",
+    "start": 62.1,
+    "end": 66.4
+  },
+  {
+    "id": "uncertainty-0",
+    "text": "Stress-test the assumptions across 300 scenarios.",
+    "spokenText": "Stress-test the assumptions across 300 scenarios.",
+    "start": 67.4,
+    "end": 72.0
+  },
+  {
+    "id": "uncertainty-1",
+    "text": "See what stays near the top,",
+    "spokenText": "See what stays near the top,",
+    "start": 72.2,
+    "end": 76.0
+  },
+  {
+    "id": "uncertainty-2",
+    "text": "and where information is still missing.",
+    "spokenText": "and where information is still missing.",
+    "start": 76.2,
+    "end": 80.4
+  },
+  {
+    "id": "predictions-0",
+    "text": "Explore predicted places to check,",
+    "spokenText": "Explore predicted places to check,",
+    "start": 81.4,
+    "end": 85.8
+  },
+  {
+    "id": "predictions-1",
+    "text": "alongside the locations already recorded on the map.",
+    "spokenText": "alongside the locations already recorded on the map.",
+    "start": 86.0,
+    "end": 91.4
+  },
+  {
+    "id": "shortlist-0",
+    "text": "Export a ranked shortlist,",
+    "spokenText": "Export a ranked shortlist,",
+    "start": 92.4,
+    "end": 95.4
+  },
+  {
+    "id": "shortlist-1",
+    "text": "the supporting evidence,",
+    "spokenText": "the supporting evidence,",
+    "start": 95.6,
+    "end": 98.0
+  },
+  {
+    "id": "shortlist-2",
+    "text": "and the question to ask at each site.",
+    "spokenText": "and the question to ask at each site.",
+    "start": 98.2,
+    "end": 101.4
+  },
+  {
+    "id": "close-0",
+    "text": "EnaGIS. From open maps to your next move.",
+    "spokenText": "Enna Jiss. From open maps to your next move.",
+    "start": 102.2,
+    "end": 106.5
+  }
+]

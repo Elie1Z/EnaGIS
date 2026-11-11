@@ -1,0 +1,103 @@
+1
+00:00:00,200 --> 00:00:02,700
+A harvest is only the beginning.
+
+2
+00:00:03,000 --> 00:00:05,800
+What happens next depends on energy.
+
+3
+00:00:06,100 --> 00:00:09,400
+But where should agricultural energy investment begin?
+
+4
+00:00:09,700 --> 00:00:11,700
+Meet EnaGIS.
+
+5
+00:00:12,400 --> 00:00:15,000
+Start with a place.
+
+6
+00:00:15,200 --> 00:00:18,100
+Search the map, then choose what you want to study:
+
+7
+00:00:18,300 --> 00:00:24,700
+cooling, storage, milling, or drying.
+
+8
+00:00:26,400 --> 00:00:30,600
+EnaGIS brings open maps and agricultural evidence together,
+
+9
+00:00:30,800 --> 00:00:34,100
+revealing mapped activity
+
+10
+00:00:34,300 --> 00:00:37,600
+and the areas each candidate can reach.
+
+11
+00:00:38,400 --> 00:00:41,200
+Follow the roads.
+
+12
+00:00:41,400 --> 00:00:44,400
+Compare the seasons.
+
+13
+00:00:44,600 --> 00:00:49,400
+See how access changes when conditions do.
+
+14
+00:00:50,400 --> 00:00:53,900
+Open a promising site.
+
+15
+00:00:54,100 --> 00:00:58,000
+See estimated energy demand
+
+16
+00:00:58,200 --> 00:01:01,900
+with a range around it,
+
+17
+00:01:02,100 --> 00:01:06,400
+and the assumptions behind the number.
+
+18
+00:01:07,400 --> 00:01:12,000
+Stress-test the assumptions across 300 scenarios.
+
+19
+00:01:12,200 --> 00:01:16,000
+See what stays near the top,
+
+20
+00:01:16,200 --> 00:01:20,400
+and where information is still missing.
+
+21
+00:01:21,400 --> 00:01:25,800
+Explore predicted places to check,
+
+22
+00:01:26,000 --> 00:01:31,400
+alongside the locations already recorded on the map.
+
+23
+00:01:32,400 --> 00:01:35,400
+Export a ranked shortlist,
+
+24
+00:01:35,600 --> 00:01:38,000
+the supporting evidence,
+
+25
+00:01:38,200 --> 00:01:41,400
+and the question to ask at each site.
+
+26
+00:01:42,200 --> 00:01:46,500
+EnaGIS. From open maps to your next move.

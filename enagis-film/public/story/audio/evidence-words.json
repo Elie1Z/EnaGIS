@@ -1,0 +1,121 @@
+[
+  {
+    "text": "Map",
+    "startMs": 100.0,
+    "endMs": 440.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "data",
+    "startMs": 453.541,
+    "endMs": 680.832,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "reveals",
+    "startMs": 693.416,
+    "endMs": 1110.082,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "gaps",
+    "startMs": 1122.708,
+    "endMs": 1640.374,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Sources",
+    "startMs": 2007.083,
+    "endMs": 2549.999,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "shows",
+    "startMs": 2562.625,
+    "endMs": 2878.291,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "where",
+    "startMs": 2890.916,
+    "endMs": 3017.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "information",
+    "startMs": 3029.791,
+    "endMs": 3610.582,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "came",
+    "startMs": 3623.25,
+    "endMs": 3875.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "from",
+    "startMs": 3888.375,
+    "endMs": 4254.541,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Unknown",
+    "startMs": 4620.708,
+    "endMs": 5138.374,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "does",
+    "startMs": 5151.0,
+    "endMs": 5327.75,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "not",
+    "startMs": 5340.416,
+    "endMs": 5529.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "mean",
+    "startMs": 5542.416,
+    "endMs": 5731.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "nothing",
+    "startMs": 5744.458,
+    "endMs": 6097.999,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "is",
+    "startMs": 6110.625,
+    "endMs": 6224.25,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "there",
+    "startMs": 6236.875,
+    "endMs": 6628.291,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

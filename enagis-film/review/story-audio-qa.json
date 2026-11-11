@@ -1,0 +1,9 @@
+{
+  "durationSeconds": 120,
+  "sampleRate": 48000,
+  "voice": "en-US-AvaNeural (English-only)",
+  "clippedSamples": 0,
+  "peakDbFS": -2.2,
+  "score": "Original 96 BPM procedural composition; ducked under speech",
+  "effects": "Measured actual control clicks and soft chapter accents"
+}

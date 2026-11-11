@@ -1,0 +1,150 @@
+{
+  "durationSeconds": 120,
+  "voice": "en-US-AvaNeural",
+  "provider": "Microsoft online neural speech via edge-tts 7.3.1",
+  "scenes": [
+    {
+      "id": "decision",
+      "startSeconds": 0,
+      "durationSeconds": 7,
+      "text": "You're planning a cold store for potato growers. Where should you investigate first?",
+      "rate": "-1%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/decision.mp3",
+      "audioDurationSeconds": 4.896
+    },
+    {
+      "id": "place",
+      "startSeconds": 7,
+      "durationSeconds": 11,
+      "text": "Search your area and choose cold storage. Here, we open a saved analysis, so every step follows the same example.",
+      "rate": "+0%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/place.mp3",
+      "audioDurationSeconds": 7.992
+    },
+    {
+      "id": "ranking",
+      "startSeconds": 18,
+      "durationSeconds": 8,
+      "text": "Where first gives you a shortlist. Start with Kora Market, then ask why it deserves attention.",
+      "rate": "+0%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/ranking.mp3",
+      "audioDurationSeconds": 6.216
+    },
+    {
+      "id": "harvest",
+      "startSeconds": 26,
+      "durationSeconds": 8,
+      "text": "Harvest shows where crops may come from. These are estimates, built from production statistics and mapped homes.",
+      "rate": "+0%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/harvest.mp3",
+      "audioDurationSeconds": 7.224
+    },
+    {
+      "id": "access",
+      "startSeconds": 34,
+      "durationSeconds": 10,
+      "text": "Access follows roads and paths, not straight lines. Switch seasons to see how rain changes who can reach a site.",
+      "rate": "+0%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/access.mp3",
+      "audioDurationSeconds": 7.464
+    },
+    {
+      "id": "energy",
+      "startSeconds": 44,
+      "durationSeconds": 12,
+      "text": "Energy shows mapped power lines and a possible solar option. Nearby power does not confirm a working connection. That still needs checking.",
+      "rate": "-1%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/energy.mp3",
+      "audioDurationSeconds": 9.384
+    },
+    {
+      "id": "demand",
+      "startSeconds": 56,
+      "durationSeconds": 11,
+      "text": "Open the site card. This example estimates electricity needed on a busy harvest day. The range shows how much that estimate could change.",
+      "rate": "+0%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/demand.mp3",
+      "audioDurationSeconds": 8.856
+    },
+    {
+      "id": "confidence",
+      "startSeconds": 67,
+      "durationSeconds": 11,
+      "text": "How sure repeats the comparison with 300 sets of assumptions. See which sites stay near the top, and which need closer attention.",
+      "rate": "+0%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/confidence.mp3",
+      "audioDurationSeconds": 8.592
+    },
+    {
+      "id": "discover",
+      "startSeconds": 78,
+      "durationSeconds": 7,
+      "text": "Likely sites finds places resembling known facilities. These are leads to check, not confirmed businesses.",
+      "rate": "+0%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.2,
+      "audio": "story/audio/discover.mp3",
+      "audioDurationSeconds": 6.768
+    },
+    {
+      "id": "evidence",
+      "startSeconds": 85,
+      "durationSeconds": 9,
+      "text": "Map data reveals gaps. Sources shows where information came from. Unknown does not mean nothing is there.",
+      "rate": "-1%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/evidence.mp3",
+      "audioDurationSeconds": 7.008
+    },
+    {
+      "id": "export",
+      "startSeconds": 94,
+      "durationSeconds": 10,
+      "text": "Export the shortlist. Save the analysis. Before investing, check crop volumes, power supply, and local conditions.",
+      "rate": "-1%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/export.mp3",
+      "audioDurationSeconds": 9.168
+    },
+    {
+      "id": "outcome",
+      "startSeconds": 104,
+      "durationSeconds": 6,
+      "text": "A clearer shortlist. Reasons you can inspect. A practical next step.",
+      "rate": "+1%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 0.25,
+      "audio": "story/audio/outcome.mp3",
+      "audioDurationSeconds": 5.184
+    },
+    {
+      "id": "outro",
+      "startSeconds": 110,
+      "durationSeconds": 10,
+      "text": "EnaGIS. Mapping Energy. Powering Agriculture.",
+      "rate": "+2%",
+      "voice": "en-US-AvaNeural",
+      "voiceStartSeconds": 3.2,
+      "audio": "story/audio/outro.mp3",
+      "audioDurationSeconds": 4.272
+    }
+  ]
+}

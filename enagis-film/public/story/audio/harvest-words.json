@@ -1,0 +1,121 @@
+[
+  {
+    "text": "Harvest",
+    "startMs": 100.0,
+    "endMs": 612.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "shows",
+    "startMs": 625.0,
+    "endMs": 1000.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "where",
+    "startMs": 1012.5,
+    "endMs": 1200.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "crops",
+    "startMs": 1212.5,
+    "endMs": 1600.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "may",
+    "startMs": 1612.5,
+    "endMs": 1750.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "come",
+    "startMs": 1762.5,
+    "endMs": 2012.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "from",
+    "startMs": 2025.0,
+    "endMs": 2400.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "These",
+    "startMs": 2762.5,
+    "endMs": 3037.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "are",
+    "startMs": 3050.0,
+    "endMs": 3187.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "estimates",
+    "startMs": 3200.0,
+    "endMs": 3837.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "built",
+    "startMs": 3937.5,
+    "endMs": 4162.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "from",
+    "startMs": 4175.0,
+    "endMs": 4362.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "production",
+    "startMs": 4375.0,
+    "endMs": 4900.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "statistics",
+    "startMs": 4912.5,
+    "endMs": 5600.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 5612.5,
+    "endMs": 5900.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "mapped",
+    "startMs": 5912.5,
+    "endMs": 6250.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "homes",
+    "startMs": 6262.5,
+    "endMs": 6850.0,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

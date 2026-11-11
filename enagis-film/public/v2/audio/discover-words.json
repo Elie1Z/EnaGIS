@@ -1,0 +1,107 @@
+[
+  {
+    "text": "Look",
+    "startMs": 85.791,
+    "endMs": 330.874,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "beyond",
+    "startMs": 330.875,
+    "endMs": 833.333,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "recorded",
+    "startMs": 845.583,
+    "endMs": 1274.499,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "locations",
+    "startMs": 1286.75,
+    "endMs": 2046.541,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Find",
+    "startMs": 2549.0,
+    "endMs": 2855.375,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "predicted",
+    "startMs": 2855.375,
+    "endMs": 3259.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "places",
+    "startMs": 3272.041,
+    "endMs": 3664.207,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "worth",
+    "startMs": 3676.458,
+    "endMs": 3958.333,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "investigating",
+    "startMs": 3970.583,
+    "endMs": 4681.374,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "with",
+    "startMs": 5110.291,
+    "endMs": 5220.582,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 5220.583,
+    "endMs": 5294.124,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "evidence",
+    "startMs": 5306.375,
+    "endMs": 5845.583,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "behind",
+    "startMs": 5857.833,
+    "endMs": 6397.041,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "each",
+    "startMs": 6458.333,
+    "endMs": 6691.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "suggestion",
+    "startMs": 6703.416,
+    "endMs": 7389.707,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

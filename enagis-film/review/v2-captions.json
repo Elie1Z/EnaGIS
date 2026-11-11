@@ -1,0 +1,396 @@
+[
+  {
+    "id": "hook",
+    "startSeconds": 0,
+    "captions": [
+      {
+        "text": "Every harvest has potential.",
+        "startMs": 436,
+        "endMs": 2228,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Energy helps unlock what comes next.",
+        "startMs": 2470,
+        "endMs": 5063,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "brand",
+    "startSeconds": 6,
+    "captions": [
+      {
+        "text": "Meet EnaGIS.",
+        "startMs": 450,
+        "endMs": 1862,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Mapping Energy.",
+        "startMs": 2067,
+        "endMs": 3148,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Powering Agriculture.",
+        "startMs": 3353,
+        "endMs": 4850,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "search",
+    "startSeconds": 11,
+    "captions": [
+      {
+        "text": "Choose your place.",
+        "startMs": 436,
+        "endMs": 1542,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Choose your purpose.",
+        "startMs": 1784,
+        "endMs": 3037,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Cooling.",
+        "startMs": 3279,
+        "endMs": 3956,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Storage.",
+        "startMs": 4174,
+        "endMs": 4949,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Milling.",
+        "startMs": 5178,
+        "endMs": 5794,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Drying.",
+        "startMs": 6024,
+        "endMs": 6701,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Your next investigation starts on the",
+        "startMs": 6919,
+        "endMs": 8678,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "map.",
+        "startMs": 8708,
+        "endMs": 9462,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "evidence",
+    "startSeconds": 22,
+    "captions": [
+      {
+        "text": "Turn open maps into a clearer",
+        "startMs": 436,
+        "endMs": 2036,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "picture of agriculture, people, and the",
+        "startMs": 2066,
+        "endMs": 4769,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "places that connect them.",
+        "startMs": 4799,
+        "endMs": 6533,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "access",
+    "startSeconds": 31,
+    "captions": [
+      {
+        "text": "Follow real roads.",
+        "startMs": 473,
+        "endMs": 1750,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Compare dry and rainy seasons.",
+        "startMs": 1955,
+        "endMs": 4630,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Understand what each location can reach.",
+        "startMs": 4872,
+        "endMs": 7673,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "energy",
+    "startSeconds": 41,
+    "captions": [
+      {
+        "text": "Open Energy.",
+        "startMs": 448,
+        "endMs": 1395,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "See mapped power lines, nearby infrastructure,",
+        "startMs": 1637,
+        "endMs": 4777,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and an indicative solar option.",
+        "startMs": 4823,
+        "endMs": 6652,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "A mapped line is a lead.",
+        "startMs": 6870,
+        "endMs": 8466,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Connection and capacity still need checking.",
+        "startMs": 8683,
+        "endMs": 11656,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "demand",
+    "startSeconds": 55,
+    "captions": [
+      {
+        "text": "Now explore the need.",
+        "startMs": 424,
+        "endMs": 1946,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "See estimated daily electricity demand, a",
+        "startMs": 2176,
+        "endMs": 4891,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "range of possibilities, and the assumptions",
+        "startMs": 4921,
+        "endMs": 7428,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "behind every number.",
+        "startMs": 7458,
+        "endMs": 9168,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "confidence",
+    "startSeconds": 68,
+    "captions": [
+      {
+        "text": "Challenge those assumptions across 300 scenarios.",
+        "startMs": 448,
+        "endMs": 3772,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "See which sites hold their place,",
+        "startMs": 4026,
+        "endMs": 5847,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and where the evidence needs work.",
+        "startMs": 5877,
+        "endMs": 7869,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "discover",
+    "startSeconds": 79,
+    "captions": [
+      {
+        "text": "Look beyond recorded locations.",
+        "startMs": 436,
+        "endMs": 2547,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Find predicted places worth investigating, with",
+        "startMs": 2899,
+        "endMs": 5541,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "the evidence behind each suggestion.",
+        "startMs": 5571,
+        "endMs": 8090,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "shortlist",
+    "startSeconds": 88,
+    "captions": [
+      {
+        "text": "Take the next step.",
+        "startMs": 436,
+        "endMs": 1591,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Export a ranked shortlist, the evidence,",
+        "startMs": 1796,
+        "endMs": 4360,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and the questions that turn screening",
+        "startMs": 4455,
+        "endMs": 6411,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "into investigation.",
+        "startMs": 6441,
+        "endMs": 7869,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "close",
+    "startSeconds": 97,
+    "captions": [
+      {
+        "text": "EnaGIS.",
+        "startMs": 3300,
+        "endMs": 4369,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Mapping Energy.",
+        "startMs": 4574,
+        "endMs": 5655,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Powering Agriculture.",
+        "startMs": 5860,
+        "endMs": 7460,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  }
+]

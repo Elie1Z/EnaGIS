@@ -1,0 +1,128 @@
+[
+  {
+    "text": "Take",
+    "startMs": 85.791,
+    "endMs": 343.124,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 355.375,
+    "endMs": 428.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "next",
+    "startMs": 428.916,
+    "endMs": 673.999,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "step",
+    "startMs": 674.0,
+    "endMs": 1090.666,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Export",
+    "startMs": 1446.083,
+    "endMs": 1936.291,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 1997.541,
+    "endMs": 2022.041,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ranked",
+    "startMs": 2034.333,
+    "endMs": 2377.458,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "shortlist",
+    "startMs": 2389.708,
+    "endMs": 3051.458,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 3235.291,
+    "endMs": 3296.582,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "evidence",
+    "startMs": 3308.833,
+    "endMs": 3860.291,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 4105.375,
+    "endMs": 4276.958,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 4289.208,
+    "endMs": 4350.499,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "questions",
+    "startMs": 4362.75,
+    "endMs": 4914.208,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "that",
+    "startMs": 4926.458,
+    "endMs": 5134.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "turn",
+    "startMs": 5147.041,
+    "endMs": 5465.666,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "screening",
+    "startMs": 5477.958,
+    "endMs": 6090.666,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "into",
+    "startMs": 6090.666,
+    "endMs": 6335.749,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "investigation",
+    "startMs": 6348.041,
+    "endMs": 7169.124,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

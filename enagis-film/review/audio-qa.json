@@ -1,0 +1,166 @@
+{
+  "duration": 110,
+  "sampleRate": 48000,
+  "voice": "Microsoft Mark, synthesized",
+  "music": "Original generated composition",
+  "mixPeakDb": -3.35,
+  "clippedSamples": 0,
+  "phrases": [
+    {
+      "id": "harvest-0",
+      "start": 0.2,
+      "duration": 2.048,
+      "peak": 0.67
+    },
+    {
+      "id": "harvest-1",
+      "start": 3.0,
+      "duration": 2.362,
+      "peak": 0.67
+    },
+    {
+      "id": "introduce-0",
+      "start": 6.1,
+      "duration": 3.077,
+      "peak": 0.67
+    },
+    {
+      "id": "introduce-1",
+      "start": 9.7,
+      "duration": 1.081,
+      "peak": 0.67
+    },
+    {
+      "id": "search-0",
+      "start": 12.4,
+      "duration": 1.484,
+      "peak": 0.67
+    },
+    {
+      "id": "search-1",
+      "start": 15.2,
+      "duration": 2.661,
+      "peak": 0.67
+    },
+    {
+      "id": "search-2",
+      "start": 18.3,
+      "duration": 3.499,
+      "peak": 0.67
+    },
+    {
+      "id": "evidence-0",
+      "start": 26.4,
+      "duration": 4.116,
+      "peak": 0.67
+    },
+    {
+      "id": "evidence-1",
+      "start": 30.8,
+      "duration": 1.772,
+      "peak": 0.67
+    },
+    {
+      "id": "evidence-2",
+      "start": 34.3,
+      "duration": 2.602,
+      "peak": 0.67
+    },
+    {
+      "id": "access-0",
+      "start": 38.4,
+      "duration": 1.244,
+      "peak": 0.67
+    },
+    {
+      "id": "access-1",
+      "start": 41.4,
+      "duration": 1.418,
+      "peak": 0.67
+    },
+    {
+      "id": "access-2",
+      "start": 44.6,
+      "duration": 2.979,
+      "peak": 0.67
+    },
+    {
+      "id": "demand-0",
+      "start": 50.4,
+      "duration": 1.611,
+      "peak": 0.67
+    },
+    {
+      "id": "demand-1",
+      "start": 54.1,
+      "duration": 2.192,
+      "peak": 0.67
+    },
+    {
+      "id": "demand-2",
+      "start": 58.2,
+      "duration": 1.386,
+      "peak": 0.67
+    },
+    {
+      "id": "demand-3",
+      "start": 62.1,
+      "duration": 2.196,
+      "peak": 0.67
+    },
+    {
+      "id": "uncertainty-0",
+      "start": 67.4,
+      "duration": 3.885,
+      "peak": 0.67
+    },
+    {
+      "id": "uncertainty-1",
+      "start": 72.2,
+      "duration": 1.806,
+      "peak": 0.67
+    },
+    {
+      "id": "uncertainty-2",
+      "start": 76.2,
+      "duration": 2.295,
+      "peak": 0.67
+    },
+    {
+      "id": "predictions-0",
+      "start": 81.4,
+      "duration": 2.478,
+      "peak": 0.67
+    },
+    {
+      "id": "predictions-1",
+      "start": 86.0,
+      "duration": 3.496,
+      "peak": 0.67
+    },
+    {
+      "id": "shortlist-0",
+      "start": 92.4,
+      "duration": 2.019,
+      "peak": 0.67
+    },
+    {
+      "id": "shortlist-1",
+      "start": 95.6,
+      "duration": 1.553,
+      "peak": 0.67
+    },
+    {
+      "id": "shortlist-2",
+      "start": 98.2,
+      "duration": 2.255,
+      "peak": 0.67
+    },
+    {
+      "id": "close-0",
+      "start": 102.2,
+      "duration": 3.752,
+      "peak": 0.67
+    }
+  ]
+}

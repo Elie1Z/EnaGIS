@@ -1,0 +1,114 @@
+[
+  {
+    "text": "Export",
+    "startMs": 100.0,
+    "endMs": 630.291,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 642.916,
+    "endMs": 718.666,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "shortlist",
+    "startMs": 731.333,
+    "endMs": 1463.666,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Save",
+    "startMs": 1830.291,
+    "endMs": 2297.457,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 2310.083,
+    "endMs": 2385.833,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "analysis",
+    "startMs": 2398.5,
+    "endMs": 3168.708,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Before",
+    "startMs": 3534.833,
+    "endMs": 3938.874,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "investing",
+    "startMs": 3951.5,
+    "endMs": 4620.708,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "check",
+    "startMs": 4885.875,
+    "endMs": 5125.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "crop",
+    "startMs": 5138.375,
+    "endMs": 5441.416,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "volumes",
+    "startMs": 5454.041,
+    "endMs": 6009.582,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "power",
+    "startMs": 6300.0,
+    "endMs": 6704.041,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "supply",
+    "startMs": 6716.666,
+    "endMs": 7246.957,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 7297.458,
+    "endMs": 7638.374,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "local",
+    "startMs": 7676.25,
+    "endMs": 8029.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "conditions",
+    "startMs": 8042.416,
+    "endMs": 8787.374,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

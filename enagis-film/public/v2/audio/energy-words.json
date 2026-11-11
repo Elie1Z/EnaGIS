@@ -1,0 +1,177 @@
+[
+  {
+    "text": "Open",
+    "startMs": 98.041,
+    "endMs": 379.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Energy",
+    "startMs": 392.166,
+    "endMs": 894.624,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "See",
+    "startMs": 1286.75,
+    "endMs": 1544.083,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "mapped",
+    "startMs": 1556.375,
+    "endMs": 1875.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "power",
+    "startMs": 1887.25,
+    "endMs": 2193.625,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "lines",
+    "startMs": 2205.875,
+    "endMs": 2696.083,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "nearby",
+    "startMs": 3088.25,
+    "endMs": 3455.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "infrastructure",
+    "startMs": 3468.125,
+    "endMs": 4276.958,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 4473.041,
+    "endMs": 4681.374,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "an",
+    "startMs": 4754.916,
+    "endMs": 4816.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "indicative",
+    "startMs": 4816.166,
+    "endMs": 5318.624,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "solar",
+    "startMs": 5330.875,
+    "endMs": 5686.25,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "option",
+    "startMs": 5698.541,
+    "endMs": 6151.957,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "A",
+    "startMs": 6519.625,
+    "endMs": 6568.625,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "mapped",
+    "startMs": 6580.875,
+    "endMs": 7022.041,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "line",
+    "startMs": 7022.041,
+    "endMs": 7352.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "is",
+    "startMs": 7365.208,
+    "endMs": 7463.249,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 7463.25,
+    "endMs": 7524.541,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "lead",
+    "startMs": 7536.75,
+    "endMs": 7965.666,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Connection",
+    "startMs": 8333.333,
+    "endMs": 8995.083,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 9007.333,
+    "endMs": 9227.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "capacity",
+    "startMs": 9240.208,
+    "endMs": 9926.499,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "still",
+    "startMs": 9938.708,
+    "endMs": 10257.333,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "need",
+    "startMs": 10269.625,
+    "endMs": 10441.208,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "checking",
+    "startMs": 10453.416,
+    "endMs": 10955.874,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

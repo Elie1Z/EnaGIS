@@ -1,0 +1,20 @@
+{
+  "updated": "2026-10-21",
+  "assets": {
+    "live/assets/brand/enagis-wordmark.png": "brand/enagis-wordmark.png",
+    "live/assets/brand/enagis-mark.png": "brand/enagis-mark.png",
+    "live/assets/inter.ttf": "brand/inter.ttf",
+    "live/assets/fraunces.ttf": "brand/fraunces.ttf",
+    "live/assets/OFL-Inter.txt": "brand/OFL-Inter.txt",
+    "live/assets/OFL-Fraunces.txt": "brand/OFL-Fraunces.txt",
+    "outputs/poster-professional/assets/agriculture-energy-panorama.png": "imagery/agriculture-energy-panorama.png"
+  },
+  "opening": "Approved generated editorial illustration, labelled Concept illustration; not a surveyed facility photograph.",
+  "mapFootage": "14 real 1920x1080 Satellite UI captures, edited with Remotion camera/cursor animation. Provenance and SHA-256 in src/capture-manifest.json.",
+  "captions": "26 phrase windows aligned to generated speech. Original text in speech-plan.json and scene JSX.",
+  "voiceover": "Microsoft Mark installed Windows voice, synthesized locally; not a human or cloned speaker.",
+  "music": "Original procedural instrumental composition from scripts/mix-audio.py; separate stem and combined mix retained.",
+  "effects": "Original synthesized click accents at editorial interaction points.",
+  "csv": "Actual app export in review/exported-shortlist.csv. Editorial excerpt in src/export-excerpt.json.",
+  "qr": "Not used in the film."
+}

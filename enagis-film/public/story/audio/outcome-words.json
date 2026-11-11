@@ -1,0 +1,79 @@
+[
+  {
+    "text": "A",
+    "startMs": 100.0,
+    "endMs": 285.625,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "clearer",
+    "startMs": 298.0,
+    "endMs": 706.416,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "shortlist",
+    "startMs": 718.791,
+    "endMs": 1448.999,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Reasons",
+    "startMs": 1807.416,
+    "endMs": 2290.082,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "you",
+    "startMs": 2302.458,
+    "endMs": 2389.083,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "can",
+    "startMs": 2401.5,
+    "endMs": 2512.875,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "inspect",
+    "startMs": 2525.25,
+    "endMs": 3156.458,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "A",
+    "startMs": 3515.333,
+    "endMs": 3676.208,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "practical",
+    "startMs": 3688.625,
+    "endMs": 4233.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "next",
+    "startMs": 4245.541,
+    "endMs": 4455.957,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "step",
+    "startMs": 4468.333,
+    "endMs": 4827.249,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

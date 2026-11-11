@@ -1,0 +1,135 @@
+[
+  {
+    "text": "Now",
+    "startMs": 73.541,
+    "endMs": 453.457,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "explore",
+    "startMs": 477.958,
+    "endMs": 943.624,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 955.875,
+    "endMs": 1017.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "need",
+    "startMs": 1029.416,
+    "endMs": 1446.082,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "See",
+    "startMs": 1826.0,
+    "endMs": 2083.333,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "estimated",
+    "startMs": 2095.583,
+    "endMs": 2696.083,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "daily",
+    "startMs": 2708.333,
+    "endMs": 3014.708,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "electricity",
+    "startMs": 3014.708,
+    "endMs": 3590.708,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "demand",
+    "startMs": 3602.958,
+    "endMs": 4105.416,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 4534.333,
+    "endMs": 4571.083,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "range",
+    "startMs": 4571.083,
+    "endMs": 4865.208,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "of",
+    "startMs": 4877.458,
+    "endMs": 4950.999,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "possibilities",
+    "startMs": 4963.25,
+    "endMs": 5784.333,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 6213.25,
+    "endMs": 6384.833,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 6397.041,
+    "endMs": 6458.332,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "assumptions",
+    "startMs": 6458.333,
+    "endMs": 7095.583,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "behind",
+    "startMs": 7107.833,
+    "endMs": 7696.083,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "every",
+    "startMs": 7806.375,
+    "endMs": 8063.708,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "number",
+    "startMs": 8063.708,
+    "endMs": 8468.124,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

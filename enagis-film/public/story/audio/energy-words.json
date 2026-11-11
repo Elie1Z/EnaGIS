@@ -1,0 +1,156 @@
+[
+  {
+    "text": "Energy",
+    "startMs": 100.0,
+    "endMs": 567.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "shows",
+    "startMs": 579.791,
+    "endMs": 908.082,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "mapped",
+    "startMs": 920.708,
+    "endMs": 1274.249,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "power",
+    "startMs": 1286.875,
+    "endMs": 1716.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "lines",
+    "startMs": 1728.791,
+    "endMs": 2145.457,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 2158.083,
+    "endMs": 2410.624,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 2423.25,
+    "endMs": 2486.375,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "possible",
+    "startMs": 2499.0,
+    "endMs": 3079.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "solar",
+    "startMs": 3092.416,
+    "endMs": 3433.332,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "option",
+    "startMs": 3445.958,
+    "endMs": 3963.624,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Nearby",
+    "startMs": 4330.291,
+    "endMs": 4784.832,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "power",
+    "startMs": 4797.458,
+    "endMs": 5264.624,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "does",
+    "startMs": 5277.291,
+    "endMs": 5479.291,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "not",
+    "startMs": 5491.916,
+    "endMs": 5719.207,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "confirm",
+    "startMs": 5731.833,
+    "endMs": 6186.374,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 6199.0,
+    "endMs": 6274.75,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "working",
+    "startMs": 6287.375,
+    "endMs": 6640.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "connection",
+    "startMs": 6653.541,
+    "endMs": 7284.874,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "That",
+    "startMs": 7651.0,
+    "endMs": 7954.041,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "still",
+    "startMs": 7966.666,
+    "endMs": 8231.832,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "needs",
+    "startMs": 8244.458,
+    "endMs": 8459.124,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "checking",
+    "startMs": 8471.708,
+    "endMs": 9001.999,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

@@ -1,0 +1,163 @@
+[
+  {
+    "text": "Open",
+    "startMs": 100.0,
+    "endMs": 425.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 437.5,
+    "endMs": 512.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "site",
+    "startMs": 525.0,
+    "endMs": 775.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "card",
+    "startMs": 787.5,
+    "endMs": 1162.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "This",
+    "startMs": 1525.0,
+    "endMs": 1762.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "example",
+    "startMs": 1775.0,
+    "endMs": 2312.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "estimates",
+    "startMs": 2337.5,
+    "endMs": 2775.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "electricity",
+    "startMs": 2787.5,
+    "endMs": 3500.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "needed",
+    "startMs": 3625.0,
+    "endMs": 3975.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "on",
+    "startMs": 3987.5,
+    "endMs": 4125.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 4137.5,
+    "endMs": 4200.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "busy",
+    "startMs": 4212.5,
+    "endMs": 4537.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "harvest",
+    "startMs": 4550.0,
+    "endMs": 5000.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "day",
+    "startMs": 5012.5,
+    "endMs": 5350.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "The",
+    "startMs": 5712.5,
+    "endMs": 5912.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "range",
+    "startMs": 5925.0,
+    "endMs": 6250.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "shows",
+    "startMs": 6262.5,
+    "endMs": 6575.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "how",
+    "startMs": 6587.5,
+    "endMs": 6762.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "much",
+    "startMs": 6775.0,
+    "endMs": 7000.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "that",
+    "startMs": 7012.5,
+    "endMs": 7200.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "estimate",
+    "startMs": 7262.5,
+    "endMs": 7700.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "could",
+    "startMs": 7712.5,
+    "endMs": 7875.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "change",
+    "startMs": 7887.5,
+    "endMs": 8475.0,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

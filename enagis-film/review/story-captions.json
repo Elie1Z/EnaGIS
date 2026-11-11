@@ -1,0 +1,448 @@
+[
+  {
+    "id": "decision",
+    "startSeconds": 0,
+    "captions": [
+      {
+        "text": "You're planning a cold store for potato",
+        "startMs": 350,
+        "endMs": 2194,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "growers.",
+        "startMs": 2219,
+        "endMs": 2954,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Where should you investigate first?",
+        "startMs": 3141,
+        "endMs": 5187,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "place",
+    "startSeconds": 7,
+    "captions": [
+      {
+        "text": "Search your area and choose cold storage.",
+        "startMs": 350,
+        "endMs": 2980,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Here, we open a saved analysis, so",
+        "startMs": 3162,
+        "endMs": 5613,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "every step follows the same example.",
+        "startMs": 5638,
+        "endMs": 8305,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "ranking",
+    "startSeconds": 18,
+    "captions": [
+      {
+        "text": "Where first gives you a shortlist.",
+        "startMs": 350,
+        "endMs": 2480,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Start with Kora Market, then ask why",
+        "startMs": 2662,
+        "endMs": 4950,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "it deserves attention.",
+        "startMs": 4975,
+        "endMs": 6530,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "harvest",
+    "startSeconds": 26,
+    "captions": [
+      {
+        "text": "Harvest shows where crops may come from.",
+        "startMs": 350,
+        "endMs": 2830,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "These are estimates, built from production statistics",
+        "startMs": 3012,
+        "endMs": 5837,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and mapped homes.",
+        "startMs": 5862,
+        "endMs": 7530,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "access",
+    "startSeconds": 34,
+    "captions": [
+      {
+        "text": "Access follows roads and paths, not straight",
+        "startMs": 350,
+        "endMs": 3275,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "lines.",
+        "startMs": 3300,
+        "endMs": 3992,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Switch seasons to see how rain changes",
+        "startMs": 4175,
+        "endMs": 6325,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "who can reach a site.",
+        "startMs": 6350,
+        "endMs": 7780,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "energy",
+    "startSeconds": 44,
+    "captions": [
+      {
+        "text": "Energy shows mapped power lines and a",
+        "startMs": 350,
+        "endMs": 2724,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "possible solar option.",
+        "startMs": 2749,
+        "endMs": 4394,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Nearby power does not confirm a working",
+        "startMs": 4580,
+        "endMs": 6879,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "connection.",
+        "startMs": 6904,
+        "endMs": 7715,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "That still needs checking.",
+        "startMs": 7901,
+        "endMs": 9682,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "demand",
+    "startSeconds": 56,
+    "captions": [
+      {
+        "text": "Open the site card.",
+        "startMs": 350,
+        "endMs": 1592,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "This example estimates electricity needed on a",
+        "startMs": 1775,
+        "endMs": 4437,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "busy harvest day.",
+        "startMs": 4462,
+        "endMs": 5780,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "The range shows how much that estimate",
+        "startMs": 5962,
+        "endMs": 7937,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "could change.",
+        "startMs": 7962,
+        "endMs": 9155,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "confidence",
+    "startSeconds": 67,
+    "captions": [
+      {
+        "text": "How sure repeats the comparison with 300",
+        "startMs": 350,
+        "endMs": 3125,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "sets of assumptions.",
+        "startMs": 3150,
+        "endMs": 4455,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "See which sites stay near the top,",
+        "startMs": 4638,
+        "endMs": 6642,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and which need closer attention.",
+        "startMs": 6725,
+        "endMs": 8905,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "discover",
+    "startSeconds": 78,
+    "captions": [
+      {
+        "text": "Likely sites finds places resembling known facilities.",
+        "startMs": 300,
+        "endMs": 3768,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "These are leads to check, not confirmed",
+        "startMs": 3950,
+        "endMs": 5875,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "businesses.",
+        "startMs": 5900,
+        "endMs": 6950,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "evidence",
+    "startSeconds": 85,
+    "captions": [
+      {
+        "text": "Map data reveals gaps.",
+        "startMs": 350,
+        "endMs": 2070,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Sources shows where information came from.",
+        "startMs": 2257,
+        "endMs": 4685,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Unknown does not mean nothing is there.",
+        "startMs": 4871,
+        "endMs": 7308,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "export",
+    "startSeconds": 94,
+    "captions": [
+      {
+        "text": "Export the shortlist.",
+        "startMs": 350,
+        "endMs": 1894,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Save the analysis.",
+        "startMs": 2080,
+        "endMs": 3599,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Before investing, check crop volumes, power supply,",
+        "startMs": 3785,
+        "endMs": 7522,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and local conditions.",
+        "startMs": 7547,
+        "endMs": 9467,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "outcome",
+    "startSeconds": 104,
+    "captions": [
+      {
+        "text": "A clearer shortlist.",
+        "startMs": 350,
+        "endMs": 1879,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Reasons you can inspect.",
+        "startMs": 2057,
+        "endMs": 3586,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "A practical next step.",
+        "startMs": 3765,
+        "endMs": 5507,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "outro",
+    "startSeconds": 110,
+    "captions": [
+      {
+        "text": "EnaGIS.",
+        "startMs": 3300,
+        "endMs": 4399,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Mapping Energy.",
+        "startMs": 4574,
+        "endMs": 5685,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Powering Agriculture.",
+        "startMs": 5860,
+        "endMs": 7540,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  }
+]

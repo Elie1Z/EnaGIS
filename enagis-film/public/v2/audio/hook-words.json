@@ -1,0 +1,72 @@
+[
+  {
+    "text": "Every",
+    "startMs": 85.791,
+    "endMs": 367.666,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "harvest",
+    "startMs": 379.916,
+    "endMs": 882.374,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "has",
+    "startMs": 894.625,
+    "endMs": 1078.458,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "potential",
+    "startMs": 1090.666,
+    "endMs": 1727.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Energy",
+    "startMs": 2120.083,
+    "endMs": 2548.999,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "helps",
+    "startMs": 2561.291,
+    "endMs": 2843.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "unlock",
+    "startMs": 2904.416,
+    "endMs": 3443.624,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "what",
+    "startMs": 3455.875,
+    "endMs": 3566.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "comes",
+    "startMs": 3578.416,
+    "endMs": 3860.291,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "next",
+    "startMs": 3872.541,
+    "endMs": 4362.749,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

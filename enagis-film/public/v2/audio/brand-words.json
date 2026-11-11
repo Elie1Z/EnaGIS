@@ -1,0 +1,44 @@
+[
+  {
+    "text": "Meet",
+    "startMs": 100.0,
+    "endMs": 406.375,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "EnaGIS",
+    "startMs": 504.416,
+    "endMs": 1362.249,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Mapping",
+    "startMs": 1716.666,
+    "endMs": 2157.832,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Energy",
+    "startMs": 2170.083,
+    "endMs": 2648.041,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Powering",
+    "startMs": 3003.416,
+    "endMs": 3481.374,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Agriculture",
+    "startMs": 3493.625,
+    "endMs": 4253.416,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

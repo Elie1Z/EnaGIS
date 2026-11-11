@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-21",
+  "status": "passed",
+  "durationSeconds": 110,
+  "frames": 3300,
+  "fps": 30,
+  "captureCount": 14,
+  "captureHashes": "passed",
+  "satelliteShots": 7,
+  "narrationPhrases": 26,
+  "captionFit": "passed",
+  "audio": {
+    "narration.wav": {
+      "seconds": 110.0,
+      "sampleRate": 48000,
+      "channels": 1
+    },
+    "original-score.wav": {
+      "seconds": 110.0,
+      "sampleRate": 48000,
+      "channels": 2
+    },
+    "interaction-sound.wav": {
+      "seconds": 110.0,
+      "sampleRate": 48000,
+      "channels": 2
+    },
+    "preview-mix.wav": {
+      "seconds": 110.0,
+      "sampleRate": 48000,
+      "channels": 2
+    }
+  },
+  "zeroClipping": true,
+  "qrInCompositions": false,
+  "typescriptAndEslint": "passed (npm run lint, final preload revision)",
+  "studioPlayback": {
+    "completedLoop": true,
+    "observedPlaybackFps": 30.2,
+    "muted": false,
+    "errorOverlay": null
+  },
+  "stillRender": {
+    "frame": 1700,
+    "resolution": "1920x1080",
+    "status": "passed"
+  },
+  "delivery": "Editable Remotion project and interactive preview; no MP4 render"
+}

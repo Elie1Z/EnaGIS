@@ -1,0 +1,212 @@
+[
+  {
+    "id": "search",
+    "startSeconds": 12,
+    "captions": [
+      {
+        "text": "Start with a place.",
+        "startMs": 400,
+        "endMs": 3000,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Search the map, then choose what you want to study:",
+        "startMs": 3200,
+        "endMs": 6100,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "cooling, storage, milling, or drying.",
+        "startMs": 6300,
+        "endMs": 12700,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "evidence",
+    "startSeconds": 26,
+    "captions": [
+      {
+        "text": "EnaGIS brings open maps and agricultural evidence together,",
+        "startMs": 400,
+        "endMs": 4600,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "revealing mapped activity",
+        "startMs": 4800,
+        "endMs": 8100,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and the areas each candidate can reach.",
+        "startMs": 8300,
+        "endMs": 11600,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "access",
+    "startSeconds": 38,
+    "captions": [
+      {
+        "text": "Follow the roads.",
+        "startMs": 400,
+        "endMs": 3200,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "Compare the seasons.",
+        "startMs": 3400,
+        "endMs": 6400,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "See how access changes when conditions do.",
+        "startMs": 6600,
+        "endMs": 11400,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "demand",
+    "startSeconds": 50,
+    "captions": [
+      {
+        "text": "Open a promising site.",
+        "startMs": 400,
+        "endMs": 3900,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "See estimated energy demand",
+        "startMs": 4100,
+        "endMs": 8000,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "with a range around it,",
+        "startMs": 8200,
+        "endMs": 11900,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and the assumptions behind the number.",
+        "startMs": 12100,
+        "endMs": 16400,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "uncertainty",
+    "startSeconds": 67,
+    "captions": [
+      {
+        "text": "Stress-test the assumptions across 300 scenarios.",
+        "startMs": 400,
+        "endMs": 5000,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "See what stays near the top,",
+        "startMs": 5200,
+        "endMs": 9000,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and where information is still missing.",
+        "startMs": 9200,
+        "endMs": 13400,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "predictions",
+    "startSeconds": 81,
+    "captions": [
+      {
+        "text": "Explore predicted places to check,",
+        "startMs": 400,
+        "endMs": 4800,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "alongside the locations already recorded on the map.",
+        "startMs": 5000,
+        "endMs": 10400,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  },
+  {
+    "id": "shortlist",
+    "startSeconds": 92,
+    "captions": [
+      {
+        "text": "Export a ranked shortlist,",
+        "startMs": 400,
+        "endMs": 3400,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "the supporting evidence,",
+        "startMs": 3600,
+        "endMs": 6000,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      },
+      {
+        "text": "and the question to ask at each site.",
+        "startMs": 6200,
+        "endMs": 9400,
+        "timestampMs": null,
+        "confidence": null,
+        "pageBreakAfter": true
+      }
+    ]
+  }
+]

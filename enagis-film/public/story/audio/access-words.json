@@ -1,0 +1,142 @@
+[
+  {
+    "text": "Access",
+    "startMs": 100.0,
+    "endMs": 612.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "follows",
+    "startMs": 625.0,
+    "endMs": 1025.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "roads",
+    "startMs": 1037.5,
+    "endMs": 1475.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 1487.5,
+    "endMs": 1650.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "paths",
+    "startMs": 1662.5,
+    "endMs": 2200.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "not",
+    "startMs": 2450.0,
+    "endMs": 2725.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "straight",
+    "startMs": 2737.5,
+    "endMs": 3037.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "lines",
+    "startMs": 3050.0,
+    "endMs": 3562.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Switch",
+    "startMs": 3925.0,
+    "endMs": 4350.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "seasons",
+    "startMs": 4362.5,
+    "endMs": 4787.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "to",
+    "startMs": 4800.0,
+    "endMs": 4875.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "see",
+    "startMs": 4887.5,
+    "endMs": 5112.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "how",
+    "startMs": 5125.0,
+    "endMs": 5337.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "rain",
+    "startMs": 5350.0,
+    "endMs": 5600.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "changes",
+    "startMs": 5612.5,
+    "endMs": 6087.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "who",
+    "startMs": 6100.0,
+    "endMs": 6250.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "can",
+    "startMs": 6262.5,
+    "endMs": 6412.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "reach",
+    "startMs": 6425.0,
+    "endMs": 6600.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 6612.5,
+    "endMs": 6662.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "site",
+    "startMs": 6675.0,
+    "endMs": 7100.0,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

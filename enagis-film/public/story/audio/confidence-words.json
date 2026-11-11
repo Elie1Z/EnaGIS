@@ -1,0 +1,156 @@
+[
+  {
+    "text": "How",
+    "startMs": 100.0,
+    "endMs": 337.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "sure",
+    "startMs": 350.0,
+    "endMs": 637.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "repeats",
+    "startMs": 650.0,
+    "endMs": 1037.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 1050.0,
+    "endMs": 1137.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "comparison",
+    "startMs": 1150.0,
+    "endMs": 1887.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "with",
+    "startMs": 1900.0,
+    "endMs": 2112.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "300",
+    "startMs": 2162.5,
+    "endMs": 2887.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "sets",
+    "startMs": 2900.0,
+    "endMs": 3175.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "of",
+    "startMs": 3187.5,
+    "endMs": 3250.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "assumptions",
+    "startMs": 3262.5,
+    "endMs": 4025.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "See",
+    "startMs": 4387.5,
+    "endMs": 4675.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "which",
+    "startMs": 4687.5,
+    "endMs": 4912.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "sites",
+    "startMs": 4925.0,
+    "endMs": 5325.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "stay",
+    "startMs": 5337.5,
+    "endMs": 5562.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "near",
+    "startMs": 5575.0,
+    "endMs": 5737.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 5750.0,
+    "endMs": 5825.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "top",
+    "startMs": 5837.5,
+    "endMs": 6212.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 6475.0,
+    "endMs": 6650.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "which",
+    "startMs": 6662.5,
+    "endMs": 6862.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "need",
+    "startMs": 6875.0,
+    "endMs": 7162.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "closer",
+    "startMs": 7175.0,
+    "endMs": 7575.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "attention",
+    "startMs": 7587.5,
+    "endMs": 8225.0,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

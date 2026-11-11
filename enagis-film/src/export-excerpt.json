@@ -1,0 +1,30 @@
+{
+  "totalRows": 620,
+  "dryRows": 310,
+  "rows": [
+    {
+      "rank": 1,
+      "name": "Kora Market",
+      "central": 142,
+      "low": 56,
+      "high": 388,
+      "question": "How many tonnes of potatoes arrive here in the busiest harvest month, and how long are they kept?"
+    },
+    {
+      "rank": 2,
+      "name": "Jenda Centre",
+      "central": 34,
+      "low": 13,
+      "high": 91,
+      "question": "How many tonnes of potatoes arrive here in the busiest harvest month, and how long are they kept?"
+    },
+    {
+      "rank": 3,
+      "name": "Nyabihu",
+      "central": 20,
+      "low": 7,
+      "high": 57,
+      "question": "Is there a place in Nyabihu where farmers bring irish potato today? Who runs it?"
+    }
+  ]
+}

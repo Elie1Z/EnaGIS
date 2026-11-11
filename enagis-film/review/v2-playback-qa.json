@@ -1,0 +1,15 @@
+{
+  "reviewedOn": "2026-10-21",
+  "composition": "EnaGIS-Commercial-V2",
+  "completedLoop": true,
+  "durationInFrames": 3210,
+  "revision": "English-only motto, synchronized purpose motion, creator outro",
+  "observedFramesInOrder": [93, 231, 2455, 756],
+  "playing": true,
+  "muted": false,
+  "volume": 1,
+  "playbackRate": 1,
+  "looping": true,
+  "errorOverlay": null,
+  "reviewMethod": "Remotion Studio WebMCP state and browser screenshot; actual Play button unlocked playback. A lower frame following frame 2455 confirms the full 3210-frame loop completed. Outro decode was also checked in a rendered composition still."
+}

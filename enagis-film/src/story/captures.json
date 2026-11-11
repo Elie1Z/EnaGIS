@@ -1,0 +1,554 @@
+{
+  "captureMethod": "Actual app screenshots edited into a guided user story; measured controls; editorial camera and cursor",
+  "source": "http://127.0.0.1:8765/",
+  "basemap": "Satellite",
+  "savedAnalysisDate": "2026-10-10",
+  "case": "Nyabihu District, potato cold storage",
+  "files": {
+    "access-dry": {
+      "src": "story/footage/access-dry.png",
+      "sha256": "beedcf25ef68f1f063cabda450998b346f88d1daecc0ff1d99529279eb5eb27a",
+      "width": 1280,
+      "height": 672
+    },
+    "access-rain": {
+      "src": "story/footage/access-rain.png",
+      "sha256": "c2b947a0a68a4ecaaca4e31cce50166d72d28c9f60107a011a19456202cfe3cc",
+      "width": 1280,
+      "height": 672
+    },
+    "assumptions": {
+      "src": "story/footage/assumptions.png",
+      "sha256": "f1d7add7ff261527b5415ed1b97f5d6480fb27f1d85325fb1e92eecca44390ee",
+      "width": 1280,
+      "height": 672
+    },
+    "case-open": {
+      "src": "story/footage/case-open.png",
+      "sha256": "f7ae31bdf3d22f61e634a60c6dcaf1ae6726384ebe6b362192fa2a8efe1fa7be",
+      "width": 1280,
+      "height": 672
+    },
+    "confidence": {
+      "src": "story/footage/confidence.png",
+      "sha256": "ffc5458284322081197db705bfcb38ace5e613c2be71805fa7aa02723e47429d",
+      "width": 1280,
+      "height": 672
+    },
+    "coverage": {
+      "src": "story/footage/coverage.png",
+      "sha256": "c76cfdab74d092aa7555ae0cb7198508a6b7c189cd445ab06cef73db565d7410",
+      "width": 1280,
+      "height": 672
+    },
+    "demand": {
+      "src": "story/footage/demand.png",
+      "sha256": "ea7c159c0c69df893d85ad571c2ea2ce54dd2ad127b6b60e4f0d385f5e655988",
+      "width": 1280,
+      "height": 672
+    },
+    "discover-card": {
+      "src": "story/footage/discover-card.png",
+      "sha256": "e5d7f9478fb580ecf4d6fdaf5106d259b0b429ab040d6c79d78fca1bfbc569af",
+      "width": 1280,
+      "height": 672
+    },
+    "discover-list": {
+      "src": "story/footage/discover-list.png",
+      "sha256": "0c4c22aef01cdbebb13fd3203063a091ab208b5ae60ee187095ee6c71f581535",
+      "width": 1280,
+      "height": 672
+    },
+    "discover": {
+      "src": "story/footage/discover.png",
+      "sha256": "b4746afd0fdd0191a53f9ba8d79c1426ec9231e9d9c6d3d793b68a227d67f90a",
+      "width": 1280,
+      "height": 672
+    },
+    "energy-card": {
+      "src": "story/footage/energy-card.png",
+      "sha256": "22e238f44e2680f43a9b3be00aeffe0fbd72eda0b03b1ab26610a7760417f7a9",
+      "width": 1280,
+      "height": 672
+    },
+    "energy-list": {
+      "src": "story/footage/energy-list.png",
+      "sha256": "13ee59111a0ffc19a9f333565aa064200a3ed3164af2f29b65b958987ae2673e",
+      "width": 1280,
+      "height": 672
+    },
+    "energy-options": {
+      "src": "story/footage/energy-options.png",
+      "sha256": "5e17530ce97dd94896ff10ebdbdd3c5a854eb80ef8831fd913457a988cf28e7f",
+      "width": 1280,
+      "height": 672
+    },
+    "energy": {
+      "src": "story/footage/energy.png",
+      "sha256": "ae9a41e9c7d90054995c569e98ff18d7a08bc196bb9158104e7d6b447a460fdc",
+      "width": 1280,
+      "height": 672
+    },
+    "export-ready": {
+      "src": "story/footage/export-ready.png",
+      "sha256": "1c77e159184dde2e73825ba07b3459a4167ad5eef74b115dfa9a658eb65d080f",
+      "width": 1280,
+      "height": 672
+    },
+    "harvest": {
+      "src": "story/footage/harvest.png",
+      "sha256": "c311be0791e99485749cbcb6ee96e378c8f96dda854994667f20edfababb323f",
+      "width": 1280,
+      "height": 672
+    },
+    "place": {
+      "src": "story/footage/place.png",
+      "sha256": "b41acfa80aa843cc6590a06fe3f19cc05c5e568a91a4404704deeb73bd7bbd8b",
+      "width": 1280,
+      "height": 672
+    },
+    "ranking-list": {
+      "src": "story/footage/ranking-list.png",
+      "sha256": "a286ae36a6ad1dd776ee14a17983de8d7980ff39647de04338e46ea51c682144",
+      "width": 1280,
+      "height": 672
+    },
+    "ranking": {
+      "src": "story/footage/ranking.png",
+      "sha256": "b61eea6dfb6ea6aa27a61a7345bdb5082a8e3c1edd7503465486ace8ee00b5af",
+      "width": 1280,
+      "height": 672
+    },
+    "sources": {
+      "src": "story/footage/sources.png",
+      "sha256": "4947c6237475a4d90e5849d907eaf7180f0b407acbdfd2b265a666424b3714f1",
+      "width": 1280,
+      "height": 672
+    },
+    "start": {
+      "src": "story/footage/start.png",
+      "sha256": "098e0537dc398344368de7378654ce201986317b3b82f97b92a63bfcab1bdb02",
+      "width": 1280,
+      "height": 672
+    },
+    "verification": {
+      "src": "story/footage/verification.png",
+      "sha256": "52f93a1a1b19c3f0f2bbcbf20a5016650c2b0bd02adfa511daddbe0cb97eea08",
+      "width": 1280,
+      "height": 672
+    }
+  },
+  "shots": {
+    "place": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "start"
+        },
+        {
+          "seconds": 1.28,
+          "image": "place"
+        },
+        {
+          "seconds": 5.08,
+          "image": "case-open"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.1,
+          "x": 364.026,
+          "y": 34,
+          "rect": {
+            "x": 219.979,
+            "y": 22.854,
+            "w": 288.094,
+            "h": 22.292
+          },
+          "label": "Search the area"
+        },
+        {
+          "seconds": 4.9,
+          "x": 266.333,
+          "y": 287.854,
+          "rect": {
+            "x": 136.667,
+            "y": 260.896,
+            "w": 259.333,
+            "h": 53.917
+          },
+          "label": "Open the saved case"
+        }
+      ],
+      "camera": "place"
+    },
+    "ranking": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "ranking"
+        },
+        {
+          "seconds": 2.9,
+          "image": "ranking-list"
+        },
+        {
+          "seconds": 4.48,
+          "image": "demand"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 4.3,
+          "x": 266.3333435058594,
+          "y": 339.76564598083496,
+          "rect": {
+            "x": 122.66667175292967,
+            "y": 311.16668701171875,
+            "w": 287.3333435058594,
+            "h": 57.19791793823242
+          },
+          "label": "site"
+        }
+      ],
+      "camera": "site"
+    },
+    "harvest": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "ranking"
+        },
+        {
+          "seconds": 1.48,
+          "image": "harvest"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.3,
+          "x": 43.66666793823242,
+          "y": 191.6666717529297,
+          "rect": {
+            "x": 8,
+            "y": 156.6666717529297,
+            "w": 71.33333587646484,
+            "h": 70
+          },
+          "label": "harvest"
+        }
+      ],
+      "camera": "full"
+    },
+    "access": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "harvest"
+        },
+        {
+          "seconds": 1.38,
+          "image": "access-dry"
+        },
+        {
+          "seconds": 4.48,
+          "image": "access-rain"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.2,
+          "x": 43.66666793823242,
+          "y": 343.66668701171875,
+          "rect": {
+            "x": 8,
+            "y": 308.66668701171875,
+            "w": 71.33333587646484,
+            "h": 70
+          },
+          "label": "access"
+        },
+        {
+          "seconds": 4.3,
+          "x": 1022.0625,
+          "y": 34,
+          "rect": {
+            "x": 966.3125,
+            "y": 15,
+            "w": 111.5,
+            "h": 38
+          },
+          "label": "rain"
+        }
+      ],
+      "camera": "full"
+    },
+    "energy": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "access-dry"
+        },
+        {
+          "seconds": 1.38,
+          "image": "energy"
+        },
+        {
+          "seconds": 4.0,
+          "image": "energy-list"
+        },
+        {
+          "seconds": 5.38,
+          "image": "energy-card"
+        },
+        {
+          "seconds": 8.0,
+          "image": "energy-options"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.2,
+          "x": 43.66666793823242,
+          "y": 267.6666717529297,
+          "rect": {
+            "x": 8,
+            "y": 232.6666717529297,
+            "w": 71.33333587646484,
+            "h": 70
+          },
+          "label": "energy"
+        },
+        {
+          "seconds": 5.2,
+          "x": 266.3333435058594,
+          "y": 339.7239589691162,
+          "rect": {
+            "x": 122.66667175292967,
+            "y": 311.125,
+            "w": 287.3333435058594,
+            "h": 57.19791793823242
+          },
+          "label": "solar"
+        }
+      ],
+      "camera": "energy"
+    },
+    "demand": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "ranking-list"
+        },
+        {
+          "seconds": 1.38,
+          "image": "demand"
+        },
+        {
+          "seconds": 7.98,
+          "image": "assumptions"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.2,
+          "x": 266.3333435058594,
+          "y": 339.76564598083496,
+          "rect": {
+            "x": 122.66667175292967,
+            "y": 311.16668701171875,
+            "w": 287.3333435058594,
+            "h": 57.19791793823242
+          },
+          "label": "site"
+        },
+        {
+          "seconds": 7.8,
+          "x": 970.109395980835,
+          "y": 337.1770839691162,
+          "rect": {
+            "x": 942.6666870117188,
+            "y": 316.84375,
+            "w": 54.88541793823242,
+            "h": 40.66666793823242
+          },
+          "label": "trace"
+        }
+      ],
+      "camera": "demand"
+    },
+    "confidence": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "ranking"
+        },
+        {
+          "seconds": 1.38,
+          "image": "confidence"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.2,
+          "x": 43.66666793823242,
+          "y": 495.6666870117187,
+          "rect": {
+            "x": 8,
+            "y": 460.6666870117187,
+            "w": 71.33333587646484,
+            "h": 70
+          },
+          "label": "sure"
+        }
+      ],
+      "camera": "full"
+    },
+    "discover": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "confidence"
+        },
+        {
+          "seconds": 1.28,
+          "image": "discover"
+        },
+        {
+          "seconds": 2.8,
+          "image": "discover-list"
+        },
+        {
+          "seconds": 4.28,
+          "image": "discover-card"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.1,
+          "x": 43.66666793823242,
+          "y": 571.6666870117188,
+          "rect": {
+            "x": 8,
+            "y": 536.6666870117188,
+            "w": 71.33333587646484,
+            "h": 70
+          },
+          "label": "likely"
+        },
+        {
+          "seconds": 4.1,
+          "x": 266.3333435058594,
+          "y": 339.73439598083496,
+          "rect": {
+            "x": 122.66667175292967,
+            "y": 311.13543701171875,
+            "w": 287.3333435058594,
+            "h": 57.19791793823242
+          },
+          "label": "predicted"
+        }
+      ],
+      "camera": "discover"
+    },
+    "evidence": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "discover"
+        },
+        {
+          "seconds": 1.38,
+          "image": "coverage"
+        },
+        {
+          "seconds": 3.48,
+          "image": "sources"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.2,
+          "x": 43.66666793823242,
+          "y": 419.6666870117187,
+          "rect": {
+            "x": 8,
+            "y": 384.6666870117187,
+            "w": 71.33333587646484,
+            "h": 70
+          },
+          "label": "coverage"
+        },
+        {
+          "seconds": 3.3,
+          "x": 237.1354179382324,
+          "y": 551.3333740234375,
+          "rect": {
+            "x": 202.25,
+            "y": 533.3333740234375,
+            "w": 69.77083587646484,
+            "h": 36
+          },
+          "label": "sources"
+        }
+      ],
+      "camera": "full"
+    },
+    "export": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "export-ready"
+        },
+        {
+          "seconds": 5.68,
+          "image": "verification"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.1,
+          "x": 351.3489799499512,
+          "y": 509.3333435058594,
+          "rect": {
+            "x": 327.79168701171875,
+            "y": 491.3333435058594,
+            "w": 47.11458587646485,
+            "h": 36
+          },
+          "label": "csv"
+        },
+        {
+          "seconds": 3.2,
+          "x": 271.1041717529297,
+          "y": 509.3333435058594,
+          "rect": {
+            "x": 220.4166717529297,
+            "y": 491.3333435058594,
+            "w": 101.375,
+            "h": 36
+          },
+          "label": "save"
+        },
+        {
+          "seconds": 5.5,
+          "x": 355.2239685058594,
+          "y": 593.3333740234375,
+          "rect": {
+            "x": 311.0208435058594,
+            "y": 575.3333740234375,
+            "w": 88.40625,
+            "h": 36
+          },
+          "label": "verify"
+        }
+      ],
+      "camera": "full"
+    }
+  },
+  "downloadsConfirmed": [
+    "enagis-nyabihu-district-potato_storage (3).csv",
+    "enagis-nyabihu-district-data (2).json"
+  ],
+  "fieldVerification": "Not completed; UI shows zero reviews, calls and visits. No records invented."
+}

@@ -1,0 +1,395 @@
+{
+  "version": 2,
+  "captureMethod": "Real app screenshots; measured UI targets; editorial camera/cursor motion",
+  "basemap": "Satellite",
+  "savedCaseDate": "2026-10-10",
+  "source": "http://127.0.0.1:8765/",
+  "files": {
+    "access-dry": {
+      "src": "v2/footage/access-dry.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "aa375e29bf2a03de1b46205677cad73c43cd307db09adb64922912785b6c6d17"
+    },
+    "access-rain": {
+      "src": "v2/footage/access-rain.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "ff55f1803eae901c43eea0be823c7a808981cfd0f8870047482df7242a99ccc9"
+    },
+    "assumptions": {
+      "src": "v2/footage/assumptions.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "5c1bff56899d7cd029ae1ea7e68092fa4891a3dc05076e75f376e69fa8b5ad1d"
+    },
+    "confidence": {
+      "src": "v2/footage/confidence.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "5214a10511962fa1326cd3eb7b469428600b6600ab3b83289acfec405d344348"
+    },
+    "coverage": {
+      "src": "v2/footage/coverage.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "1210a8ef59b8eb91666e06331276ce0196429d6766e6c8b91259329088a45f98"
+    },
+    "demand": {
+      "src": "v2/footage/demand.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "04e8e85b929ff4f788099f55f1e46b54ec8b96a4e461632d7ab3f68bd46f0f48"
+    },
+    "discover-card": {
+      "src": "v2/footage/discover-card.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "9a7c1fb9ad5fd8a0138d37b9ef3c1b372bd85ffe0693136ec69e097df886725d"
+    },
+    "discover-list": {
+      "src": "v2/footage/discover-list.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "c59d16a224bf72aa4e5f254b8681654b38e9d7be1323ee79b0ac465154541bdd"
+    },
+    "discover": {
+      "src": "v2/footage/discover.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "9be0e48a894f6466e4773a8b1d917270405f789df7182492bf674940de86de8f"
+    },
+    "energy-card": {
+      "src": "v2/footage/energy-card.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "2f56d082b900a5d387eeeb9f2c1f324b82ab8ac745fbfb6a937fc96ee9ccfa75"
+    },
+    "energy-options": {
+      "src": "v2/footage/energy-options.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "907c61e0809b4f2e11eed68e6e541e34f2dbcb60c852981819bbbc442d410d52"
+    },
+    "energy-solar-list": {
+      "src": "v2/footage/energy-solar-list.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "fe15acddc9a7a386f479d88fa6d4ddc78ef86331fb5f20b606a0b637fa622c11"
+    },
+    "energy": {
+      "src": "v2/footage/energy.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "56d82002d3e50967d4bc2b87e3fc4ce3f70b6aeecc8c92eb5174b59e9f9d4def"
+    },
+    "harvest": {
+      "src": "v2/footage/harvest.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "500c1264833bb3892ffff419863d51699058ddba551f48fcdbe2fa061d39ce4e"
+    },
+    "ranking": {
+      "src": "v2/footage/ranking.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "c07c4c6fcfd9955821eccad75b990139f1a57bf79079da4c18c593e312237114"
+    },
+    "search-empty": {
+      "src": "v2/footage/search-empty.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "7fb97f90a54124579daa646a8ea0c1473a208aa13ed0fee8c17b1b21524cc9d2"
+    },
+    "search-filled": {
+      "src": "v2/footage/search-filled.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "b41acfa80aa843cc6590a06fe3f19cc05c5e568a91a4404704deeb73bd7bbd8b"
+    },
+    "search-menu": {
+      "src": "v2/footage/search-menu.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "9377388cfec918cee344d4bbe037505a98a94011c7655c2f6f90ed55386143fe"
+    },
+    "search-milling": {
+      "src": "v2/footage/search-milling.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "fe9f84c95eb619617387a587bc08744c7cb6f7c4c43106053e41f7df6289f7a6"
+    },
+    "shortlist": {
+      "src": "v2/footage/shortlist.png",
+      "width": 1280,
+      "height": 672,
+      "sha256": "d5166625e481ee36c8d7cd6db4b1297776babedc63d11eee22a8b8b945a1cd9b"
+    }
+  },
+  "shots": {
+    "search": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "search-empty"
+        },
+        {
+          "seconds": 2.15,
+          "image": "search-filled"
+        },
+        {
+          "seconds": 6.65,
+          "image": "search-milling"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.95,
+          "x": 364,
+          "y": 34,
+          "rect": {
+            "x": 220.0,
+            "y": 19.0,
+            "w": 288,
+            "h": 30
+          },
+          "label": "Choose a place"
+        },
+        {
+          "seconds": 6.45,
+          "x": 636.74,
+          "y": 34,
+          "rect": {
+            "x": 528.74,
+            "y": 12.0,
+            "w": 216,
+            "h": 44
+          },
+          "label": "Choose a purpose"
+        }
+      ]
+    },
+    "evidence": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "harvest"
+        },
+        {
+          "seconds": 2.15,
+          "image": "coverage"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.95,
+          "x": 43.67,
+          "y": 419.67,
+          "rect": {
+            "x": 8.005000000000003,
+            "y": 384.67,
+            "w": 71.33,
+            "h": 70
+          },
+          "label": "Map data"
+        }
+      ]
+    },
+    "access": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "access-dry"
+        },
+        {
+          "seconds": 2.6500000000000004,
+          "image": "access-rain"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 2.45,
+          "x": 1022.06,
+          "y": 34,
+          "rect": {
+            "x": 966.31,
+            "y": 15.0,
+            "w": 111.5,
+            "h": 38
+          },
+          "label": "Rainy season"
+        }
+      ]
+    },
+    "energy": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "access-dry"
+        },
+        {
+          "seconds": 2.15,
+          "image": "energy"
+        },
+        {
+          "seconds": 6.45,
+          "image": "energy-solar-list"
+        },
+        {
+          "seconds": 8.15,
+          "image": "energy-card"
+        },
+        {
+          "seconds": 10,
+          "image": "energy-options"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.95,
+          "x": 43.67,
+          "y": 267.67,
+          "rect": {
+            "x": 8.005000000000003,
+            "y": 232.67000000000002,
+            "w": 71.33,
+            "h": 70
+          },
+          "label": "Energy"
+        },
+        {
+          "seconds": 7.95,
+          "x": 266.33,
+          "y": 339.72,
+          "rect": {
+            "x": 122.66499999999999,
+            "y": 311.12,
+            "w": 287.33,
+            "h": 57.2
+          },
+          "label": "Solar option"
+        }
+      ]
+    },
+    "demand": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "ranking"
+        },
+        {
+          "seconds": 2.15,
+          "image": "demand"
+        },
+        {
+          "seconds": 9.15,
+          "image": "assumptions"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.95,
+          "x": 266.33,
+          "y": 339.77,
+          "rect": {
+            "x": 122.66499999999999,
+            "y": 311.16999999999996,
+            "w": 287.33,
+            "h": 57.2
+          },
+          "label": "Open the site"
+        },
+        {
+          "seconds": 8.95,
+          "x": 970.11,
+          "y": 337.18,
+          "rect": {
+            "x": 942.665,
+            "y": 316.845,
+            "w": 54.89,
+            "h": 40.67
+          },
+          "label": "Trace the estimate"
+        }
+      ]
+    },
+    "confidence": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "access-dry"
+        },
+        {
+          "seconds": 2.15,
+          "image": "confidence"
+        },
+        {
+          "seconds": 8.2,
+          "image": "coverage"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.95,
+          "x": 43.67,
+          "y": 495.67,
+          "rect": {
+            "x": 8.005000000000003,
+            "y": 460.67,
+            "w": 71.33,
+            "h": 70
+          },
+          "label": "How sure"
+        }
+      ]
+    },
+    "discover": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "discover-list"
+        },
+        {
+          "seconds": 2.15,
+          "image": "discover-card"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.95,
+          "x": 266.33,
+          "y": 339.73,
+          "rect": {
+            "x": 122.66499999999999,
+            "y": 311.13,
+            "w": 287.33,
+            "h": 57.2
+          },
+          "label": "Inspect the suggestion"
+        }
+      ]
+    },
+    "shortlist": {
+      "states": [
+        {
+          "seconds": 0,
+          "image": "shortlist"
+        }
+      ],
+      "events": [
+        {
+          "seconds": 1.95,
+          "x": 351.35,
+          "y": 509.33,
+          "rect": {
+            "x": 327.795,
+            "y": 491.33,
+            "w": 47.11,
+            "h": 36
+          },
+          "label": "Export CSV"
+        }
+      ]
+    }
+  }
+}

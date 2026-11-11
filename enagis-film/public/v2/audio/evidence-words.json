@@ -1,0 +1,114 @@
+[
+  {
+    "text": "Turn",
+    "startMs": 85.791,
+    "endMs": 318.624,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "open",
+    "startMs": 392.166,
+    "endMs": 649.499,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "maps",
+    "startMs": 661.75,
+    "endMs": 1041.666,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "into",
+    "startMs": 1053.916,
+    "endMs": 1286.749,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 1299.0,
+    "endMs": 1360.291,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "clearer",
+    "startMs": 1372.541,
+    "endMs": 1703.416,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "picture",
+    "startMs": 1715.666,
+    "endMs": 2156.832,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "of",
+    "startMs": 2169.125,
+    "endMs": 2267.166,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "agriculture",
+    "startMs": 2340.666,
+    "endMs": 3063.707,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "people",
+    "startMs": 3296.583,
+    "endMs": 3799.041,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 4203.416,
+    "endMs": 4362.749,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 4375.0,
+    "endMs": 4436.291,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "places",
+    "startMs": 4448.541,
+    "endMs": 4938.749,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "that",
+    "startMs": 4951.0,
+    "endMs": 5159.333,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "connect",
+    "startMs": 5171.583,
+    "endMs": 5551.458,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "them",
+    "startMs": 5551.458,
+    "endMs": 5833.333,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

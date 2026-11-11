@@ -1,0 +1,107 @@
+[
+  {
+    "text": "Likely",
+    "startMs": 100.0,
+    "endMs": 600.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "sites",
+    "startMs": 612.5,
+    "endMs": 987.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "finds",
+    "startMs": 1000.0,
+    "endMs": 1287.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "places",
+    "startMs": 1300.0,
+    "endMs": 1812.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "resembling",
+    "startMs": 1825.0,
+    "endMs": 2437.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "known",
+    "startMs": 2450.0,
+    "endMs": 2675.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "facilities",
+    "startMs": 2687.5,
+    "endMs": 3387.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "These",
+    "startMs": 3750.0,
+    "endMs": 4000.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "are",
+    "startMs": 4012.5,
+    "endMs": 4125.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "leads",
+    "startMs": 4137.5,
+    "endMs": 4387.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "to",
+    "startMs": 4400.0,
+    "endMs": 4475.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "check",
+    "startMs": 4487.5,
+    "endMs": 4862.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "not",
+    "startMs": 4950.0,
+    "endMs": 5175.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "confirmed",
+    "startMs": 5187.5,
+    "endMs": 5687.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "businesses",
+    "startMs": 5700.0,
+    "endMs": 6400.0,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

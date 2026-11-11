@@ -1,0 +1,142 @@
+[
+  {
+    "text": "Search",
+    "startMs": 100.0,
+    "endMs": 462.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "your",
+    "startMs": 475.0,
+    "endMs": 600.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "area",
+    "startMs": 612.5,
+    "endMs": 1087.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 1100.0,
+    "endMs": 1287.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "choose",
+    "startMs": 1300.0,
+    "endMs": 1637.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "cold",
+    "startMs": 1650.0,
+    "endMs": 1937.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "storage",
+    "startMs": 1950.0,
+    "endMs": 2550.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Here",
+    "startMs": 2912.5,
+    "endMs": 3337.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "we",
+    "startMs": 3412.5,
+    "endMs": 3612.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "open",
+    "startMs": 3625.0,
+    "endMs": 3875.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 3887.5,
+    "endMs": 3950.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "saved",
+    "startMs": 3962.5,
+    "endMs": 4337.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "analysis",
+    "startMs": 4350.0,
+    "endMs": 4975.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "so",
+    "startMs": 5075.0,
+    "endMs": 5325.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "every",
+    "startMs": 5387.5,
+    "endMs": 5712.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "step",
+    "startMs": 5725.0,
+    "endMs": 6037.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "follows",
+    "startMs": 6050.0,
+    "endMs": 6500.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 6512.5,
+    "endMs": 6612.5,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "same",
+    "startMs": 6625.0,
+    "endMs": 7000.0,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "example",
+    "startMs": 7012.5,
+    "endMs": 7625.0,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

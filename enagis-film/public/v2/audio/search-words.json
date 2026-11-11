@@ -1,0 +1,121 @@
+[
+  {
+    "text": "Choose",
+    "startMs": 85.791,
+    "endMs": 404.416,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "your",
+    "startMs": 416.666,
+    "endMs": 514.707,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "place",
+    "startMs": 526.958,
+    "endMs": 1041.666,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Choose",
+    "startMs": 1433.833,
+    "endMs": 1813.708,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "your",
+    "startMs": 1813.708,
+    "endMs": 1936.249,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "purpose",
+    "startMs": 1948.541,
+    "endMs": 2536.791,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Cooling",
+    "startMs": 2928.916,
+    "endMs": 3455.874,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Storage",
+    "startMs": 3823.541,
+    "endMs": 4448.541,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Milling",
+    "startMs": 4828.416,
+    "endMs": 5294.082,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Drying",
+    "startMs": 5674.0,
+    "endMs": 6200.958,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Your",
+    "startMs": 6568.625,
+    "endMs": 6678.916,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "next",
+    "startMs": 6691.166,
+    "endMs": 7046.541,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "investigation",
+    "startMs": 7046.583,
+    "endMs": 7855.416,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "starts",
+    "startMs": 7867.666,
+    "endMs": 8198.541,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "on",
+    "startMs": 8198.541,
+    "endMs": 8284.332,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 8296.583,
+    "endMs": 8357.833,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "map",
+    "startMs": 8357.833,
+    "endMs": 8762.249,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

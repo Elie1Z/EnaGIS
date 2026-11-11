@@ -1,0 +1,93 @@
+[
+  {
+    "text": "You're",
+    "startMs": 100.0,
+    "endMs": 327.291,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "planning",
+    "startMs": 339.916,
+    "endMs": 630.332,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 642.916,
+    "endMs": 693.416,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "cold",
+    "startMs": 706.041,
+    "endMs": 1046.957,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "store",
+    "startMs": 1059.583,
+    "endMs": 1413.124,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "for",
+    "startMs": 1425.75,
+    "endMs": 1564.625,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "potato",
+    "startMs": 1577.291,
+    "endMs": 1956.082,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "growers",
+    "startMs": 1968.666,
+    "endMs": 2524.207,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Where",
+    "startMs": 2890.916,
+    "endMs": 3130.832,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "should",
+    "startMs": 3143.416,
+    "endMs": 3307.541,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "you",
+    "startMs": 3320.208,
+    "endMs": 3408.583,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "investigate",
+    "startMs": 3421.208,
+    "endMs": 3976.749,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "first",
+    "startMs": 3989.375,
+    "endMs": 4507.041,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

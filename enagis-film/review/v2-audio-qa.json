@@ -1,0 +1,10 @@
+{
+  "durationSeconds": 107,
+  "sampleRate": 48000,
+  "voice": "en-US-AvaMultilingualNeural",
+  "mottoVoice": "en-US-AvaNeural (English-only)",
+  "clippedSamples": 0,
+  "mixPeakDb": -2.09,
+  "music": "Original 104 BPM procedural commercial score",
+  "speech": "Neural female voice, normalized per scene"
+}
