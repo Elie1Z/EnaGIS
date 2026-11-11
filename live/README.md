@@ -1,7 +1,7 @@
 # EnaGIS Live
 
 **Search any place. EnaGIS gathers open data for it right now, works out who can reach each
-collection point by road, estimates the electricity a value chain would need there, and says how
+collection point by road, estimates the electricity an agricultural service would need there, and says how
 sure it is and what to check first.**
 
 This is the working tool. The Canadian prairie app in `../app/` is the recorded, preregistered
@@ -18,16 +18,42 @@ Pick one of these:
 
 Searching needs the internet. Without it you can:
 
-- press **Nyabihu · Irish potato cold storage** (Featured analysis) to open a dated, hashed snapshot of
-  real open data; it uses the local map and no public servers. Page Down / Page Up (or → / ←) step
-  through six preset views with nothing shown on screen; `?presenter=1` shows them for rehearsal;
-- open an analysis you saved earlier ("Save analysis" writes one file that replays offline);
-- press **Synthetic sample** to explore a clearly labelled synthetic area.
+- choose **Open saved analysis** on the landing page to reopen a previous study;
+- load the archived [`saved-analysis.json`](../data/rwanda/hero/nyabihu-potato/saved-analysis.json)
+  for the dated Nyabihu case, using the local geographic basemap.
 
-**Before a presentation**, press **Save example districts** on the start screen once, on the computer
-and browser you will present from. It gathers the six example districts (Musanze, Nyabihu, Rubavu,
-Gicumbi, Gatsibo, Kirehe) into the browser's cache (kept 14 days), so they then open in seconds, even
-without internet.
+The landing page opens on a rotating satellite globe. Search a place or coordinates and select the
+result to fly into the area while data loads. Rotation can be paused and follows reduced-motion
+preferences. Large regions open as overviews and require a smaller study area for detailed analysis.
+Choose a service after arrival. Save the completed analysis to retain inputs and assumptions for offline use.
+
+## Agricultural services
+
+| Service | Energy calculation |
+| --- | --- |
+| Cold storage | Refrigeration and holding electricity for reported eligible produce |
+| Cooling | Produce pull-down cooling electricity |
+| Milling | Electricity for grain milling |
+| Drying | Electricity for fans and handling; heat requires separate inputs |
+| Shelling and threshing | Equipment electricity per tonne supplied with provenance |
+| Oil pressing | Equipment electricity per tonne supplied with provenance |
+| Feed preparation | Grinding and mixing electricity per tonne supplied with provenance |
+
+Users choose the service directly. Relevant production groups are combined behind the scenes and
+disclosed under **What this service estimate covers**. The current Rwanda pack covers 11 reported
+crop/product groups, with local potato/maize estimates where available and national proxies for other
+components. Coverage is partial. Each service is a separate scenario and overlapping production must
+not be added across services.
+
+The first four services use INFERRED operating ranges transferred from existing screening equations.
+Product compatibility, separate storage temperatures and actual equipment need local assessment.
+The three additional services show mapped candidates while energy remains UNKNOWN until sourced
+equipment figures are entered under **Assumptions**. Other countries need sourced local production
+inputs. The current manual total is expressed in kg/person/year.
+
+Service changes reuse gathered geography and reset operating overrides. Saved analyses retain scenario
+versions, production sources and equipment evidence. Old commodity-specific saved files remain readable.
+See the [service method and verification](../docs/proposals/service-screening-v1.md).
 
 ## What happens when you search
 
@@ -39,14 +65,13 @@ without internet.
 | 2. Gather | WorldPop API | Population inside the boundary (2020). Used to calibrate people per building |
 | 3. Climate | Open-Meteo historical weather (ERA5), 2024 | Hottest month (sizes cooling loads), rainy months, sunshine (sizes solar) |
 | 4. Catchments | Engine | Each building is linked to the site it can reach fastest by road or path. Rain slows earth roads and walking, so dry and rainy catchments differ |
-| 5. Need | Engine + NISR statistics | People in reach × production per person × share handled by the site gives volume; physics turns volume into kWh per peak day for the chosen value chain. In Rwanda, production per person is the **district** figure (NISR Seasonal Agricultural Survey 2024 and 2022 census), so Nyabihu's potato belt counts about 578 kg per person a year instead of the national 62 |
+| 5. Need | Engine + available statistics or sourced manual inputs | Relevant production per person × people in reach × share handled gives volume. Service equations estimate kWh when operating inputs are available. Each production component declares its district or national basis. |
 | 6. How sure | Engine | Every assumption is varied 300 times. Sites that stay in the top 10 are **Robust**, the rest **Contested** or **Check first** |
 | 7. Supply | Engine | Distance to mapped grid, and the solar array that would cover one peak day |
-| 7b. Siting model | `js/siting.js` (Phase 4R) | Scores every 1 km square for how much it looks like places where collection or processing points are documented (roof sizes, building density, roads, grid, settlements), and lists unrecorded look-alikes to check. PREDICTED; its registered test result is shown on screen |
+| 7b. Siting model | `js/siting.js` (Phase 4R) | Within the Rwanda training scope, scores supported 1 km squares for resemblance to documented processing or collection locations. Outside that scope, predictions are withheld. |
 | 8. Respond | Interface | Ranked list, findings in plain language, site card with the one question to ask first, CSV/GeoJSON, printable site brief |
 
-Value chains available: cold storage of Irish potato, milk cooling at collection, maize milling,
-maize drying. Switching value chain re-analyzes instantly with the data already gathered.
+Where energy inputs are missing, mapped candidates remain available with an explanation of the required evidence.
 
 ## Map views
 
@@ -69,7 +94,7 @@ maize drying. Switching value chain re-analyzes instantly with the data already 
   imagery. Hatched squares mean "not yet known", not "empty".
 - **First search size.** A district's first search downloads tens of MB of map tiles. Later searches
   use the browser's cache. Use "Save analysis" to keep a copy for a demo.
-- Production per person is a district average in Rwanda (national elsewhere, or for milk); it still varies inside a district.
+- Production components use disclosed local or national proxies where available. Other locations require local inputs.
 - Agricultural facilities are rarely documented in open maps (a handful per district in Rwanda). The siting
   model is tested against what is documented, which depends on who mapped what.
 - Energy factors are screening ranges, not approved or metered.
@@ -111,8 +136,10 @@ unreviewed substitutions into the frozen case.
 
 | File | Role |
 |---|---|
-| `js/config.js` | Value-chain models, ranges, country statistics with sources, OSM tag rules |
-| `js/engine.js` | Pure, deterministic analysis (no network, no page). Also runs in a background worker |
+| `js/config-v2.js` | Current service definitions, commodity recipes, operating ranges, production evidence and validation |
+| `js/engine-v2.js` | Current deterministic analysis, production aggregation, scope guards and worker calculations |
+| `js/config.js`, `js/engine.js` | Hash-pinned historical runtime for archived reproduction |
+| `js/landing.js`, `landing.css` | Satellite globe, search, saved-analysis entry and flight into the workspace |
 | `js/sources.js` | Live gatherers for Nominatim, Overpass, WorldPop and Open-Meteo, with a browser cache |
 | `js/overture.js` | Overture Maps reader: tiles → buildings, roads (rejoined across tile edges), power, places |
 | `js/icons.js` | Map symbols for each kind of facility, settlement and power asset |
@@ -128,6 +155,11 @@ unreviewed substitutions into the frozen case.
 | `js/world-data.js` | Natural Earth countries and places (public domain) for the offline basemap |
 
 Tests:
+
+- **Service upgrade, 10 November 2026:** 240 Python tests, 74 Node tests and 126 browser checks passed.
+- **Service engine:** `node --test tests/live/services.test.cjs`.
+- **Service interface:** `node tests/live/services-ui.cjs`.
+- **Complete Live checks:** `make live-test live-e2e hero-repro`.
 
 - **Engine, data and siting:** `node --test tests/live/engine.test.cjs tests/live/overture.test.cjs tests/live/siting.test.cjs`.
 - **Browser:** `node tests/live/e2e.cjs` (needs Playwright). Live services are intercepted with synthetic
